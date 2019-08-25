@@ -1,18 +1,12 @@
-﻿#include <iostream>
+#include <iostream>
 #include <algorithm>
 #include <vector>
-#include <string>
 #include <utility>
-#include <stack>
 #include <queue>
-#include <set>
-#include <map>
-#include <list>
-#include <cmath>
-#include <cstdio>
 
 using namespace std;
 
+//BEGIN
 template <typename T>
 vector<T> dijkstra(int s, vector<vector<pair<int, T> > > G) {
 	const T INF = numeric_limits<T>::max();
@@ -34,6 +28,7 @@ vector<T> dijkstra(int s, vector<vector<pair<int, T> > > G) {
 	}
 	return cost;
 }
+//END
 
 int main() {
 	int V, E, r; cin >> V >> E >> r;
@@ -50,3 +45,9 @@ int main() {
 
 	return 0;
 }
+
+
+/*
+	created: 2019-08-26
+	https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/all/GRL_1_A
+*/
