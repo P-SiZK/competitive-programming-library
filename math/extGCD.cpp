@@ -15,7 +15,7 @@ T extGCD(T a, T b, T& x, T& y) { //ax+by=gcd(a,b)
 }
 
 template <typename T>
-T mod_inverse(T a, T mod) { //a,modは互いに素
+T modinv(T a, T mod) { //a,modは互いに素
 	T x, y;
 	extgcd(a, mod, x, y);
 	return (x % mod + mod) % mod;
