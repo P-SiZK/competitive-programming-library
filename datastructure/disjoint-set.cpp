@@ -7,7 +7,7 @@ using namespace std;
 class DisjointSet {
 private:
 	vector<int> rank, size, p;
-	int num = 0;;
+	int num = 0;
 public:
 	DisjointSet() {}
 	DisjointSet(int n) {
