@@ -42,6 +42,6 @@ int main() {
 
 
 /*
-  created: 2019-08-29
-  https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A
+	created: 2019-08-29
+	https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A
 */
