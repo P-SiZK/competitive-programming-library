@@ -13,7 +13,7 @@ vector<T> dijkstra(int s, vector<vector<pair<int, T> > > G) {
 	const int N = G.size();
 	vector<T> cost(N, INF);
 	vector<int> prevr(N, -1); //経路復元用
-	priority_queue < pair<T, int>, vector<pair<T, int> >, greater<pair<T, int> > > pq;
+	priority_queue<pair<T, int>, vector<pair<T, int> >, greater<pair<T, int> > > pq;
 	cost[s] = 0;
 	pq.push(make_pair(0, s));
 	while (!pq.empty()) {
