@@ -13,7 +13,7 @@ struct edge {
 	edge(int from, int to, T cost) :from(from), to(to), cost(cost) {}
 };
 
-template<typename T>
+template <typename T>
 vector<T> bellman_ford(int s, int V, vector<edge<T> > G) {
 	const T INF = numeric_limits<T>::max();
 	vector<T> cost(V, INF);
