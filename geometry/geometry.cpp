@@ -72,6 +72,7 @@ Point project(Segment s, Point p) {
 	double r = dot(p - s.p1, base) / base.norm();
 	return s.p1 + base * r;
 }
+
 Point reflect(Segment s, Point p) {
 	return p + (project(s, p) - p) * 2.0;
 }
