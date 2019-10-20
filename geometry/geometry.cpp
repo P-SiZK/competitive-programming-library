@@ -1,17 +1,10 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <string>
 #include <utility>
-#include <stack>
-#include <queue>
 #include <set>
-#include <map>
-#include <list>
-#include <iterator>
 #include <cmath>
 #include <cstdio>
-#include <numeric>
 #include <functional>
 
 using namespace std;
