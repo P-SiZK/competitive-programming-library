@@ -10,8 +10,8 @@ using namespace std;
 
 //BEGIN
 #define EPS 1e-10
-#define equals(a, b) (fabs(a - b) < EPS)
 #define PI acos(-1)
+#define equals(a, b) (fabs(a - b) < EPS)
 
 static const int COUNTER_CLOCKWISE = 1;
 static const int CLOCKWISE = -1;
