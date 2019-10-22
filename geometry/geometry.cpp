@@ -11,7 +11,7 @@ using namespace std;
 //BEGIN
 #define EPS 1e-10
 #define equals(a, b) (fabs(a - b) < EPS)
-#define Pi 3.141592653589793238
+#define PI acos(-1)
 
 static const int COUNTER_CLOCKWISE = 1;
 static const int CLOCKWISE = -1;
