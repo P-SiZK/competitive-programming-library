@@ -8,7 +8,7 @@ using namespace std;
 
 //BEGIN
 template <typename T>
-vector<T> dijkstra(int s, vector<vector<pair<int, T> > > &G) {
+vector<T> dijkstra(int s, vector<vector<pair<int, T> > >& G) {
 	const T INF = numeric_limits<T>::max();
 	const int N = G.size();
 	vector<T> cost(N, INF);
