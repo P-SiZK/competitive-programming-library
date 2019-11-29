@@ -8,7 +8,7 @@ using namespace std;
 
 //BEGIN
 template <typename T> 
-T prim(vector<vector<pair<int, T> > > G) {
+T prim(vector<vector<pair<int, T> > > &G) {
 	T cost = 0;
 	const int N = G.size();
 	vector<bool> used(G.size());
