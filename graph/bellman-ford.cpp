@@ -14,7 +14,7 @@ struct edge {
 };
 
 template <typename T>
-vector<T> bellman_ford(int s, int V, vector<edge<T> > G) {
+vector<T> bellman_ford(int s, int V, vector<edge<T> > &G) {
 	const T INF = numeric_limits<T>::max();
 	vector<T> cost(V, INF);
 	vector<int> prevr(V, -1); //経路復元用
