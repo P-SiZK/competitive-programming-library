@@ -50,7 +50,7 @@ public:
 };
 
 template <typename T>
-T kruskal(int V, vector<edge<T> > G) {
+T kruskal(int V, vector<edge<T> > &G) {
 	sort(G.begin(), G.end(), cmp<T>);
 	DisjointSet ds(V);
 	T cost = 0;
