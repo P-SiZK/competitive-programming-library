@@ -14,15 +14,15 @@ struct  SegmentTree {
 	int n;
 	vector<T> tree;
 	const F f;
-	const T e;
+	const T t;
 
 	SegmentTree() {}
-	SegmentTree(F f, T t) :f(f), e(t) {}
+	SegmentTree(F f, T t) :f(f), t(t) {}
 
 	void init(int n_) {
 		n = 1;
 		while (n < n_) n <<= 1;
-		tree.assign(2 * n, e);
+		tree.assign(2 * n, t);
 	}
 
 	void build(const vector<T>& v) {
@@ -39,7 +39,7 @@ struct  SegmentTree {
 	}
 
 	T find(const int& s, const int& t, int i, int l, int r) {
-		if (r <= s || t <= l) return e;
+		if (r <= s || t <= l) return t;
 		if (s <= l && r <= t) return tree[i];
 		T tl = find(s, t, 2 * i, l, (l + r) >> 1);
 		T tr = find(s, t, 2 * i + 1, (l + r) >> 1, r);
