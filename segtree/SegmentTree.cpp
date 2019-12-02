@@ -21,7 +21,7 @@ struct SegmentTree {
 
 	void init(int n_) {
 		n = 1;
-		while (n < n_) n <<= 1;
+		while (n < n_) n *= 2;
 		tree.assign(2 * n, ti);
 	}
 
