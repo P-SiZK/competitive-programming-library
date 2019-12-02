@@ -8,7 +8,7 @@ using namespace std;
 
 //BEGIN
 template <typename T>
-struct  SegmentTree {
+struct SegmentTree {
 	using F = function<T(T, T)>;
 	
 	int n;
