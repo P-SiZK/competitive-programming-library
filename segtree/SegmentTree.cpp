@@ -38,15 +38,15 @@ struct SegmentTree {
 		while (i >>= 1) tree[i] = f(tree[2 * i], tree[2 * i + 1]);
 	}
 
-	T find(const int& s, const int& t, int i, int l, int r) {
-		if (r <= s || t <= l) return ti;
-		if (s <= l && r <= t) return tree[i];
-		T tl = find(s, t, 2 * i, l, (l + r) >> 1);
-		T tr = find(s, t, 2 * i + 1, (l + r) >> 1, r);
-		return f(tl, tr);
-	}
-	T find(const int& s, const int& t) {
-		return find(s, t, 1, 0, n);
+	T find(int l, int r) { // [l, r)
+		l += n, r += n;
+		T ll = ti, rr = ti;
+		while (l < r) {
+			if (l & 1) ll = f(ll, tree[l++]);
+			if (r & 1) rr = f(rr, tree[--r]);
+			l >>= 1, r >>= 1;
+		}
+		return f(ll, rr);
 	}
 
 	T at(int i) { return tree[i + n]; }
@@ -74,7 +74,7 @@ void DSL_2_B() {
 	while (q--) {
 		int com, x, y; cin >> com >> x >> y;
 		--x;
-		if (com) cout << seg.find(x, y) << endl;
+		if (com) --y, cout << seg.find(x, y + 1) << endl;
 		else seg.update(x, seg.at(x) + y);
 	}
 }
