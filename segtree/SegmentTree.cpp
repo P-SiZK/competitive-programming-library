@@ -37,7 +37,7 @@ struct SegmentTree {
 		tree[i] = x;
 		while (i >>= 1) tree[i] = f(tree[2 * i], tree[2 * i + 1]);
 	}
-a
+
 	T find(int l, int r) { // [l, r)
 		l += n, r += n;
 		T ll = ti, rr = ti;
