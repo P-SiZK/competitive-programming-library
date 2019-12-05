@@ -64,7 +64,7 @@ void DSL_2_A() {
 	}
 }
 /*
-	created: 2019-11-30
+	created: 2019-12-05
 	https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_A
 */
 void DSL_2_B() {
@@ -79,7 +79,7 @@ void DSL_2_B() {
 	}
 }
 /*
-	created: 2019-11-30
+	created: 2019-12-05
 	https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B
 */
 
