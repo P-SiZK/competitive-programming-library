@@ -50,8 +50,9 @@ struct ModInt {
 		T a = x, b = MOD, u = 1, v = 0;
 		while (b > 0) {
 			T t = a / b;
-			swap((a -= t * b), b);
-			swap((u -= t * v), v);
+			a -= t * b, u -= t * v;
+			swap(a, b);
+			swap(u, v);
 		}
 		return ModInt(u);
 	}
