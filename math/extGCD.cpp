@@ -29,8 +29,6 @@ int main() {
 		
 	return 0;
 }
-
-
 /*
 	created: 2019-08-29
 	https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_E
