@@ -468,12 +468,12 @@ void CGL2C() {
 	while (q--) {
 		Segment s1, s2;
 		cin >> s1 >> s2;
-		Point a = getCrossPointLL(s1, s2);
+		Point a = getCrossPointSS(s1, s2);
 		printf("%.10f %.10f\n", a.x, a.y);
 	}
 }
 /*
-	created: 2019-09-13
+	created: 2020-03-27
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_C
 */
 void CGL2D() {
