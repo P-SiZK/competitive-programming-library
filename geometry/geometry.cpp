@@ -187,7 +187,7 @@ vector<Point> getCrossPointCS(Circle c, Segment s) {
 }
 
 double arg(Vector p) { return atan2(p.y, p.x); }
-Point polar(double a, double r) { return Point(cos(r) * a, sin(r) * a); }
+Point polar(double r, double a) { return Point(cos(a) * r, sin(a) * r); }
 
 vector<Point> getCrossPointCC(Circle c1, Circle c2) {
 	double d = abs(c1.c - c2.c);
