@@ -205,12 +205,12 @@ vector<Point> tangentCP(Circle c, Point p) {
 vector<Line> tangentCC(Circle c1, Circle c2) {
 	vector<Line> ls;
 	if (c1.r < c2.r) swap(c1, c2);
-	double g = norm(c1.c - c2.c);
+	double g = abs(c1.c - c2.c);
 	if (equals(g, 0)) return ls;
-	Point u = (c2.c - c1.c) / sqrt(g);
+	Point u = (c2.c - c1.c) / g;
 	Point v = Point(-u.y, u.x);
 	for (int s = 1; s >= -1; s -= 2) {
-		double h = (c1.r + s * c2.r) / sqrt(g);
+		double h = (c1.r + s * c2.r) / g;
 		if (equals(1, h * h)) ls.push_back(Line(c1.c + u * c1.r, c1.c + (u + v) * c1.r));
 		else if (1 - h * h > 0) {
 			Point uu = u * h, vv = v * sqrt(1 - h * h);
