@@ -9,9 +9,10 @@
 using namespace std;
 
 //BEGIN
-#define EPS 1e-10
-#define PI acos(-1)
-#define equals(a, b) (fabs((a) - (b)) < EPS)
+const double EPS = 1e-10;
+const double PI = acos(-1);
+
+bool equals(double a, double b) { return fabs(a - b) < EPS; }
 
 static const int COUNTER_CLOCKWISE = 1;
 static const int CLOCKWISE = -1;
@@ -221,6 +222,23 @@ vector<Line> tangentCC(Circle c1, Circle c2) {
 	return ls;
 }
 
+Circle getInscribedCircle(Point p1, Point p2, Point p3) {
+	Circle ca;
+	double a = abs(p2 - p3), b = abs(p3 - p1), c = abs(p1 - p2);
+	ca.c = (p1 * a + p2 * b + p3 * c) / (a + b + c);
+	ca.r = getDistanceLP(Line(p1, p2), ca.c);
+	return ca;
+}
+
+Circle getCircumscribedCircle(Point p1, Point p2, Point p3) {
+	Circle ca;
+	Point m = (p1 + p2) / 2, n = (p2 + p3) / 2;
+	ca.c = getCrossPointLL(Line(m, m + Point((p2 - p1).y, (p1 - p2).x)),
+						   Line(n, n + Point((p3 - p2).y, (p2 - p3).x)));
+	ca.r = abs(ca.c - p1);
+	return ca;
+}
+
 // IN:2,ON:1,OUT:0
 int contains(Polygon g, Point p) {
 	int n = g.size();
@@ -266,6 +284,21 @@ double area(Polygon p) {
 	return res;
 }
 
+double area(Circle c1, Circle c2) {
+	if (c1.r < c2.r) swap(c1, c2);
+	int num = intersectCC(c1, c2);
+	if (num >= 3) return 0;
+	if (num <= 1) return c2.r * c2.r * PI;
+	double d = abs(c1.c - c2.c);
+	double res = 0;
+	for (int i = 0; i < 2; ++i) {
+		double th = 2 * acos((d * d + c1.r * c1.r - c2.r * c2.r) / (2 * d * c1.r));
+		res += (th - sin(th)) * c1.r * c1.r / 2;
+		swap(c1, c2);
+	}
+	return res;
+}
+
 double area(Polygon p, Circle c) {
 	if (p.size() < 3) return 0;
 	function<double(Circle, Point, Point)> dfs = [&](Circle c, Point a, Point b) {
@@ -275,7 +308,7 @@ double area(Polygon p, Circle c) {
 		if (max(abs(va), abs(vb)) < c.r + EPS) return f;
 		Vector d(dot(va, vb), cross(va, vb));
 		if (getDistanceSP(Segment(a, b), c.c) > c.r - EPS)
-			return c.r * c.r * atan2(d.y, d.x);
+			return c.r * c.r * arg(d);
 		auto u = getCrossPointCS(c, Segment(a, b));
 		if (u.empty()) return res;
 		if (u.size() > 1 && dot(u[1] - u[0], a - u[0]) > 0) swap(u[0], u[1]);
@@ -459,7 +492,8 @@ void CGL2B() {
 		cin >> s1 >> s2;
 		cout << (intersectSS(s1, s2) ? 1 : 0) << endl;
 	}
-}/*
+}
+/*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_B
 */
@@ -517,7 +551,8 @@ void CGL3C() {
 		Point p; cin >> p;
 		cout << contains(g, p) << endl;
 	}
-}/*
+}
+/*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/3/CGL_3_C
 */
@@ -585,7 +620,24 @@ void CGL7A() {
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_A
 */
-
+void CGL7B() {
+	Point p1, p2, p3; cin >> p1 >> p2 >> p3;
+	Circle c = getInscribedCircle(p1, p2, p3);
+	printf("%.10f %.10f %.10f\n", c.c.x, c.c.y, c.r);
+}
+/*
+	created: 2020-07-01
+	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_B
+*/
+void CGL7C() {
+	Point p1, p2, p3; cin >> p1 >> p2 >> p3;
+	Circle c = getCircumscribedCircle(p1, p2, p3);
+	printf("%.10f %.10f %.10f\n", c.c.x, c.c.y, c.r);
+}
+/*
+	created: 2020-07-01
+	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_C
+*/
 void CGL7D() {
 	Circle c; cin >> c.c.x >> c.c.y >> c.r;
 	int q; cin >> q;
@@ -641,8 +693,16 @@ void CGL7H() {
 	printf("%.10f\n", area(p, c));
 }
 /*
-	created: 2019-09-13
+	created: 2020-07-01
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_H
+*/
+void CGL7I() {
+	Circle c1, c2; cin >> c1.c >> c1.r >> c2.c >> c2.r;
+	printf("%.10f\n", area(c1, c2));
+}
+/*
+	created: 2020-07-01
+	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_I
 */
 
 int main() {
@@ -662,11 +722,14 @@ int main() {
 	//CGL5A();
 	//CGL6A();
 	//CGL7A();
+	//CGL7B();
+	//CGL7C();
 	//CGL7D();
 	//CGL7E();
 	//CGL7F();
 	//CGL7G();
 	//CGL7H();
+	//CGL7I();
 
 	return 0;
 }
