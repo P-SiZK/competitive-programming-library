@@ -12,7 +12,7 @@ struct SegmentTree {
 	using F = function<T(T, T)>;
 	
 	int n;
-	vector<T> tree;
+	vector<T> tree; // 0-indexed
 	const F f;
 	const T ti;
 
