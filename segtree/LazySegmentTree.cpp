@@ -14,7 +14,7 @@ struct LazySegmentTree {
 	using H = function<E(E, E)>;
 	
 	int n, height;
-	vector<T> tree;
+	vector<T> tree; // 0-indexed
 	vector<E> lazy;
 	const F f;
 	const G g;
