@@ -8,11 +8,11 @@ using namespace std;
 
 //BEGIN
 template <typename T>
-struct SegmentTree {
+struct SegmentTree { // 0-indexed
 	using F = function<T(T, T)>;
 	
 	int n;
-	vector<T> tree; // 0-indexed
+	vector<T> tree;
 	const F f;
 	const T ti;
 
