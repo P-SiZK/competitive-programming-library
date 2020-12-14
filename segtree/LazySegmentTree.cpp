@@ -8,13 +8,13 @@ using namespace std;
 
 //BEGIN
 template <typename T, typename E>
-struct LazySegmentTree {
+struct LazySegmentTree { // 0-indexed
 	using F = function<T(T, T)>;
 	using G = function<T(T, E)>;
 	using H = function<E(E, E)>;
 	
 	int n, height;
-	vector<T> tree; // 0-indexed
+	vector<T> tree;
 	vector<E> lazy;
 	const F f;
 	const G g;
