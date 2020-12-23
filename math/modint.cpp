@@ -37,10 +37,10 @@ struct ModInt {
 	bool operator!=(const ModInt a) const { return x != a.x; }
 	bool operator<(const ModInt a) const { return x < a.x; }
 
-	friend ostream& operator<<(ostream& os, const ModInt<T>& a) {
+	friend ostream& operator<<(ostream& os, const ModInt& a) {
 		return os << a.x;
 	}
-	friend istream& operator>>(istream& is, ModInt<T>& a) {
+	friend istream& operator>>(istream& is, ModInt& a) {
 		T t; is >> t;
 		a = ModInt(t);
 		return is;
