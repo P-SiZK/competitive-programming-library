@@ -21,7 +21,8 @@ vector<T> dijkstra(int s, vector<vector<pair<int, T> > >& G) {
 		int now = p.second;
 		if (cost[now] < p.first) continue;
 		for (auto next : G[now]) {
-			int nv = next.first, nw = next.second;
+			int nv = next.first;
+			T nw = next.second;
 			if (cost[nv] > cost[now] + nw) {
 				cost[nv] = cost[now] + nw;
 				prevr[nv] = now;
