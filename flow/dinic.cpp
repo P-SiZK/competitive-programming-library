@@ -1,28 +1,26 @@
-#include <iostream>
 #include <algorithm>
-#include <vector>
-#include <queue>
+#include <iostream>
 #include <limits>
+#include <queue>
+#include <vector>
 
 using namespace std;
 
-template <typename T>
+template<typename T>
 struct Dinic {
-	struct edge {
+	struct Edge {
 		int to, rev;
 		T cap;
 
-		edge() {}
-		edge(int to, int cap, int rev) :to(to), cap(cap), rev(rev) {}
+		Edge(int to, int cap, int rev) : to(to), cap(cap), rev(rev) {}
 	};
 
 	const T INF = numeric_limits<T>::max();
 
-	vector<vector<edge> > G;
+	vector<vector<Edge>> G;
 	vector<int> level, iter;
 
-	Dinic() {}
-	Dinic(int n) :G(n), level(n), iter(n) {}
+	Dinic(int n) : G(n), level(n), iter(n) {}
 
 	void add_edge(int from, int to, T cap, bool directed = true) {
 		G[from].emplace_back(to, cap, G[to].size());
@@ -35,8 +33,9 @@ struct Dinic {
 		level[s] = 0;
 		q.push(s);
 		while (!q.empty()) {
-			int v = q.front(); q.pop();
-			for (auto& e : G[v]) {
+			int v = q.front();
+			q.pop();
+			for (auto &e : G[v]) {
 				if (e.cap > 0 && level[e.to] == -1) {
 					level[e.to] = level[v] + 1;
 					q.push(e.to);
@@ -47,8 +46,8 @@ struct Dinic {
 
 	T dfs(int v, int t, T f) {
 		if (v == t) return f;
-		for (int& i = iter[v]; i < G[v].size(); ++i) {
-			edge& e = G[v][i];
+		for (int &i = iter[v]; i < G[v].size(); ++i) {
+			Edge &e = G[v][i];
 			if (e.cap > 0 && level[v] < level[e.to]) {
 				T d = dfs(e.to, t, min(f, e.cap));
 				if (d > 0) {
@@ -78,17 +77,18 @@ struct Dinic {
 };
 
 int main() {
-	int V, E; cin >> V >> E;
+	int V, E;
+	cin >> V >> E;
 	Dinic<int> G(V);
 	for (int i = 0; i < E; ++i) {
-		int u, v, c; cin >> u >> v >> c;
+		int u, v, c;
+		cin >> u >> v >> c;
 		G.add_edge(u, v, c);
 	}
 	cout << G.max_flow(0, V - 1) << endl;
 
 	return 0;
 }
-
 
 /*
 	created: 2019-10-23

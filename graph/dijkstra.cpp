@@ -1,23 +1,25 @@
-#include <iostream>
 #include <algorithm>
-#include <vector>
-#include <utility>
+#include <iostream>
+#include <limits>
 #include <queue>
+#include <utility>
+#include <vector>
 
 using namespace std;
 
-//BEGIN
-template <typename T>
-vector<T> dijkstra(int s, vector<vector<pair<int, T> > >& G) {
+template<typename T>
+vector<T> dijkstra(int s, vector<vector<pair<int, T>>> &G) {
 	const T INF = numeric_limits<T>::max();
 	const int N = G.size();
 	vector<T> cost(N, INF);
-	vector<int> prevr(N, -1); //経路復元用
-	priority_queue<pair<T, int>, vector<pair<T, int> >, greater<pair<T, int> > > pq;
+	vector<int> prevr(N, -1); // 経路復元用
+	priority_queue<pair<T, int>, vector<pair<T, int>>, greater<pair<T, int>>>
+		pq;
 	cost[s] = 0;
 	pq.push(make_pair(0, s));
 	while (!pq.empty()) {
-		pair<T, int> p = pq.top(); pq.pop();
+		pair<T, int> p = pq.top();
+		pq.pop();
 		int now = p.second;
 		if (cost[now] < p.first) continue;
 		for (auto next : G[now]) {
@@ -32,13 +34,14 @@ vector<T> dijkstra(int s, vector<vector<pair<int, T> > >& G) {
 	}
 	return cost;
 }
-//END
 
 int main() {
-	int V, E, r; cin >> V >> E >> r;
-	vector<vector<pair<int, int> > > G(V);
+	int V, E, r;
+	cin >> V >> E >> r;
+	vector<vector<pair<int, int>>> G(V);
 	for (int i = 0; i < E; ++i) {
-		int s, t, d; cin >> s >> t >> d;
+		int s, t, d;
+		cin >> s >> t >> d;
 		G[s].push_back(make_pair(t, d));
 	}
 	vector<int> ans = dijkstra(r, G);
@@ -49,7 +52,6 @@ int main() {
 
 	return 0;
 }
-
 
 /*
 	created: 2019-08-26

@@ -3,13 +3,12 @@
 
 using namespace std;
 
-template <typename T>
-struct BIT {
+template<typename T>
+struct BinaryIndexedTree {
 	int n;
 	vector<T> tree; // 1-indexed
 
-	BIT() {}
-	BIT(int n) :n(n), tree(n + 1) {}
+	BinaryIndexedTree(int n) : n(n), tree(n + 1) {}
 
 	void add(int i, T x) {
 		while (i <= n) {
@@ -19,7 +18,7 @@ struct BIT {
 	}
 
 	T sum(int i) {
-		T s(0); 
+		T s(0);
 		while (i > 0) {
 			s += tree[i];
 			i -= i & -i;
@@ -32,9 +31,9 @@ struct BIT {
 	}
 };
 
-long long InversionNumber(const vector<int>& v) {
+long long inversion_number(const vector<int> &v) {
 	const int n = v.size();
-	BIT<int> bit(n);
+	BinaryIndexedTree<int> bit(n);
 	long long res = 0;
 	for (int i = 0; i < n; ++i) {
 		res += i - bit.sum(v[i]);
@@ -44,16 +43,16 @@ long long InversionNumber(const vector<int>& v) {
 }
 
 int main() {
-	int n; cin >> n;
+	int n;
+	cin >> n;
 	vector<int> a(n);
-	for (int& e : a) cin >> e;
-	cout << InversionNumber(a) << endl;
+	for (int &e : a) cin >> e;
+	cout << inversion_number(a) << endl;
 
 	return 0;
 }
 
-
 /*
-  created: 2020-01-28
-  https://chokudai_s001.contest.atcoder.jp/tasks/chokudai_S001_j
+	created: 2020-01-28
+	https://chokudai_s001.contest.atcoder.jp/tasks/chokudai_S001_j
 */

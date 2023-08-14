@@ -3,13 +3,12 @@
 
 using namespace std;
 
-//BEGIN
 class DisjointSet {
 private:
 	vector<int> rank, size, p;
 	int num = 0;
+
 public:
-	DisjointSet() {}
 	DisjointSet(int n) {
 		num = n;
 		rank.assign(n, 0);
@@ -18,9 +17,7 @@ public:
 		for (int i = 0; i < n; i++) p[i] = i;
 	}
 
-	bool same(int x, int y) {
-		return root(x) == root(y);
-	}
+	bool same(int x, int y) { return root(x) == root(y); }
 
 	void unite(int x, int y) {
 		x = root(x), y = root(y);
@@ -36,35 +33,29 @@ public:
 		}
 	}
 
-	int root(int x) {
-		return p[x]==x?x:p[x]=root(p[x]);
-	}
+	int root(int x) { return p[x] == x ? x : p[x] = root(p[x]); }
 
-	int get_size(int x) {
-		return size[root(x)];
-	}
+	int get_size(int x) { return size[root(x)]; }
 
-	int forest_size() {
-		return num;
-	}
+	int forest_size() { return num; }
 };
-//END
 
 int main() {
-	int n, q; cin >> n >> q;
+	int n, q;
+	cin >> n >> q;
 	DisjointSet ds(n);
 	for (int i = 0; i < q; ++i) {
-		int t, a, b; cin >> t >> a >> b;
+		int t, a, b;
+		cin >> t >> a >> b;
 		if (t == 0) ds.unite(a, b);
 		else if (t == 1) {
 			if (ds.same(a, b)) cout << 1 << endl;
 			else cout << 0 << endl;
 		}
 	}
-	
+
 	return 0;
 }
-
 
 /*
 	created: 2019-08-27

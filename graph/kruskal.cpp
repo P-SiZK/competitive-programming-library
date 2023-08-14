@@ -1,37 +1,36 @@
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 #include <vector>
 
 using namespace std;
 
-//BEGIN
-template <typename T> 
-struct edge {
+template<typename T>
+struct Edge {
 	int from, to;
 	T cost;
 
-	edge(int from, int to, T cost) :from(from), to(to), cost(cost) {}
+	Edge(int from, int to, T cost) : from(from), to(to), cost(cost) {}
 };
 
-template <typename T>
-bool cmp(const edge<T>& a,const edge<T>& b) {
+template<typename T>
+bool cmp(const Edge<T> &a, const Edge<T> &b) {
 	return a.cost < b.cost;
 }
 
 class DisjointSet {
 private:
 	vector<int> rank, p;
+
 public:
 	DisjointSet() {}
+
 	DisjointSet(int n) {
 		rank.assign(n, 0);
 		p.assign(n, 0);
 		for (int i = 0; i < n; i++) p[i] = i;
 	}
 
-	bool same(int x, int y) {
-		return root(x) == root(y);
-	}
+	bool same(int x, int y) { return root(x) == root(y); }
 
 	void unite(int x, int y) {
 		x = root(x), y = root(y);
@@ -44,17 +43,15 @@ public:
 		}
 	}
 
-	int root(int x) {
-		return p[x] == x ? x : p[x] = root(p[x]);
-	}
+	int root(int x) { return p[x] == x ? x : p[x] = root(p[x]); }
 };
 
-template <typename T>
-T kruskal(int V, vector<edge<T> >& G) {
+template<typename T>
+T kruskal(int V, vector<Edge<T>> &G) {
 	sort(G.begin(), G.end(), cmp<T>);
 	DisjointSet ds(V);
 	T cost = 0;
-	for (edge<T> e : G) {
+	for (Edge<T> e : G) {
 		if (!ds.same(e.from, e.to)) {
 			cost += e.cost;
 			ds.unite(e.from, e.to);
@@ -62,20 +59,20 @@ T kruskal(int V, vector<edge<T> >& G) {
 	}
 	return cost;
 }
-//END
 
 int main() {
-	int V, E; cin >> V >> E;
-	vector<edge<int> > G;
+	int V, E;
+	cin >> V >> E;
+	vector<Edge<int>> G;
 	for (int i = 0; i < E; ++i) {
-		int a, b, c; cin >> a >> b >> c;
-		G.push_back(edge<int>(a, b, c));
+		int a, b, c;
+		cin >> a >> b >> c;
+		G.push_back(Edge<int>(a, b, c));
 	}
 	cout << kruskal(V, G) << endl;
-		
+
 	return 0;
 }
-
 
 /*
 	created: 2019-08-30

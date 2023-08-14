@@ -1,26 +1,25 @@
 #include <iostream>
-#include <vector>
 #include <limits>
+#include <vector>
 
 using namespace std;
 
-//BEGIN
-template <typename T>
-struct edge {
+template<typename T>
+struct Edge {
 	int from, to;
 	T cost;
 
-	edge(int from, int to, T cost) :from(from), to(to), cost(cost) {}
+	Edge(int from, int to, T cost) : from(from), to(to), cost(cost) {}
 };
 
-template <typename T>
-vector<T> bellman_ford(int s, int V, vector<edge<T> >& G) {
+template<typename T>
+vector<T> bellman_ford(int s, int V, vector<Edge<T>> &G) {
 	const T INF = numeric_limits<T>::max();
 	vector<T> cost(V, INF);
-	vector<int> prevr(V, -1); //経路復元用
+	vector<int> prevr(V, -1); // 経路復元用
 	cost[s] = 0;
 	for (int i = 0; i < V; ++i) {
-		for (edge<T> e : G) {
+		for (Edge<T> e : G) {
 			if (cost[e.from] == INF) continue;
 			if (cost[e.to] > cost[e.from] + e.cost) {
 				cost[e.to] = cost[e.from] + e.cost;
@@ -31,14 +30,15 @@ vector<T> bellman_ford(int s, int V, vector<edge<T> >& G) {
 	}
 	return cost;
 }
-//END
 
 int main() {
-	int V, E, r; cin >> V >> E >> r;
-	vector<edge<int> > G;
+	int V, E, r;
+	cin >> V >> E >> r;
+	vector<Edge<int>> G;
 	for (int i = 0; i < E; ++i) {
-		int s, t, d; cin >> s >> t >> d;
-		G.push_back(edge<int>(s, t, d));
+		int s, t, d;
+		cin >> s >> t >> d;
+		G.push_back(Edge<int>(s, t, d));
 	}
 	vector<int> ans = bellman_ford(r, V, G);
 	if (ans.empty()) cout << "NEGATIVE CYCLE" << endl;
@@ -48,10 +48,9 @@ int main() {
 			else cout << ans[i] << endl;
 		}
 	}
-	
+
 	return 0;
 }
-
 
 /*
 	created: 2019-08-27

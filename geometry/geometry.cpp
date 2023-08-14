@@ -1,14 +1,13 @@
-#include <iostream>
 #include <algorithm>
-#include <vector>
-#include <set>
 #include <cmath>
 #include <cstdio>
 #include <functional>
+#include <iostream>
+#include <set>
+#include <vector>
 
 using namespace std;
 
-//BEGIN
 const double EPS = 1e-10;
 const double PI = acos(-1);
 
@@ -24,33 +23,47 @@ struct Point {
 	double x, y;
 
 	Point() {}
-	Point(double x, double y) :x(x), y(y) {}
 
-	Point operator+(const Point& p) const { return Point(x + p.x, y + p.y); }
-	Point operator-(const Point& p) const { return Point(x - p.x, y - p.y); }
-	Point operator*(const double& k) const { return Point(x * k, y * k); }
-	Point operator/(const double& k) const { return Point(x / k, y / k); }
+	Point(double x, double y) : x(x), y(y) {}
 
-	friend istream& operator>>(istream& is, Point& p) {
+	Point operator+(const Point &p) const { return Point(x + p.x, y + p.y); }
+
+	Point operator-(const Point &p) const { return Point(x - p.x, y - p.y); }
+
+	Point operator*(const double &k) const { return Point(x * k, y * k); }
+
+	Point operator/(const double &k) const { return Point(x / k, y / k); }
+
+	friend istream &operator>>(istream &is, Point &p) {
 		is >> p.x >> p.y;
 		return is;
 	}
 
-	bool operator==(const Point& p) const { return (fabs(x - p.x) < EPS && fabs(y - p.y) < EPS); }
-	bool operator<(const Point& p) const { return (x != p.x ? x < p.x : y < p.y); }
+	bool operator==(const Point &p) const {
+		return (fabs(x - p.x) < EPS && fabs(y - p.y) < EPS);
+	}
+
+	bool operator<(const Point &p) const {
+		return (x != p.x ? x < p.x : y < p.y);
+	}
 
 	double norm() { return x * x + y * y; }
+
 	double abs() { return sqrt(norm()); }
 };
 
 typedef Point Vector;
 
 double norm(Vector a) { return a.x * a.x + a.y * a.y; }
+
 double abs(Vector a) { return sqrt(norm(a)); }
+
 double dot(Vector a, Vector b) { return a.x * b.x + a.y * b.y; }
+
 double cross(Vector a, Vector b) { return a.x * b.y - a.y * b.x; }
 
 bool isParallel(Vector a, Vector b) { return equals(cross(a, b), 0.0); }
+
 bool isOrthogonal(Vector a, Vector b) { return equals(dot(a, b), 0.0); }
 
 struct EndPoint {
@@ -58,9 +71,10 @@ struct EndPoint {
 	int seg, st;
 
 	EndPoint() {}
-	EndPoint(Point p, int seg, int st) :p(p), seg(seg), st(st) {}
 
-	bool operator<(const EndPoint& ep) const {
+	EndPoint(Point p, int seg, int st) : p(p), seg(seg), st(st) {}
+
+	bool operator<(const EndPoint &ep) const {
 		if (p.y == ep.p.y) return st < ep.st;
 		return p.y < ep.p.y;
 	}
@@ -70,9 +84,10 @@ struct Segment {
 	Point p1, p2;
 
 	Segment() {}
-	Segment(Point p1, Point p2) :p1(p1), p2(p2) {}
 
-	friend istream& operator>>(istream& is, Segment& s) {
+	Segment(Point p1, Point p2) : p1(p1), p2(p2) {}
+
+	friend istream &operator>>(istream &is, Segment &s) {
 		is >> s.p1 >> s.p2;
 		return is;
 	}
@@ -86,16 +101,15 @@ Point project(Segment s, Point p) {
 	return s.p1 + base * r;
 }
 
-Point reflect(Segment s, Point p) {
-	return p + (project(s, p) - p) * 2.0;
-}
+Point reflect(Segment s, Point p) { return p + (project(s, p) - p) * 2.0; }
 
 struct Circle {
 	Point c;
 	double r;
 
 	Circle() {}
-	Circle(Point c, double r) :c(c), r(r) {}
+
+	Circle(Point c, double r) : c(c), r(r) {}
 };
 
 typedef vector<Point> Polygon;
@@ -113,6 +127,7 @@ bool intersectSS(Point p1, Point p2, Point p3, Point p4) {
 	return (ccw(p1, p2, p3) * ccw(p1, p2, p4) <= 0 &&
 			ccw(p3, p4, p1) * ccw(p3, p4, p2) <= 0);
 }
+
 bool intersectSS(Segment s1, Segment s2) {
 	return intersectSS(s1.p1, s1.p2, s2.p1, s2.p2);
 }
@@ -121,7 +136,9 @@ int intersectCS(Circle c, Segment s) {
 	if (norm(project(s, c.c) - c.c) - c.r * c.r > EPS) return 0;
 	double d1 = abs(c.c - s.p1), d2 = abs(c.c - s.p2);
 	if (d1 < c.r + EPS && d2 < c.r + EPS) return 0;
-	if ((d1 < c.r - EPS && d2 > c.r + EPS) || (d1 > c.r + EPS && d2 < c.r - EPS)) return 1;
+	if ((d1 < c.r - EPS && d2 > c.r + EPS) ||
+		(d1 > c.r + EPS && d2 < c.r - EPS))
+		return 1;
 	Point h = project(s, c.c);
 	if (dot(s.p1 - h, s.p2 - h) < 0) return 2;
 	return 0;
@@ -150,8 +167,10 @@ double getDistanceSP(Segment s, Point p) {
 
 double getDistanceSS(Segment s1, Segment s2) {
 	if (intersectSS(s1, s2)) return 0.0;
-	return min({ getDistanceSP(s1, s2.p1), getDistanceSP(s1, s2.p2),
-			   getDistanceSP(s2, s1.p1), getDistanceSP(s2, s1.p2) });
+	return min({getDistanceSP(s1, s2.p1),
+				getDistanceSP(s1, s2.p2),
+				getDistanceSP(s2, s1.p1),
+				getDistanceSP(s2, s1.p2)});
 }
 
 Point getCrossPointLL(Line l1, Line l2) {
@@ -174,7 +193,8 @@ vector<Point> getCrossPointCL(Circle c, Line l) {
 	Vector e = (l.p2 - l.p1) / abs(l.p2 - l.p1);
 	if (equals(getDistanceLP(l, c.c), c.r)) return vector<Point>{pr, pr};
 	double base = sqrt(c.r * c.r - norm(pr - c.c));
-	ps.push_back(pr + e * base); ps.push_back(pr - e * base);
+	ps.push_back(pr + e * base);
+	ps.push_back(pr - e * base);
 	return ps;
 }
 
@@ -188,6 +208,7 @@ vector<Point> getCrossPointCS(Circle c, Segment s) {
 }
 
 double arg(Vector p) { return atan2(p.y, p.x); }
+
 Point polar(double r, double a) { return Point(cos(a) * r, sin(a) * r); }
 
 vector<Point> getCrossPointCC(Circle c1, Circle c2) {
@@ -195,7 +216,8 @@ vector<Point> getCrossPointCC(Circle c1, Circle c2) {
 	double a = acos((c1.r * c1.r + d * d - c2.r * c2.r) / (2 * c1.r * d));
 	double t = arg(c2.c - c1.c);
 	vector<Point> ps;
-	ps.push_back(c1.c + polar(c1.r, t + a)); ps.push_back(c1.c + polar(c1.r, t - a));
+	ps.push_back(c1.c + polar(c1.r, t + a));
+	ps.push_back(c1.c + polar(c1.r, t - a));
 	return ps;
 }
 
@@ -212,11 +234,14 @@ vector<Line> tangentCC(Circle c1, Circle c2) {
 	Point v = Point(-u.y, u.x);
 	for (int s = 1; s >= -1; s -= 2) {
 		double h = (c1.r + s * c2.r) / g;
-		if (equals(1, h * h)) ls.push_back(Line(c1.c + u * c1.r, c1.c + (u + v) * c1.r));
+		if (equals(1, h * h))
+			ls.push_back(Line(c1.c + u * c1.r, c1.c + (u + v) * c1.r));
 		else if (1 - h * h > 0) {
 			Point uu = u * h, vv = v * sqrt(1 - h * h);
-			ls.push_back(Line(c1.c + (uu + vv) * c1.r, c2.c - (uu + vv) * c2.r * s));
-			ls.push_back(Line(c1.c + (uu - vv) * c1.r, c2.c - (uu - vv) * c2.r * s));
+			ls.push_back(
+				Line(c1.c + (uu + vv) * c1.r, c2.c - (uu + vv) * c2.r * s));
+			ls.push_back(
+				Line(c1.c + (uu - vv) * c1.r, c2.c - (uu - vv) * c2.r * s));
 		}
 	}
 	return ls;
@@ -255,14 +280,16 @@ int contains(Polygon g, Point p) {
 bool isConvex(Polygon p) {
 	int n = p.size();
 	for (int i = 0; i < n; ++i)
-		if (ccw(p[(i - 1 + n) % n], p[i], p[(i + 1) % n]) == CLOCKWISE) return false;
+		if (ccw(p[(i - 1 + n) % n], p[i], p[(i + 1) % n]) == CLOCKWISE)
+			return false;
 	return true;
 }
 
 Polygon convexHull(Polygon p) {
 	int n = p.size();
-	sort(p.begin(), p.end(),
-		 [](const Point& a, const Point& b) {return (a.y != b.y ? a.y < b.y : a.x < b.x); });
+	sort(p.begin(), p.end(), [](const Point &a, const Point &b) {
+		return (a.y != b.y ? a.y < b.y : a.x < b.x);
+	});
 	Polygon a(2 * n);
 	int k = 0;
 	for (int i = 0; i < n; ++i) {
@@ -292,7 +319,8 @@ double area(Circle c1, Circle c2) {
 	double d = abs(c1.c - c2.c);
 	double res = 0;
 	for (int i = 0; i < 2; ++i) {
-		double th = 2 * acos((d * d + c1.r * c1.r - c2.r * c2.r) / (2 * d * c1.r));
+		double th =
+			2 * acos((d * d + c1.r * c1.r - c2.r * c2.r) / (2 * d * c1.r));
 		res += (th - sin(th)) * c1.r * c1.r / 2;
 		swap(c1, c2);
 	}
@@ -301,24 +329,28 @@ double area(Circle c1, Circle c2) {
 
 double area(Polygon p, Circle c) {
 	if (p.size() < 3) return 0;
-	function<double(Circle, Point, Point)> dfs = [&](Circle c, Point a, Point b) {
-		Vector va = c.c - a, vb = c.c - b;
-		double f = cross(va, vb), res = 0;
-		if (equals(f, 0.0)) return res;
-		if (max(abs(va), abs(vb)) < c.r + EPS) return f;
-		Vector d(dot(va, vb), cross(va, vb));
-		if (getDistanceSP(Segment(a, b), c.c) > c.r - EPS)
-			return c.r * c.r * arg(d);
-		auto u = getCrossPointCS(c, Segment(a, b));
-		if (u.empty()) return res;
-		if (u.size() > 1 && dot(u[1] - u[0], a - u[0]) > 0) swap(u[0], u[1]);
-		u.emplace(u.begin(), a);
-		u.emplace_back(b);
-		for (int i = 1; i < (int)u.size(); ++i) res += dfs(c, u[i - 1], u[i]);
-		return res;
-	};
+	function<double(Circle, Point, Point)> dfs =
+		[&](Circle c, Point a, Point b) {
+			Vector va = c.c - a, vb = c.c - b;
+			double f = cross(va, vb), res = 0;
+			if (equals(f, 0.0)) return res;
+			if (max(abs(va), abs(vb)) < c.r + EPS) return f;
+			Vector d(dot(va, vb), cross(va, vb));
+			if (getDistanceSP(Segment(a, b), c.c) > c.r - EPS)
+				return c.r * c.r * arg(d);
+			auto u = getCrossPointCS(c, Segment(a, b));
+			if (u.empty()) return res;
+			if (u.size() > 1 && dot(u[1] - u[0], a - u[0]) > 0)
+				swap(u[0], u[1]);
+			u.emplace(u.begin(), a);
+			u.emplace_back(b);
+			for (int i = 1; i < (int)u.size(); ++i)
+				res += dfs(c, u[i - 1], u[i]);
+			return res;
+		};
 	double res = 0;
-	for (int i = 0; i < (int)p.size(); ++i) res += dfs(c, p[i], p[(i + 1) % p.size()]);
+	for (int i = 0; i < (int)p.size(); ++i)
+		res += dfs(c, p[i], p[(i + 1) % p.size()]);
 	return res / 2;
 }
 
@@ -360,8 +392,10 @@ double closestPair(vector<Point> ps) {
 		int mid = (l + r) >> 1;
 		double x = ps[mid].x;
 		double d = min(solve(l, mid), solve(mid, r));
-		inplace_merge(ps.begin() + l, ps.begin() + mid, ps.begin() + r,
-					  [](const Point& a, const Point& b) {return a.y < b.y; });
+		inplace_merge(ps.begin() + l,
+					  ps.begin() + mid,
+					  ps.begin() + r,
+					  [](const Point &a, const Point &b) { return a.y < b.y; });
 		int ptr = 0;
 		for (int i = l; i < r; ++i) {
 			if (abs(ps[i].x - x) >= d) continue;
@@ -408,53 +442,48 @@ int manhattanIntersection(vector<Segment> ss) {
 	}
 	return cnt;
 }
-//END
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 void CGL1A() {
-	Segment s; cin >> s;
-	int q; cin >> q;
+	Segment s;
+	cin >> s;
+	int q;
+	cin >> q;
 	while (q--) {
-		Point p; cin >> p;
+		Point p;
+		cin >> p;
 		Point a = project(s, p);
 		printf("%.10f %.10f\n", a.x, a.y);
 	}
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_A
 */
+
 void CGL1B() {
-	Segment s; cin >> s;
-	int q; cin >> q;
+	Segment s;
+	cin >> s;
+	int q;
+	cin >> q;
 	while (q--) {
-		Point p; cin >> p;
+		Point p;
+		cin >> p;
 		Point a = reflect(s, p);
 		printf("%.10f %.10f\n", a.x, a.y);
 	}
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_B
 */
+
 void CGL1C() {
-	Point p0, p1, p2; cin >> p0 >> p1;
-	int q; cin >> q;
+	Point p0, p1, p2;
+	cin >> p0 >> p1;
+	int q;
+	cin >> q;
 	while (q--) {
 		cin >> p2;
 		int a = ccw(p0, p1, p2);
@@ -466,12 +495,15 @@ void CGL1C() {
 		cout << endl;
 	}
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_C
 */
+
 void CGL2A() {
-	int q; cin >> q;
+	int q;
+	cin >> q;
 	while (q--) {
 		Vector p0, p1, p2, p3;
 		cin >> p0 >> p1 >> p2 >> p3;
@@ -481,24 +513,30 @@ void CGL2A() {
 		cout << endl;
 	}
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_A
 */
+
 void CGL2B() {
-	int q; cin >> q;
+	int q;
+	cin >> q;
 	while (q--) {
 		Segment s1, s2;
 		cin >> s1 >> s2;
 		cout << (intersectSS(s1, s2) ? 1 : 0) << endl;
 	}
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_B
 */
+
 void CGL2C() {
-	int q; cin >> q;
+	int q;
+	cin >> q;
 	while (q--) {
 		Segment s1, s2;
 		cin >> s1 >> s2;
@@ -506,230 +544,294 @@ void CGL2C() {
 		printf("%.10f %.10f\n", a.x, a.y);
 	}
 }
+
 /*
 	created: 2020-03-27
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_C
 */
+
 void CGL2D() {
-	int q; cin >> q;
+	int q;
+	cin >> q;
 	while (q--) {
 		Segment s1, s2;
 		cin >> s1 >> s2;
 		printf("%.10f\n", getDistanceSS(s1, s2));
 	}
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_D
 */
+
 void CGL3A() {
-	int n; cin >> n;
+	int n;
+	cin >> n;
 	Polygon p(n);
-	for (auto& a : p) cin >> a;
+	for (auto &a : p) cin >> a;
 	printf("%.1f\n", area(p));
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/3/CGL_3_A
 */
+
 void CGL3B() {
-	int n; cin >> n;
+	int n;
+	cin >> n;
 	Polygon p(n);
-	for (auto& a : p) cin >> a;
+	for (auto &a : p) cin >> a;
 	cout << (isConvex(p) ? 1 : 0) << endl;
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/3/CGL_3_B
 */
+
 void CGL3C() {
-	int n; cin >> n;
+	int n;
+	cin >> n;
 	Polygon g(n);
-	for (auto& a : g) cin >> a;
-	int q; cin >> q;
+	for (auto &a : g) cin >> a;
+	int q;
+	cin >> q;
 	while (q--) {
-		Point p; cin >> p;
+		Point p;
+		cin >> p;
 		cout << contains(g, p) << endl;
 	}
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/3/CGL_3_C
 */
+
 void CGL4A() {
-	int n; cin >> n;
+	int n;
+	cin >> n;
 	Polygon p(n);
-	for (auto& a : p) cin >> a;
+	for (auto &a : p) cin >> a;
 	Polygon t = convexHull(p);
 	cout << t.size() << endl;
 	for (auto a : t) cout << a.x << " " << a.y << endl;
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_A
 */
+
 void CGL4B() {
-	int n; cin >> n;
+	int n;
+	cin >> n;
 	Polygon p(n);
-	for (auto& a : p) cin >> a;
+	for (auto &a : p) cin >> a;
 	printf("%.10f\n", convexDiameter(p));
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_B
 */
+
 void CGL4C() {
-	int n; cin >> n;
+	int n;
+	cin >> n;
 	Polygon p(n);
-	for (auto& a : p) cin >> a;
-	int q; cin >> q;
+	for (auto &a : p) cin >> a;
+	int q;
+	cin >> q;
 	while (q--) {
-		Line l; cin >> l;
+		Line l;
+		cin >> l;
 		printf("%.10f\n", area(convexCut(p, l)));
 	}
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_C
 */
+
 void CGL5A() {
-	int n; cin >> n;
+	int n;
+	cin >> n;
 	vector<Point> ps(n);
-	for (auto& a : ps) cin >> a;
+	for (auto &a : ps) cin >> a;
 	printf("%.10f\n", closestPair(ps));
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/5/CGL_5_A
 */
+
 void CGL6A() {
-	int n; cin >> n;
+	int n;
+	cin >> n;
 	vector<Segment> ss(n);
-	for (auto& a : ss) cin >> a;
+	for (auto &a : ss) cin >> a;
 	cout << manhattanIntersection(ss) << endl;
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/6/CGL_6_A
 */
+
 void CGL7A() {
-	Circle c1, c2; cin >> c1.c >> c1.r >> c2.c >> c2.r;
+	Circle c1, c2;
+	cin >> c1.c >> c1.r >> c2.c >> c2.r;
 	cout << intersectCC(c1, c2) << endl;
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_A
 */
+
 void CGL7B() {
-	Point p1, p2, p3; cin >> p1 >> p2 >> p3;
+	Point p1, p2, p3;
+	cin >> p1 >> p2 >> p3;
 	Circle c = getInscribedCircle(p1, p2, p3);
 	printf("%.10f %.10f %.10f\n", c.c.x, c.c.y, c.r);
 }
+
 /*
 	created: 2020-07-01
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_B
 */
+
 void CGL7C() {
-	Point p1, p2, p3; cin >> p1 >> p2 >> p3;
+	Point p1, p2, p3;
+	cin >> p1 >> p2 >> p3;
 	Circle c = getCircumscribedCircle(p1, p2, p3);
 	printf("%.10f %.10f %.10f\n", c.c.x, c.c.y, c.r);
 }
+
 /*
 	created: 2020-07-01
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_C
 */
+
 void CGL7D() {
-	Circle c; cin >> c.c.x >> c.c.y >> c.r;
-	int q; cin >> q;
+	Circle c;
+	cin >> c.c.x >> c.c.y >> c.r;
+	int q;
+	cin >> q;
 	while (q--) {
-		Line l; cin >> l;
+		Line l;
+		cin >> l;
 		auto a = getCrossPointCL(c, l);
 		sort(a.begin(), a.end());
 		printf("%.10f %.10f %.10f %.10f\n", a[0].x, a[0].y, a[1].x, a[1].y);
 	}
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_D
 */
+
 void CGL7E() {
-	Circle c1, c2; cin >> c1.c >> c1.r >> c2.c >> c2.r;
+	Circle c1, c2;
+	cin >> c1.c >> c1.r >> c2.c >> c2.r;
 	auto a = getCrossPointCC(c1, c2);
 	sort(a.begin(), a.end());
 	printf("%.10f %.10f %.10f %.10f\n", a[0].x, a[0].y, a[1].x, a[1].y);
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_E
 */
+
 void CGL7F() {
-	Point p; cin >> p;
-	Circle c; cin >> c.c >> c.r;
+	Point p;
+	cin >> p;
+	Circle c;
+	cin >> c.c >> c.r;
 	auto a = tangentCP(c, p);
 	sort(a.begin(), a.end());
 	printf("%.10f %.10f\n%.10f %.10f\n", a[0].x, a[0].y, a[1].x, a[1].y);
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_F
 */
+
 void CGL7G() {
-	Circle c1, c2; cin >> c1.c >> c1.r >> c2.c >> c2.r;
+	Circle c1, c2;
+	cin >> c1.c >> c1.r >> c2.c >> c2.r;
 	auto a = tangentCC(c1, c2);
 	vector<Point> ps;
 	for (auto e : a) ps.push_back(getCrossPointCL(c1, e)[0]);
 	sort(ps.begin(), ps.end());
 	for (auto e : ps) printf("%.10f %.10f\n", e.x, e.y);
 }
+
 /*
 	created: 2019-09-13
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_G
 */
+
 void CGL7H() {
-	int n; cin >> n;
-	Circle c; c.c = Point(0, 0); cin >> c.r;
+	int n;
+	cin >> n;
+	Circle c;
+	c.c = Point(0, 0);
+	cin >> c.r;
 	Polygon p(n);
-	for (auto& a : p) cin >> a;
+	for (auto &a : p) cin >> a;
 	printf("%.10f\n", area(p, c));
 }
+
 /*
 	created: 2020-07-01
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_H
 */
+
 void CGL7I() {
-	Circle c1, c2; cin >> c1.c >> c1.r >> c2.c >> c2.r;
+	Circle c1, c2;
+	cin >> c1.c >> c1.r >> c2.c >> c2.r;
 	printf("%.10f\n", area(c1, c2));
 }
+
 /*
 	created: 2020-07-01
 	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_I
 */
 
 int main() {
-	//CGL1A();
-	//CGL1B();
-	//CGL1C();
-	//CGL2A();
-	//CGL2B();
-	//CGL2C();
-	//CGL2D();
-	//CGL3A();
-	//CGL3B();
-	//CGL3C();
-	//CGL4A();
-	//CGL4B();
-	//CGL4C();
-	//CGL5A();
-	//CGL6A();
-	//CGL7A();
-	//CGL7B();
-	//CGL7C();
-	//CGL7D();
-	//CGL7E();
-	//CGL7F();
-	//CGL7G();
-	//CGL7H();
-	//CGL7I();
+	// CGL1A();
+	// CGL1B();
+	// CGL1C();
+	// CGL2A();
+	// CGL2B();
+	// CGL2C();
+	// CGL2D();
+	// CGL3A();
+	// CGL3B();
+	// CGL3C();
+	// CGL4A();
+	// CGL4B();
+	// CGL4C();
+	// CGL5A();
+	// CGL6A();
+	// CGL7A();
+	// CGL7B();
+	// CGL7C();
+	// CGL7D();
+	// CGL7E();
+	// CGL7F();
+	// CGL7G();
+	// CGL7H();
+	// CGL7I();
 
 	return 0;
 }
