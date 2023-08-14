@@ -6,7 +6,7 @@
 
 using namespace std;
 
-template<typename T>
+template<class T>
 struct Dinic {
 	struct Edge {
 		int to, rev;

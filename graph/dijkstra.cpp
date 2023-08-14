@@ -7,14 +7,13 @@
 
 using namespace std;
 
-template<typename T>
+template<class T>
 vector<T> dijkstra(int s, vector<vector<pair<int, T>>> &G) {
 	const T INF = numeric_limits<T>::max();
 	const int N = G.size();
 	vector<T> cost(N, INF);
 	vector<int> prevr(N, -1); // 経路復元用
-	priority_queue<pair<T, int>, vector<pair<T, int>>, greater<pair<T, int>>>
-		pq;
+	priority_queue<pair<T, int>, vector<pair<T, int>>, greater<>> pq;
 	cost[s] = 0;
 	pq.push(make_pair(0, s));
 	while (!pq.empty()) {
@@ -42,7 +41,7 @@ int main() {
 	for (int i = 0; i < E; ++i) {
 		int s, t, d;
 		cin >> s >> t >> d;
-		G[s].push_back(make_pair(t, d));
+		G[s].emplace_back(t, d);
 	}
 	vector<int> ans = dijkstra(r, G);
 	for (int i = 0; i < V; ++i) {

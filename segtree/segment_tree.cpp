@@ -6,16 +6,12 @@
 
 using namespace std;
 
-template<typename T>
+template<class T, class F>
 struct SegmentTree { // 0-indexed
-	using F = function<T(T, T)>;
-
 	int n;
 	vector<T> tree;
-	const F f;
+	const F f; // function<T(T, T)>
 	const T ti;
-
-	SegmentTree() {}
 
 	SegmentTree(F f, T ti) : f(f), ti(ti) {}
 
@@ -56,7 +52,7 @@ struct SegmentTree { // 0-indexed
 void DSL_2_A() {
 	int n, q;
 	cin >> n >> q;
-	SegmentTree<int> seg([](int a, int b) { return min(a, b); }, INT_MAX);
+	SegmentTree seg([](int a, int b) { return min(a, b); }, INT_MAX);
 	seg.init(n);
 	while (q--) {
 		int com, x, y;
@@ -74,8 +70,7 @@ void DSL_2_A() {
 void DSL_2_B() {
 	int n, q;
 	cin >> n >> q;
-	SegmentTree<long long> seg([](long long a, long long b) { return a + b; },
-							   0LL);
+	SegmentTree seg([](long long a, long long b) { return a + b; }, 0LL);
 	seg.init(n);
 	while (q--) {
 		int com, x, y;

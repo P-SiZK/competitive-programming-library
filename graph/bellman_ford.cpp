@@ -4,7 +4,7 @@
 
 using namespace std;
 
-template<typename T>
+template<class T>
 struct Edge {
 	int from, to;
 	T cost;
@@ -12,7 +12,7 @@ struct Edge {
 	Edge(int from, int to, T cost) : from(from), to(to), cost(cost) {}
 };
 
-template<typename T>
+template<class T>
 vector<T> bellman_ford(int s, int V, vector<Edge<T>> &G) {
 	const T INF = numeric_limits<T>::max();
 	vector<T> cost(V, INF);
@@ -38,7 +38,7 @@ int main() {
 	for (int i = 0; i < E; ++i) {
 		int s, t, d;
 		cin >> s >> t >> d;
-		G.push_back(Edge<int>(s, t, d));
+		G.emplace_back(s, t, d);
 	}
 	vector<int> ans = bellman_ford(r, V, G);
 	if (ans.empty()) cout << "NEGATIVE CYCLE" << endl;

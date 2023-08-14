@@ -2,7 +2,7 @@
 
 using namespace std;
 
-template<typename T, T MOD = 1000000007>
+template<class T, T MOD = 1000000007>
 struct ModInt {
 	T x;
 

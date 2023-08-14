@@ -22,17 +22,17 @@ static const int ON_SEGMENT = 0;
 struct Point {
 	double x, y;
 
-	Point() {}
+	Point() = default;
 
 	Point(double x, double y) : x(x), y(y) {}
 
-	Point operator+(const Point &p) const { return Point(x + p.x, y + p.y); }
+	Point operator+(const Point &p) const { return {x + p.x, y + p.y}; }
 
-	Point operator-(const Point &p) const { return Point(x - p.x, y - p.y); }
+	Point operator-(const Point &p) const { return {x - p.x, y - p.y}; }
 
-	Point operator*(const double &k) const { return Point(x * k, y * k); }
+	Point operator*(const double &k) const { return {x * k, y * k}; }
 
-	Point operator/(const double &k) const { return Point(x / k, y / k); }
+	Point operator/(const double &k) const { return {x / k, y / k}; }
 
 	friend istream &operator>>(istream &is, Point &p) {
 		is >> p.x >> p.y;
@@ -52,7 +52,7 @@ struct Point {
 	double abs() { return sqrt(norm()); }
 };
 
-typedef Point Vector;
+using Vector = Point;
 
 double norm(Vector a) { return a.x * a.x + a.y * a.y; }
 
@@ -70,7 +70,7 @@ struct EndPoint {
 	Point p;
 	int seg, st;
 
-	EndPoint() {}
+	EndPoint() = default;
 
 	EndPoint(Point p, int seg, int st) : p(p), seg(seg), st(st) {}
 
@@ -83,7 +83,7 @@ struct EndPoint {
 struct Segment {
 	Point p1, p2;
 
-	Segment() {}
+	Segment() = default;
 
 	Segment(Point p1, Point p2) : p1(p1), p2(p2) {}
 
@@ -93,7 +93,7 @@ struct Segment {
 	}
 };
 
-typedef Segment Line;
+using Line = Segment;
 
 Point project(Segment s, Point p) {
 	Vector base = s.p2 - s.p1;
@@ -107,12 +107,12 @@ struct Circle {
 	Point c;
 	double r;
 
-	Circle() {}
+	Circle() = default;
 
 	Circle(Point c, double r) : c(c), r(r) {}
 };
 
-typedef vector<Point> Polygon;
+using Polygon = vector<Point>;
 
 int ccw(Point p0, Point p1, Point p2) {
 	Vector a = p1 - p0, b = p2 - p0;
@@ -209,7 +209,7 @@ vector<Point> getCrossPointCS(Circle c, Segment s) {
 
 double arg(Vector p) { return atan2(p.y, p.x); }
 
-Point polar(double r, double a) { return Point(cos(a) * r, sin(a) * r); }
+Point polar(double r, double a) { return {cos(a) * r, sin(a) * r}; }
 
 vector<Point> getCrossPointCC(Circle c1, Circle c2) {
 	double d = abs(c1.c - c2.c);
@@ -235,13 +235,13 @@ vector<Line> tangentCC(Circle c1, Circle c2) {
 	for (int s = 1; s >= -1; s -= 2) {
 		double h = (c1.r + s * c2.r) / g;
 		if (equals(1, h * h))
-			ls.push_back(Line(c1.c + u * c1.r, c1.c + (u + v) * c1.r));
+			ls.emplace_back(c1.c + u * c1.r, c1.c + (u + v) * c1.r);
 		else if (1 - h * h > 0) {
 			Point uu = u * h, vv = v * sqrt(1 - h * h);
-			ls.push_back(
-				Line(c1.c + (uu + vv) * c1.r, c2.c - (uu + vv) * c2.r * s));
-			ls.push_back(
-				Line(c1.c + (uu - vv) * c1.r, c2.c - (uu - vv) * c2.r * s));
+			ls.emplace_back(c1.c + (uu + vv) * c1.r,
+							c2.c - (uu + vv) * c2.r * s);
+			ls.emplace_back(c1.c + (uu - vv) * c1.r,
+							c2.c - (uu - vv) * c2.r * s);
 		}
 	}
 	return ls;
@@ -419,12 +419,12 @@ int manhattanIntersection(vector<Segment> ss) {
 	for (int i = 0; i < n; ++i) {
 		if (ss[i].p1.y == ss[i].p2.y) {
 			if (ss[i].p1.x > ss[i].p2.x) swap(ss[i].p1, ss[i].p2);
-			ep.push_back(EndPoint(ss[i].p1, i, LEFT));
-			ep.push_back(EndPoint(ss[i].p2, i, RIGHT));
+			ep.emplace_back(ss[i].p1, i, LEFT);
+			ep.emplace_back(ss[i].p2, i, RIGHT);
 		} else {
 			if (ss[i].p1.y > ss[i].p2.y) swap(ss[i].p1, ss[i].p2);
-			ep.push_back(EndPoint(ss[i].p1, i, BOTTOM));
-			ep.push_back(EndPoint(ss[i].p2, i, TOP));
+			ep.emplace_back(ss[i].p1, i, BOTTOM);
+			ep.emplace_back(ss[i].p2, i, TOP);
 		}
 	}
 	sort(ep.begin(), ep.end());
@@ -770,6 +770,7 @@ void CGL7G() {
 	cin >> c1.c >> c1.r >> c2.c >> c2.r;
 	auto a = tangentCC(c1, c2);
 	vector<Point> ps;
+	ps.reserve(a.size());
 	for (auto e : a) ps.push_back(getCrossPointCL(c1, e)[0]);
 	sort(ps.begin(), ps.end());
 	for (auto e : ps) printf("%.10f %.10f\n", e.x, e.y);

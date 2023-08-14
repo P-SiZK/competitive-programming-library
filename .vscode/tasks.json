@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "build",
+			"command": "/usr/bin/g++",
+			"args": [
+				"-std=c++17",
+				"-O2",
+				"-pedantic-errors",
+				"-Wall",
+				"-D_GLIBCXX_DEBUG",
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}/a.out"
+			],
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: /usr/bin/g++",
+			"presentation": {
+				"focus": true
+			}
+		}
+	]
+}

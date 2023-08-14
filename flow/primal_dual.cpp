@@ -7,7 +7,7 @@
 
 using namespace std;
 
-template<typename T, typename E>
+template<class T, class E>
 struct PrimalDual {
 	struct Edge {
 		int to, rev;
@@ -23,8 +23,6 @@ struct PrimalDual {
 	vector<E> h, dist;
 	vector<int> prevv, preve;
 
-	PrimalDual() {}
-
 	PrimalDual(int n) : G(n), h(n), dist(n), prevv(n), preve(n) {}
 
 	void add_edge(int from, int to, T cap, E cost) {
@@ -34,10 +32,7 @@ struct PrimalDual {
 
 	E min_cost_flow(int s, int t, T f) {
 		E res = 0;
-		priority_queue<pair<E, int>,
-					   vector<pair<E, int>>,
-					   greater<pair<E, int>>>
-			pq;
+		priority_queue<pair<E, int>, vector<pair<E, int>>, greater<>> pq;
 
 		while (f > 0) {
 			fill(dist.begin(), dist.end(), INF);

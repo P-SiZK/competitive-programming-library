@@ -4,7 +4,7 @@
 
 using namespace std;
 
-template<typename T>
+template<class T>
 struct Edge {
 	int from, to;
 	T cost;
@@ -12,7 +12,7 @@ struct Edge {
 	Edge(int from, int to, T cost) : from(from), to(to), cost(cost) {}
 };
 
-template<typename T>
+template<class T>
 bool cmp(const Edge<T> &a, const Edge<T> &b) {
 	return a.cost < b.cost;
 }
@@ -22,8 +22,6 @@ private:
 	vector<int> rank, p;
 
 public:
-	DisjointSet() {}
-
 	DisjointSet(int n) {
 		rank.assign(n, 0);
 		p.assign(n, 0);
@@ -46,7 +44,7 @@ public:
 	int root(int x) { return p[x] == x ? x : p[x] = root(p[x]); }
 };
 
-template<typename T>
+template<class T>
 T kruskal(int V, vector<Edge<T>> &G) {
 	sort(G.begin(), G.end(), cmp<T>);
 	DisjointSet ds(V);
@@ -67,7 +65,7 @@ int main() {
 	for (int i = 0; i < E; ++i) {
 		int a, b, c;
 		cin >> a >> b >> c;
-		G.push_back(Edge<int>(a, b, c));
+		G.emplace_back(a, b, c);
 	}
 	cout << kruskal(V, G) << endl;
 

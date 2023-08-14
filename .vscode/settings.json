@@ -1,0 +1,33 @@
+{
+    "files.autoSave": "afterDelay",
+    "files.eol": "\n",
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    },
+    "C_Cpp.clang_format_style": "file",
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
+        "modernize-*",
+        "performance-*"
+    ],
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingQuotes": "always",
+    "editor.tabSize": 4,
+    "[cpp]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": false,
+        "editor.formatOnPaste": true,
+        "editor.insertSpaces": false,
+    },
+    "files.associations": {
+        "iostream": "cpp",
+        "limits": "cpp",
+        "cmath": "cpp"
+    },
+    "C_Cpp.codeAnalysis.clangTidy.checks.disabled": [
+        "modernize-use-trailing-return-type",
+        "modernize-avoid-c-arrays"
+    ],
+}

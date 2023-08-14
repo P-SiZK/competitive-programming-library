@@ -2,7 +2,7 @@
 
 using namespace std;
 
-template<typename T>
+template<class T>
 T extended_gcd(T a, T b, T &x, T &y) { // ax+by=gcd(a,b)
 	if (b == 0) {
 		x = 1;
@@ -14,7 +14,7 @@ T extended_gcd(T a, T b, T &x, T &y) { // ax+by=gcd(a,b)
 	return d;
 }
 
-template<typename T>
+template<class T>
 T modinv(T a, T mod) { // a,modは互いに素
 	T x, y;
 	extended_gcd(a, mod, x, y);

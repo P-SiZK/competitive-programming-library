@@ -6,18 +6,14 @@
 
 using namespace std;
 
-template<typename T, typename E>
+template<class T, class E, class F, class G, class H>
 struct LazySegmentTree { // 0-indexed
-	using F = function<T(T, T)>;
-	using G = function<T(T, E)>;
-	using H = function<E(E, E)>;
-
 	int n, height;
 	vector<T> tree;
 	vector<E> lazy;
-	const F f;
-	const G g;
-	const H h;
+	const F f; // function<T(T, T)>
+	const G g; // function<T(T, E)>
+	const H h; // function<E(E, E)>
 	const T ti;
 	const E ei;
 
@@ -92,7 +88,7 @@ void DSL_2_F() {
 	cin >> n >> q;
 	auto f = [](int a, int b) { return min(a, b); };
 	auto g = [](int a, int b) { return b; };
-	LazySegmentTree<int, int> seg(f, g, g, INT_MAX, -1);
+	LazySegmentTree seg(f, g, g, INT_MAX, -1);
 	seg.init(n);
 	while (q--) {
 		int com, s, t, x;

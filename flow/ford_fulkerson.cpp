@@ -5,7 +5,7 @@
 
 using namespace std;
 
-template<typename T>
+template<class T>
 struct FordFulkerson {
 	struct Edge {
 		int to, rev;

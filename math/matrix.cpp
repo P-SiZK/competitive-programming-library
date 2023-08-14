@@ -3,7 +3,7 @@
 
 using namespace std;
 
-template<typename T>
+template<class T>
 class Matrix {
 public:
 	vector<vector<T>> A;
@@ -14,9 +14,9 @@ public:
 
 	Matrix(vector<vector<T>> A) : A(A) {}
 
-	size_t height() const { return A.size(); }
+	[[nodiscard]] size_t height() const { return A.size(); }
 
-	size_t width() const { return A[0].size(); }
+	[[nodiscard]] size_t width() const { return A[0].size(); }
 
 	vector<T> &operator[](size_t k) { return A[k]; }
 

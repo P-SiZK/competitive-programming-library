@@ -3,7 +3,7 @@
 
 using namespace std;
 
-template<typename T>
+template<class T>
 struct BinaryIndexedTree {
 	int n;
 	vector<T> tree; // 1-indexed
