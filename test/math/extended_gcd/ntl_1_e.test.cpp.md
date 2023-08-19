@@ -1,0 +1,45 @@
+---
+data:
+  _extendedDependsOn:
+  - icon: ':x:'
+    path: src/math/extended_gcd.cpp
+    title: src/math/extended_gcd.cpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: true
+  _pathExtension: cpp
+  _verificationStatusIcon: ':x:'
+  attributes:
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_E
+    links:
+    - https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_E
+  bundledCode: "#line 1 \"test/math/extended_gcd/ntl_1_e.test.cpp\"\n// verification-helper:\
+    \ PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_E\n\n\
+    #line 1 \"src/math/extended_gcd.cpp\"\ntemplate<class T>\nT extended_gcd(T a,\
+    \ T b, T &x, T &y) { // ax+by=gcd(a,b)\n\tif (b == 0) {\n\t\tx = 1;\n\t\ty = 0;\n\
+    \t\treturn a;\n\t}\n\tT d = extended_gcd(b, a % b, y, x);\n\ty -= a / b * x;\n\
+    \treturn d;\n}\n\ntemplate<class T>\nT modinv(T a, T mod) { // a,mod\u306F\u4E92\
+    \u3044\u306B\u7D20\n\tT x, y;\n\textended_gcd(a, mod, x, y);\n\treturn (x % mod\
+    \ + mod) % mod;\n}\n#line 4 \"test/math/extended_gcd/ntl_1_e.test.cpp\"\n\n#include\
+    \ <iostream>\n\nusing namespace std;\n\nint main() {\n\tint a, b, x, y;\n\tcin\
+    \ >> a >> b;\n\textended_gcd(a, b, x, y);\n\tcout << x << \" \" << y << endl;\n\
+    \n\treturn 0;\n}\n"
+  code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_E\n\
+    \n#include \"src/math/extended_gcd.cpp\"\n\n#include <iostream>\n\nusing namespace\
+    \ std;\n\nint main() {\n\tint a, b, x, y;\n\tcin >> a >> b;\n\textended_gcd(a,\
+    \ b, x, y);\n\tcout << x << \" \" << y << endl;\n\n\treturn 0;\n}\n"
+  dependsOn:
+  - src/math/extended_gcd.cpp
+  isVerificationFile: true
+  path: test/math/extended_gcd/ntl_1_e.test.cpp
+  requiredBy: []
+  timestamp: '2023-08-20 06:31:19+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
+  verifiedWith: []
+documentation_of: test/math/extended_gcd/ntl_1_e.test.cpp
+layout: document
+redirect_from:
+- /verify/test/math/extended_gcd/ntl_1_e.test.cpp
+- /verify/test/math/extended_gcd/ntl_1_e.test.cpp.html
+title: test/math/extended_gcd/ntl_1_e.test.cpp
+---
