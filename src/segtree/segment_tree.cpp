@@ -1,7 +1,3 @@
-#include <algorithm>
-#include <climits>
-#include <functional>
-#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -48,47 +44,3 @@ struct SegmentTree { // 0-indexed
 
 	T at(int i) { return tree[i + n]; }
 };
-
-void DSL_2_A() {
-	int n, q;
-	cin >> n >> q;
-	SegmentTree seg([](int a, int b) { return min(a, b); }, INT_MAX);
-	seg.init(n);
-	while (q--) {
-		int com, x, y;
-		cin >> com >> x >> y;
-		if (com) cout << seg.find(x, y + 1) << endl;
-		else seg.update(x, y);
-	}
-}
-
-/*
-	created: 2019-12-05
-	https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_A
-*/
-
-void DSL_2_B() {
-	int n, q;
-	cin >> n >> q;
-	SegmentTree seg([](long long a, long long b) { return a + b; }, 0LL);
-	seg.init(n);
-	while (q--) {
-		int com, x, y;
-		cin >> com >> x >> y;
-		--x;
-		if (com) --y, cout << seg.find(x, y + 1) << endl;
-		else seg.update(x, seg.at(x) + y);
-	}
-}
-
-/*
-	created: 2019-12-05
-	https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B
-*/
-
-int main() {
-	// DSL_2_A();
-	// DSL_2_B();
-
-	return 0;
-}

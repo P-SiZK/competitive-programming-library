@@ -41,18 +41,3 @@ long long inversion_number(const vector<int> &v) {
 	}
 	return res;
 }
-
-int main() {
-	int n;
-	cin >> n;
-	vector<int> a(n);
-	for (int &e : a) cin >> e;
-	cout << inversion_number(a) << endl;
-
-	return 0;
-}
-
-/*
-	created: 2020-01-28
-	https://chokudai_s001.contest.atcoder.jp/tasks/chokudai_S001_j
-*/

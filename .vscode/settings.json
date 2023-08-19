@@ -24,7 +24,11 @@
     "files.associations": {
         "iostream": "cpp",
         "limits": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "optional": "cpp",
+        "ostream": "cpp",
+        "tuple": "cpp",
+        "cstdio": "cpp"
     },
     "C_Cpp.codeAnalysis.clangTidy.checks.disabled": [
         "modernize-use-trailing-return-type",

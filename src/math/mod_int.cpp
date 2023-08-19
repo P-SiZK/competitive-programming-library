@@ -90,5 +90,3 @@ struct ModInt {
 		return num / den;
 	}
 };
-
-int main() { return 0; }

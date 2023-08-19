@@ -1,7 +1,3 @@
-#include <algorithm>
-#include <climits>
-#include <functional>
-#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -82,29 +78,3 @@ struct LazySegmentTree { // 0-indexed
 
 	T at(int i) { return find(i, i + 1); }
 };
-
-void DSL_2_F() {
-	int n, q;
-	cin >> n >> q;
-	auto f = [](int a, int b) { return min(a, b); };
-	auto g = [](int a, int b) { return b; };
-	LazySegmentTree seg(f, g, g, INT_MAX, -1);
-	seg.init(n);
-	while (q--) {
-		int com, s, t, x;
-		cin >> com >> s >> t;
-		if (com) cout << seg.find(s, t + 1) << endl;
-		else cin >> x, seg.update(s, t + 1, x);
-	}
-}
-
-/*
-	created: 2019-12-05
-	https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_F
-*/
-
-int main() {
-	DSL_2_F();
-
-	return 0;
-}

@@ -1,7 +1,3 @@
-#include <iostream>
-
-using namespace std;
-
 const int MOD = 1000000007;
 const int MAX = 1100000;
 
@@ -20,20 +16,3 @@ long long combination(int n, int r) {
 	if (n < r || n < 0 || r < 0) return 0;
 	return fac[n] * (finv[r] * finv[n - r] % MOD) % MOD;
 }
-
-int main() {
-	init_combination();
-	int x, y;
-	cin >> x >> y;
-	int xx = -x + 2 * y, yy = 2 * x - y;
-	x = xx / 3, y = yy / 3;
-	if (xx < 0 || yy < 0 || xx % 3 != 0 || yy % 3 != 0) cout << 0 << endl;
-	else cout << combination(x + y, x) << endl;
-
-	return 0;
-}
-
-/*
-	created: 2019-12-09
-	https://atcoder.jp/contests/abc145/tasks/abc145_d
-*/

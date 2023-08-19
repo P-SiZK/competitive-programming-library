@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -72,5 +71,3 @@ public:
 		return res;
 	}
 };
-
-int main() { return 0; }

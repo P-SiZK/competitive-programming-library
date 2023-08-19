@@ -1,8 +1,5 @@
-#include <algorithm>
-#include <iostream>
 #include <limits>
 #include <queue>
-#include <utility>
 #include <vector>
 
 using namespace std;
@@ -33,26 +30,3 @@ vector<T> dijkstra(int s, vector<vector<pair<int, T>>> &G) {
 	}
 	return cost;
 }
-
-int main() {
-	int V, E, r;
-	cin >> V >> E >> r;
-	vector<vector<pair<int, int>>> G(V);
-	for (int i = 0; i < E; ++i) {
-		int s, t, d;
-		cin >> s >> t >> d;
-		G[s].emplace_back(t, d);
-	}
-	vector<int> ans = dijkstra(r, G);
-	for (int i = 0; i < V; ++i) {
-		if (ans[i] == numeric_limits<int>::max()) cout << "INF" << endl;
-		else cout << ans[i] << endl;
-	}
-
-	return 0;
-}
-
-/*
-	created: 2019-08-26
-	https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/all/GRL_1_A
-*/

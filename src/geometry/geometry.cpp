@@ -1,7 +1,5 @@
 #include <algorithm>
 #include <cmath>
-#include <cstdio>
-#include <functional>
 #include <iostream>
 #include <set>
 #include <vector>
@@ -329,28 +327,26 @@ double area(Circle c1, Circle c2) {
 
 double area(Polygon p, Circle c) {
 	if (p.size() < 3) return 0;
-	function<double(Circle, Point, Point)> dfs =
-		[&](Circle c, Point a, Point b) {
-			Vector va = c.c - a, vb = c.c - b;
-			double f = cross(va, vb), res = 0;
-			if (equals(f, 0.0)) return res;
-			if (max(abs(va), abs(vb)) < c.r + EPS) return f;
-			Vector d(dot(va, vb), cross(va, vb));
-			if (getDistanceSP(Segment(a, b), c.c) > c.r - EPS)
-				return c.r * c.r * arg(d);
-			auto u = getCrossPointCS(c, Segment(a, b));
-			if (u.empty()) return res;
-			if (u.size() > 1 && dot(u[1] - u[0], a - u[0]) > 0)
-				swap(u[0], u[1]);
-			u.emplace(u.begin(), a);
-			u.emplace_back(b);
-			for (int i = 1; i < (int)u.size(); ++i)
-				res += dfs(c, u[i - 1], u[i]);
-			return res;
-		};
+	auto dfs = [&](auto self, Circle c, Point a, Point b) {
+		Vector va = c.c - a, vb = c.c - b;
+		double f = cross(va, vb), res = 0;
+		if (equals(f, 0.0)) return res;
+		if (max(abs(va), abs(vb)) < c.r + EPS) return f;
+		Vector d(dot(va, vb), cross(va, vb));
+		if (getDistanceSP(Segment(a, b), c.c) > c.r - EPS)
+			return c.r * c.r * arg(d);
+		auto u = getCrossPointCS(c, Segment(a, b));
+		if (u.empty()) return res;
+		if (u.size() > 1 && dot(u[1] - u[0], a - u[0]) > 0) swap(u[0], u[1]);
+		u.emplace(u.begin(), a);
+		u.emplace_back(b);
+		for (int i = 1; i < (int)u.size(); ++i)
+			res += self(self, c, u[i - 1], u[i]);
+		return res;
+	};
 	double res = 0;
 	for (int i = 0; i < (int)p.size(); ++i)
-		res += dfs(c, p[i], p[(i + 1) % p.size()]);
+		res += dfs(dfs, c, p[i], p[(i + 1) % p.size()]);
 	return res / 2;
 }
 
@@ -387,11 +383,11 @@ Polygon convexCut(Polygon p, Line l) {
 double closestPair(vector<Point> ps) {
 	sort(ps.begin(), ps.end());
 	vector<Point> a(ps.size());
-	function<double(int, int)> solve = [&](int l, int r) {
+	auto solve = [&](auto self, int l, int r) {
 		if (r - l < 2) return 1e18;
 		int mid = (l + r) >> 1;
 		double x = ps[mid].x;
-		double d = min(solve(l, mid), solve(mid, r));
+		double d = min(self(self, l, mid), self(self, mid, r));
 		inplace_merge(ps.begin() + l,
 					  ps.begin() + mid,
 					  ps.begin() + r,
@@ -408,7 +404,7 @@ double closestPair(vector<Point> ps) {
 		}
 		return d;
 	};
-	return solve(0, ps.size());
+	return solve(solve, 0, ps.size());
 }
 
 int manhattanIntersection(vector<Segment> ss) {
@@ -441,398 +437,4 @@ int manhattanIntersection(vector<Segment> ss) {
 		}
 	}
 	return cnt;
-}
-
-void CGL1A() {
-	Segment s;
-	cin >> s;
-	int q;
-	cin >> q;
-	while (q--) {
-		Point p;
-		cin >> p;
-		Point a = project(s, p);
-		printf("%.10f %.10f\n", a.x, a.y);
-	}
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_A
-*/
-
-void CGL1B() {
-	Segment s;
-	cin >> s;
-	int q;
-	cin >> q;
-	while (q--) {
-		Point p;
-		cin >> p;
-		Point a = reflect(s, p);
-		printf("%.10f %.10f\n", a.x, a.y);
-	}
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_B
-*/
-
-void CGL1C() {
-	Point p0, p1, p2;
-	cin >> p0 >> p1;
-	int q;
-	cin >> q;
-	while (q--) {
-		cin >> p2;
-		int a = ccw(p0, p1, p2);
-		if (a == COUNTER_CLOCKWISE) cout << "COUNTER_CLOCKWISE";
-		else if (a == CLOCKWISE) cout << "CLOCKWISE";
-		else if (a == ONLINE_BACK) cout << "ONLINE_BACK";
-		else if (a == ONLINE_FRONT) cout << "ONLINE_FRONT";
-		else cout << "ON_SEGMENT";
-		cout << endl;
-	}
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_C
-*/
-
-void CGL2A() {
-	int q;
-	cin >> q;
-	while (q--) {
-		Vector p0, p1, p2, p3;
-		cin >> p0 >> p1 >> p2 >> p3;
-		if (isParallel(p1 - p0, p3 - p2)) cout << 2;
-		else if (isOrthogonal(p1 - p0, p3 - p2)) cout << 1;
-		else cout << 0;
-		cout << endl;
-	}
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_A
-*/
-
-void CGL2B() {
-	int q;
-	cin >> q;
-	while (q--) {
-		Segment s1, s2;
-		cin >> s1 >> s2;
-		cout << (intersectSS(s1, s2) ? 1 : 0) << endl;
-	}
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_B
-*/
-
-void CGL2C() {
-	int q;
-	cin >> q;
-	while (q--) {
-		Segment s1, s2;
-		cin >> s1 >> s2;
-		Point a = getCrossPointSS(s1, s2);
-		printf("%.10f %.10f\n", a.x, a.y);
-	}
-}
-
-/*
-	created: 2020-03-27
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_C
-*/
-
-void CGL2D() {
-	int q;
-	cin >> q;
-	while (q--) {
-		Segment s1, s2;
-		cin >> s1 >> s2;
-		printf("%.10f\n", getDistanceSS(s1, s2));
-	}
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_D
-*/
-
-void CGL3A() {
-	int n;
-	cin >> n;
-	Polygon p(n);
-	for (auto &a : p) cin >> a;
-	printf("%.1f\n", area(p));
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/3/CGL_3_A
-*/
-
-void CGL3B() {
-	int n;
-	cin >> n;
-	Polygon p(n);
-	for (auto &a : p) cin >> a;
-	cout << (isConvex(p) ? 1 : 0) << endl;
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/3/CGL_3_B
-*/
-
-void CGL3C() {
-	int n;
-	cin >> n;
-	Polygon g(n);
-	for (auto &a : g) cin >> a;
-	int q;
-	cin >> q;
-	while (q--) {
-		Point p;
-		cin >> p;
-		cout << contains(g, p) << endl;
-	}
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/3/CGL_3_C
-*/
-
-void CGL4A() {
-	int n;
-	cin >> n;
-	Polygon p(n);
-	for (auto &a : p) cin >> a;
-	Polygon t = convexHull(p);
-	cout << t.size() << endl;
-	for (auto a : t) cout << a.x << " " << a.y << endl;
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_A
-*/
-
-void CGL4B() {
-	int n;
-	cin >> n;
-	Polygon p(n);
-	for (auto &a : p) cin >> a;
-	printf("%.10f\n", convexDiameter(p));
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_B
-*/
-
-void CGL4C() {
-	int n;
-	cin >> n;
-	Polygon p(n);
-	for (auto &a : p) cin >> a;
-	int q;
-	cin >> q;
-	while (q--) {
-		Line l;
-		cin >> l;
-		printf("%.10f\n", area(convexCut(p, l)));
-	}
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_C
-*/
-
-void CGL5A() {
-	int n;
-	cin >> n;
-	vector<Point> ps(n);
-	for (auto &a : ps) cin >> a;
-	printf("%.10f\n", closestPair(ps));
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/5/CGL_5_A
-*/
-
-void CGL6A() {
-	int n;
-	cin >> n;
-	vector<Segment> ss(n);
-	for (auto &a : ss) cin >> a;
-	cout << manhattanIntersection(ss) << endl;
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/6/CGL_6_A
-*/
-
-void CGL7A() {
-	Circle c1, c2;
-	cin >> c1.c >> c1.r >> c2.c >> c2.r;
-	cout << intersectCC(c1, c2) << endl;
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_A
-*/
-
-void CGL7B() {
-	Point p1, p2, p3;
-	cin >> p1 >> p2 >> p3;
-	Circle c = getInscribedCircle(p1, p2, p3);
-	printf("%.10f %.10f %.10f\n", c.c.x, c.c.y, c.r);
-}
-
-/*
-	created: 2020-07-01
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_B
-*/
-
-void CGL7C() {
-	Point p1, p2, p3;
-	cin >> p1 >> p2 >> p3;
-	Circle c = getCircumscribedCircle(p1, p2, p3);
-	printf("%.10f %.10f %.10f\n", c.c.x, c.c.y, c.r);
-}
-
-/*
-	created: 2020-07-01
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_C
-*/
-
-void CGL7D() {
-	Circle c;
-	cin >> c.c.x >> c.c.y >> c.r;
-	int q;
-	cin >> q;
-	while (q--) {
-		Line l;
-		cin >> l;
-		auto a = getCrossPointCL(c, l);
-		sort(a.begin(), a.end());
-		printf("%.10f %.10f %.10f %.10f\n", a[0].x, a[0].y, a[1].x, a[1].y);
-	}
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_D
-*/
-
-void CGL7E() {
-	Circle c1, c2;
-	cin >> c1.c >> c1.r >> c2.c >> c2.r;
-	auto a = getCrossPointCC(c1, c2);
-	sort(a.begin(), a.end());
-	printf("%.10f %.10f %.10f %.10f\n", a[0].x, a[0].y, a[1].x, a[1].y);
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_E
-*/
-
-void CGL7F() {
-	Point p;
-	cin >> p;
-	Circle c;
-	cin >> c.c >> c.r;
-	auto a = tangentCP(c, p);
-	sort(a.begin(), a.end());
-	printf("%.10f %.10f\n%.10f %.10f\n", a[0].x, a[0].y, a[1].x, a[1].y);
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_F
-*/
-
-void CGL7G() {
-	Circle c1, c2;
-	cin >> c1.c >> c1.r >> c2.c >> c2.r;
-	auto a = tangentCC(c1, c2);
-	vector<Point> ps;
-	ps.reserve(a.size());
-	for (auto e : a) ps.push_back(getCrossPointCL(c1, e)[0]);
-	sort(ps.begin(), ps.end());
-	for (auto e : ps) printf("%.10f %.10f\n", e.x, e.y);
-}
-
-/*
-	created: 2019-09-13
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_G
-*/
-
-void CGL7H() {
-	int n;
-	cin >> n;
-	Circle c;
-	c.c = Point(0, 0);
-	cin >> c.r;
-	Polygon p(n);
-	for (auto &a : p) cin >> a;
-	printf("%.10f\n", area(p, c));
-}
-
-/*
-	created: 2020-07-01
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_H
-*/
-
-void CGL7I() {
-	Circle c1, c2;
-	cin >> c1.c >> c1.r >> c2.c >> c2.r;
-	printf("%.10f\n", area(c1, c2));
-}
-
-/*
-	created: 2020-07-01
-	https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_I
-*/
-
-int main() {
-	// CGL1A();
-	// CGL1B();
-	// CGL1C();
-	// CGL2A();
-	// CGL2B();
-	// CGL2C();
-	// CGL2D();
-	// CGL3A();
-	// CGL3B();
-	// CGL3C();
-	// CGL4A();
-	// CGL4B();
-	// CGL4C();
-	// CGL5A();
-	// CGL6A();
-	// CGL7A();
-	// CGL7B();
-	// CGL7C();
-	// CGL7D();
-	// CGL7E();
-	// CGL7F();
-	// CGL7G();
-	// CGL7H();
-	// CGL7I();
-
-	return 0;
 }

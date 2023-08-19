@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -57,22 +56,3 @@ T kruskal(int V, vector<Edge<T>> &G) {
 	}
 	return cost;
 }
-
-int main() {
-	int V, E;
-	cin >> V >> E;
-	vector<Edge<int>> G;
-	for (int i = 0; i < E; ++i) {
-		int a, b, c;
-		cin >> a >> b >> c;
-		G.emplace_back(a, b, c);
-	}
-	cout << kruskal(V, G) << endl;
-
-	return 0;
-}
-
-/*
-	created: 2019-08-30
-	https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A
-*/

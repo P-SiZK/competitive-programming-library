@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -15,5 +14,3 @@ vector<long long> divisor(long long n) {
 	sort(res.begin(), res.end());
 	return res;
 }
-
-int main() { return 0; }
