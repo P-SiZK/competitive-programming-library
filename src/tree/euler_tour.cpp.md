@@ -6,18 +6,18 @@ data:
   - icon: ':x:'
     path: test/tree/euler_tour/abc294_g.test.cpp
     title: test/tree/euler_tour/abc294_g.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/grl_5_c.test.cpp
     title: test/tree/euler_tour/grl_5_c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/grl_5_d.test.cpp
     title: test/tree/euler_tour/grl_5_d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
     title: test/tree/euler_tour/vertex_add_path_sum.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/tree/euler_tour.cpp\"\n#include <optional>\n#include\
@@ -91,11 +91,11 @@ data:
   path: src/tree/euler_tour.cpp
   requiredBy: []
   timestamp: '2023-08-20 06:31:19+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/tree/euler_tour/grl_5_d.test.cpp
-  - test/tree/euler_tour/grl_5_c.test.cpp
   - test/tree/euler_tour/vertex_add_path_sum.test.cpp
+  - test/tree/euler_tour/grl_5_c.test.cpp
   - test/tree/euler_tour/abc294_g.test.cpp
 documentation_of: src/tree/euler_tour.cpp
 layout: document

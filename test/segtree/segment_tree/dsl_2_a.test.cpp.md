@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/segtree/segment_tree.cpp
     title: src/segtree/segment_tree.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_A
     links:
@@ -47,7 +47,7 @@ data:
   path: test/segtree/segment_tree/dsl_2_a.test.cpp
   requiredBy: []
   timestamp: '2023-08-20 06:31:19+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/segtree/segment_tree/dsl_2_a.test.cpp
 layout: document

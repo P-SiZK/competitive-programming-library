@@ -33,13 +33,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/bellman_ford.cpp
       title: src/graph/bellman_ford.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/dijkstra.cpp
       title: src/graph/dijkstra.cpp
     - icon: ':heavy_check_mark:'
       path: src/graph/kruskal.cpp
       title: src/graph/kruskal.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/prim.cpp
       title: src/graph/prim.cpp
   - name: src/math
@@ -50,7 +50,7 @@ data:
     - icon: ':warning:'
       path: src/math/divisor.cpp
       title: src/math/divisor.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/math/extended_gcd.cpp
       title: src/math/extended_gcd.cpp
     - icon: ':warning:'
@@ -61,15 +61,15 @@ data:
       title: src/math/mod_int.cpp
   - name: src/segtree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/segtree/lazy_segment_tree.cpp
       title: src/segtree/lazy_segment_tree.cpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: src/segtree/segment_tree.cpp
       title: src/segtree/segment_tree.cpp
   - name: src/tree
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: src/tree/euler_tour.cpp
       title: src/tree/euler_tour.cpp
   verificationCategories:
@@ -184,7 +184,7 @@ data:
       title: test/graph/bellman_ford/grl_1_b.test.cpp
   - name: test/graph/dijkstra
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/dijkstra/grl_1_a.test.cpp
       title: test/graph/dijkstra/grl_1_a.test.cpp
   - name: test/graph/kruskal
@@ -194,7 +194,7 @@ data:
       title: test/graph/kruskal/grl_2_a.test.cpp
   - name: test/graph/prim
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/prim/grl_2_a.test.cpp
       title: test/graph/prim/grl_2_a.test.cpp
   - name: test/math/combination
@@ -204,20 +204,20 @@ data:
       title: test/math/combination/abc145_d.test.cpp
   - name: test/math/extended_gcd
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/extended_gcd/ntl_1_e.test.cpp
       title: test/math/extended_gcd/ntl_1_e.test.cpp
   - name: test/segtree/lazy_segment_tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/segtree/lazy_segment_tree/dsl_2_f.test.cpp
       title: test/segtree/lazy_segment_tree/dsl_2_f.test.cpp
   - name: test/segtree/segment_tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/segtree/segment_tree/dsl_2_a.test.cpp
       title: test/segtree/segment_tree/dsl_2_a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/segtree/segment_tree/dsl_2_b.test.cpp
       title: test/segtree/segment_tree/dsl_2_b.test.cpp
   - name: test/tree/euler_tour
@@ -225,13 +225,13 @@ data:
     - icon: ':x:'
       path: test/tree/euler_tour/abc294_g.test.cpp
       title: test/tree/euler_tour/abc294_g.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/grl_5_c.test.cpp
       title: test/tree/euler_tour/grl_5_c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/grl_5_d.test.cpp
       title: test/tree/euler_tour/grl_5_d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
       title: test/tree/euler_tour/vertex_add_path_sum.test.cpp
 layout: toppage
