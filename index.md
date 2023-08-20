@@ -36,7 +36,7 @@ data:
     - icon: ':x:'
       path: src/graph/dijkstra.cpp
       title: src/graph/dijkstra.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/kruskal.cpp
       title: src/graph/kruskal.cpp
     - icon: ':x:'
@@ -189,7 +189,7 @@ data:
       title: test/graph/dijkstra/grl_1_a.test.cpp
   - name: test/graph/kruskal
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/kruskal/grl_2_a.test.cpp
       title: test/graph/kruskal/grl_2_a.test.cpp
   - name: test/graph/prim

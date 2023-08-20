@@ -57,11 +57,11 @@ data:
   timestamp: '2023-08-20 06:31:19+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/segtree/segment_tree/dsl_2_b.test.cpp
-  - test/segtree/segment_tree/dsl_2_a.test.cpp
   - test/tree/euler_tour/grl_5_d.test.cpp
   - test/tree/euler_tour/vertex_add_path_sum.test.cpp
   - test/tree/euler_tour/abc294_g.test.cpp
+  - test/segtree/segment_tree/dsl_2_a.test.cpp
+  - test/segtree/segment_tree/dsl_2_b.test.cpp
 documentation_of: src/segtree/segment_tree.cpp
 layout: document
 redirect_from:

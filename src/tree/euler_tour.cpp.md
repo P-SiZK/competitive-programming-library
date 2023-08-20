@@ -94,8 +94,8 @@ data:
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/tree/euler_tour/grl_5_d.test.cpp
-  - test/tree/euler_tour/vertex_add_path_sum.test.cpp
   - test/tree/euler_tour/grl_5_c.test.cpp
+  - test/tree/euler_tour/vertex_add_path_sum.test.cpp
   - test/tree/euler_tour/abc294_g.test.cpp
 documentation_of: src/tree/euler_tour.cpp
 layout: document
