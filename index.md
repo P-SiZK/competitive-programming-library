@@ -25,12 +25,12 @@ data:
       title: src/flow/primal_dual.cpp
   - name: src/geometry
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/geometry.cpp
       title: src/geometry/geometry.cpp
   - name: src/graph
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/bellman_ford.cpp
       title: src/graph/bellman_ford.cpp
     - icon: ':x:'
@@ -147,39 +147,39 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_5_a.test.cpp
       title: test/geometry/geometry/cgl_5_a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_6_a.test.cpp
       title: test/geometry/geometry/cgl_6_a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_a.test.cpp
       title: test/geometry/geometry/cgl_7_a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_b.test.cpp
       title: test/geometry/geometry/cgl_7_b.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_c.test.cpp
       title: test/geometry/geometry/cgl_7_c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_d.test.cpp
       title: test/geometry/geometry/cgl_7_d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_e.test.cpp
       title: test/geometry/geometry/cgl_7_e.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_f.test.cpp
       title: test/geometry/geometry/cgl_7_f.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_g.test.cpp
       title: test/geometry/geometry/cgl_7_g.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_h.test.cpp
       title: test/geometry/geometry/cgl_7_h.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_i.test.cpp
       title: test/geometry/geometry/cgl_7_i.test.cpp
   - name: test/graph/bellman_ford
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/bellman_ford/grl_1_b.test.cpp
       title: test/graph/bellman_ford/grl_1_b.test.cpp
   - name: test/graph/dijkstra

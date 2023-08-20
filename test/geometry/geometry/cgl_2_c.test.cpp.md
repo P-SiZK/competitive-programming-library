@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/geometry/geometry.cpp
     title: src/geometry/geometry.cpp
   _extendedRequiredBy: []
