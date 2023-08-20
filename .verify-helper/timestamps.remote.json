@@ -29,5 +29,6 @@
 "test/geometry/geometry/cgl_7_g.test.cpp": "2023-08-20 06:31:19 +0900",
 "test/geometry/geometry/cgl_7_h.test.cpp": "2023-08-20 06:31:19 +0900",
 "test/geometry/geometry/cgl_7_i.test.cpp": "2023-08-20 06:31:19 +0900",
-"test/graph/bellman_ford/grl_1_b.test.cpp": "2023-08-20 06:31:19 +0900"
+"test/graph/bellman_ford/grl_1_b.test.cpp": "2023-08-20 06:31:19 +0900",
+"test/graph/kruskal/grl_2_a.test.cpp": "2023-08-20 06:31:19 +0900"
 }
