@@ -43,16 +43,16 @@ data:
     \ find(i, i + 1); }\n};\n#line 4 \"test/segtree/lazy_segment_tree/dsl_2_f.test.cpp\"\
     \n\n#include <iostream>\n#include <limits>\n\nusing namespace std;\n\nint main()\
     \ {\n\tint n, q;\n\tcin >> n >> q;\n\tauto f = [](int a, int b) { return min(a,\
-    \ b); };\n\tauto g = [](int a, int b) { return b; };\n\tLazySegmentTree seg(f,\
-    \ g, g, numeric_limits<int>::max(), -1);\n\tseg.init(n);\n\twhile (q--) {\n\t\t\
-    int com, s, t, x;\n\t\tcin >> com >> s >> t;\n\t\tif (com) cout << seg.find(s,\
+    \ b); };\n\tauto g = [](int /* a */, int b) { return b; };\n\tLazySegmentTree\
+    \ seg(f, g, g, numeric_limits<int>::max(), -1);\n\tseg.init(n);\n\twhile (q--)\
+    \ {\n\t\tint com, s, t, x;\n\t\tcin >> com >> s >> t;\n\t\tif (com) cout << seg.find(s,\
     \ t + 1) << endl;\n\t\telse cin >> x, seg.update(s, t + 1, x);\n\t}\n\n\treturn\
     \ 0;\n}\n"
   code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_F\n\
     \n#include \"src/segtree/lazy_segment_tree.cpp\"\n\n#include <iostream>\n#include\
     \ <limits>\n\nusing namespace std;\n\nint main() {\n\tint n, q;\n\tcin >> n >>\
-    \ q;\n\tauto f = [](int a, int b) { return min(a, b); };\n\tauto g = [](int a,\
-    \ int b) { return b; };\n\tLazySegmentTree seg(f, g, g, numeric_limits<int>::max(),\
+    \ q;\n\tauto f = [](int a, int b) { return min(a, b); };\n\tauto g = [](int /*\
+    \ a */, int b) { return b; };\n\tLazySegmentTree seg(f, g, g, numeric_limits<int>::max(),\
     \ -1);\n\tseg.init(n);\n\twhile (q--) {\n\t\tint com, s, t, x;\n\t\tcin >> com\
     \ >> s >> t;\n\t\tif (com) cout << seg.find(s, t + 1) << endl;\n\t\telse cin >>\
     \ x, seg.update(s, t + 1, x);\n\t}\n\n\treturn 0;\n}\n"
@@ -61,7 +61,7 @@ data:
   isVerificationFile: true
   path: test/segtree/lazy_segment_tree/dsl_2_f.test.cpp
   requiredBy: []
-  timestamp: '2023-08-20 06:31:19+09:00'
+  timestamp: '2023-08-20 13:03:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/segtree/lazy_segment_tree/dsl_2_f.test.cpp

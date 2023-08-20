@@ -14,7 +14,7 @@ data:
   bundledCode: "#line 1 \"src/flow/ford_fulkerson.cpp\"\n#include <limits>\n#include\
     \ <vector>\n\nusing namespace std;\n\ntemplate<class T>\nstruct FordFulkerson\
     \ {\n\tstruct Edge {\n\t\tint to, rev;\n\t\tT cap;\n\n\t\tEdge(int to, T cap,\
-    \ int rev) : to(to), cap(cap), rev(rev) {}\n\t};\n\n\tconst T INF = numeric_limits<T>::max();\n\
+    \ int rev) : to(to), rev(rev), cap(cap) {}\n\t};\n\n\tconst T INF = numeric_limits<T>::max();\n\
     \n\tvector<vector<Edge>> G;\n\tvector<int> used;\n\n\tFordFulkerson(int n) : G(n),\
     \ used(n) {}\n\n\tvoid add_edge(int from, int to, T cap, bool directed = true)\
     \ {\n\t\tG[from].emplace_back(to, cap, G[to].size());\n\t\tG[to].emplace_back(from,\
@@ -28,7 +28,7 @@ data:
     \tflow += f;\n\t\t}\n\t\treturn flow;\n\t}\n};\n"
   code: "#include <limits>\n#include <vector>\n\nusing namespace std;\n\ntemplate<class\
     \ T>\nstruct FordFulkerson {\n\tstruct Edge {\n\t\tint to, rev;\n\t\tT cap;\n\n\
-    \t\tEdge(int to, T cap, int rev) : to(to), cap(cap), rev(rev) {}\n\t};\n\n\tconst\
+    \t\tEdge(int to, T cap, int rev) : to(to), rev(rev), cap(cap) {}\n\t};\n\n\tconst\
     \ T INF = numeric_limits<T>::max();\n\n\tvector<vector<Edge>> G;\n\tvector<int>\
     \ used;\n\n\tFordFulkerson(int n) : G(n), used(n) {}\n\n\tvoid add_edge(int from,\
     \ int to, T cap, bool directed = true) {\n\t\tG[from].emplace_back(to, cap, G[to].size());\n\
@@ -45,7 +45,7 @@ data:
   isVerificationFile: false
   path: src/flow/ford_fulkerson.cpp
   requiredBy: []
-  timestamp: '2023-08-20 06:31:19+09:00'
+  timestamp: '2023-08-20 13:03:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/flow/ford_fulkerson/grl_6_a.test.cpp
