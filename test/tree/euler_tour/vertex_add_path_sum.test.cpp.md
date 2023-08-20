@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/segtree/segment_tree.cpp
     title: src/segtree/segment_tree.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/tree/euler_tour.cpp
     title: src/tree/euler_tour.cpp
   _extendedRequiredBy: []

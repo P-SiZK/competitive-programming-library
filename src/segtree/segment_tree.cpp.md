@@ -9,7 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/segtree/segment_tree/dsl_2_b.test.cpp
     title: test/segtree/segment_tree/dsl_2_b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/abc294_g.test.cpp
     title: test/tree/euler_tour/abc294_g.test.cpp
   - icon: ':heavy_check_mark:'
@@ -18,9 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
     title: test/tree/euler_tour/vertex_add_path_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/segtree/segment_tree.cpp\"\n#include <vector>\n\nusing\
@@ -55,7 +55,7 @@ data:
   path: src/segtree/segment_tree.cpp
   requiredBy: []
   timestamp: '2023-08-20 06:31:19+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/segtree/segment_tree/dsl_2_b.test.cpp
   - test/segtree/segment_tree/dsl_2_a.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/tree/euler_tour.cpp
     title: src/tree/euler_tour.cpp
   _extendedRequiredBy: []

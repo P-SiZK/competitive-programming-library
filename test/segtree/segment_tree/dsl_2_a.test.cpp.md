@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/segtree/segment_tree.cpp
     title: src/segtree/segment_tree.cpp
   _extendedRequiredBy: []
