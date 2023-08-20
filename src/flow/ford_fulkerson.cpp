@@ -9,7 +9,7 @@ struct FordFulkerson {
 		int to, rev;
 		T cap;
 
-		Edge(int to, T cap, int rev) : to(to), cap(cap), rev(rev) {}
+		Edge(int to, T cap, int rev) : to(to), rev(rev), cap(cap) {}
 	};
 
 	const T INF = numeric_limits<T>::max();

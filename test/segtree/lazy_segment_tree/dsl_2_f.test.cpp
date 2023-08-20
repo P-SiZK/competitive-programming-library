@@ -11,7 +11,7 @@ int main() {
 	int n, q;
 	cin >> n >> q;
 	auto f = [](int a, int b) { return min(a, b); };
-	auto g = [](int a, int b) { return b; };
+	auto g = [](int /* a */, int b) { return b; };
 	LazySegmentTree seg(f, g, g, numeric_limits<int>::max(), -1);
 	seg.init(n);
 	while (q--) {

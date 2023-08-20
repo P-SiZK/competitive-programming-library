@@ -12,7 +12,7 @@ struct PrimalDual {
 		E cost;
 
 		Edge(int to, T cap, E cost, int rev) :
-			to(to), cap(cap), cost(cost), rev(rev) {}
+			to(to), rev(rev), cap(cap), cost(cost) {}
 	};
 
 	const E INF = numeric_limits<E>::max();
@@ -39,7 +39,7 @@ struct PrimalDual {
 				pair<E, int> p = pq.top();
 				pq.pop();
 				if (dist[p.second] < p.first) continue;
-				for (int i = 0; i < G[p.second].size(); ++i) {
+				for (int i = 0; i < (int)G[p.second].size(); ++i) {
 					Edge &e = G[p.second][i];
 					E ncost = dist[p.second] + e.cost + h[p.second] - h[e.to];
 					if (e.cap > 0 && dist[e.to] > ncost) {
@@ -51,7 +51,7 @@ struct PrimalDual {
 				}
 			}
 			if (dist[t] == INF) return -1;
-			for (int v = 0; v < h.size(); ++v)
+			for (int v = 0; v < (int)h.size(); ++v)
 				if (dist[v] < INF) h[v] += dist[v];
 			T d = f;
 			for (int v = t; v != s; v = prevv[v])

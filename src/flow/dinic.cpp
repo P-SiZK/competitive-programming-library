@@ -10,7 +10,7 @@ struct Dinic {
 		int to, rev;
 		T cap;
 
-		Edge(int to, int cap, int rev) : to(to), cap(cap), rev(rev) {}
+		Edge(int to, int cap, int rev) : to(to), rev(rev), cap(cap) {}
 	};
 
 	const T INF = numeric_limits<T>::max();
@@ -44,7 +44,7 @@ struct Dinic {
 
 	T dfs(int v, int t, T f) {
 		if (v == t) return f;
-		for (int &i = iter[v]; i < G[v].size(); ++i) {
+		for (int &i = iter[v]; i < (int)G[v].size(); ++i) {
 			Edge &e = G[v][i];
 			if (e.cap > 0 && level[v] < level[e.to]) {
 				T d = dfs(e.to, t, min(f, e.cap));
