@@ -3,24 +3,24 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/segtree/segment_tree/dsl_2_a.test.cpp
     title: test/segtree/segment_tree/dsl_2_a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/segtree/segment_tree/dsl_2_b.test.cpp
     title: test/segtree/segment_tree/dsl_2_b.test.cpp
   - icon: ':x:'
     path: test/tree/euler_tour/abc294_g.test.cpp
     title: test/tree/euler_tour/abc294_g.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/grl_5_d.test.cpp
     title: test/tree/euler_tour/grl_5_d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
     title: test/tree/euler_tour/vertex_add_path_sum.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/segtree/segment_tree.hpp\"\n#include <vector>\n\nusing\
@@ -55,7 +55,7 @@ data:
   path: src/segtree/segment_tree.hpp
   requiredBy: []
   timestamp: '2023-08-22 14:56:56+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/tree/euler_tour/grl_5_d.test.cpp
   - test/tree/euler_tour/vertex_add_path_sum.test.cpp

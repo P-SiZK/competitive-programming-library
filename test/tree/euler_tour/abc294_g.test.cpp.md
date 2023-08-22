@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/segtree/segment_tree.hpp
     title: src/segtree/segment_tree.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/tree/euler_tour.hpp
     title: src/tree/euler_tour.hpp
   _extendedRequiredBy: []

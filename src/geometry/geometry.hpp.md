@@ -39,45 +39,45 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry/cgl_4_b.test.cpp
     title: test/geometry/geometry/cgl_4_b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/geometry/cgl_4_c.test.cpp
     title: test/geometry/geometry/cgl_4_c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/geometry/cgl_5_a.test.cpp
     title: test/geometry/geometry/cgl_5_a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/geometry/cgl_6_a.test.cpp
     title: test/geometry/geometry/cgl_6_a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/geometry/cgl_7_a.test.cpp
     title: test/geometry/geometry/cgl_7_a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/geometry/cgl_7_b.test.cpp
     title: test/geometry/geometry/cgl_7_b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/geometry/cgl_7_c.test.cpp
     title: test/geometry/geometry/cgl_7_c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/geometry/cgl_7_d.test.cpp
     title: test/geometry/geometry/cgl_7_d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/geometry/cgl_7_e.test.cpp
     title: test/geometry/geometry/cgl_7_e.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/geometry/cgl_7_f.test.cpp
     title: test/geometry/geometry/cgl_7_f.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/geometry/cgl_7_g.test.cpp
     title: test/geometry/geometry/cgl_7_g.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/geometry/cgl_7_h.test.cpp
     title: test/geometry/geometry/cgl_7_h.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/geometry/cgl_7_i.test.cpp
     title: test/geometry/geometry/cgl_7_i.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/geometry/geometry.hpp\"\n#include <algorithm>\n#include\
@@ -409,7 +409,7 @@ data:
   path: src/geometry/geometry.hpp
   requiredBy: []
   timestamp: '2023-08-22 14:56:56+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/geometry/geometry/cgl_2_c.test.cpp
   - test/geometry/geometry/cgl_7_a.test.cpp

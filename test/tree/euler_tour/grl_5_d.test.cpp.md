@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/segtree/segment_tree.hpp
     title: src/segtree/segment_tree.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/tree/euler_tour.hpp
     title: src/tree/euler_tour.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_D
     links:
@@ -97,7 +97,7 @@ data:
   path: test/tree/euler_tour/grl_5_d.test.cpp
   requiredBy: []
   timestamp: '2023-08-22 14:56:56+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/tree/euler_tour/grl_5_d.test.cpp
 layout: document

@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/extended_gcd/ntl_1_e.test.cpp
     title: test/math/extended_gcd/ntl_1_e.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/math/extended_gcd.hpp\"\ntemplate<class T>\nT extended_gcd(T\
@@ -27,7 +27,7 @@ data:
   path: src/math/extended_gcd.hpp
   requiredBy: []
   timestamp: '2023-08-22 14:56:56+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/extended_gcd/ntl_1_e.test.cpp
 documentation_of: src/math/extended_gcd.hpp
