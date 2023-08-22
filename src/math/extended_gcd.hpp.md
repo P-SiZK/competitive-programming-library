@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/extended_gcd/ntl_1_e.test.cpp
     title: test/math/extended_gcd/ntl_1_e.test.cpp
-  _isVerificationFailed: false
-  _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _isVerificationFailed: true
+  _pathExtension: hpp
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/math/extended_gcd.cpp\"\ntemplate<class T>\nT extended_gcd(T\
+  bundledCode: "#line 1 \"src/math/extended_gcd.hpp\"\ntemplate<class T>\nT extended_gcd(T\
     \ a, T b, T &x, T &y) { // ax+by=gcd(a,b)\n\tif (b == 0) {\n\t\tx = 1;\n\t\ty\
     \ = 0;\n\t\treturn a;\n\t}\n\tT d = extended_gcd(b, a % b, y, x);\n\ty -= a /\
     \ b * x;\n\treturn d;\n}\n\ntemplate<class T>\nT modinv(T a, T mod) { // a,mod\u306F\
@@ -24,16 +24,16 @@ data:
     \ mod, x, y);\n\treturn (x % mod + mod) % mod;\n}\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/math/extended_gcd.cpp
+  path: src/math/extended_gcd.hpp
   requiredBy: []
-  timestamp: '2023-08-20 06:31:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-08-22 14:56:56+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/extended_gcd/ntl_1_e.test.cpp
-documentation_of: src/math/extended_gcd.cpp
+documentation_of: src/math/extended_gcd.hpp
 layout: document
 redirect_from:
-- /library/src/math/extended_gcd.cpp
-- /library/src/math/extended_gcd.cpp.html
-title: src/math/extended_gcd.cpp
+- /library/src/math/extended_gcd.hpp
+- /library/src/math/extended_gcd.hpp.html
+title: src/math/extended_gcd.hpp
 ---

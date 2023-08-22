@@ -3,41 +3,41 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/tree/euler_tour/abc294_g.test.cpp
     title: test/tree/euler_tour/abc294_g.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/tree/euler_tour/grl_5_c.test.cpp
     title: test/tree/euler_tour/grl_5_c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/tree/euler_tour/grl_5_d.test.cpp
     title: test/tree/euler_tour/grl_5_d.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
     title: test/tree/euler_tour/vertex_add_path_sum.test.cpp
-  _isVerificationFailed: false
-  _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _isVerificationFailed: true
+  _pathExtension: hpp
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/tree/euler_tour.cpp\"\n#include <optional>\n#include\
+  bundledCode: "#line 1 \"src/tree/euler_tour.hpp\"\n#include <optional>\n#include\
     \ <vector>\n\nusing namespace std;\n\nclass SparseTable {\nprivate:\n\tvector<vector<pair<int,\
-    \ int>>> table;\n\tvector<int> log_table;\n\npublic:\n\tSparseTable(const vector<pair<int,\
-    \ int>> &v) {\n\t\tint n = v.size(), h = 1;\n\t\twhile ((1 << h) <= n) ++h;\n\t\
-    \ttable.assign(h, vector<pair<int, int>>(n));\n\t\tlog_table.assign(n + 1, 0);\n\
-    \t\tfor (int i = 2; i <= n; ++i) log_table[i] = log_table[i >> 1] + 1;\n\n\t\t\
-    for (int i = 0; i < n; ++i) table[0][i] = v[i];\n\t\tfor (int i = 1, k = 1; i\
-    \ < h; ++i, k <<= 1)\n\t\t\tfor (int j = 0; j < n; ++j)\n\t\t\t\ttable[i][j] =\n\
-    \t\t\t\t\tmin(table[i - 1][j], table[i - 1][min(j + k, n - 1)]);\n\t}\n\n\tpair<int,\
-    \ int> query(int l, int r) { // [l, r)\n\t\tint k = log_table[r - l];\n\t\treturn\
-    \ min(table[k][l], table[k][r - (1 << k)]);\n\t}\n};\n\nclass EulerTour {\nprivate:\n\
-    \tvector<int> down, up, depth, terminal;\n\toptional<SparseTable> st;\n\n\tvoid\
-    \ dfs(int v, int p, int d) {\n\t\tdepth[terminal.size()] = d;\n\t\tdown[v] = terminal.size();\n\
-    \t\tterminal.emplace_back(v);\n\t\tfor (int u : G[v]) {\n\t\t\tif (u == p) continue;\n\
-    \t\t\tdfs(u, v, d + 1);\n\t\t}\n\t\tdepth[terminal.size()] = d - 1;\n\t\tup[v]\
-    \ = terminal.size();\n\t\tterminal.emplace_back(p);\n\t}\n\npublic:\n\tvector<vector<int>>\
-    \ G;\n\n\tEulerTour(int n) : down(n), up(n), depth(n << 1), G(n) {}\n\n\tvoid\
-    \ add_edge(int u, int v) {\n\t\tG[u].emplace_back(v);\n\t\tG[v].emplace_back(u);\n\
+    \ int>>> table;\n\tvector<int> log_table;\n\npublic:\n\tSparseTable(vector<pair<int,\
+    \ int>> const &v) {\n\t\tint const N = v.size();\n\t\tint h = 1;\n\t\twhile ((1\
+    \ << h) <= N) ++h;\n\t\ttable.assign(h, vector<pair<int, int>>(N));\n\t\tlog_table.assign(N\
+    \ + 1, 0);\n\t\tfor (int i = 2; i <= N; ++i) log_table[i] = log_table[i >> 1]\
+    \ + 1;\n\n\t\tfor (int i = 0; i < N; ++i) table[0][i] = v[i];\n\t\tfor (int i\
+    \ = 1, k = 1; i < h; ++i, k <<= 1)\n\t\t\tfor (int j = 0; j < N; ++j)\n\t\t\t\t\
+    table[i][j] =\n\t\t\t\t\tmin(table[i - 1][j], table[i - 1][min(j + k, N - 1)]);\n\
+    \t}\n\n\tpair<int, int> query(int l, int r) { // [l, r)\n\t\tint k = log_table[r\
+    \ - l];\n\t\treturn min(table[k][l], table[k][r - (1 << k)]);\n\t}\n};\n\nclass\
+    \ EulerTour {\nprivate:\n\tvector<int> down, up, depth, terminal;\n\toptional<SparseTable>\
+    \ st;\n\tvector<vector<int>> G;\n\n\tvoid dfs(int v, int p, int d) {\n\t\tdepth[terminal.size()]\
+    \ = d;\n\t\tdown[v] = terminal.size();\n\t\tterminal.emplace_back(v);\n\t\tfor\
+    \ (int u : G[v]) {\n\t\t\tif (u == p) continue;\n\t\t\tdfs(u, v, d + 1);\n\t\t\
+    }\n\t\tdepth[terminal.size()] = d - 1;\n\t\tup[v] = terminal.size();\n\t\tterminal.emplace_back(p);\n\
+    \t}\n\npublic:\n\tEulerTour(int n) : down(n), up(n), depth(n << 1), G(n) {}\n\n\
+    \tvoid add_edge(int u, int v) {\n\t\tG[u].emplace_back(v);\n\t\tG[v].emplace_back(u);\n\
     \t}\n\n\tvoid build(int root = 0) {\n\t\tterminal.clear();\n\t\tdfs(root, -1,\
     \ 0);\n\t\tvector<pair<int, int>> dep(terminal.size());\n\t\tfor (int i = 0; i\
     \ < (int)terminal.size(); ++i)\n\t\t\tdep[i] = {depth[i], terminal[i]};\n\t\t\
@@ -55,21 +55,21 @@ data:
     \ int v, T x, F f) {\n\t\tupdate_vertex(child(u, v), x, f);\n\t}\n};\n"
   code: "#include <optional>\n#include <vector>\n\nusing namespace std;\n\nclass SparseTable\
     \ {\nprivate:\n\tvector<vector<pair<int, int>>> table;\n\tvector<int> log_table;\n\
-    \npublic:\n\tSparseTable(const vector<pair<int, int>> &v) {\n\t\tint n = v.size(),\
-    \ h = 1;\n\t\twhile ((1 << h) <= n) ++h;\n\t\ttable.assign(h, vector<pair<int,\
-    \ int>>(n));\n\t\tlog_table.assign(n + 1, 0);\n\t\tfor (int i = 2; i <= n; ++i)\
-    \ log_table[i] = log_table[i >> 1] + 1;\n\n\t\tfor (int i = 0; i < n; ++i) table[0][i]\
-    \ = v[i];\n\t\tfor (int i = 1, k = 1; i < h; ++i, k <<= 1)\n\t\t\tfor (int j =\
-    \ 0; j < n; ++j)\n\t\t\t\ttable[i][j] =\n\t\t\t\t\tmin(table[i - 1][j], table[i\
-    \ - 1][min(j + k, n - 1)]);\n\t}\n\n\tpair<int, int> query(int l, int r) { //\
-    \ [l, r)\n\t\tint k = log_table[r - l];\n\t\treturn min(table[k][l], table[k][r\
-    \ - (1 << k)]);\n\t}\n};\n\nclass EulerTour {\nprivate:\n\tvector<int> down, up,\
-    \ depth, terminal;\n\toptional<SparseTable> st;\n\n\tvoid dfs(int v, int p, int\
-    \ d) {\n\t\tdepth[terminal.size()] = d;\n\t\tdown[v] = terminal.size();\n\t\t\
-    terminal.emplace_back(v);\n\t\tfor (int u : G[v]) {\n\t\t\tif (u == p) continue;\n\
-    \t\t\tdfs(u, v, d + 1);\n\t\t}\n\t\tdepth[terminal.size()] = d - 1;\n\t\tup[v]\
-    \ = terminal.size();\n\t\tterminal.emplace_back(p);\n\t}\n\npublic:\n\tvector<vector<int>>\
-    \ G;\n\n\tEulerTour(int n) : down(n), up(n), depth(n << 1), G(n) {}\n\n\tvoid\
+    \npublic:\n\tSparseTable(vector<pair<int, int>> const &v) {\n\t\tint const N =\
+    \ v.size();\n\t\tint h = 1;\n\t\twhile ((1 << h) <= N) ++h;\n\t\ttable.assign(h,\
+    \ vector<pair<int, int>>(N));\n\t\tlog_table.assign(N + 1, 0);\n\t\tfor (int i\
+    \ = 2; i <= N; ++i) log_table[i] = log_table[i >> 1] + 1;\n\n\t\tfor (int i =\
+    \ 0; i < N; ++i) table[0][i] = v[i];\n\t\tfor (int i = 1, k = 1; i < h; ++i, k\
+    \ <<= 1)\n\t\t\tfor (int j = 0; j < N; ++j)\n\t\t\t\ttable[i][j] =\n\t\t\t\t\t\
+    min(table[i - 1][j], table[i - 1][min(j + k, N - 1)]);\n\t}\n\n\tpair<int, int>\
+    \ query(int l, int r) { // [l, r)\n\t\tint k = log_table[r - l];\n\t\treturn min(table[k][l],\
+    \ table[k][r - (1 << k)]);\n\t}\n};\n\nclass EulerTour {\nprivate:\n\tvector<int>\
+    \ down, up, depth, terminal;\n\toptional<SparseTable> st;\n\tvector<vector<int>>\
+    \ G;\n\n\tvoid dfs(int v, int p, int d) {\n\t\tdepth[terminal.size()] = d;\n\t\
+    \tdown[v] = terminal.size();\n\t\tterminal.emplace_back(v);\n\t\tfor (int u :\
+    \ G[v]) {\n\t\t\tif (u == p) continue;\n\t\t\tdfs(u, v, d + 1);\n\t\t}\n\t\tdepth[terminal.size()]\
+    \ = d - 1;\n\t\tup[v] = terminal.size();\n\t\tterminal.emplace_back(p);\n\t}\n\
+    \npublic:\n\tEulerTour(int n) : down(n), up(n), depth(n << 1), G(n) {}\n\n\tvoid\
     \ add_edge(int u, int v) {\n\t\tG[u].emplace_back(v);\n\t\tG[v].emplace_back(u);\n\
     \t}\n\n\tvoid build(int root = 0) {\n\t\tterminal.clear();\n\t\tdfs(root, -1,\
     \ 0);\n\t\tvector<pair<int, int>> dep(terminal.size());\n\t\tfor (int i = 0; i\
@@ -88,19 +88,19 @@ data:
     \ int v, T x, F f) {\n\t\tupdate_vertex(child(u, v), x, f);\n\t}\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/tree/euler_tour.cpp
+  path: src/tree/euler_tour.hpp
   requiredBy: []
-  timestamp: '2023-08-20 06:31:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-08-22 14:56:56+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/tree/euler_tour/grl_5_d.test.cpp
-  - test/tree/euler_tour/vertex_add_path_sum.test.cpp
   - test/tree/euler_tour/grl_5_c.test.cpp
+  - test/tree/euler_tour/vertex_add_path_sum.test.cpp
   - test/tree/euler_tour/abc294_g.test.cpp
-documentation_of: src/tree/euler_tour.cpp
+documentation_of: src/tree/euler_tour.hpp
 layout: document
 redirect_from:
-- /library/src/tree/euler_tour.cpp
-- /library/src/tree/euler_tour.cpp.html
-title: src/tree/euler_tour.cpp
+- /library/src/tree/euler_tour.hpp
+- /library/src/tree/euler_tour.hpp.html
+title: src/tree/euler_tour.hpp
 ---
