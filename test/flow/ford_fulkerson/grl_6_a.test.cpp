@@ -1,19 +1,19 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A
 
-#include "src/flow/ford_fulkerson.cpp"
+#include "src/flow/ford_fulkerson.hpp"
 
 #include <iostream>
 
 int main() {
-	int V, E;
-	cin >> V >> E;
-	FordFulkerson<int> G(V);
-	for (int i = 0; i < E; ++i) {
+	int v_sz, e_sz;
+	cin >> v_sz >> e_sz;
+	FordFulkerson<int> g(v_sz);
+	for (int i = 0; i < e_sz; ++i) {
 		int u, v, c;
 		cin >> u >> v >> c;
-		G.add_edge(u, v, c);
+		g.add_edge(u, v, c);
 	}
-	cout << G.max_flow(0, V - 1) << endl;
+	cout << g.max_flow(0, v_sz - 1) << endl;
 
 	return 0;
 }

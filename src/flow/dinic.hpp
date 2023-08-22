@@ -5,7 +5,8 @@
 using namespace std;
 
 template<class T>
-struct Dinic {
+class Dinic {
+private:
 	struct Edge {
 		int to, rev;
 		T cap;
@@ -13,16 +14,17 @@ struct Dinic {
 		Edge(int to, int cap, int rev) : to(to), rev(rev), cap(cap) {}
 	};
 
-	const T INF = numeric_limits<T>::max();
+	static constexpr T INF = numeric_limits<T>::max();
 
-	vector<vector<Edge>> G;
+	vector<vector<Edge>> g;
 	vector<int> level, iter;
 
-	Dinic(int n) : G(n), level(n), iter(n) {}
+public:
+	Dinic(int n) : g(n), level(n), iter(n) {}
 
 	void add_edge(int from, int to, T cap, bool directed = true) {
-		G[from].emplace_back(to, cap, G[to].size());
-		G[to].emplace_back(from, (directed ? 0 : cap), G[from].size() - 1);
+		g[from].emplace_back(to, cap, g[to].size());
+		g[to].emplace_back(from, (directed ? 0 : cap), g[from].size() - 1);
 	}
 
 	void bfs(int s) {
@@ -31,11 +33,11 @@ struct Dinic {
 		level[s] = 0;
 		q.push(s);
 		while (!q.empty()) {
-			int v = q.front();
+			int const V = q.front();
 			q.pop();
-			for (auto &e : G[v]) {
+			for (auto &e : g[V]) {
 				if (e.cap > 0 && level[e.to] == -1) {
-					level[e.to] = level[v] + 1;
+					level[e.to] = level[V] + 1;
 					q.push(e.to);
 				}
 			}
@@ -44,13 +46,13 @@ struct Dinic {
 
 	T dfs(int v, int t, T f) {
 		if (v == t) return f;
-		for (int &i = iter[v]; i < (int)G[v].size(); ++i) {
-			Edge &e = G[v][i];
+		for (int &i = iter[v]; i < (int)g[v].size(); ++i) {
+			Edge &e = g[v][i];
 			if (e.cap > 0 && level[v] < level[e.to]) {
 				T d = dfs(e.to, t, min(f, e.cap));
 				if (d > 0) {
 					e.cap -= d;
-					G[e.to][e.rev].cap += d;
+					g[e.to][e.rev].cap += d;
 					return d;
 				}
 			}

@@ -1,6 +1,6 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_A
 
-#include "src/segtree/segment_tree.cpp"
+#include "src/segtree/segment_tree.hpp"
 
 #include <iostream>
 #include <limits>

@@ -1,6 +1,6 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/5/ALDS1_5_D
 
-#include "src/datastructure/binary_indexed_tree.cpp"
+#include "src/datastructure/binary_indexed_tree.hpp"
 
 #include <algorithm>
 #include <iostream>

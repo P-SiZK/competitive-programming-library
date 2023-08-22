@@ -10,8 +10,9 @@ private:
 	F f;
 
 public:
-	SparseTable(const vector<T> &v, F f) : f(f) {
-		int n = v.size(), h = 1;
+	SparseTable(vector<T> const &v, F f) : f(f) {
+		int n = v.size();
+		int h = 1;
 		while ((1 << h) <= n) ++h;
 		table.assign(h, vector<T>(n));
 		log_table.assign(n + 1, 0);

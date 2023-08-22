@@ -1,6 +1,6 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/4/CGL_4_A
 
-#include "src/geometry/geometry.cpp"
+#include "src/geometry/geometry.hpp"
 
 #include <iostream>
 
@@ -9,7 +9,7 @@ int main() {
 	cin >> n;
 	Polygon p(n);
 	for (auto &a : p) cin >> a;
-	Polygon t = convexHull(p);
+	Polygon t = convex_hull(p);
 	cout << t.size() << endl;
 	for (auto a : t) cout << a.x << " " << a.y << endl;
 

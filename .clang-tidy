@@ -1,0 +1,46 @@
+---
+Checks: -*,
+        bugprone-*, -bugprone-easily-swappable-parameters, -bugprone-narrowing-conversions, -bugprone-unchecked-optional-access
+        cert-*,
+        clang-analyzer-*,
+        cppcoreguidelines-*, -cppcoreguidelines-avoid-c-arrays, -cppcoreguidelines-avoid-magic-numbers, -cppcoreguidelines-init-variables, -cppcoreguidelines-narrowing-conversions, -cppcoreguidelines-pro-bounds-constant-array-index
+        misc-*, -misc-const-correctness, -misc-non-private-member-variables-in-classes, -misc-no-recursion
+        modernize-*, -modernize-avoid-c-arrays, -modernize-use-trailing-return-type
+        performance-*,
+        readability-*, -readability-braces-around-statements, -readability-identifier-length, -readability-implicit-bool-conversion, -readability-isolate-declaration, -readability-magic-numbers
+WarningsAsErrors: ''
+HeaderFilterRegex: 'src/.*'
+AnalyzeTemporaryDtors: false
+FormatStyle:     file
+CheckOptions:
+  - key:             readability-identifier-naming.ClassCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.ConstantCase
+    value:           UPPER_CASE
+  - key:             readability-identifier-naming.ConstantParameterCase
+    value:           lower_case
+  - key:             readability-identifier-naming.EnumCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.FunctionCase
+    value:           lower_case
+  - key:             readability-identifier-naming.MacroDefinitionCase
+    value:           UPPER_CASE
+  - key:             readability-identifier-naming.NamespaceCase
+    value:           lower_case
+  - key:             readability-identifier-naming.ParameterCase
+    value:           lower_case
+  - key:             readability-identifier-naming.StructCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.TemplateParameterCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.TypeAliasCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.TypedefCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.UnionCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.ValueTemplateParameterCase
+    value:           UPPER_CASE
+  - key:             readability-identifier-naming.VariableCase
+    value:           lower_case
+...

@@ -3,43 +3,46 @@
 using namespace std;
 
 template<class T, T MOD = 1000000007>
-struct ModInt {
+class ModInt {
+private:
 	T x;
 
+public:
 	ModInt() : x(0) {}
 
-	ModInt(long long y) {
-		x = y % MOD;
+	ModInt(long long y) : x(y % MOD) {
 		if (x < 0) x += MOD;
 	}
 
-	ModInt &operator+=(const ModInt &a) {
-		if ((x += a.x) >= MOD) x -= MOD;
+	ModInt &operator+=(ModInt const &a) {
+		x += a.x;
+		if (x >= MOD) x -= MOD;
 		return *this;
 	}
 
-	ModInt &operator-=(const ModInt &a) {
-		if ((x += MOD - a.x) >= MOD) x -= MOD;
+	ModInt &operator-=(ModInt const &a) {
+		x += MOD - a.x;
+		if (x >= MOD) x -= MOD;
 		return *this;
 	}
 
-	ModInt &operator*=(const ModInt &a) {
+	ModInt &operator*=(ModInt const &a) {
 		x = 1LL * x * a.x % MOD;
 		return *this;
 	}
 
-	ModInt &operator/=(const ModInt &a) {
+	ModInt &operator/=(ModInt const &a) {
 		*this *= a.inv();
 		return *this;
 	}
 
-	ModInt operator+(const ModInt &a) const { return ModInt(x) += a; }
+	ModInt operator+(ModInt const &a) const { return ModInt(x) += a; }
 
-	ModInt operator-(const ModInt &a) const { return ModInt(x) -= a; }
+	ModInt operator-(ModInt const &a) const { return ModInt(x) -= a; }
 
-	ModInt operator*(const ModInt &a) const { return ModInt(x) *= a; }
+	ModInt operator*(ModInt const &a) const { return ModInt(x) *= a; }
 
-	ModInt operator/(const ModInt &a) const { return ModInt(x) /= a; }
+	ModInt operator/(ModInt const &a) const { return ModInt(x) /= a; }
 
 	ModInt operator-() const { return ModInt(-x); }
 
@@ -49,7 +52,7 @@ struct ModInt {
 
 	bool operator<(const ModInt a) const { return x < a.x; }
 
-	friend ostream &operator<<(ostream &os, const ModInt &a) {
+	friend ostream &operator<<(ostream &os, ModInt const &a) {
 		return os << a.x;
 	}
 

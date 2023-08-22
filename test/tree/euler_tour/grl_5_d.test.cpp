@@ -1,7 +1,7 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_D
 
-#include "src/segtree/segment_tree.cpp"
-#include "src/tree/euler_tour.cpp"
+#include "src/segtree/segment_tree.hpp"
+#include "src/tree/euler_tour.hpp"
 
 #include <iostream>
 #include <vector>

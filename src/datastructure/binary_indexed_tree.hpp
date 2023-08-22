@@ -1,13 +1,14 @@
-#include <iostream>
 #include <vector>
 
 using namespace std;
 
 template<class T>
-struct BinaryIndexedTree {
+class BinaryIndexedTree {
+private:
 	int n;
 	vector<T> tree; // 1-indexed
 
+public:
 	BinaryIndexedTree(int n) : n(n), tree(n + 1) {}
 
 	void add(int i, T x) {
@@ -31,11 +32,12 @@ struct BinaryIndexedTree {
 	}
 };
 
-long long inversion_number(const vector<int> &v) {
-	const int n = v.size();
-	BinaryIndexedTree<int> bit(n);
+template<class T>
+long long inversion_number(vector<T> const &v) {
+	int const N = v.size();
+	BinaryIndexedTree<T> bit(N);
 	long long res = 0;
-	for (int i = 0; i < n; ++i) {
+	for (int i = 0; i < N; ++i) {
 		res += i - bit.sum(v[i]);
 		bit.add(v[i], 1);
 	}

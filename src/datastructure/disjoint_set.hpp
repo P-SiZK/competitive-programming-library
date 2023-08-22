@@ -8,8 +8,7 @@ private:
 	int num = 0;
 
 public:
-	DisjointSet(int n) {
-		num = n;
+	DisjointSet(int n) : num(n) {
 		rank.assign(n, 0);
 		size.assign(n, 1);
 		p.assign(n, 0);
@@ -36,5 +35,5 @@ public:
 
 	int get_size(int x) { return size[root(x)]; }
 
-	int forest_size() { return num; }
+	[[nodiscard]] int forest_size() const { return num; }
 };

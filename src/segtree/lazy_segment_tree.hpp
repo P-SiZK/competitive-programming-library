@@ -3,31 +3,33 @@
 using namespace std;
 
 template<class T, class E, class F, class G, class H>
-struct LazySegmentTree { // 0-indexed
-	int n, height;
+class LazySegmentTree { // 0-indexed
+private:
+	int n_{}, height{};
 	vector<T> tree;
 	vector<E> lazy;
-	const F f; // function<T(T, T)>
-	const G g; // function<T(T, E)>
-	const H h; // function<E(E, E)>
-	const T ti;
-	const E ei;
+	F f; // function<T(T, T)>
+	G g; // function<T(T, E)>
+	H h; // function<E(E, E)>
+	T ti;
+	E ei;
 
+public:
 	LazySegmentTree(F f, G g, H h, T ti, E ei) :
 		f(f), g(g), h(h), ti(ti), ei(ei) {}
 
-	void init(int n_) {
-		n = 1, height = 0;
-		while (n < n_) n *= 2, ++height;
-		tree.assign(2 * n, ti);
-		lazy.assign(2 * n, ei);
+	void init(int n) {
+		n_ = 1, height = 0;
+		while (n_ < n) n_ *= 2, ++height;
+		tree.assign(2 * n_, ti);
+		lazy.assign(2 * n_, ei);
 	}
 
-	void build(const vector<T> &v) {
-		int n_ = v.size();
-		init(n_);
-		for (int i = 0; i < n_; ++i) tree[n + i] = v[i];
-		for (int i = n - 1; i > 0; --i)
+	void build(vector<T> const &v) {
+		int const N = v.size();
+		init(N);
+		for (int i = 0; i < N; ++i) tree[n_ + i] = v[i];
+		for (int i = n_ - 1; i > 0; --i)
 			tree[i] = f(tree[2 * i], tree[2 * i + 1]);
 	}
 
@@ -51,8 +53,8 @@ struct LazySegmentTree { // 0-indexed
 		while (k >>= 1) tree[k] = f(reflect(2 * k), reflect(2 * k + 1));
 	}
 
-	void update(int s, int t, const E &x) { // [l, r)
-		s += n, t += n;
+	void update(int s, int t, E const &x) { // [l, r)
+		s += n_, t += n_;
 		thrust(s), thrust(t - 1);
 		int l = s, r = t;
 		while (l < r) {
@@ -64,7 +66,7 @@ struct LazySegmentTree { // 0-indexed
 	}
 
 	T find(int s, int t) { // [l, r)
-		s += n, t += n;
+		s += n_, t += n_;
 		thrust(s), thrust(t - 1);
 		int l = s, r = t;
 		T ll = ti, rr = ti;

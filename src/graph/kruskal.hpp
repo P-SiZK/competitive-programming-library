@@ -12,7 +12,7 @@ struct Edge {
 };
 
 template<class T>
-bool cmp(const Edge<T> &a, const Edge<T> &b) {
+bool cmp(Edge<T> const &a, Edge<T> const &b) {
 	return a.cost < b.cost;
 }
 
@@ -44,11 +44,11 @@ public:
 };
 
 template<class T>
-T kruskal(int V, vector<Edge<T>> &G) {
-	sort(G.begin(), G.end(), cmp<T>);
-	DisjointSet ds(V);
+T kruskal(int v, vector<Edge<T>> &g) {
+	sort(g.begin(), g.end(), cmp<T>);
+	DisjointSet ds(v);
 	T cost = 0;
-	for (Edge<T> e : G) {
+	for (Edge<T> e : g) {
 		if (!ds.same(e.from, e.to)) {
 			cost += e.cost;
 			ds.unite(e.from, e.to);

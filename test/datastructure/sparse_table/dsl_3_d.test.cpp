@@ -1,6 +1,6 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/3/DSL_3_D
 
-#include "src/datastructure/sparse_table.cpp"
+#include "src/datastructure/sparse_table.hpp"
 
 #include <iostream>
 #include <vector>

@@ -1,21 +1,21 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A
 
-#include "src/graph/kruskal.cpp"
+#include "src/graph/kruskal.hpp"
 
 #include <iostream>
 
 using namespace std;
 
 int main() {
-	int V, E;
-	cin >> V >> E;
-	vector<Edge<int>> G;
-	for (int i = 0; i < E; ++i) {
+	int v, e;
+	cin >> v >> e;
+	vector<Edge<int>> g;
+	for (int i = 0; i < e; ++i) {
 		int a, b, c;
 		cin >> a >> b >> c;
-		G.emplace_back(a, b, c);
+		g.emplace_back(a, b, c);
 	}
-	cout << kruskal(V, G) << endl;
+	cout << kruskal(v, g) << endl;
 
 	return 0;
 }

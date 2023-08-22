@@ -1,6 +1,6 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_1_A
 
-#include "src/datastructure/disjoint_set.cpp"
+#include "src/datastructure/disjoint_set.hpp"
 
 #include <iostream>
 

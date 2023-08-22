@@ -3,36 +3,38 @@
 using namespace std;
 
 template<class T, class F>
-struct SegmentTree { // 0-indexed
-	int n;
+class SegmentTree { // 0-indexed
+private:
+	int n_{};
 	vector<T> tree;
-	const F f; // function<T(T, T)>
-	const T ti;
+	F f; // function<T(T, T)>
+	T ti;
 
+public:
 	SegmentTree(F f, T ti) : f(f), ti(ti) {}
 
-	void init(int n_) {
-		n = 1;
-		while (n < n_) n *= 2;
-		tree.assign(2 * n, ti);
+	void init(int n) {
+		n_ = 1;
+		while (n_ < n) n_ *= 2;
+		tree.assign(2 * n_, ti);
 	}
 
-	void build(const vector<T> &v) {
-		int n_ = v.size();
-		init(n_);
-		for (int i = 0; i < n_; ++i) tree[n + i] = v[i];
-		for (int i = n - 1; i > 0; --i)
+	void build(vector<T> const &v) {
+		int const N = v.size();
+		init(N);
+		for (int i = 0; i < N; ++i) tree[n_ + i] = v[i];
+		for (int i = n_ - 1; i > 0; --i)
 			tree[i] = f(tree[2 * i], tree[2 * i + 1]);
 	}
 
-	void update(int i, const T &x) {
-		i += n;
+	void update(int i, T const &x) {
+		i += n_;
 		tree[i] = x;
 		while (i >>= 1) tree[i] = f(tree[2 * i], tree[2 * i + 1]);
 	}
 
 	T find(int l, int r) { // [l, r)
-		l += n, r += n;
+		l += n_, r += n_;
 		T ll = ti, rr = ti;
 		while (l < r) {
 			if (l & 1) ll = f(ll, tree[l++]);
@@ -42,5 +44,5 @@ struct SegmentTree { // 0-indexed
 		return f(ll, rr);
 	}
 
-	T at(int i) { return tree[i + n]; }
+	T at(int i) { return tree[i + n_]; }
 };

@@ -4,35 +4,37 @@
 using namespace std;
 
 template<class T>
-struct FordFulkerson {
+class FordFulkerson {
+private:
 	struct Edge {
 		int to, rev;
 		T cap;
 
-		Edge(int to, T cap, int rev) : to(to), rev(rev), cap(cap) {}
+		Edge(int to, int cap, int rev) : to(to), rev(rev), cap(cap) {}
 	};
 
-	const T INF = numeric_limits<T>::max();
+	static constexpr T INF = numeric_limits<T>::max();
 
-	vector<vector<Edge>> G;
+	vector<vector<Edge>> g;
 	vector<int> used;
 
-	FordFulkerson(int n) : G(n), used(n) {}
+public:
+	FordFulkerson(int n) : g(n), used(n) {}
 
 	void add_edge(int from, int to, T cap, bool directed = true) {
-		G[from].emplace_back(to, cap, G[to].size());
-		G[to].emplace_back(from, (directed ? 0 : cap), G[from].size() - 1);
+		g[from].emplace_back(to, cap, g[to].size());
+		g[to].emplace_back(from, (directed ? 0 : cap), g[from].size() - 1);
 	}
 
 	T dfs(int v, int t, T f) {
 		if (v == t) return f;
 		used[v] = true;
-		for (auto &e : G[v]) {
+		for (auto &e : g[v]) {
 			if (!used[e.to] && e.cap > 0) {
 				T d = dfs(e.to, t, min(f, e.cap));
 				if (d > 0) {
 					e.cap -= d;
-					G[e.to][e.rev].cap += d;
+					g[e.to][e.rev].cap += d;
 					return d;
 				}
 			}

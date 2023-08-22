@@ -1,20 +1,22 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_A
+// verification-helper: ERROR 1e-8
 
-#include "src/geometry/geometry.cpp"
+#include "src/geometry/geometry.hpp"
 
-#include <cstdio>
+#include <iomanip>
 #include <iostream>
 
 int main() {
-	Segment s;
+	cout << fixed << setprecision(10);
+	Segment s{};
 	cin >> s;
 	int q;
 	cin >> q;
 	while (q--) {
-		Point p;
+		Point p{};
 		cin >> p;
 		Point a = project(s, p);
-		printf("%.10f %.10f\n", a.x, a.y);
+		cout << a.x << " " << a.y << endl;
 	}
 
 	return 0;

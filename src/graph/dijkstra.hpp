@@ -5,9 +5,9 @@
 using namespace std;
 
 template<class T>
-vector<T> dijkstra(int s, vector<vector<pair<int, T>>> &G) {
+vector<T> dijkstra(int s, vector<vector<pair<int, T>>> &g) {
 	const T INF = numeric_limits<T>::max();
-	const int N = G.size();
+	int const N = g.size();
 	vector<T> cost(N, INF);
 	vector<int> prevr(N, -1); // 経路復元用
 	priority_queue<pair<T, int>, vector<pair<T, int>>, greater<>> pq;
@@ -18,7 +18,7 @@ vector<T> dijkstra(int s, vector<vector<pair<int, T>>> &G) {
 		pq.pop();
 		int now = p.second;
 		if (cost[now] < p.first) continue;
-		for (auto next : G[now]) {
+		for (auto next : g[now]) {
 			int nv = next.first;
 			T nw = next.second;
 			if (cost[nv] > cost[now] + nw) {

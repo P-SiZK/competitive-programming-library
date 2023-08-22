@@ -1,7 +1,7 @@
 // verification-helper: PROBLEM https://judge.yosupo.jp/problem/vertex_add_path_sum
 
-#include "src/segtree/segment_tree.cpp"
-#include "src/tree/euler_tour.cpp"
+#include "src/segtree/segment_tree.hpp"
+#include "src/tree/euler_tour.hpp"
 
 #include <iostream>
 #include <vector>
@@ -21,7 +21,7 @@ int main() {
 	}
 	et.build();
 	SegmentTree st([](long long a, long long b) { return a + b; }, 0LL);
-	vector<long long> weight(2 * n);
+	vector<long long> weight(2UL * n);
 	for (int v = 0; v < n; ++v) {
 		long long w = a[v];
 		auto [down, up] = et.index(v);

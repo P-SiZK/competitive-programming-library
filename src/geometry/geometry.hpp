@@ -6,16 +6,16 @@
 
 using namespace std;
 
-const double EPS = 1e-10;
-const double PI = acos(-1);
+double constexpr EPS = 1e-10;
+double constexpr PI = 3.14159265358979323846;
 
-bool equals(double a, double b) { return fabs(a - b) < EPS; }
+inline bool equals(double a, double b) { return fabs(a - b) < EPS; }
 
-static const int COUNTER_CLOCKWISE = 1;
-static const int CLOCKWISE = -1;
-static const int ONLINE_BACK = 2;
-static const int ONLINE_FRONT = -2;
-static const int ON_SEGMENT = 0;
+static int const COUNTER_CLOCKWISE = 1;
+static int const CLOCKWISE = -1;
+static int const ONLINE_BACK = 2;
+static int const ONLINE_FRONT = -2;
+static int const ON_SEGMENT = 0;
 
 struct Point {
 	double x, y;
@@ -24,45 +24,45 @@ struct Point {
 
 	Point(double x, double y) : x(x), y(y) {}
 
-	Point operator+(const Point &p) const { return {x + p.x, y + p.y}; }
+	Point operator+(Point const &p) const { return {x + p.x, y + p.y}; }
 
-	Point operator-(const Point &p) const { return {x - p.x, y - p.y}; }
+	Point operator-(Point const &p) const { return {x - p.x, y - p.y}; }
 
-	Point operator*(const double &k) const { return {x * k, y * k}; }
+	Point operator*(double const &k) const { return {x * k, y * k}; }
 
-	Point operator/(const double &k) const { return {x / k, y / k}; }
+	Point operator/(double const &k) const { return {x / k, y / k}; }
 
 	friend istream &operator>>(istream &is, Point &p) {
 		is >> p.x >> p.y;
 		return is;
 	}
 
-	bool operator==(const Point &p) const {
+	bool operator==(Point const &p) const {
 		return (fabs(x - p.x) < EPS && fabs(y - p.y) < EPS);
 	}
 
-	bool operator<(const Point &p) const {
+	bool operator<(Point const &p) const {
 		return (x != p.x ? x < p.x : y < p.y);
 	}
 
-	double norm() { return x * x + y * y; }
+	[[nodiscard]] double norm() const { return x * x + y * y; }
 
-	double abs() { return sqrt(norm()); }
+	[[nodiscard]] double abs() const { return sqrt(norm()); }
 };
 
 using Vector = Point;
 
-double norm(Vector a) { return a.x * a.x + a.y * a.y; }
+inline double norm(Vector a) { return a.x * a.x + a.y * a.y; }
 
-double abs(Vector a) { return sqrt(norm(a)); }
+inline double abs(Vector a) { return sqrt(norm(a)); }
 
-double dot(Vector a, Vector b) { return a.x * b.x + a.y * b.y; }
+inline double dot(Vector a, Vector b) { return a.x * b.x + a.y * b.y; }
 
-double cross(Vector a, Vector b) { return a.x * b.y - a.y * b.x; }
+inline double cross(Vector a, Vector b) { return a.x * b.y - a.y * b.x; }
 
-bool isParallel(Vector a, Vector b) { return equals(cross(a, b), 0.0); }
+inline bool is_parallel(Vector a, Vector b) { return equals(cross(a, b), 0.0); }
 
-bool isOrthogonal(Vector a, Vector b) { return equals(dot(a, b), 0.0); }
+inline bool is_orthogonal(Vector a, Vector b) { return equals(dot(a, b), 0.0); }
 
 struct EndPoint {
 	Point p;
@@ -72,7 +72,7 @@ struct EndPoint {
 
 	EndPoint(Point p, int seg, int st) : p(p), seg(seg), st(st) {}
 
-	bool operator<(const EndPoint &ep) const {
+	bool operator<(EndPoint const &ep) const {
 		if (p.y == ep.p.y) return st < ep.st;
 		return p.y < ep.p.y;
 	}
@@ -93,13 +93,15 @@ struct Segment {
 
 using Line = Segment;
 
-Point project(Segment s, Point p) {
+inline Point project(Segment s, Point p) {
 	Vector base = s.p2 - s.p1;
 	double r = dot(p - s.p1, base) / base.norm();
 	return s.p1 + base * r;
 }
 
-Point reflect(Segment s, Point p) { return p + (project(s, p) - p) * 2.0; }
+inline Point reflect(Segment s, Point p) {
+	return p + (project(s, p) - p) * 2.0;
+}
 
 struct Circle {
 	Point c;
@@ -112,7 +114,7 @@ struct Circle {
 
 using Polygon = vector<Point>;
 
-int ccw(Point p0, Point p1, Point p2) {
+inline int ccw(Point p0, Point p1, Point p2) {
 	Vector a = p1 - p0, b = p2 - p0;
 	if (cross(a, b) > EPS) return COUNTER_CLOCKWISE;
 	if (cross(a, b) < -EPS) return CLOCKWISE;
@@ -121,16 +123,16 @@ int ccw(Point p0, Point p1, Point p2) {
 	return ON_SEGMENT;
 }
 
-bool intersectSS(Point p1, Point p2, Point p3, Point p4) {
+inline bool intersect_ss(Point p1, Point p2, Point p3, Point p4) {
 	return (ccw(p1, p2, p3) * ccw(p1, p2, p4) <= 0 &&
 			ccw(p3, p4, p1) * ccw(p3, p4, p2) <= 0);
 }
 
-bool intersectSS(Segment s1, Segment s2) {
-	return intersectSS(s1.p1, s1.p2, s2.p1, s2.p2);
+inline bool intersect_ss(Segment s1, Segment s2) {
+	return intersect_ss(s1.p1, s1.p2, s2.p1, s2.p2);
 }
 
-int intersectCS(Circle c, Segment s) {
+inline int intersect_cs(Circle c, Segment s) {
 	if (norm(project(s, c.c) - c.c) - c.r * c.r > EPS) return 0;
 	double d1 = abs(c.c - s.p1), d2 = abs(c.c - s.p2);
 	if (d1 < c.r + EPS && d2 < c.r + EPS) return 0;
@@ -142,7 +144,7 @@ int intersectCS(Circle c, Segment s) {
 	return 0;
 }
 
-int intersectCC(Circle c1, Circle c2) {
+inline int intersect_cc(Circle c1, Circle c2) {
 	if (c1.r < c2.r) swap(c1, c2);
 	double d = abs(c1.c - c2.c);
 	double r = c1.r + c2.r;
@@ -153,63 +155,63 @@ int intersectCC(Circle c1, Circle c2) {
 	return 2;
 }
 
-double getDistanceLP(Line l, Point p) {
+inline double get_distance_lp(Line l, Point p) {
 	return abs(cross(l.p2 - l.p1, p - l.p1) / abs(l.p2 - l.p1));
 }
 
-double getDistanceSP(Segment s, Point p) {
+inline double get_distance_sp(Segment s, Point p) {
 	if (dot(s.p2 - s.p1, p - s.p1) < 0.0) return abs(p - s.p1);
 	if (dot(s.p1 - s.p2, p - s.p2) < 0.0) return abs(p - s.p2);
-	return getDistanceLP(s, p);
+	return get_distance_lp(s, p);
 }
 
-double getDistanceSS(Segment s1, Segment s2) {
-	if (intersectSS(s1, s2)) return 0.0;
-	return min({getDistanceSP(s1, s2.p1),
-				getDistanceSP(s1, s2.p2),
-				getDistanceSP(s2, s1.p1),
-				getDistanceSP(s2, s1.p2)});
+inline double get_distance_ss(Segment s1, Segment s2) {
+	if (intersect_ss(s1, s2)) return 0.0;
+	return min({get_distance_sp(s1, s2.p1),
+				get_distance_sp(s1, s2.p2),
+				get_distance_sp(s2, s1.p1),
+				get_distance_sp(s2, s1.p2)});
 }
 
-Point getCrossPointLL(Line l1, Line l2) {
+inline Point get_cross_point_ll(Line l1, Line l2) {
 	double a = cross(l1.p2 - l1.p1, l2.p2 - l2.p1);
 	double b = cross(l1.p2 - l1.p1, l1.p2 - l2.p1);
 	if (abs(a) < EPS && abs(b) < EPS) return l2.p1;
 	return l2.p1 + (l2.p2 - l2.p1) * (b / a);
 }
 
-Point getCrossPointSS(Segment s1, Segment s2) {
+inline Point get_cross_point_ss(Segment s1, Segment s2) {
 	Vector base = s2.p2 - s2.p1;
 	double d1 = abs(cross(base, s1.p1 - s2.p1));
 	double d2 = abs(cross(base, s1.p2 - s2.p1));
 	return s1.p1 + (s1.p2 - s1.p1) * (d1 / (d1 + d2));
 }
 
-vector<Point> getCrossPointCL(Circle c, Line l) {
+inline vector<Point> get_cross_point_cl(Circle c, Line l) {
 	vector<Point> ps;
 	Vector pr = project(l, c.c);
 	Vector e = (l.p2 - l.p1) / abs(l.p2 - l.p1);
-	if (equals(getDistanceLP(l, c.c), c.r)) return vector<Point>{pr, pr};
+	if (equals(get_distance_lp(l, c.c), c.r)) return vector<Point>{pr, pr};
 	double base = sqrt(c.r * c.r - norm(pr - c.c));
 	ps.push_back(pr + e * base);
 	ps.push_back(pr - e * base);
 	return ps;
 }
 
-vector<Point> getCrossPointCS(Circle c, Segment s) {
+inline vector<Point> get_cross_point_cs(Circle c, Segment s) {
 	Line l(s);
-	vector<Point> ps = getCrossPointCL(c, l);
-	if (intersectCS(c, s) == 2) return ps;
+	vector<Point> ps = get_cross_point_cl(c, l);
+	if (intersect_cs(c, s) == 2) return ps;
 	if (dot(l.p1 - ps[0], l.p2 - ps[0]) < 0) ps[1] = ps[0];
 	else ps[0] = ps[1];
 	return ps;
 }
 
-double arg(Vector p) { return atan2(p.y, p.x); }
+inline double arg(Vector p) { return atan2(p.y, p.x); }
 
-Point polar(double r, double a) { return {cos(a) * r, sin(a) * r}; }
+inline Point polar(double r, double a) { return {cos(a) * r, sin(a) * r}; }
 
-vector<Point> getCrossPointCC(Circle c1, Circle c2) {
+inline vector<Point> get_cross_point_cc(Circle c1, Circle c2) {
 	double d = abs(c1.c - c2.c);
 	double a = acos((c1.r * c1.r + d * d - c2.r * c2.r) / (2 * c1.r * d));
 	double t = arg(c2.c - c1.c);
@@ -219,11 +221,11 @@ vector<Point> getCrossPointCC(Circle c1, Circle c2) {
 	return ps;
 }
 
-vector<Point> tangentCP(Circle c, Point p) {
-	return getCrossPointCC(c, Circle(p, sqrt(norm(c.c - p) - c.r * c.r)));
+inline vector<Point> tangent_cp(Circle c, Point p) {
+	return get_cross_point_cc(c, Circle(p, sqrt(norm(c.c - p) - c.r * c.r)));
 }
 
-vector<Line> tangentCC(Circle c1, Circle c2) {
+inline vector<Line> tangent_cc(Circle c1, Circle c2) {
 	vector<Line> ls;
 	if (c1.r < c2.r) swap(c1, c2);
 	double g = abs(c1.c - c2.c);
@@ -245,29 +247,29 @@ vector<Line> tangentCC(Circle c1, Circle c2) {
 	return ls;
 }
 
-Circle getInscribedCircle(Point p1, Point p2, Point p3) {
-	Circle ca;
+inline Circle get_inscribed_circle(Point p1, Point p2, Point p3) {
+	Circle ca{};
 	double a = abs(p2 - p3), b = abs(p3 - p1), c = abs(p1 - p2);
 	ca.c = (p1 * a + p2 * b + p3 * c) / (a + b + c);
-	ca.r = getDistanceLP(Line(p1, p2), ca.c);
+	ca.r = get_distance_lp(Line(p1, p2), ca.c);
 	return ca;
 }
 
-Circle getCircumscribedCircle(Point p1, Point p2, Point p3) {
-	Circle ca;
+inline Circle get_circumscribed_circle(Point p1, Point p2, Point p3) {
+	Circle ca{};
 	Point m = (p1 + p2) / 2, n = (p2 + p3) / 2;
-	ca.c = getCrossPointLL(Line(m, m + Point((p2 - p1).y, (p1 - p2).x)),
-						   Line(n, n + Point((p3 - p2).y, (p2 - p3).x)));
+	ca.c = get_cross_point_ll(Line(m, m + Point((p2 - p1).y, (p1 - p2).x)),
+							  Line(n, n + Point((p3 - p2).y, (p2 - p3).x)));
 	ca.r = abs(ca.c - p1);
 	return ca;
 }
 
 // IN:2,ON:1,OUT:0
-int contains(Polygon g, Point p) {
-	int n = g.size();
+inline int contains(Polygon g, Point p) {
+	int const N = g.size();
 	bool x = false;
-	for (int i = 0; i < n; ++i) {
-		Point a = g[i] - p, b = g[(i + 1) % n] - p;
+	for (int i = 0; i < N; ++i) {
+		Point a = g[i] - p, b = g[(i + 1) % N] - p;
 		if (abs(cross(a, b)) < EPS && dot(a, b) < EPS) return 1;
 		if (a.y > b.y) swap(a, b);
 		if (a.y < EPS && EPS < b.y && cross(a, b) > EPS) x = !x;
@@ -275,26 +277,26 @@ int contains(Polygon g, Point p) {
 	return (x ? 2 : 0);
 }
 
-bool isConvex(Polygon p) {
-	int n = p.size();
-	for (int i = 0; i < n; ++i)
-		if (ccw(p[(i - 1 + n) % n], p[i], p[(i + 1) % n]) == CLOCKWISE)
+inline bool is_convex(Polygon p) {
+	int const N = p.size();
+	for (int i = 0; i < N; ++i)
+		if (ccw(p[(i - 1 + N) % N], p[i], p[(i + 1) % N]) == CLOCKWISE)
 			return false;
 	return true;
 }
 
-Polygon convexHull(Polygon p) {
-	int n = p.size();
-	sort(p.begin(), p.end(), [](const Point &a, const Point &b) {
+inline Polygon convex_hull(Polygon p) {
+	int const N = p.size();
+	sort(p.begin(), p.end(), [](Point const &a, Point const &b) {
 		return (a.y != b.y ? a.y < b.y : a.x < b.x);
 	});
-	Polygon a(2 * n);
+	Polygon a(2UL * N);
 	int k = 0;
-	for (int i = 0; i < n; ++i) {
+	for (int i = 0; i < N; ++i) {
 		while (k > 1 && cross(a[k - 1] - a[k - 2], p[i] - a[k - 1]) < 0) k--;
 		a[k++] = p[i];
 	}
-	for (int i = n - 2, t = k; i >= 0; --i) {
+	for (int i = N - 2, t = k; i >= 0; --i) {
 		while (k > t && cross(a[k - 1] - a[k - 2], p[i] - a[k - 1]) < 0) k--;
 		a[k++] = p[i];
 	}
@@ -302,16 +304,16 @@ Polygon convexHull(Polygon p) {
 	return a;
 }
 
-double area(Polygon p) {
+inline double area(Polygon p) {
 	double res = 0;
 	for (int i = 0; i < (int)p.size(); ++i)
 		res += cross(p[i], p[(i + 1) % p.size()]) / 2.0;
 	return res;
 }
 
-double area(Circle c1, Circle c2) {
+inline double area(Circle c1, Circle c2) {
 	if (c1.r < c2.r) swap(c1, c2);
-	int num = intersectCC(c1, c2);
+	int num = intersect_cc(c1, c2);
 	if (num >= 3) return 0;
 	if (num <= 1) return c2.r * c2.r * PI;
 	double d = abs(c1.c - c2.c);
@@ -325,7 +327,7 @@ double area(Circle c1, Circle c2) {
 	return res;
 }
 
-double area(Polygon p, Circle c) {
+inline double area(Polygon p, Circle c) {
 	if (p.size() < 3) return 0;
 	auto dfs = [&](auto self, Circle c, Point a, Point b) {
 		Vector va = c.c - a, vb = c.c - b;
@@ -333,9 +335,9 @@ double area(Polygon p, Circle c) {
 		if (equals(f, 0.0)) return res;
 		if (max(abs(va), abs(vb)) < c.r + EPS) return f;
 		Vector d(dot(va, vb), cross(va, vb));
-		if (getDistanceSP(Segment(a, b), c.c) > c.r - EPS)
+		if (get_distance_sp(Segment(a, b), c.c) > c.r - EPS)
 			return c.r * c.r * arg(d);
-		auto u = getCrossPointCS(c, Segment(a, b));
+		auto u = get_cross_point_cs(c, Segment(a, b));
 		if (u.empty()) return res;
 		if (u.size() > 1 && dot(u[1] - u[0], a - u[0]) > 0) swap(u[0], u[1]);
 		u.emplace(u.begin(), a);
@@ -350,11 +352,11 @@ double area(Polygon p, Circle c) {
 	return res / 2;
 }
 
-double convexDiameter(Polygon p) {
-	int n = p.size();
-	if (n == 2) return abs(p[0] - p[1]);
+inline double convex_diameter(Polygon p) {
+	int const N = p.size();
+	if (N == 2) return abs(p[0] - p[1]);
 	int i = 0, j = 0;
-	for (int k = 0; k < n; ++k) {
+	for (int k = 0; k < N; ++k) {
 		if (p[i] < p[k]) i = k;
 		if (!(p[j] < p[k])) j = k;
 	}
@@ -362,25 +364,25 @@ double convexDiameter(Polygon p) {
 	int ti = i, tj = j;
 	while (i != tj || j != ti) {
 		res = max(res, abs(p[i] - p[j]));
-		if (cross(p[(i + 1) % n] - p[i], p[(j + 1) % n] - p[j]) < 0.0)
-			i = (i + 1) % n;
-		else j = (j + 1) % n;
+		if (cross(p[(i + 1) % N] - p[i], p[(j + 1) % N] - p[j]) < 0.0)
+			i = (i + 1) % N;
+		else j = (j + 1) % N;
 	}
 	return res;
 }
 
-Polygon convexCut(Polygon p, Line l) {
+inline Polygon convex_cut(Polygon p, Line l) {
 	Polygon q;
 	for (int i = 0; i < (int)p.size(); ++i) {
 		Point a = p[i], b = p[(i + 1) % p.size()];
 		if (ccw(l.p1, l.p2, a) != CLOCKWISE) q.push_back(a);
 		if (ccw(l.p1, l.p2, a) * ccw(l.p1, l.p2, b) < 0)
-			q.push_back(getCrossPointLL(Line(a, b), l));
+			q.push_back(get_cross_point_ll(Line(a, b), l));
 	}
 	return q;
 }
 
-double closestPair(vector<Point> ps) {
+inline double closest_pair(vector<Point> ps) {
 	sort(ps.begin(), ps.end());
 	vector<Point> a(ps.size());
 	auto solve = [&](auto self, int l, int r) {
@@ -407,12 +409,12 @@ double closestPair(vector<Point> ps) {
 	return solve(solve, 0, ps.size());
 }
 
-int manhattanIntersection(vector<Segment> ss) {
-	const int INF = numeric_limits<int>::max();
-	const int BOTTOM = 0, LEFT = 1, RIGHT = 2, TOP = 3;
-	int n = ss.size();
+inline int manhattan_intersection(vector<Segment> ss) {
+	int constexpr INF = numeric_limits<int>::max();
+	int constexpr BOTTOM = 0, LEFT = 1, RIGHT = 2, TOP = 3;
+	int const N = ss.size();
 	vector<EndPoint> ep;
-	for (int i = 0; i < n; ++i) {
+	for (int i = 0; i < N; ++i) {
 		if (ss[i].p1.y == ss[i].p2.y) {
 			if (ss[i].p1.x > ss[i].p2.x) swap(ss[i].p1, ss[i].p2);
 			ep.emplace_back(ss[i].p1, i, LEFT);
@@ -427,7 +429,7 @@ int manhattanIntersection(vector<Segment> ss) {
 	set<int> st;
 	st.insert(INF);
 	int cnt = 0;
-	for (int i = 0; i < 2 * n; ++i) {
+	for (int i = 0; i < 2 * N; ++i) {
 		if (ep[i].st == TOP) st.erase(ep[i].p.x);
 		else if (ep[i].st == BOTTOM) st.insert(ep[i].p.x);
 		else if (ep[i].st == LEFT) {

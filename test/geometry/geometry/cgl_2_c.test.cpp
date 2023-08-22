@@ -1,18 +1,20 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_C
+// verification-helper: ERROR 1e-8
 
-#include "src/geometry/geometry.cpp"
+#include "src/geometry/geometry.hpp"
 
-#include <cstdio>
+#include <iomanip>
 #include <iostream>
 
 int main() {
+	cout << fixed << setprecision(10);
 	int q;
 	cin >> q;
 	while (q--) {
-		Segment s1, s2;
+		Segment s1{}, s2{};
 		cin >> s1 >> s2;
-		Point a = getCrossPointSS(s1, s2);
-		printf("%.10f %.10f\n", a.x, a.y);
+		Point a = get_cross_point_ss(s1, s2);
+		cout << a.x << " " << a.y << endl;
 	}
 
 	return 0;

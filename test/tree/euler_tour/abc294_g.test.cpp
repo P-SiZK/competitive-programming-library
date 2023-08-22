@@ -1,7 +1,7 @@
 // verification-helper: PROBLEM https://atcoder.jp/contests/abc294/tasks/abc294_g
 
-#include "src/segtree/segment_tree.cpp"
-#include "src/tree/euler_tour.cpp"
+#include "src/segtree/segment_tree.hpp"
+#include "src/tree/euler_tour.hpp"
 
 #include <iostream>
 #include <tuple>
@@ -22,7 +22,7 @@ int main() {
 	}
 	et.build();
 	SegmentTree st([](long long a, long long b) { return a + b; }, 0LL);
-	vector<long long> weight(2 * n);
+	vector<long long> weight(2UL * n);
 	for (int i = 1; i < n; ++i) {
 		auto [u, v, w] = uvw[i - 1];
 		auto [down, up] = et.index(et.child(u, v));

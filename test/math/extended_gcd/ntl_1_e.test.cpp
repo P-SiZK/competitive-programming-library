@@ -1,6 +1,6 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_E
 
-#include "src/math/extended_gcd.cpp"
+#include "src/math/extended_gcd.hpp"
 
 #include <iostream>
 

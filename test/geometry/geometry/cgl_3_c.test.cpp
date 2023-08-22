@@ -1,6 +1,6 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/3/CGL_3_C
 
-#include "src/geometry/geometry.cpp"
+#include "src/geometry/geometry.hpp"
 
 #include <iostream>
 
@@ -12,7 +12,7 @@ int main() {
 	int q;
 	cin >> q;
 	while (q--) {
-		Point p;
+		Point p{};
 		cin >> p;
 		cout << contains(g, p) << endl;
 	}

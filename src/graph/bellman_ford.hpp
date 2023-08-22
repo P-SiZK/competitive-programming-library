@@ -12,18 +12,18 @@ struct Edge {
 };
 
 template<class T>
-vector<T> bellman_ford(int s, int V, vector<Edge<T>> &G) {
+vector<T> bellman_ford(int s, int v, vector<Edge<T>> &g) {
 	const T INF = numeric_limits<T>::max();
-	vector<T> cost(V, INF);
-	vector<int> prevr(V, -1); // 経路復元用
+	vector<T> cost(v, INF);
+	vector<int> prevr(v, -1); // 経路復元用
 	cost[s] = 0;
-	for (int i = 0; i < V; ++i) {
-		for (Edge<T> e : G) {
+	for (int i = 0; i < v; ++i) {
+		for (Edge<T> e : g) {
 			if (cost[e.from] == INF) continue;
 			if (cost[e.to] > cost[e.from] + e.cost) {
 				cost[e.to] = cost[e.from] + e.cost;
 				prevr[e.to] = e.from;
-				if (i == V - 1) return vector<T>();
+				if (i == v - 1) return vector<T>();
 			}
 		}
 	}

@@ -1,16 +1,17 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/3/CGL_3_A
 
-#include "src/geometry/geometry.cpp"
+#include "src/geometry/geometry.hpp"
 
-#include <cstdio>
+#include <iomanip>
 #include <iostream>
 
 int main() {
+	cout << fixed << setprecision(1);
 	int n;
 	cin >> n;
 	Polygon p(n);
 	for (auto &a : p) cin >> a;
-	printf("%.1f\n", area(p));
+	cout << area(p) << endl;
 
 	return 0;
 }

@@ -5,7 +5,8 @@
 using namespace std;
 
 template<class T, class E>
-struct PrimalDual {
+class PrimalDual {
+private:
 	struct Edge {
 		int to, rev;
 		T cap;
@@ -15,16 +16,18 @@ struct PrimalDual {
 			to(to), rev(rev), cap(cap), cost(cost) {}
 	};
 
-	const E INF = numeric_limits<E>::max();
-	vector<vector<Edge>> G;
+	static constexpr E INF = numeric_limits<E>::max();
+
+	vector<vector<Edge>> g;
 	vector<E> h, dist;
 	vector<int> prevv, preve;
 
-	PrimalDual(int n) : G(n), h(n), dist(n), prevv(n), preve(n) {}
+public:
+	PrimalDual(int n) : g(n), h(n), dist(n), prevv(n), preve(n) {}
 
 	void add_edge(int from, int to, T cap, E cost) {
-		G[from].emplace_back(to, cap, cost, G[to].size());
-		G[to].emplace_back(from, 0, -cost, G[from].size() - 1);
+		g[from].emplace_back(to, cap, cost, g[to].size());
+		g[to].emplace_back(from, 0, -cost, g[from].size() - 1);
 	}
 
 	E min_cost_flow(int s, int t, T f) {
@@ -39,8 +42,8 @@ struct PrimalDual {
 				pair<E, int> p = pq.top();
 				pq.pop();
 				if (dist[p.second] < p.first) continue;
-				for (int i = 0; i < (int)G[p.second].size(); ++i) {
-					Edge &e = G[p.second][i];
+				for (int i = 0; i < (int)g[p.second].size(); ++i) {
+					Edge &e = g[p.second][i];
 					E ncost = dist[p.second] + e.cost + h[p.second] - h[e.to];
 					if (e.cap > 0 && dist[e.to] > ncost) {
 						dist[e.to] = ncost;
@@ -55,13 +58,13 @@ struct PrimalDual {
 				if (dist[v] < INF) h[v] += dist[v];
 			T d = f;
 			for (int v = t; v != s; v = prevv[v])
-				d = min(d, G[prevv[v]][preve[v]].cap);
+				d = min(d, g[prevv[v]][preve[v]].cap);
 			f -= d;
 			res += d * h[t];
 			for (int v = t; v != s; v = prevv[v]) {
-				Edge &e = G[prevv[v]][preve[v]];
+				Edge &e = g[prevv[v]][preve[v]];
 				e.cap -= d;
-				G[v][e.rev].cap += d;
+				g[v][e.rev].cap += d;
 			}
 		}
 		return res;

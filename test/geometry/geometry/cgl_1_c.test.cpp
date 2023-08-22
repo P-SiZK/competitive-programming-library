@@ -1,11 +1,11 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_C
 
-#include "src/geometry/geometry.cpp"
+#include "src/geometry/geometry.hpp"
 
 #include <iostream>
 
 int main() {
-	Point p0, p1, p2;
+	Point p0{}, p1{}, p2{};
 	cin >> p0 >> p1;
 	int q;
 	cin >> q;

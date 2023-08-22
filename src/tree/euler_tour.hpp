@@ -9,18 +9,19 @@ private:
 	vector<int> log_table;
 
 public:
-	SparseTable(const vector<pair<int, int>> &v) {
-		int n = v.size(), h = 1;
-		while ((1 << h) <= n) ++h;
-		table.assign(h, vector<pair<int, int>>(n));
-		log_table.assign(n + 1, 0);
-		for (int i = 2; i <= n; ++i) log_table[i] = log_table[i >> 1] + 1;
+	SparseTable(vector<pair<int, int>> const &v) {
+		int const N = v.size();
+		int h = 1;
+		while ((1 << h) <= N) ++h;
+		table.assign(h, vector<pair<int, int>>(N));
+		log_table.assign(N + 1, 0);
+		for (int i = 2; i <= N; ++i) log_table[i] = log_table[i >> 1] + 1;
 
-		for (int i = 0; i < n; ++i) table[0][i] = v[i];
+		for (int i = 0; i < N; ++i) table[0][i] = v[i];
 		for (int i = 1, k = 1; i < h; ++i, k <<= 1)
-			for (int j = 0; j < n; ++j)
+			for (int j = 0; j < N; ++j)
 				table[i][j] =
-					min(table[i - 1][j], table[i - 1][min(j + k, n - 1)]);
+					min(table[i - 1][j], table[i - 1][min(j + k, N - 1)]);
 	}
 
 	pair<int, int> query(int l, int r) { // [l, r)
@@ -33,6 +34,7 @@ class EulerTour {
 private:
 	vector<int> down, up, depth, terminal;
 	optional<SparseTable> st;
+	vector<vector<int>> G;
 
 	void dfs(int v, int p, int d) {
 		depth[terminal.size()] = d;
@@ -48,8 +50,6 @@ private:
 	}
 
 public:
-	vector<vector<int>> G;
-
 	EulerTour(int n) : down(n), up(n), depth(n << 1), G(n) {}
 
 	void add_edge(int u, int v) {
