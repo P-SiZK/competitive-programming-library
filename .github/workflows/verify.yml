@@ -28,4 +28,4 @@ jobs:
         DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
         YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
         GH_PAT: ${{ secrets.GH_PAT }}
-      run: oj-verify --config-file=.verify-helper/remote.toml all
+      run: oj-verify --config-file=.verify-helper/remote.toml all -j 2
