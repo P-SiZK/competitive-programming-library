@@ -1,7 +1,7 @@
 [[languages.cpp.environments]]
 CXX = "g++"
-CXXFLAGS = ["-std=c++17", "-Wall", "-g", "-fsanitize=undefined,address"]
+CXXFLAGS = ["-std=c++17", "-O2", "-Werror", "-Wall", "-Wextra", "-g", "-fsanitize=undefined,address"]
 
 [[languages.cpp.environments]]
 CXX = "clang++"
-CXXFLAGS = ["-std=c++17", "-Wall", "-g", "-fsanitize=undefined,address"]
+CXXFLAGS = ["-std=c++17", "-O2", "-Werror", "-Wall", "-Wextra", "-g", "-fsanitize=undefined,address"]
