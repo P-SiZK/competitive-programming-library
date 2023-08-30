@@ -3,19 +3,6 @@
 
 using namespace std;
 
-template<class T>
-struct Edge {
-	int from, to;
-	T cost;
-
-	Edge(int from, int to, T cost) : from(from), to(to), cost(cost) {}
-};
-
-template<class T>
-bool cmp(Edge<T> const &a, Edge<T> const &b) {
-	return a.cost < b.cost;
-}
-
 class DisjointSet {
 private:
 	vector<int> rank, p;
@@ -44,15 +31,36 @@ public:
 };
 
 template<class T>
-T kruskal(int v, vector<Edge<T>> &g) {
-	sort(g.begin(), g.end(), cmp<T>);
-	DisjointSet ds(v);
-	T cost = 0;
-	for (Edge<T> e : g) {
-		if (!ds.same(e.from, e.to)) {
-			cost += e.cost;
-			ds.unite(e.from, e.to);
+class Kruskal {
+private:
+	struct Edge {
+		int from, to;
+		T cost;
+
+		Edge(int from, int to, T cost) : from(from), to(to), cost(cost) {}
+
+		bool operator<(Edge const &a) { return cost < a.cost; }
+	};
+
+	int n;
+	vector<Edge> g;
+
+public:
+	Kruskal(int n) : n(n) {}
+
+	void add_edge(int from, int to, T cost) { g.emplace_back(from, to, cost); }
+
+	T mst_cost() {
+		T cost = 0;
+		sort(g.begin(), g.end());
+		DisjointSet ds(n);
+		cost = 0;
+		for (Edge const &e : g) {
+			if (!ds.same(e.from, e.to)) {
+				cost += e.cost;
+				ds.unite(e.from, e.to);
+			}
 		}
+		return cost;
 	}
-	return cost;
-}
+};

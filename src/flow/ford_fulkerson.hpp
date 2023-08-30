@@ -45,7 +45,7 @@ public:
 	T max_flow(int s, int t) {
 		T flow = 0;
 		while (true) {
-			fill(used.begin(), used.end(), 0);
+			used.assign(g.size(), 0);
 			T f = dfs(s, t, INF);
 			if (f == 0) break;
 			flow += f;

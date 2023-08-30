@@ -10,14 +10,13 @@ using namespace std;
 int main() {
 	int v, e;
 	cin >> v >> e;
-	vector<vector<pair<int, int>>> g(v);
+	Prim<int> p(v);
 	for (int i = 0; i < e; ++i) {
 		int a, b, c;
 		cin >> a >> b >> c;
-		g[a].emplace_back(b, c);
-		g[b].emplace_back(a, c);
+		p.add_edge(a, b, c);
 	}
-	cout << prim(g) << endl;
+	cout << p.mst_cost() << endl;
 
 	return 0;
 }

@@ -35,19 +35,19 @@ public:
 		priority_queue<pair<E, int>, vector<pair<E, int>>, greater<>> pq;
 
 		while (f > 0) {
-			fill(dist.begin(), dist.end(), INF);
+			dist.assign(g.size(), INF);
 			pq.emplace(0, s);
 			dist[s] = 0;
 			while (!pq.empty()) {
-				pair<E, int> p = pq.top();
+				auto [now_dist, now_v] = pq.top();
 				pq.pop();
-				if (dist[p.second] < p.first) continue;
-				for (int i = 0; i < (int)g[p.second].size(); ++i) {
-					Edge &e = g[p.second][i];
-					E ncost = dist[p.second] + e.cost + h[p.second] - h[e.to];
+				if (dist[now_v] < now_dist) continue;
+				for (int i = 0; i < (int)g[now_v].size(); ++i) {
+					Edge &e = g[now_v][i];
+					E ncost = dist[now_v] + e.cost + h[now_v] - h[e.to];
 					if (e.cap > 0 && dist[e.to] > ncost) {
 						dist[e.to] = ncost;
-						prevv[e.to] = p.second;
+						prevv[e.to] = now_v;
 						preve[e.to] = i;
 						pq.emplace(dist[e.to], e.to);
 					}

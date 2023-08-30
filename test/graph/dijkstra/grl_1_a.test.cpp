@@ -8,16 +8,16 @@
 int main() {
 	int v, e, r;
 	cin >> v >> e >> r;
-	vector<vector<pair<int, int>>> g(v);
+	Dijkstra<int> dj(v);
 	for (int i = 0; i < e; ++i) {
 		int s, t, d;
 		cin >> s >> t >> d;
-		g[s].emplace_back(t, d);
+		dj.add_edge(s, t, d);
 	}
-	vector<int> ans = dijkstra(r, g);
+	dj.build(r);
 	for (int i = 0; i < v; ++i) {
-		if (ans[i] == numeric_limits<int>::max()) cout << "INF" << endl;
-		else cout << ans[i] << endl;
+		if (dj.is_unreachable(i)) cout << "INF" << endl;
+		else cout << dj.distance(i) << endl;
 	}
 
 	return 0;

@@ -9,13 +9,13 @@ using namespace std;
 int main() {
 	int v, e;
 	cin >> v >> e;
-	vector<Edge<int>> g;
+	Kruskal<int> k(v);
 	for (int i = 0; i < e; ++i) {
 		int a, b, c;
 		cin >> a >> b >> c;
-		g.emplace_back(a, b, c);
+		k.add_edge(a, b, c);
 	}
-	cout << kruskal(v, g) << endl;
+	cout << k.mst_cost() << endl;
 
 	return 0;
 }

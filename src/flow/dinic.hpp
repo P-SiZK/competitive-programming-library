@@ -28,7 +28,7 @@ public:
 	}
 
 	void bfs(int s) {
-		fill(level.begin(), level.end(), -1);
+		level.assign(g.size(), -1);
 		queue<int> q;
 		level[s] = 0;
 		q.push(s);
@@ -65,7 +65,7 @@ public:
 		while (true) {
 			bfs(s);
 			if (level[t] == -1) break;
-			fill(iter.begin(), iter.end(), 0);
+			iter.assign(g.size(), 0);
 			while (true) {
 				T f = dfs(s, t, INF);
 				if (f == 0) break;
