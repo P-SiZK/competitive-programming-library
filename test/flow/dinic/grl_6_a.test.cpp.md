@@ -23,24 +23,23 @@ data:
     \ n) : g(n), level(n), iter(n) {}\n\n\tvoid add_edge(int from, int to, T cap,\
     \ bool directed = true) {\n\t\tg[from].emplace_back(to, cap, g[to].size());\n\t\
     \tg[to].emplace_back(from, (directed ? 0 : cap), g[from].size() - 1);\n\t}\n\n\
-    \tvoid bfs(int s) {\n\t\tfill(level.begin(), level.end(), -1);\n\t\tqueue<int>\
-    \ q;\n\t\tlevel[s] = 0;\n\t\tq.push(s);\n\t\twhile (!q.empty()) {\n\t\t\tint const\
-    \ V = q.front();\n\t\t\tq.pop();\n\t\t\tfor (auto &e : g[V]) {\n\t\t\t\tif (e.cap\
-    \ > 0 && level[e.to] == -1) {\n\t\t\t\t\tlevel[e.to] = level[V] + 1;\n\t\t\t\t\
-    \tq.push(e.to);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\tT dfs(int v, int t, T f)\
-    \ {\n\t\tif (v == t) return f;\n\t\tfor (int &i = iter[v]; i < (int)g[v].size();\
-    \ ++i) {\n\t\t\tEdge &e = g[v][i];\n\t\t\tif (e.cap > 0 && level[v] < level[e.to])\
-    \ {\n\t\t\t\tT d = dfs(e.to, t, min(f, e.cap));\n\t\t\t\tif (d > 0) {\n\t\t\t\t\
-    \te.cap -= d;\n\t\t\t\t\tg[e.to][e.rev].cap += d;\n\t\t\t\t\treturn d;\n\t\t\t\
-    \t}\n\t\t\t}\n\t\t}\n\t\treturn 0;\n\t}\n\n\tT max_flow(int s, int t) {\n\t\t\
-    T flow = 0;\n\t\twhile (true) {\n\t\t\tbfs(s);\n\t\t\tif (level[t] == -1) break;\n\
-    \t\t\tfill(iter.begin(), iter.end(), 0);\n\t\t\twhile (true) {\n\t\t\t\tT f =\
-    \ dfs(s, t, INF);\n\t\t\t\tif (f == 0) break;\n\t\t\t\tflow += f;\n\t\t\t}\n\t\
-    \t}\n\t\treturn flow;\n\t}\n};\n#line 4 \"test/flow/dinic/grl_6_a.test.cpp\"\n\
-    \n#include <iostream>\n\nint main() {\n\tint v_sz, e_sz;\n\tcin >> v_sz >> e_sz;\n\
-    \tDinic<int> g(v_sz);\n\tfor (int i = 0; i < e_sz; ++i) {\n\t\tint u, v, c;\n\t\
-    \tcin >> u >> v >> c;\n\t\tg.add_edge(u, v, c);\n\t}\n\tcout << g.max_flow(0,\
-    \ v_sz - 1) << endl;\n\n\treturn 0;\n}\n"
+    \tvoid bfs(int s) {\n\t\tlevel.assign(g.size(), -1);\n\t\tqueue<int> q;\n\t\t\
+    level[s] = 0;\n\t\tq.push(s);\n\t\twhile (!q.empty()) {\n\t\t\tint const V = q.front();\n\
+    \t\t\tq.pop();\n\t\t\tfor (auto &e : g[V]) {\n\t\t\t\tif (e.cap > 0 && level[e.to]\
+    \ == -1) {\n\t\t\t\t\tlevel[e.to] = level[V] + 1;\n\t\t\t\t\tq.push(e.to);\n\t\
+    \t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\tT dfs(int v, int t, T f) {\n\t\tif (v == t)\
+    \ return f;\n\t\tfor (int &i = iter[v]; i < (int)g[v].size(); ++i) {\n\t\t\tEdge\
+    \ &e = g[v][i];\n\t\t\tif (e.cap > 0 && level[v] < level[e.to]) {\n\t\t\t\tT d\
+    \ = dfs(e.to, t, min(f, e.cap));\n\t\t\t\tif (d > 0) {\n\t\t\t\t\te.cap -= d;\n\
+    \t\t\t\t\tg[e.to][e.rev].cap += d;\n\t\t\t\t\treturn d;\n\t\t\t\t}\n\t\t\t}\n\t\
+    \t}\n\t\treturn 0;\n\t}\n\n\tT max_flow(int s, int t) {\n\t\tT flow = 0;\n\t\t\
+    while (true) {\n\t\t\tbfs(s);\n\t\t\tif (level[t] == -1) break;\n\t\t\titer.assign(g.size(),\
+    \ 0);\n\t\t\twhile (true) {\n\t\t\t\tT f = dfs(s, t, INF);\n\t\t\t\tif (f == 0)\
+    \ break;\n\t\t\t\tflow += f;\n\t\t\t}\n\t\t}\n\t\treturn flow;\n\t}\n};\n#line\
+    \ 4 \"test/flow/dinic/grl_6_a.test.cpp\"\n\n#include <iostream>\n\nint main()\
+    \ {\n\tint v_sz, e_sz;\n\tcin >> v_sz >> e_sz;\n\tDinic<int> g(v_sz);\n\tfor (int\
+    \ i = 0; i < e_sz; ++i) {\n\t\tint u, v, c;\n\t\tcin >> u >> v >> c;\n\t\tg.add_edge(u,\
+    \ v, c);\n\t}\n\tcout << g.max_flow(0, v_sz - 1) << endl;\n\n\treturn 0;\n}\n"
   code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A\n\
     \n#include \"src/flow/dinic.hpp\"\n\n#include <iostream>\n\nint main() {\n\tint\
     \ v_sz, e_sz;\n\tcin >> v_sz >> e_sz;\n\tDinic<int> g(v_sz);\n\tfor (int i = 0;\
@@ -51,7 +50,7 @@ data:
   isVerificationFile: true
   path: test/flow/dinic/grl_6_a.test.cpp
   requiredBy: []
-  timestamp: '2023-08-22 14:56:56+09:00'
+  timestamp: '2023-08-31 00:25:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/flow/dinic/grl_6_a.test.cpp

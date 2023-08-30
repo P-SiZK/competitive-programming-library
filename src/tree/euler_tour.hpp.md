@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/abc294_g.test.cpp
     title: test/tree/euler_tour/abc294_g.test.cpp
   - icon: ':heavy_check_mark:'
@@ -15,9 +15,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
     title: test/tree/euler_tour/vertex_add_path_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/tree/euler_tour.hpp\"\n#include <optional>\n#include\
@@ -91,7 +91,7 @@ data:
   path: src/tree/euler_tour.hpp
   requiredBy: []
   timestamp: '2023-08-22 14:56:56+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/tree/euler_tour/grl_5_d.test.cpp
   - test/tree/euler_tour/grl_5_c.test.cpp

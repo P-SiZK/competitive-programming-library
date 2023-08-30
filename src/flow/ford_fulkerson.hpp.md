@@ -24,9 +24,9 @@ data:
     \ 0) {\n\t\t\t\tT d = dfs(e.to, t, min(f, e.cap));\n\t\t\t\tif (d > 0) {\n\t\t\
     \t\t\te.cap -= d;\n\t\t\t\t\tg[e.to][e.rev].cap += d;\n\t\t\t\t\treturn d;\n\t\
     \t\t\t}\n\t\t\t}\n\t\t}\n\t\treturn 0;\n\t}\n\n\tT max_flow(int s, int t) {\n\t\
-    \tT flow = 0;\n\t\twhile (true) {\n\t\t\tfill(used.begin(), used.end(), 0);\n\t\
-    \t\tT f = dfs(s, t, INF);\n\t\t\tif (f == 0) break;\n\t\t\tflow += f;\n\t\t}\n\
-    \t\treturn flow;\n\t}\n};\n"
+    \tT flow = 0;\n\t\twhile (true) {\n\t\t\tused.assign(g.size(), 0);\n\t\t\tT f\
+    \ = dfs(s, t, INF);\n\t\t\tif (f == 0) break;\n\t\t\tflow += f;\n\t\t}\n\t\treturn\
+    \ flow;\n\t}\n};\n"
   code: "#include <limits>\n#include <vector>\n\nusing namespace std;\n\ntemplate<class\
     \ T>\nclass FordFulkerson {\nprivate:\n\tstruct Edge {\n\t\tint to, rev;\n\t\t\
     T cap;\n\n\t\tEdge(int to, int cap, int rev) : to(to), rev(rev), cap(cap) {}\n\
@@ -39,14 +39,14 @@ data:
     \ 0) {\n\t\t\t\tT d = dfs(e.to, t, min(f, e.cap));\n\t\t\t\tif (d > 0) {\n\t\t\
     \t\t\te.cap -= d;\n\t\t\t\t\tg[e.to][e.rev].cap += d;\n\t\t\t\t\treturn d;\n\t\
     \t\t\t}\n\t\t\t}\n\t\t}\n\t\treturn 0;\n\t}\n\n\tT max_flow(int s, int t) {\n\t\
-    \tT flow = 0;\n\t\twhile (true) {\n\t\t\tfill(used.begin(), used.end(), 0);\n\t\
-    \t\tT f = dfs(s, t, INF);\n\t\t\tif (f == 0) break;\n\t\t\tflow += f;\n\t\t}\n\
-    \t\treturn flow;\n\t}\n};\n"
+    \tT flow = 0;\n\t\twhile (true) {\n\t\t\tused.assign(g.size(), 0);\n\t\t\tT f\
+    \ = dfs(s, t, INF);\n\t\t\tif (f == 0) break;\n\t\t\tflow += f;\n\t\t}\n\t\treturn\
+    \ flow;\n\t}\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: src/flow/ford_fulkerson.hpp
   requiredBy: []
-  timestamp: '2023-08-22 14:56:56+09:00'
+  timestamp: '2023-08-31 00:25:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/flow/ford_fulkerson/grl_6_a.test.cpp

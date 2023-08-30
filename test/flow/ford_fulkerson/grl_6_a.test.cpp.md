@@ -27,9 +27,9 @@ data:
     \ {\n\t\t\tif (!used[e.to] && e.cap > 0) {\n\t\t\t\tT d = dfs(e.to, t, min(f,\
     \ e.cap));\n\t\t\t\tif (d > 0) {\n\t\t\t\t\te.cap -= d;\n\t\t\t\t\tg[e.to][e.rev].cap\
     \ += d;\n\t\t\t\t\treturn d;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\treturn 0;\n\t}\n\n\
-    \tT max_flow(int s, int t) {\n\t\tT flow = 0;\n\t\twhile (true) {\n\t\t\tfill(used.begin(),\
-    \ used.end(), 0);\n\t\t\tT f = dfs(s, t, INF);\n\t\t\tif (f == 0) break;\n\t\t\
-    \tflow += f;\n\t\t}\n\t\treturn flow;\n\t}\n};\n#line 4 \"test/flow/ford_fulkerson/grl_6_a.test.cpp\"\
+    \tT max_flow(int s, int t) {\n\t\tT flow = 0;\n\t\twhile (true) {\n\t\t\tused.assign(g.size(),\
+    \ 0);\n\t\t\tT f = dfs(s, t, INF);\n\t\t\tif (f == 0) break;\n\t\t\tflow += f;\n\
+    \t\t}\n\t\treturn flow;\n\t}\n};\n#line 4 \"test/flow/ford_fulkerson/grl_6_a.test.cpp\"\
     \n\n#include <iostream>\n\nint main() {\n\tint v_sz, e_sz;\n\tcin >> v_sz >> e_sz;\n\
     \tFordFulkerson<int> g(v_sz);\n\tfor (int i = 0; i < e_sz; ++i) {\n\t\tint u,\
     \ v, c;\n\t\tcin >> u >> v >> c;\n\t\tg.add_edge(u, v, c);\n\t}\n\tcout << g.max_flow(0,\
@@ -45,7 +45,7 @@ data:
   isVerificationFile: true
   path: test/flow/ford_fulkerson/grl_6_a.test.cpp
   requiredBy: []
-  timestamp: '2023-08-22 14:56:56+09:00'
+  timestamp: '2023-08-31 00:25:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/flow/ford_fulkerson/grl_6_a.test.cpp
