@@ -44,7 +44,7 @@ data:
       title: src/graph/prim.hpp
   - name: src/math
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: src/math/combination.hpp
       title: src/math/combination.hpp
     - icon: ':warning:'
@@ -64,12 +64,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/segtree/lazy_segment_tree.hpp
       title: src/segtree/lazy_segment_tree.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/segtree/segment_tree.hpp
       title: src/segtree/segment_tree.hpp
   - name: src/tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/tree/euler_tour.hpp
       title: src/tree/euler_tour.hpp
   verificationCategories:
@@ -199,7 +199,7 @@ data:
       title: test/graph/prim/grl_2_a.test.cpp
   - name: test/math/combination
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/math/combination/abc145_d.test.cpp
       title: test/math/combination/abc145_d.test.cpp
   - name: test/math/extended_gcd
@@ -222,16 +222,16 @@ data:
       title: test/segtree/segment_tree/dsl_2_b.test.cpp
   - name: test/tree/euler_tour
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/tree/euler_tour/abc294_g.test.cpp
       title: test/tree/euler_tour/abc294_g.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/grl_5_c.test.cpp
       title: test/tree/euler_tour/grl_5_c.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/tree/euler_tour/grl_5_d.test.cpp
       title: test/tree/euler_tour/grl_5_d.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
       title: test/tree/euler_tour/vertex_add_path_sum.test.cpp
 layout: toppage

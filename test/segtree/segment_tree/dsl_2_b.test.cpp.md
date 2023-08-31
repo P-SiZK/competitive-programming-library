@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/segtree/segment_tree.hpp
     title: src/segtree/segment_tree.hpp
   _extendedRequiredBy: []
@@ -15,19 +15,19 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B
   bundledCode: "#line 1 \"test/segtree/segment_tree/dsl_2_b.test.cpp\"\n// verification-helper:\
     \ PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_B\n\n\
-    #line 1 \"src/segtree/segment_tree.hpp\"\n#include <vector>\n\nusing namespace\
-    \ std;\n\ntemplate<class T, class F>\nclass SegmentTree { // 0-indexed\nprivate:\n\
-    \tint n_{};\n\tvector<T> tree;\n\tF f; // function<T(T, T)>\n\tT ti;\n\npublic:\n\
-    \tSegmentTree(F f, T ti) : f(f), ti(ti) {}\n\n\tvoid init(int n) {\n\t\tn_ = 1;\n\
-    \t\twhile (n_ < n) n_ *= 2;\n\t\ttree.assign(2 * n_, ti);\n\t}\n\n\tvoid build(vector<T>\
+    #line 1 \"src/segtree/segment_tree.hpp\"\n#include <vector>\n\ntemplate<class\
+    \ T, class F>\nclass SegmentTree { // 0-indexed\nprivate:\n\tint n_{};\n\tstd::vector<T>\
+    \ tree;\n\tF f; // function<T(T, T)>\n\tT ti;\n\npublic:\n\tSegmentTree(F f, T\
+    \ ti) : f(f), ti(ti) {}\n\n\tvoid init(int n) {\n\t\tn_ = 1;\n\t\twhile (n_ <\
+    \ n) n_ *= 2;\n\t\ttree.assign(2 * n_, ti);\n\t}\n\n\tvoid build(std::vector<T>\
     \ const &v) {\n\t\tint const N = v.size();\n\t\tinit(N);\n\t\tfor (int i = 0;\
-    \ i < N; ++i) tree[n_ + i] = v[i];\n\t\tfor (int i = n_ - 1; i > 0; --i)\n\t\t\
-    \ttree[i] = f(tree[2 * i], tree[2 * i + 1]);\n\t}\n\n\tvoid update(int i, T const\
-    \ &x) {\n\t\ti += n_;\n\t\ttree[i] = x;\n\t\twhile (i >>= 1) tree[i] = f(tree[2\
-    \ * i], tree[2 * i + 1]);\n\t}\n\n\tT find(int l, int r) { // [l, r)\n\t\tl +=\
-    \ n_, r += n_;\n\t\tT ll = ti, rr = ti;\n\t\twhile (l < r) {\n\t\t\tif (l & 1)\
-    \ ll = f(ll, tree[l++]);\n\t\t\tif (r & 1) rr = f(rr, tree[--r]);\n\t\t\tl >>=\
-    \ 1, r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) { return tree[i\
+    \ i < N; ++i) tree[n_ + i] = v[i];\n\t\tfor (int i = n_ - 1; i > 0; --i) tree[i]\
+    \ = f(tree[2 * i], tree[2 * i + 1]);\n\t}\n\n\tvoid update(int i, T const &x)\
+    \ {\n\t\ti += n_;\n\t\ttree[i] = x;\n\t\twhile (i >>= 1) tree[i] = f(tree[2 *\
+    \ i], tree[2 * i + 1]);\n\t}\n\n\tT find(int l, int r) { // [l, r)\n\t\tl += n_,\
+    \ r += n_;\n\t\tT ll = ti, rr = ti;\n\t\twhile (l < r) {\n\t\t\tif (l & 1) ll\
+    \ = f(ll, tree[l++]);\n\t\t\tif (r & 1) rr = f(rr, tree[--r]);\n\t\t\tl >>= 1,\
+    \ r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) { return tree[i\
     \ + n_]; }\n};\n#line 4 \"test/segtree/segment_tree/dsl_2_b.test.cpp\"\n\n#include\
     \ <iostream>\n\nusing namespace std;\n\nint main() {\n\tint n, q;\n\tcin >> n\
     \ >> q;\n\tSegmentTree seg([](long long a, long long b) { return a + b; }, 0LL);\n\
@@ -46,7 +46,7 @@ data:
   isVerificationFile: true
   path: test/segtree/segment_tree/dsl_2_b.test.cpp
   requiredBy: []
-  timestamp: '2023-08-22 14:56:56+09:00'
+  timestamp: '2023-08-31 13:01:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/segtree/segment_tree/dsl_2_b.test.cpp
