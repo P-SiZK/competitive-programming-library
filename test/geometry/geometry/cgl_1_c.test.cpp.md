@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/geometry.hpp
     title: src/geometry/geometry.hpp
   _extendedRequiredBy: []
@@ -15,7 +15,7 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_C
   bundledCode: "#line 1 \"test/geometry/geometry/cgl_1_c.test.cpp\"\n// verification-helper:\
     \ PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_C\n\n\
-    #line 1 \"src/geometry/geometry.hpp\"\n#include <algorithm>\n#include <cmath>\n\
+    #line 1 \"src/geometry/geometry.hpp\"\n\n\n\n#include <algorithm>\n#include <cmath>\n\
     #include <iostream>\n#include <set>\n#include <vector>\n\ndouble constexpr EPS\
     \ = 1e-10;\ndouble constexpr PI = 3.14159265358979323846;\n\ninline bool equals(double\
     \ a, double b) { return std::abs(a - b) < EPS; }\n\nstatic int const COUNTER_CLOCKWISE\
@@ -176,14 +176,14 @@ data:
     \ i = 0; i < 2 * N; ++i) {\n\t\tif (ep[i].st == TOP) st.erase(ep[i].p.x);\n\t\t\
     else if (ep[i].st == BOTTOM) st.insert(ep[i].p.x);\n\t\telse if (ep[i].st == LEFT)\
     \ {\n\t\t\tauto b = st.lower_bound(ss[ep[i].seg].p1.x);\n\t\t\tauto e = st.upper_bound(ss[ep[i].seg].p2.x);\n\
-    \t\t\tcnt += std::distance(b, e);\n\t\t}\n\t}\n\treturn cnt;\n}\n#line 4 \"test/geometry/geometry/cgl_1_c.test.cpp\"\
-    \n\n#line 6 \"test/geometry/geometry/cgl_1_c.test.cpp\"\n\nusing namespace std;\n\
-    \nint main() {\n\tPoint p0{}, p1{}, p2{};\n\tcin >> p0 >> p1;\n\tint q;\n\tcin\
-    \ >> q;\n\twhile (q--) {\n\t\tcin >> p2;\n\t\tint a = ccw(p0, p1, p2);\n\t\tif\
-    \ (a == COUNTER_CLOCKWISE) cout << \"COUNTER_CLOCKWISE\";\n\t\telse if (a == CLOCKWISE)\
-    \ cout << \"CLOCKWISE\";\n\t\telse if (a == ONLINE_BACK) cout << \"ONLINE_BACK\"\
-    ;\n\t\telse if (a == ONLINE_FRONT) cout << \"ONLINE_FRONT\";\n\t\telse cout <<\
-    \ \"ON_SEGMENT\";\n\t\tcout << endl;\n\t}\n\n\treturn 0;\n}\n"
+    \t\t\tcnt += std::distance(b, e);\n\t\t}\n\t}\n\treturn cnt;\n}\n\n\n#line 4 \"\
+    test/geometry/geometry/cgl_1_c.test.cpp\"\n\n#line 6 \"test/geometry/geometry/cgl_1_c.test.cpp\"\
+    \n\nusing namespace std;\n\nint main() {\n\tPoint p0{}, p1{}, p2{};\n\tcin >>\
+    \ p0 >> p1;\n\tint q;\n\tcin >> q;\n\twhile (q--) {\n\t\tcin >> p2;\n\t\tint a\
+    \ = ccw(p0, p1, p2);\n\t\tif (a == COUNTER_CLOCKWISE) cout << \"COUNTER_CLOCKWISE\"\
+    ;\n\t\telse if (a == CLOCKWISE) cout << \"CLOCKWISE\";\n\t\telse if (a == ONLINE_BACK)\
+    \ cout << \"ONLINE_BACK\";\n\t\telse if (a == ONLINE_FRONT) cout << \"ONLINE_FRONT\"\
+    ;\n\t\telse cout << \"ON_SEGMENT\";\n\t\tcout << endl;\n\t}\n\n\treturn 0;\n}\n"
   code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_C\n\
     \n#include \"src/geometry/geometry.hpp\"\n\n#include <iostream>\n\nusing namespace\
     \ std;\n\nint main() {\n\tPoint p0{}, p1{}, p2{};\n\tcin >> p0 >> p1;\n\tint q;\n\
@@ -197,7 +197,7 @@ data:
   isVerificationFile: true
   path: test/geometry/geometry/cgl_1_c.test.cpp
   requiredBy: []
-  timestamp: '2023-08-31 13:01:25+09:00'
+  timestamp: '2023-08-31 15:37:54+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/geometry/cgl_1_c.test.cpp

@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/geometry.hpp
     title: src/geometry/geometry.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     ERROR: 1e-5
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_G
@@ -16,9 +16,9 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_G
   bundledCode: "#line 1 \"test/geometry/geometry/cgl_7_g.test.cpp\"\n// verification-helper:\
     \ PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_G\n//\
-    \ verification-helper: ERROR 1e-5\n\n#line 1 \"src/geometry/geometry.hpp\"\n#include\
-    \ <algorithm>\n#include <cmath>\n#include <iostream>\n#include <set>\n#include\
-    \ <vector>\n\ndouble constexpr EPS = 1e-10;\ndouble constexpr PI = 3.14159265358979323846;\n\
+    \ verification-helper: ERROR 1e-5\n\n#line 1 \"src/geometry/geometry.hpp\"\n\n\
+    \n\n#include <algorithm>\n#include <cmath>\n#include <iostream>\n#include <set>\n\
+    #include <vector>\n\ndouble constexpr EPS = 1e-10;\ndouble constexpr PI = 3.14159265358979323846;\n\
     \ninline bool equals(double a, double b) { return std::abs(a - b) < EPS; }\n\n\
     static int const COUNTER_CLOCKWISE = 1;\nstatic int const CLOCKWISE = -1;\nstatic\
     \ int const ONLINE_BACK = 2;\nstatic int const ONLINE_FRONT = -2;\nstatic int\
@@ -178,12 +178,12 @@ data:
     \ i = 0; i < 2 * N; ++i) {\n\t\tif (ep[i].st == TOP) st.erase(ep[i].p.x);\n\t\t\
     else if (ep[i].st == BOTTOM) st.insert(ep[i].p.x);\n\t\telse if (ep[i].st == LEFT)\
     \ {\n\t\t\tauto b = st.lower_bound(ss[ep[i].seg].p1.x);\n\t\t\tauto e = st.upper_bound(ss[ep[i].seg].p2.x);\n\
-    \t\t\tcnt += std::distance(b, e);\n\t\t}\n\t}\n\treturn cnt;\n}\n#line 5 \"test/geometry/geometry/cgl_7_g.test.cpp\"\
-    \n\n#line 7 \"test/geometry/geometry/cgl_7_g.test.cpp\"\n#include <iomanip>\n\
-    #line 10 \"test/geometry/geometry/cgl_7_g.test.cpp\"\n\nusing namespace std;\n\
-    \nint main() {\n\tcout << fixed << setprecision(10);\n\tCircle c1{}, c2{};\n\t\
-    cin >> c1.c >> c1.r >> c2.c >> c2.r;\n\tauto a = tangent_cc(c1, c2);\n\tvector<Point>\
-    \ ps;\n\tps.reserve(a.size());\n\tfor (auto e : a) ps.push_back(get_cross_point_cl(c1,\
+    \t\t\tcnt += std::distance(b, e);\n\t\t}\n\t}\n\treturn cnt;\n}\n\n\n#line 5 \"\
+    test/geometry/geometry/cgl_7_g.test.cpp\"\n\n#line 7 \"test/geometry/geometry/cgl_7_g.test.cpp\"\
+    \n#include <iomanip>\n#line 10 \"test/geometry/geometry/cgl_7_g.test.cpp\"\n\n\
+    using namespace std;\n\nint main() {\n\tcout << fixed << setprecision(10);\n\t\
+    Circle c1{}, c2{};\n\tcin >> c1.c >> c1.r >> c2.c >> c2.r;\n\tauto a = tangent_cc(c1,\
+    \ c2);\n\tvector<Point> ps;\n\tps.reserve(a.size());\n\tfor (auto e : a) ps.push_back(get_cross_point_cl(c1,\
     \ e)[0]);\n\tsort(ps.begin(), ps.end());\n\tfor (auto e : ps) cout << e.x << \"\
     \ \" << e.y << endl;\n\n\treturn 0;\n}\n"
   code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/7/CGL_7_G\n\
@@ -199,8 +199,8 @@ data:
   isVerificationFile: true
   path: test/geometry/geometry/cgl_7_g.test.cpp
   requiredBy: []
-  timestamp: '2023-08-31 13:01:25+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-08-31 15:37:54+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/geometry/geometry/cgl_7_g.test.cpp
 layout: document

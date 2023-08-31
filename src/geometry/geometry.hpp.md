@@ -60,52 +60,53 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry/cgl_7_d.test.cpp
     title: test/geometry/geometry/cgl_7_d.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/geometry/geometry/cgl_7_e.test.cpp
     title: test/geometry/geometry/cgl_7_e.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/geometry/geometry/cgl_7_f.test.cpp
     title: test/geometry/geometry/cgl_7_f.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/geometry/geometry/cgl_7_g.test.cpp
     title: test/geometry/geometry/cgl_7_g.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/geometry/geometry/cgl_7_h.test.cpp
     title: test/geometry/geometry/cgl_7_h.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/geometry/geometry/cgl_7_i.test.cpp
     title: test/geometry/geometry/cgl_7_i.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/geometry/geometry.hpp\"\n#include <algorithm>\n#include\
-    \ <cmath>\n#include <iostream>\n#include <set>\n#include <vector>\n\ndouble constexpr\
-    \ EPS = 1e-10;\ndouble constexpr PI = 3.14159265358979323846;\n\ninline bool equals(double\
-    \ a, double b) { return std::abs(a - b) < EPS; }\n\nstatic int const COUNTER_CLOCKWISE\
-    \ = 1;\nstatic int const CLOCKWISE = -1;\nstatic int const ONLINE_BACK = 2;\n\
-    static int const ONLINE_FRONT = -2;\nstatic int const ON_SEGMENT = 0;\n\nstruct\
-    \ Point {\n\tdouble x, y;\n\n\tPoint() = default;\n\n\tPoint(double x, double\
-    \ y) : x(x), y(y) {}\n\n\tPoint operator+(Point const &p) const { return {x +\
-    \ p.x, y + p.y}; }\n\n\tPoint operator-(Point const &p) const { return {x - p.x,\
-    \ y - p.y}; }\n\n\tPoint operator*(double const &k) const { return {x * k, y *\
-    \ k}; }\n\n\tPoint operator/(double const &k) const { return {x / k, y / k}; }\n\
-    \n\tfriend std::istream &operator>>(std::istream &is, Point &p) {\n\t\tis >> p.x\
-    \ >> p.y;\n\t\treturn is;\n\t}\n\n\tbool operator==(Point const &p) const {\n\t\
-    \treturn (std::abs(x - p.x) < EPS && std::abs(y - p.y) < EPS);\n\t}\n\n\tbool\
-    \ operator<(Point const &p) const { return (x != p.x ? x < p.x : y < p.y); }\n\
-    \n\t[[nodiscard]] double norm() const { return x * x + y * y; }\n\n\t[[nodiscard]]\
-    \ double abs() const { return std::sqrt(norm()); }\n};\n\nusing Vector = Point;\n\
-    \ninline double dot(Vector a, Vector b) { return a.x * b.x + a.y * b.y; }\n\n\
-    inline double cross(Vector a, Vector b) { return a.x * b.y - a.y * b.x; }\n\n\
-    inline bool is_parallel(Vector a, Vector b) { return equals(cross(a, b), 0.0);\
-    \ }\n\ninline bool is_orthogonal(Vector a, Vector b) { return equals(dot(a, b),\
-    \ 0.0); }\n\nstruct EndPoint {\n\tPoint p;\n\tint seg, st;\n\n\tEndPoint() = default;\n\
-    \n\tEndPoint(Point p, int seg, int st) : p(p), seg(seg), st(st) {}\n\n\tbool operator<(EndPoint\
-    \ const &ep) const {\n\t\tif (p.y == ep.p.y) return st < ep.st;\n\t\treturn p.y\
-    \ < ep.p.y;\n\t}\n};\n\nstruct Segment {\n\tPoint p1, p2;\n\n\tSegment() = default;\n\
-    \n\tSegment(Point p1, Point p2) : p1(p1), p2(p2) {}\n\n\tfriend std::istream &operator>>(std::istream\
+  bundledCode: "#line 1 \"src/geometry/geometry.hpp\"\n\n\n\n#include <algorithm>\n\
+    #include <cmath>\n#include <iostream>\n#include <set>\n#include <vector>\n\ndouble\
+    \ constexpr EPS = 1e-10;\ndouble constexpr PI = 3.14159265358979323846;\n\ninline\
+    \ bool equals(double a, double b) { return std::abs(a - b) < EPS; }\n\nstatic\
+    \ int const COUNTER_CLOCKWISE = 1;\nstatic int const CLOCKWISE = -1;\nstatic int\
+    \ const ONLINE_BACK = 2;\nstatic int const ONLINE_FRONT = -2;\nstatic int const\
+    \ ON_SEGMENT = 0;\n\nstruct Point {\n\tdouble x, y;\n\n\tPoint() = default;\n\n\
+    \tPoint(double x, double y) : x(x), y(y) {}\n\n\tPoint operator+(Point const &p)\
+    \ const { return {x + p.x, y + p.y}; }\n\n\tPoint operator-(Point const &p) const\
+    \ { return {x - p.x, y - p.y}; }\n\n\tPoint operator*(double const &k) const {\
+    \ return {x * k, y * k}; }\n\n\tPoint operator/(double const &k) const { return\
+    \ {x / k, y / k}; }\n\n\tfriend std::istream &operator>>(std::istream &is, Point\
+    \ &p) {\n\t\tis >> p.x >> p.y;\n\t\treturn is;\n\t}\n\n\tbool operator==(Point\
+    \ const &p) const {\n\t\treturn (std::abs(x - p.x) < EPS && std::abs(y - p.y)\
+    \ < EPS);\n\t}\n\n\tbool operator<(Point const &p) const { return (x != p.x ?\
+    \ x < p.x : y < p.y); }\n\n\t[[nodiscard]] double norm() const { return x * x\
+    \ + y * y; }\n\n\t[[nodiscard]] double abs() const { return std::sqrt(norm());\
+    \ }\n};\n\nusing Vector = Point;\n\ninline double dot(Vector a, Vector b) { return\
+    \ a.x * b.x + a.y * b.y; }\n\ninline double cross(Vector a, Vector b) { return\
+    \ a.x * b.y - a.y * b.x; }\n\ninline bool is_parallel(Vector a, Vector b) { return\
+    \ equals(cross(a, b), 0.0); }\n\ninline bool is_orthogonal(Vector a, Vector b)\
+    \ { return equals(dot(a, b), 0.0); }\n\nstruct EndPoint {\n\tPoint p;\n\tint seg,\
+    \ st;\n\n\tEndPoint() = default;\n\n\tEndPoint(Point p, int seg, int st) : p(p),\
+    \ seg(seg), st(st) {}\n\n\tbool operator<(EndPoint const &ep) const {\n\t\tif\
+    \ (p.y == ep.p.y) return st < ep.st;\n\t\treturn p.y < ep.p.y;\n\t}\n};\n\nstruct\
+    \ Segment {\n\tPoint p1, p2;\n\n\tSegment() = default;\n\n\tSegment(Point p1,\
+    \ Point p2) : p1(p1), p2(p2) {}\n\n\tfriend std::istream &operator>>(std::istream\
     \ &is, Segment &s) {\n\t\tis >> s.p1 >> s.p2;\n\t\treturn is;\n\t}\n};\n\nusing\
     \ Line = Segment;\n\ninline Point project(Segment s, Point p) {\n\tVector base\
     \ = s.p2 - s.p1;\n\tdouble r = dot(p - s.p1, base) / base.norm();\n\treturn s.p1\
@@ -241,9 +242,10 @@ data:
     \ i = 0; i < 2 * N; ++i) {\n\t\tif (ep[i].st == TOP) st.erase(ep[i].p.x);\n\t\t\
     else if (ep[i].st == BOTTOM) st.insert(ep[i].p.x);\n\t\telse if (ep[i].st == LEFT)\
     \ {\n\t\t\tauto b = st.lower_bound(ss[ep[i].seg].p1.x);\n\t\t\tauto e = st.upper_bound(ss[ep[i].seg].p2.x);\n\
-    \t\t\tcnt += std::distance(b, e);\n\t\t}\n\t}\n\treturn cnt;\n}\n"
-  code: "#include <algorithm>\n#include <cmath>\n#include <iostream>\n#include <set>\n\
-    #include <vector>\n\ndouble constexpr EPS = 1e-10;\ndouble constexpr PI = 3.14159265358979323846;\n\
+    \t\t\tcnt += std::distance(b, e);\n\t\t}\n\t}\n\treturn cnt;\n}\n\n\n"
+  code: "#ifndef GEOMETRY_GEOMETRY_HPP\n#define GEOMETRY_GEOMETRY_HPP\n\n#include\
+    \ <algorithm>\n#include <cmath>\n#include <iostream>\n#include <set>\n#include\
+    \ <vector>\n\ndouble constexpr EPS = 1e-10;\ndouble constexpr PI = 3.14159265358979323846;\n\
     \ninline bool equals(double a, double b) { return std::abs(a - b) < EPS; }\n\n\
     static int const COUNTER_CLOCKWISE = 1;\nstatic int const CLOCKWISE = -1;\nstatic\
     \ int const ONLINE_BACK = 2;\nstatic int const ONLINE_FRONT = -2;\nstatic int\
@@ -403,13 +405,13 @@ data:
     \ i = 0; i < 2 * N; ++i) {\n\t\tif (ep[i].st == TOP) st.erase(ep[i].p.x);\n\t\t\
     else if (ep[i].st == BOTTOM) st.insert(ep[i].p.x);\n\t\telse if (ep[i].st == LEFT)\
     \ {\n\t\t\tauto b = st.lower_bound(ss[ep[i].seg].p1.x);\n\t\t\tauto e = st.upper_bound(ss[ep[i].seg].p2.x);\n\
-    \t\t\tcnt += std::distance(b, e);\n\t\t}\n\t}\n\treturn cnt;\n}\n"
+    \t\t\tcnt += std::distance(b, e);\n\t\t}\n\t}\n\treturn cnt;\n}\n\n#endif // GEOMETRY_GEOMETRY_HPP\n"
   dependsOn: []
   isVerificationFile: false
   path: src/geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2023-08-31 13:01:25+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-08-31 15:37:54+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/geometry/geometry/cgl_2_c.test.cpp
   - test/geometry/geometry/cgl_7_a.test.cpp

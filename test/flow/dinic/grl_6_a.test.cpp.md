@@ -15,7 +15,7 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A
   bundledCode: "#line 1 \"test/flow/dinic/grl_6_a.test.cpp\"\n// verification-helper:\
     \ PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A\n\n\
-    #line 1 \"src/flow/dinic.hpp\"\n#include <limits>\n#include <queue>\n#include\
+    #line 1 \"src/flow/dinic.hpp\"\n\n\n\n#include <limits>\n#include <queue>\n#include\
     \ <vector>\n\ntemplate<class T>\nclass Dinic {\nprivate:\n\tstruct Edge {\n\t\t\
     int to, rev;\n\t\tT cap;\n\n\t\tEdge(int to, int cap, int rev) : to(to), rev(rev),\
     \ cap(cap) {}\n\t};\n\n\tstatic constexpr T INF = std::numeric_limits<T>::max();\n\
@@ -36,8 +36,8 @@ data:
     \t\tT flow = 0;\n\t\twhile (true) {\n\t\t\tbfs(s);\n\t\t\tif (level[t] == -1)\
     \ break;\n\t\t\titer.assign(g.size(), 0);\n\t\t\twhile (true) {\n\t\t\t\tT f =\
     \ dfs(s, t, INF);\n\t\t\t\tif (f == 0) break;\n\t\t\t\tflow += f;\n\t\t\t}\n\t\
-    \t}\n\t\treturn flow;\n\t}\n};\n#line 4 \"test/flow/dinic/grl_6_a.test.cpp\"\n\
-    \n#include <iostream>\n\nusing namespace std;\n\nint main() {\n\tint v_sz, e_sz;\n\
+    \t}\n\t\treturn flow;\n\t}\n};\n\n\n#line 4 \"test/flow/dinic/grl_6_a.test.cpp\"\
+    \n\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n\tint v_sz, e_sz;\n\
     \tcin >> v_sz >> e_sz;\n\tDinic<int> g(v_sz);\n\tfor (int i = 0; i < e_sz; ++i)\
     \ {\n\t\tint u, v, c;\n\t\tcin >> u >> v >> c;\n\t\tg.add_edge(u, v, c);\n\t}\n\
     \tcout << g.max_flow(0, v_sz - 1) << endl;\n\n\treturn 0;\n}\n"
@@ -52,7 +52,7 @@ data:
   isVerificationFile: true
   path: test/flow/dinic/grl_6_a.test.cpp
   requiredBy: []
-  timestamp: '2023-08-31 13:01:25+09:00'
+  timestamp: '2023-08-31 15:37:54+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/flow/dinic/grl_6_a.test.cpp

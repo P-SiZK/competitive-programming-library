@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/segtree/lazy_segment_tree/dsl_2_f.test.cpp
     title: test/segtree/lazy_segment_tree/dsl_2_f.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/segtree/lazy_segment_tree.hpp\"\n#include <vector>\n\
+  bundledCode: "#line 1 \"src/segtree/lazy_segment_tree.hpp\"\n\n\n\n#include <vector>\n\
     \ntemplate<class T, class E, class F, class G, class H>\nclass LazySegmentTree\
     \ { // 0-indexed\nprivate:\n\tint n_{}, height{};\n\tstd::vector<T> tree;\n\t\
     std::vector<E> lazy;\n\tF f; // function<T(T, T)>\n\tG g; // function<T(T, E)>\n\
@@ -36,8 +36,9 @@ data:
     \tint l = s, r = t;\n\t\tT ll = ti, rr = ti;\n\t\twhile (l < r) {\n\t\t\tif (l\
     \ & 1) ll = f(ll, reflect(l++));\n\t\t\tif (r & 1) rr = f(rr, reflect(--r));\n\
     \t\t\tl >>= 1, r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) {\
-    \ return find(i, i + 1); }\n};\n"
-  code: "#include <vector>\n\ntemplate<class T, class E, class F, class G, class H>\n\
+    \ return find(i, i + 1); }\n};\n\n\n"
+  code: "#ifndef SEGTREE_LAZY_SEGMENT_TREE_HPP\n#define SEGTREE_LAZY_SEGMENT_TREE_HPP\n\
+    \n#include <vector>\n\ntemplate<class T, class E, class F, class G, class H>\n\
     class LazySegmentTree { // 0-indexed\nprivate:\n\tint n_{}, height{};\n\tstd::vector<T>\
     \ tree;\n\tstd::vector<E> lazy;\n\tF f; // function<T(T, T)>\n\tG g; // function<T(T,\
     \ E)>\n\tH h; // function<E(E, E)>\n\tT ti;\n\tE ei;\n\npublic:\n\tLazySegmentTree(F\
@@ -61,13 +62,13 @@ data:
     \tint l = s, r = t;\n\t\tT ll = ti, rr = ti;\n\t\twhile (l < r) {\n\t\t\tif (l\
     \ & 1) ll = f(ll, reflect(l++));\n\t\t\tif (r & 1) rr = f(rr, reflect(--r));\n\
     \t\t\tl >>= 1, r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) {\
-    \ return find(i, i + 1); }\n};\n"
+    \ return find(i, i + 1); }\n};\n\n#endif // SEGTREE_LAZY_SEGMENT_TREE_HPP\n"
   dependsOn: []
   isVerificationFile: false
   path: src/segtree/lazy_segment_tree.hpp
   requiredBy: []
-  timestamp: '2023-08-31 13:01:25+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-08-31 15:37:54+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/segtree/lazy_segment_tree/dsl_2_f.test.cpp
 documentation_of: src/segtree/lazy_segment_tree.hpp

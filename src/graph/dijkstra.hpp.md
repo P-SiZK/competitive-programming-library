@@ -3,18 +3,18 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/graph/dijkstra/grl_1_a.test.cpp
     title: test/graph/dijkstra/grl_1_a.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/graph/dijkstra.hpp\"\n#include <algorithm>\r\n#include\
-    \ <limits>\r\n#include <queue>\r\n#include <utility>\r\n#include <vector>\r\n\r\
-    \ntemplate<class T>\r\nclass Dijkstra {\r\nprivate:\r\n\tstatic constexpr T INF\
-    \ = std::numeric_limits<T>::max();\r\n\r\n\tint s{};\r\n\tstd::vector<std::vector<std::pair<int,\
+  bundledCode: "#line 1 \"src/graph/dijkstra.hpp\"\n\n\n\r\n#include <algorithm>\r\
+    \n#include <limits>\r\n#include <queue>\r\n#include <utility>\r\n#include <vector>\r\
+    \n\r\ntemplate<class T>\r\nclass Dijkstra {\r\nprivate:\r\n\tstatic constexpr\
+    \ T INF = std::numeric_limits<T>::max();\r\n\r\n\tint s{};\r\n\tstd::vector<std::vector<std::pair<int,\
     \ T>>> g;\r\n\tstd::vector<T> cost;\r\n\tstd::vector<int> prevv;\r\n\r\npublic:\r\
     \n\tDijkstra(int n) : g(n), cost(n), prevv(n) {}\r\n\r\n\tvoid add_edge(int from,\
     \ int to, T cost) { g[from].emplace_back(to, cost); }\r\n\r\n\tvoid build(int\
@@ -30,13 +30,14 @@ data:
     \ to) {\r\n\t\tstd::vector<int> path;\r\n\t\tfor (int v = to; v != -1; v = prevv[v])\
     \ path.push_back(v);\r\n\t\tstd::reverse(path.begin(), path.end());\r\n\t\treturn\
     \ path;\r\n\t}\r\n\r\n\tbool is_unreachable(int to) { return cost[to] == INF;\
-    \ }\r\n};\r\n"
-  code: "#include <algorithm>\r\n#include <limits>\r\n#include <queue>\r\n#include\
-    \ <utility>\r\n#include <vector>\r\n\r\ntemplate<class T>\r\nclass Dijkstra {\r\
-    \nprivate:\r\n\tstatic constexpr T INF = std::numeric_limits<T>::max();\r\n\r\n\
-    \tint s{};\r\n\tstd::vector<std::vector<std::pair<int, T>>> g;\r\n\tstd::vector<T>\
-    \ cost;\r\n\tstd::vector<int> prevv;\r\n\r\npublic:\r\n\tDijkstra(int n) : g(n),\
-    \ cost(n), prevv(n) {}\r\n\r\n\tvoid add_edge(int from, int to, T cost) { g[from].emplace_back(to,\
+    \ }\r\n};\r\n\r\n\n"
+  code: "#ifndef GRAPH_DIJKSTRA_HPP\r\n#define GRAPH_DIJKSTRA_HPP\r\n\r\n#include\
+    \ <algorithm>\r\n#include <limits>\r\n#include <queue>\r\n#include <utility>\r\
+    \n#include <vector>\r\n\r\ntemplate<class T>\r\nclass Dijkstra {\r\nprivate:\r\
+    \n\tstatic constexpr T INF = std::numeric_limits<T>::max();\r\n\r\n\tint s{};\r\
+    \n\tstd::vector<std::vector<std::pair<int, T>>> g;\r\n\tstd::vector<T> cost;\r\
+    \n\tstd::vector<int> prevv;\r\n\r\npublic:\r\n\tDijkstra(int n) : g(n), cost(n),\
+    \ prevv(n) {}\r\n\r\n\tvoid add_edge(int from, int to, T cost) { g[from].emplace_back(to,\
     \ cost); }\r\n\r\n\tvoid build(int from) {\r\n\t\ts = from;\r\n\t\tcost.assign(g.size(),\
     \ INF);\r\n\t\tprevv.assign(g.size(), -1);\r\n\t\tstd::priority_queue<std::pair<T,\
     \ int>,\r\n\t\t\t\t\t\t\tstd::vector<std::pair<T, int>>,\r\n\t\t\t\t\t\t\tstd::greater<>>\r\
@@ -49,13 +50,14 @@ data:
     \ }\r\n\r\n\tstd::vector<int> shortest_path(int to) {\r\n\t\tstd::vector<int>\
     \ path;\r\n\t\tfor (int v = to; v != -1; v = prevv[v]) path.push_back(v);\r\n\t\
     \tstd::reverse(path.begin(), path.end());\r\n\t\treturn path;\r\n\t}\r\n\r\n\t\
-    bool is_unreachable(int to) { return cost[to] == INF; }\r\n};\r\n"
+    bool is_unreachable(int to) { return cost[to] == INF; }\r\n};\r\n\r\n#endif //\
+    \ GRAPH_DIJKSTRA_HPP\r\n"
   dependsOn: []
   isVerificationFile: false
   path: src/graph/dijkstra.hpp
   requiredBy: []
-  timestamp: '2023-08-31 13:01:25+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-08-31 15:37:54+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/dijkstra/grl_1_a.test.cpp
 documentation_of: src/graph/dijkstra.hpp

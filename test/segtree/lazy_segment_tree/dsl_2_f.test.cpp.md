@@ -1,21 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/segtree/lazy_segment_tree.hpp
     title: src/segtree/lazy_segment_tree.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_F
     links:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_F
   bundledCode: "#line 1 \"test/segtree/lazy_segment_tree/dsl_2_f.test.cpp\"\n// verification-helper:\
     \ PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_F\n\n\
-    #line 1 \"src/segtree/lazy_segment_tree.hpp\"\n#include <vector>\n\ntemplate<class\
+    #line 1 \"src/segtree/lazy_segment_tree.hpp\"\n\n\n\n#include <vector>\n\ntemplate<class\
     \ T, class E, class F, class G, class H>\nclass LazySegmentTree { // 0-indexed\n\
     private:\n\tint n_{}, height{};\n\tstd::vector<T> tree;\n\tstd::vector<E> lazy;\n\
     \tF f; // function<T(T, T)>\n\tG g; // function<T(T, E)>\n\tH h; // function<E(E,\
@@ -40,8 +40,8 @@ data:
     \ r = t;\n\t\tT ll = ti, rr = ti;\n\t\twhile (l < r) {\n\t\t\tif (l & 1) ll =\
     \ f(ll, reflect(l++));\n\t\t\tif (r & 1) rr = f(rr, reflect(--r));\n\t\t\tl >>=\
     \ 1, r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) { return find(i,\
-    \ i + 1); }\n};\n#line 4 \"test/segtree/lazy_segment_tree/dsl_2_f.test.cpp\"\n\
-    \n#include <iostream>\n#include <limits>\n\nusing namespace std;\n\nint main()\
+    \ i + 1); }\n};\n\n\n#line 4 \"test/segtree/lazy_segment_tree/dsl_2_f.test.cpp\"\
+    \n\n#include <iostream>\n#include <limits>\n\nusing namespace std;\n\nint main()\
     \ {\n\tint n, q;\n\tcin >> n >> q;\n\tauto f = [](int a, int b) { return min(a,\
     \ b); };\n\tauto g = []([[maybe_unused]] int a, int b) { return b; };\n\tLazySegmentTree\
     \ seg(f, g, g, numeric_limits<int>::max(), -1);\n\tseg.init(n);\n\twhile (q--)\
@@ -61,8 +61,8 @@ data:
   isVerificationFile: true
   path: test/segtree/lazy_segment_tree/dsl_2_f.test.cpp
   requiredBy: []
-  timestamp: '2023-08-31 13:01:25+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-08-31 15:37:54+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/segtree/lazy_segment_tree/dsl_2_f.test.cpp
 layout: document

@@ -15,11 +15,11 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B
   bundledCode: "#line 1 \"test/flow/primal_dual/grl_6_b.test.cpp\"\n// verification-helper:\
     \ PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B\n\n\
-    #line 1 \"src/flow/primal_dual.hpp\"\n#include <limits>\n#include <queue>\n#include\
-    \ <vector>\n\ntemplate<class T, class E>\nclass PrimalDual {\nprivate:\n\tstruct\
-    \ Edge {\n\t\tint to, rev;\n\t\tT cap;\n\t\tE cost;\n\n\t\tEdge(int to, T cap,\
-    \ E cost, int rev) : to(to), rev(rev), cap(cap), cost(cost) {}\n\t};\n\n\tstatic\
-    \ constexpr E INF = std::numeric_limits<E>::max();\n\n\tstd::vector<std::vector<Edge>>\
+    #line 1 \"src/flow/primal_dual.hpp\"\n\n\n\n#include <limits>\n#include <queue>\n\
+    #include <vector>\n\ntemplate<class T, class E>\nclass PrimalDual {\nprivate:\n\
+    \tstruct Edge {\n\t\tint to, rev;\n\t\tT cap;\n\t\tE cost;\n\n\t\tEdge(int to,\
+    \ T cap, E cost, int rev) : to(to), rev(rev), cap(cap), cost(cost) {}\n\t};\n\n\
+    \tstatic constexpr E INF = std::numeric_limits<E>::max();\n\n\tstd::vector<std::vector<Edge>>\
     \ g;\n\tstd::vector<E> h, dist;\n\tstd::vector<int> prevv, preve;\n\npublic:\n\
     \tPrimalDual(int n) : g(n), h(n), dist(n), prevv(n), preve(n) {}\n\n\tvoid add_edge(int\
     \ from, int to, T cap, E cost) {\n\t\tg[from].emplace_back(to, cap, cost, g[to].size());\n\
@@ -39,7 +39,7 @@ data:
     \t\t\td = std::min(d, g[prevv[v]][preve[v]].cap);\n\t\t\tf -= d;\n\t\t\tres +=\
     \ d * h[t];\n\t\t\tfor (int v = t; v != s; v = prevv[v]) {\n\t\t\t\tEdge &e =\
     \ g[prevv[v]][preve[v]];\n\t\t\t\te.cap -= d;\n\t\t\t\tg[v][e.rev].cap += d;\n\
-    \t\t\t}\n\t\t}\n\t\treturn res;\n\t}\n};\n#line 4 \"test/flow/primal_dual/grl_6_b.test.cpp\"\
+    \t\t\t}\n\t\t}\n\t\treturn res;\n\t}\n};\n\n\n#line 4 \"test/flow/primal_dual/grl_6_b.test.cpp\"\
     \n\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n\tint v_sz, e_sz,\
     \ flow;\n\tcin >> v_sz >> e_sz >> flow;\n\tPrimalDual<int, int> g(v_sz);\n\tfor\
     \ (int i = 0; i < e_sz; ++i) {\n\t\tint u, v, c, d;\n\t\tcin >> u >> v >> c >>\
@@ -56,7 +56,7 @@ data:
   isVerificationFile: true
   path: test/flow/primal_dual/grl_6_b.test.cpp
   requiredBy: []
-  timestamp: '2023-08-31 13:01:25+09:00'
+  timestamp: '2023-08-31 15:37:54+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/flow/primal_dual/grl_6_b.test.cpp

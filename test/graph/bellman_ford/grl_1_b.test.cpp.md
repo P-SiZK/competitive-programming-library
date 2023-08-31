@@ -1,21 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/graph/bellman_ford.hpp
     title: src/graph/bellman_ford.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_B
     links:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_B
   bundledCode: "#line 1 \"test/graph/bellman_ford/grl_1_b.test.cpp\"\n// verification-helper:\
     \ PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_B\n\n\
-    #line 1 \"src/graph/bellman_ford.hpp\"\n#include <algorithm>\n#include <limits>\n\
+    #line 1 \"src/graph/bellman_ford.hpp\"\n\n\n\n#include <algorithm>\n#include <limits>\n\
     #include <vector>\n\ntemplate<class T>\nclass BellmanFord {\nprivate:\n\tstruct\
     \ Edge {\n\t\tint from, to;\n\t\tT cost;\n\n\t\tEdge(int from, int to, T cost)\
     \ : from(from), to(to), cost(cost) {}\n\t};\n\n\tstatic constexpr T INF = std::numeric_limits<T>::max();\n\
@@ -32,7 +32,7 @@ data:
     \ shortest_path(int to) {\n\t\tstd::vector<int> path;\n\t\tfor (int v = to; v\
     \ != -1; v = prevv[v]) path.push_back(v);\n\t\tstd::reverse(path.begin(), path.end());\n\
     \t\treturn path;\n\t}\n\n\tbool is_unreachable(int to) { return cost[to] == INF;\
-    \ }\n\n\tbool has_negative_cycle() { return negative_cycle_flag; }\n};\n#line\
+    \ }\n\n\tbool has_negative_cycle() { return negative_cycle_flag; }\n};\n\n\n#line\
     \ 4 \"test/graph/bellman_ford/grl_1_b.test.cpp\"\n\n#include <iostream>\n#line\
     \ 7 \"test/graph/bellman_ford/grl_1_b.test.cpp\"\n\nusing namespace std;\n\nint\
     \ main() {\n\tint v, e, r;\n\tcin >> v >> e >> r;\n\tBellmanFord<int> bf(v);\n\
@@ -55,8 +55,8 @@ data:
   isVerificationFile: true
   path: test/graph/bellman_ford/grl_1_b.test.cpp
   requiredBy: []
-  timestamp: '2023-08-31 13:01:25+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-08-31 15:37:54+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/bellman_ford/grl_1_b.test.cpp
 layout: document

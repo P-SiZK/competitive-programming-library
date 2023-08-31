@@ -1,21 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: src/segtree/segment_tree.hpp
     title: src/segtree/segment_tree.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_A
     links:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_A
   bundledCode: "#line 1 \"test/segtree/segment_tree/dsl_2_a.test.cpp\"\n// verification-helper:\
     \ PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_A\n\n\
-    #line 1 \"src/segtree/segment_tree.hpp\"\n#include <vector>\n\ntemplate<class\
+    #line 1 \"src/segtree/segment_tree.hpp\"\n\n\n\n#include <vector>\n\ntemplate<class\
     \ T, class F>\nclass SegmentTree { // 0-indexed\nprivate:\n\tint n_{};\n\tstd::vector<T>\
     \ tree;\n\tF f; // function<T(T, T)>\n\tT ti;\n\npublic:\n\tSegmentTree(F f, T\
     \ ti) : f(f), ti(ti) {}\n\n\tvoid init(int n) {\n\t\tn_ = 1;\n\t\twhile (n_ <\
@@ -28,9 +28,9 @@ data:
     \ r += n_;\n\t\tT ll = ti, rr = ti;\n\t\twhile (l < r) {\n\t\t\tif (l & 1) ll\
     \ = f(ll, tree[l++]);\n\t\t\tif (r & 1) rr = f(rr, tree[--r]);\n\t\t\tl >>= 1,\
     \ r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) { return tree[i\
-    \ + n_]; }\n};\n#line 4 \"test/segtree/segment_tree/dsl_2_a.test.cpp\"\n\n#include\
-    \ <iostream>\n#include <limits>\n\nusing namespace std;\n\nint main() {\n\tint\
-    \ n, q;\n\tcin >> n >> q;\n\tSegmentTree seg([](int a, int b) { return min(a,\
+    \ + n_]; }\n};\n\n\n#line 4 \"test/segtree/segment_tree/dsl_2_a.test.cpp\"\n\n\
+    #include <iostream>\n#include <limits>\n\nusing namespace std;\n\nint main() {\n\
+    \tint n, q;\n\tcin >> n >> q;\n\tSegmentTree seg([](int a, int b) { return min(a,\
     \ b); }, numeric_limits<int>::max());\n\tseg.init(n);\n\twhile (q--) {\n\t\tint\
     \ com, x, y;\n\t\tcin >> com >> x >> y;\n\t\tif (com) cout << seg.find(x, y +\
     \ 1) << endl;\n\t\telse seg.update(x, y);\n\t}\n\n\treturn 0;\n}\n"
@@ -46,8 +46,8 @@ data:
   isVerificationFile: true
   path: test/segtree/segment_tree/dsl_2_a.test.cpp
   requiredBy: []
-  timestamp: '2023-08-31 13:01:25+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-08-31 15:37:54+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/segtree/segment_tree/dsl_2_a.test.cpp
 layout: document

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/geometry/geometry.hpp
     title: src/geometry/geometry.hpp
   _extendedRequiredBy: []
@@ -15,7 +15,7 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_A
   bundledCode: "#line 1 \"test/geometry/geometry/cgl_2_a.test.cpp\"\n// verification-helper:\
     \ PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_A\n\n\
-    #line 1 \"src/geometry/geometry.hpp\"\n#include <algorithm>\n#include <cmath>\n\
+    #line 1 \"src/geometry/geometry.hpp\"\n\n\n\n#include <algorithm>\n#include <cmath>\n\
     #include <iostream>\n#include <set>\n#include <vector>\n\ndouble constexpr EPS\
     \ = 1e-10;\ndouble constexpr PI = 3.14159265358979323846;\n\ninline bool equals(double\
     \ a, double b) { return std::abs(a - b) < EPS; }\n\nstatic int const COUNTER_CLOCKWISE\
@@ -176,12 +176,13 @@ data:
     \ i = 0; i < 2 * N; ++i) {\n\t\tif (ep[i].st == TOP) st.erase(ep[i].p.x);\n\t\t\
     else if (ep[i].st == BOTTOM) st.insert(ep[i].p.x);\n\t\telse if (ep[i].st == LEFT)\
     \ {\n\t\t\tauto b = st.lower_bound(ss[ep[i].seg].p1.x);\n\t\t\tauto e = st.upper_bound(ss[ep[i].seg].p2.x);\n\
-    \t\t\tcnt += std::distance(b, e);\n\t\t}\n\t}\n\treturn cnt;\n}\n#line 4 \"test/geometry/geometry/cgl_2_a.test.cpp\"\
-    \n\n#line 6 \"test/geometry/geometry/cgl_2_a.test.cpp\"\n\nusing namespace std;\n\
-    \nint main() {\n\tint q;\n\tcin >> q;\n\twhile (q--) {\n\t\tVector p0{}, p1{},\
-    \ p2{}, p3{};\n\t\tcin >> p0 >> p1 >> p2 >> p3;\n\t\tif (is_parallel(p1 - p0,\
-    \ p3 - p2)) cout << 2;\n\t\telse if (is_orthogonal(p1 - p0, p3 - p2)) cout <<\
-    \ 1;\n\t\telse cout << 0;\n\t\tcout << endl;\n\t}\n\n\treturn 0;\n}\n"
+    \t\t\tcnt += std::distance(b, e);\n\t\t}\n\t}\n\treturn cnt;\n}\n\n\n#line 4 \"\
+    test/geometry/geometry/cgl_2_a.test.cpp\"\n\n#line 6 \"test/geometry/geometry/cgl_2_a.test.cpp\"\
+    \n\nusing namespace std;\n\nint main() {\n\tint q;\n\tcin >> q;\n\twhile (q--)\
+    \ {\n\t\tVector p0{}, p1{}, p2{}, p3{};\n\t\tcin >> p0 >> p1 >> p2 >> p3;\n\t\t\
+    if (is_parallel(p1 - p0, p3 - p2)) cout << 2;\n\t\telse if (is_orthogonal(p1 -\
+    \ p0, p3 - p2)) cout << 1;\n\t\telse cout << 0;\n\t\tcout << endl;\n\t}\n\n\t\
+    return 0;\n}\n"
   code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_A\n\
     \n#include \"src/geometry/geometry.hpp\"\n\n#include <iostream>\n\nusing namespace\
     \ std;\n\nint main() {\n\tint q;\n\tcin >> q;\n\twhile (q--) {\n\t\tVector p0{},\
@@ -193,7 +194,7 @@ data:
   isVerificationFile: true
   path: test/geometry/geometry/cgl_2_a.test.cpp
   requiredBy: []
-  timestamp: '2023-08-31 13:01:25+09:00'
+  timestamp: '2023-08-31 15:37:54+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/geometry/cgl_2_a.test.cpp

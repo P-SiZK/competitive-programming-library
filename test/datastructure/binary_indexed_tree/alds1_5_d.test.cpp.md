@@ -15,8 +15,8 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/5/ALDS1_5_D
   bundledCode: "#line 1 \"test/datastructure/binary_indexed_tree/alds1_5_d.test.cpp\"\
     \n// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/5/ALDS1_5_D\n\
-    \n#line 1 \"src/datastructure/binary_indexed_tree.hpp\"\n#include <vector>\n\n\
-    template<class T>\nclass BinaryIndexedTree {\nprivate:\n\tint n;\n\tstd::vector<T>\
+    \n#line 1 \"src/datastructure/binary_indexed_tree.hpp\"\n\n\n\n#include <vector>\n\
+    \ntemplate<class T>\nclass BinaryIndexedTree {\nprivate:\n\tint n;\n\tstd::vector<T>\
     \ tree; // 1-indexed\n\npublic:\n\tBinaryIndexedTree(int n) : n(n), tree(n + 1)\
     \ {}\n\n\tvoid add(int i, T x) {\n\t\twhile (i <= n) {\n\t\t\ttree[i] += x;\n\t\
     \t\ti += i & -i;\n\t\t}\n\t}\n\n\tT sum(int i) {\n\t\tT s(0);\n\t\twhile (i >\
@@ -25,7 +25,7 @@ data:
     };\n\ntemplate<class T>\nlong long inversion_number(std::vector<T> const &v) {\n\
     \tint const N = v.size();\n\tBinaryIndexedTree<T> bit(N);\n\tlong long res = 0;\n\
     \tfor (int i = 0; i < N; ++i) {\n\t\tres += i - bit.sum(v[i]);\n\t\tbit.add(v[i],\
-    \ 1);\n\t}\n\treturn res;\n}\n#line 4 \"test/datastructure/binary_indexed_tree/alds1_5_d.test.cpp\"\
+    \ 1);\n\t}\n\treturn res;\n}\n\n\n#line 4 \"test/datastructure/binary_indexed_tree/alds1_5_d.test.cpp\"\
     \n\n#include <algorithm>\n#include <iostream>\n#include <map>\n#line 9 \"test/datastructure/binary_indexed_tree/alds1_5_d.test.cpp\"\
     \n\nusing namespace std;\n\nint main() {\n\tint n;\n\tcin >> n;\n\tvector<int>\
     \ a(n);\n\tfor (int &e : a) cin >> e;\n\tvector<int> a_cp(a);\n\tsort(a_cp.begin(),\
@@ -44,7 +44,7 @@ data:
   isVerificationFile: true
   path: test/datastructure/binary_indexed_tree/alds1_5_d.test.cpp
   requiredBy: []
-  timestamp: '2023-08-31 13:01:25+09:00'
+  timestamp: '2023-08-31 15:37:54+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/datastructure/binary_indexed_tree/alds1_5_d.test.cpp
