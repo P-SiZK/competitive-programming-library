@@ -4,6 +4,8 @@
 
 #include <iostream>
 
+using namespace std;
+
 int main() {
 	int v_sz, e_sz, flow;
 	cin >> v_sz >> e_sz >> flow;

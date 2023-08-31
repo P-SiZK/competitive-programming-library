@@ -1,6 +1,6 @@
 #include <cstddef>
 
-template<class T, size_t SIZE = 1100000, T MOD = 1000000007>
+template<class T, std::size_t SIZE = 1100000, T MOD = 1000000007>
 class Combination {
 private:
 	T fac[SIZE], finv[SIZE], inv[SIZE];
@@ -8,7 +8,7 @@ private:
 public:
 	Combination() {
 		fac[0] = fac[1] = inv[1] = finv[0] = finv[1] = 1;
-		for (size_t i = 2; i < SIZE; ++i) {
+		for (std::size_t i = 2; i < SIZE; ++i) {
 			fac[i] = fac[i - 1] * i % MOD;
 			inv[i] = MOD - inv[MOD % i] * (MOD / i) % MOD;
 			finv[i] = finv[i - 1] * inv[i] % MOD;

@@ -2,8 +2,6 @@
 #include <queue>
 #include <vector>
 
-using namespace std;
-
 template<class T>
 class Dinic {
 private:
@@ -14,10 +12,10 @@ private:
 		Edge(int to, int cap, int rev) : to(to), rev(rev), cap(cap) {}
 	};
 
-	static constexpr T INF = numeric_limits<T>::max();
+	static constexpr T INF = std::numeric_limits<T>::max();
 
-	vector<vector<Edge>> g;
-	vector<int> level, iter;
+	std::vector<std::vector<Edge>> g;
+	std::vector<int> level, iter;
 
 public:
 	Dinic(int n) : g(n), level(n), iter(n) {}
@@ -29,7 +27,7 @@ public:
 
 	void bfs(int s) {
 		level.assign(g.size(), -1);
-		queue<int> q;
+		std::queue<int> q;
 		level[s] = 0;
 		q.push(s);
 		while (!q.empty()) {
@@ -49,7 +47,7 @@ public:
 		for (int &i = iter[v]; i < (int)g[v].size(); ++i) {
 			Edge &e = g[v][i];
 			if (e.cap > 0 && level[v] < level[e.to]) {
-				T d = dfs(e.to, t, min(f, e.cap));
+				T d = dfs(e.to, t, std::min(f, e.cap));
 				if (d > 0) {
 					e.cap -= d;
 					g[e.to][e.rev].cap += d;

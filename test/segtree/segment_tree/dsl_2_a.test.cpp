@@ -10,8 +10,7 @@ using namespace std;
 int main() {
 	int n, q;
 	cin >> n >> q;
-	SegmentTree seg([](int a, int b) { return min(a, b); },
-					numeric_limits<int>::max());
+	SegmentTree seg([](int a, int b) { return min(a, b); }, numeric_limits<int>::max());
 	seg.init(n);
 	while (q--) {
 		int com, x, y;

@@ -1,17 +1,12 @@
 #include <vector>
 
-using namespace std;
-
 class DisjointSet {
 private:
-	vector<int> rank, size, p;
+	std::vector<int> rank, size, p;
 	int num = 0;
 
 public:
-	DisjointSet(int n) : num(n) {
-		rank.assign(n, 0);
-		size.assign(n, 1);
-		p.assign(n, 0);
+	DisjointSet(int n) : rank(n), size(n, 1), p(n), num(n) {
 		for (int i = 0; i < n; i++) p[i] = i;
 	}
 

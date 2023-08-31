@@ -5,6 +5,8 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 int main() {
 	int v, e, r;
 	cin >> v >> e >> r;

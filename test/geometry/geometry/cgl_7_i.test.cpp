@@ -6,6 +6,8 @@
 #include <iomanip>
 #include <iostream>
 
+using namespace std;
+
 int main() {
 	cout << fixed << setprecision(10);
 	Circle c1{}, c2{};

@@ -2,8 +2,6 @@
 #include <limits>
 #include <vector>
 
-using namespace std;
-
 template<class T>
 class BellmanFord {
 private:
@@ -14,12 +12,12 @@ private:
 		Edge(int from, int to, T cost) : from(from), to(to), cost(cost) {}
 	};
 
-	static constexpr T INF = numeric_limits<T>::max();
+	static constexpr T INF = std::numeric_limits<T>::max();
 
 	int n, s{};
-	vector<Edge> g;
-	vector<T> cost;
-	vector<int> prevv;
+	std::vector<Edge> g;
+	std::vector<T> cost;
+	std::vector<int> prevv;
 	bool negative_cycle_flag{};
 
 public:
@@ -49,10 +47,10 @@ public:
 
 	T distance(int to) { return cost[to]; }
 
-	vector<int> shortest_path(int to) {
-		vector<int> path;
+	std::vector<int> shortest_path(int to) {
+		std::vector<int> path;
 		for (int v = to; v != -1; v = prevv[v]) path.push_back(v);
-		reverse(path.begin(), path.end());
+		std::reverse(path.begin(), path.end());
 		return path;
 	}
 

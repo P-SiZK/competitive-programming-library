@@ -4,17 +4,15 @@
 #include <utility>
 #include <vector>
 
-using namespace std;
-
 template<class T>
 class Dijkstra {
 private:
-	static constexpr T INF = numeric_limits<T>::max();
+	static constexpr T INF = std::numeric_limits<T>::max();
 
 	int s{};
-	vector<vector<pair<int, T>>> g;
-	vector<T> cost;
-	vector<int> prevv;
+	std::vector<std::vector<std::pair<int, T>>> g;
+	std::vector<T> cost;
+	std::vector<int> prevv;
 
 public:
 	Dijkstra(int n) : g(n), cost(n), prevv(n) {}
@@ -25,9 +23,12 @@ public:
 		s = from;
 		cost.assign(g.size(), INF);
 		prevv.assign(g.size(), -1);
-		priority_queue<pair<T, int>, vector<pair<T, int>>, greater<>> pq;
+		std::priority_queue<std::pair<T, int>,
+							std::vector<std::pair<T, int>>,
+							std::greater<>>
+			pq;
 		cost[s] = 0;
-		pq.push(make_pair(0, s));
+		pq.emplace(0, s);
 		while (!pq.empty()) {
 			auto [now_cost, now_v] = pq.top();
 			pq.pop();
@@ -36,7 +37,7 @@ public:
 				if (cost[nv] > cost[now_v] + nw) {
 					cost[nv] = cost[now_v] + nw;
 					prevv[nv] = now_v;
-					pq.push(make_pair(cost[nv], nv));
+					pq.emplace(cost[nv], nv);
 				}
 			}
 		}
@@ -44,10 +45,10 @@ public:
 
 	T distance(int to) { return cost[to]; }
 
-	vector<int> shortest_path(int to) {
-		vector<int> path;
+	std::vector<int> shortest_path(int to) {
+		std::vector<int> path;
 		for (int v = to; v != -1; v = prevv[v]) path.push_back(v);
-		reverse(path.begin(), path.end());
+		std::reverse(path.begin(), path.end());
 		return path;
 	}
 

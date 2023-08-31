@@ -1,8 +1,6 @@
 #include <limits>
 #include <vector>
 
-using namespace std;
-
 template<class T>
 class FordFulkerson {
 private:
@@ -13,10 +11,10 @@ private:
 		Edge(int to, int cap, int rev) : to(to), rev(rev), cap(cap) {}
 	};
 
-	static constexpr T INF = numeric_limits<T>::max();
+	static constexpr T INF = std::numeric_limits<T>::max();
 
-	vector<vector<Edge>> g;
-	vector<int> used;
+	std::vector<std::vector<Edge>> g;
+	std::vector<int> used;
 
 public:
 	FordFulkerson(int n) : g(n), used(n) {}
@@ -31,7 +29,7 @@ public:
 		used[v] = true;
 		for (auto &e : g[v]) {
 			if (!used[e.to] && e.cap > 0) {
-				T d = dfs(e.to, t, min(f, e.cap));
+				T d = dfs(e.to, t, std::min(f, e.cap));
 				if (d > 0) {
 					e.cap -= d;
 					g[e.to][e.rev].cap += d;

@@ -1,7 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
 template<class T, T MOD = 1000000007>
 class ModInt {
 private:
@@ -46,17 +44,17 @@ public:
 
 	ModInt operator-() const { return ModInt(-x); }
 
-	bool operator==(const ModInt a) const { return x == a.x; }
+	bool operator==(ModInt const &a) const { return x == a.x; }
 
-	bool operator!=(const ModInt a) const { return x != a.x; }
+	bool operator!=(ModInt const &a) const { return x != a.x; }
 
-	bool operator<(const ModInt a) const { return x < a.x; }
+	bool operator<(ModInt const &a) const { return x < a.x; }
 
-	friend ostream &operator<<(ostream &os, ModInt const &a) {
+	friend std::ostream &operator<<(std::ostream &os, ModInt const &a) {
 		return os << a.x;
 	}
 
-	friend istream &operator>>(istream &is, ModInt &a) {
+	friend std::istream &operator>>(std::istream &is, ModInt &a) {
 		T t;
 		is >> t;
 		a = ModInt(t);
@@ -68,8 +66,8 @@ public:
 		while (b > 0) {
 			T t = a / b;
 			a -= t * b, u -= t * v;
-			swap(a, b);
-			swap(u, v);
+			std::swap(a, b);
+			std::swap(u, v);
 		}
 		return ModInt(u);
 	}

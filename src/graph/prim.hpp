@@ -2,13 +2,11 @@
 #include <utility>
 #include <vector>
 
-using namespace std;
-
 template<class T>
 class Prim {
 private:
 	int n;
-	vector<vector<pair<int, T>>> g;
+	std::vector<std::vector<std::pair<int, T>>> g;
 
 public:
 	Prim(int n) : n(n), g(n) {}
@@ -20,8 +18,11 @@ public:
 
 	T mst_cost() {
 		T cost = 0;
-		vector<bool> used(g.size());
-		priority_queue<pair<T, int>, vector<pair<T, int>>, greater<>> pq;
+		std::vector<bool> used(g.size());
+		std::priority_queue<std::pair<T, int>,
+							std::vector<std::pair<T, int>>,
+							std::greater<>>
+			pq;
 		pq.emplace(0, 0);
 		while (!pq.empty()) {
 			auto [now_cost, now_v] = pq.top();

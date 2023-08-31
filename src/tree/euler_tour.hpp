@@ -1,40 +1,38 @@
 #include <optional>
 #include <vector>
 
-using namespace std;
-
 class SparseTable {
 private:
-	vector<vector<pair<int, int>>> table;
-	vector<int> log_table;
+	std::vector<std::vector<std::pair<int, int>>> table;
+	std::vector<int> log_table;
 
 public:
-	SparseTable(vector<pair<int, int>> const &v) {
+	SparseTable(std::vector<std::pair<int, int>> const &v) {
 		int const N = v.size();
 		int h = 1;
 		while ((1 << h) <= N) ++h;
-		table.assign(h, vector<pair<int, int>>(N));
+		table.assign(h, std::vector<std::pair<int, int>>(N));
 		log_table.assign(N + 1, 0);
 		for (int i = 2; i <= N; ++i) log_table[i] = log_table[i >> 1] + 1;
 
 		for (int i = 0; i < N; ++i) table[0][i] = v[i];
 		for (int i = 1, k = 1; i < h; ++i, k <<= 1)
 			for (int j = 0; j < N; ++j)
-				table[i][j] =
-					min(table[i - 1][j], table[i - 1][min(j + k, N - 1)]);
+				table[i][j] = std::min(table[i - 1][j],
+									   table[i - 1][std::min(j + k, N - 1)]);
 	}
 
-	pair<int, int> query(int l, int r) { // [l, r)
+	std::pair<int, int> query(int l, int r) { // [l, r)
 		int k = log_table[r - l];
-		return min(table[k][l], table[k][r - (1 << k)]);
+		return std::min(table[k][l], table[k][r - (1 << k)]);
 	}
 };
 
 class EulerTour {
 private:
-	vector<int> down, up, depth, terminal;
-	optional<SparseTable> st;
-	vector<vector<int>> G;
+	std::vector<int> down, up, depth, terminal;
+	std::optional<SparseTable> st;
+	std::vector<std::vector<int>> G;
 
 	void dfs(int v, int p, int d) {
 		depth[terminal.size()] = d;
@@ -60,20 +58,20 @@ public:
 	void build(int root = 0) {
 		terminal.clear();
 		dfs(root, -1, 0);
-		vector<pair<int, int>> dep(terminal.size());
+		std::vector<std::pair<int, int>> dep(terminal.size());
 		for (int i = 0; i < (int)terminal.size(); ++i)
 			dep[i] = {depth[i], terminal[i]};
 		st = SparseTable(dep);
 	}
 
-	pair<int, int> index(int v) { return {down[v], up[v]}; };
+	std::pair<int, int> index(int v) { return {down[v], up[v]}; };
 
 	int parent(int u, int v) { return depth[down[u]] < depth[down[v]] ? u : v; }
 
 	int child(int u, int v) { return depth[down[u]] < depth[down[v]] ? v : u; }
 
 	int lca(int u, int v) {
-		if (down[u] > down[v]) swap(u, v);
+		if (down[u] > down[v]) std::swap(u, v);
 		return st.value().query(down[u], down[v] + 1).second;
 	}
 

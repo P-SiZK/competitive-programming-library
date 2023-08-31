@@ -1,13 +1,11 @@
 #include <vector>
 
-using namespace std;
-
 template<class T, class E, class F, class G, class H>
 class LazySegmentTree { // 0-indexed
 private:
 	int n_{}, height{};
-	vector<T> tree;
-	vector<E> lazy;
+	std::vector<T> tree;
+	std::vector<E> lazy;
 	F f; // function<T(T, T)>
 	G g; // function<T(T, E)>
 	H h; // function<E(E, E)>
@@ -15,8 +13,7 @@ private:
 	E ei;
 
 public:
-	LazySegmentTree(F f, G g, H h, T ti, E ei) :
-		f(f), g(g), h(h), ti(ti), ei(ei) {}
+	LazySegmentTree(F f, G g, H h, T ti, E ei) : f(f), g(g), h(h), ti(ti), ei(ei) {}
 
 	void init(int n) {
 		n_ = 1, height = 0;
@@ -25,17 +22,14 @@ public:
 		lazy.assign(2 * n_, ei);
 	}
 
-	void build(vector<T> const &v) {
+	void build(std::vector<T> const &v) {
 		int const N = v.size();
 		init(N);
 		for (int i = 0; i < N; ++i) tree[n_ + i] = v[i];
-		for (int i = n_ - 1; i > 0; --i)
-			tree[i] = f(tree[2 * i], tree[2 * i + 1]);
+		for (int i = n_ - 1; i > 0; --i) tree[i] = f(tree[2 * i], tree[2 * i + 1]);
 	}
 
-	inline T reflect(int k) {
-		return (lazy[k] == ei ? tree[k] : g(tree[k], lazy[k]));
-	}
+	inline T reflect(int k) { return (lazy[k] == ei ? tree[k] : g(tree[k], lazy[k])); }
 
 	inline void eval(int k) {
 		if (lazy[k] == ei) return;

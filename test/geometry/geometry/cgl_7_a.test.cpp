@@ -4,6 +4,8 @@
 
 #include <iostream>
 
+using namespace std;
+
 int main() {
 	Circle c1{}, c2{};
 	cin >> c1.c >> c1.r >> c2.c >> c2.r;

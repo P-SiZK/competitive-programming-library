@@ -1,16 +1,12 @@
 #include <algorithm>
 #include <vector>
 
-using namespace std;
-
 class DisjointSet {
 private:
-	vector<int> rank, p;
+	std::vector<int> rank, p;
 
 public:
-	DisjointSet(int n) {
-		rank.assign(n, 0);
-		p.assign(n, 0);
+	DisjointSet(int n) : rank(n), p(n) {
 		for (int i = 0; i < n; i++) p[i] = i;
 	}
 
@@ -43,7 +39,7 @@ private:
 	};
 
 	int n;
-	vector<Edge> g;
+	std::vector<Edge> g;
 
 public:
 	Kruskal(int n) : n(n) {}
@@ -52,7 +48,7 @@ public:
 
 	T mst_cost() {
 		T cost = 0;
-		sort(g.begin(), g.end());
+		std::sort(g.begin(), g.end());
 		DisjointSet ds(n);
 		cost = 0;
 		for (Edge const &e : g) {

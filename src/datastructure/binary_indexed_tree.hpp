@@ -1,12 +1,10 @@
 #include <vector>
 
-using namespace std;
-
 template<class T>
 class BinaryIndexedTree {
 private:
 	int n;
-	vector<T> tree; // 1-indexed
+	std::vector<T> tree; // 1-indexed
 
 public:
 	BinaryIndexedTree(int n) : n(n), tree(n + 1) {}
@@ -33,7 +31,7 @@ public:
 };
 
 template<class T>
-long long inversion_number(vector<T> const &v) {
+long long inversion_number(std::vector<T> const &v) {
 	int const N = v.size();
 	BinaryIndexedTree<T> bit(N);
 	long long res = 0;

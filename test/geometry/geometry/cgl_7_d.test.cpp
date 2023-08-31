@@ -7,6 +7,8 @@
 #include <iomanip>
 #include <iostream>
 
+using namespace std;
+
 int main() {
 	cout << fixed << setprecision(10);
 	Circle c{};
@@ -18,8 +20,7 @@ int main() {
 		cin >> l;
 		auto a = get_cross_point_cl(c, l);
 		sort(a.begin(), a.end());
-		cout << a[0].x << " " << a[0].y << " " << a[1].x << " " << a[1].y
-			 << endl;
+		cout << a[0].x << " " << a[0].y << " " << a[1].x << " " << a[1].y << endl;
 	}
 
 	return 0;

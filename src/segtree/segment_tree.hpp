@@ -1,12 +1,10 @@
 #include <vector>
 
-using namespace std;
-
 template<class T, class F>
 class SegmentTree { // 0-indexed
 private:
 	int n_{};
-	vector<T> tree;
+	std::vector<T> tree;
 	F f; // function<T(T, T)>
 	T ti;
 
@@ -19,12 +17,11 @@ public:
 		tree.assign(2 * n_, ti);
 	}
 
-	void build(vector<T> const &v) {
+	void build(std::vector<T> const &v) {
 		int const N = v.size();
 		init(N);
 		for (int i = 0; i < N; ++i) tree[n_ + i] = v[i];
-		for (int i = n_ - 1; i > 0; --i)
-			tree[i] = f(tree[2 * i], tree[2 * i + 1]);
+		for (int i = n_ - 1; i > 0; --i) tree[i] = f(tree[2 * i], tree[2 * i + 1]);
 	}
 
 	void update(int i, T const &x) {

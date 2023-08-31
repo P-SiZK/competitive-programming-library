@@ -2,8 +2,6 @@
 #include <queue>
 #include <vector>
 
-using namespace std;
-
 template<class T, class E>
 class PrimalDual {
 private:
@@ -12,15 +10,14 @@ private:
 		T cap;
 		E cost;
 
-		Edge(int to, T cap, E cost, int rev) :
-			to(to), rev(rev), cap(cap), cost(cost) {}
+		Edge(int to, T cap, E cost, int rev) : to(to), rev(rev), cap(cap), cost(cost) {}
 	};
 
-	static constexpr E INF = numeric_limits<E>::max();
+	static constexpr E INF = std::numeric_limits<E>::max();
 
-	vector<vector<Edge>> g;
-	vector<E> h, dist;
-	vector<int> prevv, preve;
+	std::vector<std::vector<Edge>> g;
+	std::vector<E> h, dist;
+	std::vector<int> prevv, preve;
 
 public:
 	PrimalDual(int n) : g(n), h(n), dist(n), prevv(n), preve(n) {}
@@ -32,7 +29,10 @@ public:
 
 	E min_cost_flow(int s, int t, T f) {
 		E res = 0;
-		priority_queue<pair<E, int>, vector<pair<E, int>>, greater<>> pq;
+		std::priority_queue<std::pair<E, int>,
+							std::vector<std::pair<E, int>>,
+							std::greater<>>
+			pq;
 
 		while (f > 0) {
 			dist.assign(g.size(), INF);
@@ -58,7 +58,7 @@ public:
 				if (dist[v] < INF) h[v] += dist[v];
 			T d = f;
 			for (int v = t; v != s; v = prevv[v])
-				d = min(d, g[prevv[v]][preve[v]].cap);
+				d = std::min(d, g[prevv[v]][preve[v]].cap);
 			f -= d;
 			res += d * h[t];
 			for (int v = t; v != s; v = prevv[v]) {

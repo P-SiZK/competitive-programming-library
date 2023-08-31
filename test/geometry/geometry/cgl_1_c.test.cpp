@@ -4,6 +4,8 @@
 
 #include <iostream>
 
+using namespace std;
+
 int main() {
 	Point p0{}, p1{}, p2{};
 	cin >> p0 >> p1;

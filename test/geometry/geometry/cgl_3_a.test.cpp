@@ -5,6 +5,8 @@
 #include <iomanip>
 #include <iostream>
 
+using namespace std;
+
 int main() {
 	cout << fixed << setprecision(1);
 	int n;
