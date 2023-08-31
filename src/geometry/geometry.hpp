@@ -1,3 +1,6 @@
+#ifndef GEOMETRY_GEOMETRY_HPP
+#define GEOMETRY_GEOMETRY_HPP
+
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -421,3 +424,5 @@ inline int manhattan_intersection(std::vector<Segment> ss) {
 	}
 	return cnt;
 }
+
+#endif // GEOMETRY_GEOMETRY_HPP

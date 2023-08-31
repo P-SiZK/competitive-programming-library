@@ -1,3 +1,6 @@
+#ifndef MATH_COMBINATION_HPP
+#define MATH_COMBINATION_HPP
+
 #include <cstddef>
 
 template<class T, std::size_t SIZE = 1100000, T MOD = 1000000007>
@@ -24,3 +27,5 @@ public:
 		return fac[n] * (finv[r] * finv[n - r] % MOD) % MOD;
 	}
 };
+
+#endif // MATH_COMBINATION_HPP

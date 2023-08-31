@@ -1,3 +1,6 @@
+#ifndef SEGTREE_LAZY_SEGMENT_TREE_HPP
+#define SEGTREE_LAZY_SEGMENT_TREE_HPP
+
 #include <vector>
 
 template<class T, class E, class F, class G, class H>
@@ -74,3 +77,5 @@ public:
 
 	T at(int i) { return find(i, i + 1); }
 };
+
+#endif // SEGTREE_LAZY_SEGMENT_TREE_HPP

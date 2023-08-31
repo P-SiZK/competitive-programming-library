@@ -1,3 +1,6 @@
+#ifndef MATH_MATRIX_HPP
+#define MATH_MATRIX_HPP
+
 #include <cassert>
 #include <cstddef>
 #include <vector>
@@ -71,3 +74,5 @@ public:
 		return res;
 	}
 };
+
+#endif // MATH_MATRIX_HPP

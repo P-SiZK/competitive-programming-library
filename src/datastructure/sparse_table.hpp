@@ -1,3 +1,6 @@
+#ifndef DATASTRUCTURE_SPARSE_TABLE_HPP
+#define DATASTRUCTURE_SPARSE_TABLE_HPP
+
 #include <vector>
 
 template<class T, class F>
@@ -27,3 +30,5 @@ public:
 		return f(table[k][l], table[k][r - (1 << k)]);
 	}
 };
+
+#endif // DATASTRUCTURE_SPARSE_TABLE_HPP

@@ -1,3 +1,6 @@
+#ifndef MATH_DIVISOR_HPP
+#define MATH_DIVISOR_HPP
+
 #include <algorithm>
 #include <vector>
 
@@ -13,3 +16,5 @@ std::vector<T> divisor(T n) {
 	std::sort(res.begin(), res.end());
 	return res;
 }
+
+#endif // MATH_DIVISOR_HPP

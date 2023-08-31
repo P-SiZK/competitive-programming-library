@@ -1,3 +1,6 @@
+#ifndef GRAPH_BELLMAN_FORD_HPP
+#define GRAPH_BELLMAN_FORD_HPP
+
 #include <algorithm>
 #include <limits>
 #include <vector>
@@ -58,3 +61,5 @@ public:
 
 	bool has_negative_cycle() { return negative_cycle_flag; }
 };
+
+#endif // GRAPH_BELLMAN_FORD_HPP

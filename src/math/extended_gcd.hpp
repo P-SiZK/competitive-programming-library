@@ -1,3 +1,6 @@
+#ifndef MATH_EXTENDED_GCD_HPP
+#define MATH_EXTENDED_GCD_HPP
+
 template<class T>
 T extended_gcd(T a, T b, T &x, T &y) { // ax+by=gcd(a,b)
 	if (b == 0) {
@@ -16,3 +19,5 @@ T modinv(T a, T mod) { // a,modは互いに素
 	extended_gcd(a, mod, x, y);
 	return (x % mod + mod) % mod;
 }
+
+#endif // MATH_EXTENDED_GCD_HPP

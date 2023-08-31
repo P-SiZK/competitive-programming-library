@@ -1,30 +1,10 @@
+#ifndef GRAPH_KRUSKAL_HPP
+#define GRAPH_KRUSKAL_HPP
+
+#include "src/datastructure/disjoint_set.hpp"
+
 #include <algorithm>
 #include <vector>
-
-class DisjointSet {
-private:
-	std::vector<int> rank, p;
-
-public:
-	DisjointSet(int n) : rank(n), p(n) {
-		for (int i = 0; i < n; i++) p[i] = i;
-	}
-
-	bool same(int x, int y) { return root(x) == root(y); }
-
-	void unite(int x, int y) {
-		x = root(x), y = root(y);
-		if (x == y) return;
-		if (rank[x] > rank[y]) {
-			p[y] = x;
-		} else {
-			p[x] = y;
-			if (rank[x] == rank[y]) rank[y]++;
-		}
-	}
-
-	int root(int x) { return p[x] == x ? x : p[x] = root(p[x]); }
-};
 
 template<class T>
 class Kruskal {
@@ -60,3 +40,5 @@ public:
 		return cost;
 	}
 };
+
+#endif // GRAPH_KRUSKAL_HPP

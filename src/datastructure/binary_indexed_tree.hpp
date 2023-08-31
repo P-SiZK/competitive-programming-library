@@ -1,3 +1,6 @@
+#ifndef DATASTRUCTURE_BINARY_INDEXED_TREE_HPP
+#define DATASTRUCTURE_BINARY_INDEXED_TREE_HPP
+
 #include <vector>
 
 template<class T>
@@ -41,3 +44,5 @@ long long inversion_number(std::vector<T> const &v) {
 	}
 	return res;
 }
+
+#endif // DATASTRUCTURE_BINARY_INDEXED_TREE_HPP

@@ -1,3 +1,6 @@
+#ifndef GRAPH_PRIM_HPP
+#define GRAPH_PRIM_HPP
+
 #include <queue>
 #include <utility>
 #include <vector>
@@ -35,3 +38,5 @@ public:
 		return cost;
 	}
 };
+
+#endif // GRAPH_PRIM_HPP

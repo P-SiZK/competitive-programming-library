@@ -1,37 +1,17 @@
+#ifndef TREE_EULER_TOUR_HPP
+#define TREE_EULER_TOUR_HPP
+
+#include "src/datastructure/sparse_table.hpp"
+
 #include <optional>
 #include <vector>
-
-class SparseTable {
-private:
-	std::vector<std::vector<std::pair<int, int>>> table;
-	std::vector<int> log_table;
-
-public:
-	SparseTable(std::vector<std::pair<int, int>> const &v) {
-		int const N = v.size();
-		int h = 1;
-		while ((1 << h) <= N) ++h;
-		table.assign(h, std::vector<std::pair<int, int>>(N));
-		log_table.assign(N + 1, 0);
-		for (int i = 2; i <= N; ++i) log_table[i] = log_table[i >> 1] + 1;
-
-		for (int i = 0; i < N; ++i) table[0][i] = v[i];
-		for (int i = 1, k = 1; i < h; ++i, k <<= 1)
-			for (int j = 0; j < N; ++j)
-				table[i][j] = std::min(table[i - 1][j],
-									   table[i - 1][std::min(j + k, N - 1)]);
-	}
-
-	std::pair<int, int> query(int l, int r) { // [l, r)
-		int k = log_table[r - l];
-		return std::min(table[k][l], table[k][r - (1 << k)]);
-	}
-};
 
 class EulerTour {
 private:
 	std::vector<int> down, up, depth, terminal;
-	std::optional<SparseTable> st;
+	std::optional<
+		SparseTable<std::pair<int, int>, decltype(&std::min<std::pair<int, int>>)>>
+		st;
 	std::vector<std::vector<int>> G;
 
 	void dfs(int v, int p, int d) {
@@ -59,9 +39,8 @@ public:
 		terminal.clear();
 		dfs(root, -1, 0);
 		std::vector<std::pair<int, int>> dep(terminal.size());
-		for (int i = 0; i < (int)terminal.size(); ++i)
-			dep[i] = {depth[i], terminal[i]};
-		st = SparseTable(dep);
+		for (int i = 0; i < (int)terminal.size(); ++i) dep[i] = {depth[i], terminal[i]};
+		st = SparseTable(dep, std::min<std::pair<int, int>>);
 	}
 
 	std::pair<int, int> index(int v) { return {down[v], up[v]}; };
@@ -100,3 +79,5 @@ public:
 		update_vertex(child(u, v), x, f);
 	}
 };
+
+#endif // TREE_EULER_TOUR_HPP

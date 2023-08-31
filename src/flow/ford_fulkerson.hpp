@@ -1,3 +1,6 @@
+#ifndef FLOW_FORD_FULKERSON_HPP
+#define FLOW_FORD_FULKERSON_HPP
+
 #include <limits>
 #include <vector>
 
@@ -51,3 +54,5 @@ public:
 		return flow;
 	}
 };
+
+#endif // FLOW_FORD_FULKERSON_HPP

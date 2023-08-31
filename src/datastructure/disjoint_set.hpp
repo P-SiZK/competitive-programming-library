@@ -1,3 +1,6 @@
+#ifndef DATASTRUCTURE_DISJOINT_SET_HPP
+#define DATASTRUCTURE_DISJOINT_SET_HPP
+
 #include <vector>
 
 class DisjointSet {
@@ -32,3 +35,5 @@ public:
 
 	[[nodiscard]] int forest_size() const { return num; }
 };
+
+#endif // DATASTRUCTURE_DISJOINT_SET_HPP

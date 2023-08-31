@@ -1,3 +1,6 @@
+#ifndef FLOW_PRIMAL_DUAL_HPP
+#define FLOW_PRIMAL_DUAL_HPP
+
 #include <limits>
 #include <queue>
 #include <vector>
@@ -70,3 +73,5 @@ public:
 		return res;
 	}
 };
+
+#endif // FLOW_PRIMAL_DUAL_HPP

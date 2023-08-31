@@ -1,3 +1,6 @@
+#ifndef GRAPH_DIJKSTRA_HPP
+#define GRAPH_DIJKSTRA_HPP
+
 #include <algorithm>
 #include <limits>
 #include <queue>
@@ -54,3 +57,5 @@ public:
 
 	bool is_unreachable(int to) { return cost[to] == INF; }
 };
+
+#endif // GRAPH_DIJKSTRA_HPP

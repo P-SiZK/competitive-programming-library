@@ -1,3 +1,6 @@
+#ifndef MATH_MOD_INT_HPP
+#define MATH_MOD_INT_HPP
+
 #include <iostream>
 
 template<class T, T MOD = 1000000007>
@@ -91,3 +94,5 @@ public:
 		return num / den;
 	}
 };
+
+#endif // MATH_MOD_INT_HPP

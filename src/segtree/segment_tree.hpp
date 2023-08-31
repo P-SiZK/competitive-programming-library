@@ -1,3 +1,6 @@
+#ifndef SEGTREE_SEGMENT_TREE_HPP
+#define SEGTREE_SEGMENT_TREE_HPP
+
 #include <vector>
 
 template<class T, class F>
@@ -43,3 +46,5 @@ public:
 
 	T at(int i) { return tree[i + n_]; }
 };
+
+#endif // SEGTREE_SEGMENT_TREE_HPP
