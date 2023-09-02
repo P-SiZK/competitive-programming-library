@@ -1,6 +1,6 @@
 // verification-helper: PROBLEM https://judge.yosupo.jp/problem/vertex_add_path_sum
 
-#include "src/segtree/segment_tree.hpp"
+#include "src/datastructure/segment_tree.hpp"
 #include "src/tree/euler_tour.hpp"
 
 #include <iostream>

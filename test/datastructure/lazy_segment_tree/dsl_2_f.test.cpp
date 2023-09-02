@@ -1,6 +1,6 @@
 // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_F
 
-#include "src/segtree/lazy_segment_tree.hpp"
+#include "src/datastructure/lazy_segment_tree.hpp"
 
 #include <iostream>
 #include <limits>

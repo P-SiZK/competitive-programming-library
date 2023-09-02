@@ -1,6 +1,6 @@
 // verification-helper: PROBLEM https://atcoder.jp/contests/abc294/tasks/abc294_g
 
-#include "src/segtree/segment_tree.hpp"
+#include "src/datastructure/segment_tree.hpp"
 #include "src/tree/euler_tour.hpp"
 
 #include <iostream>
