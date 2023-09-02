@@ -1,12 +1,12 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':x:'
+    path: src/datastructure/segment_tree.hpp
+    title: src/datastructure/segment_tree.hpp
   - icon: ':question:'
     path: src/datastructure/sparse_table.hpp
     title: src/datastructure/sparse_table.hpp
-  - icon: ':x:'
-    path: src/segtree/segment_tree.hpp
-    title: src/segtree/segment_tree.hpp
   - icon: ':x:'
     path: src/tree/euler_tour.hpp
     title: src/tree/euler_tour.hpp
@@ -20,7 +20,7 @@ data:
     links:
     - https://atcoder.jp/contests/abc294/tasks/abc294_g
   bundledCode: "#line 1 \"test/tree/euler_tour/abc294_g.test.cpp\"\n// verification-helper:\
-    \ PROBLEM https://atcoder.jp/contests/abc294/tasks/abc294_g\n\n#line 1 \"src/segtree/segment_tree.hpp\"\
+    \ PROBLEM https://atcoder.jp/contests/abc294/tasks/abc294_g\n\n#line 1 \"src/datastructure/segment_tree.hpp\"\
     \n\n\n\n#include <vector>\n\ntemplate<class T, class F>\nclass SegmentTree { //\
     \ 0-indexed\nprivate:\n\tint n_{};\n\tstd::vector<T> tree;\n\tF f; // function<T(T,\
     \ T)>\n\tT ti;\n\npublic:\n\tSegmentTree(F f, T ti) : f(f), ti(ti) {}\n\n\tvoid\
@@ -87,7 +87,7 @@ data:
     \ - 1, v - 1, query);\n\t\t\tcout << res << endl;\n\t\t}\n\t}\n\n\treturn 0;\n\
     }\n"
   code: "// verification-helper: PROBLEM https://atcoder.jp/contests/abc294/tasks/abc294_g\n\
-    \n#include \"src/segtree/segment_tree.hpp\"\n#include \"src/tree/euler_tour.hpp\"\
+    \n#include \"src/datastructure/segment_tree.hpp\"\n#include \"src/tree/euler_tour.hpp\"\
     \n\n#include <iostream>\n#include <tuple>\n#include <vector>\n\nusing namespace\
     \ std;\n\nint main() {\n\tint n;\n\tcin >> n;\n\tvector<tuple<int, int, long long>>\
     \ uvw(n - 1);\n\tEulerTour et(n);\n\tfor (int i = 0; i < n - 1; ++i) {\n\t\tauto\
@@ -104,13 +104,13 @@ data:
     \ int r) { res += st.find(l, r); };\n\t\t\tet.query_edge(u - 1, v - 1, query);\n\
     \t\t\tcout << res << endl;\n\t\t}\n\t}\n\n\treturn 0;\n}\n"
   dependsOn:
-  - src/segtree/segment_tree.hpp
+  - src/datastructure/segment_tree.hpp
   - src/tree/euler_tour.hpp
   - src/datastructure/sparse_table.hpp
   isVerificationFile: true
   path: test/tree/euler_tour/abc294_g.test.cpp
   requiredBy: []
-  timestamp: '2023-08-31 15:37:54+09:00'
+  timestamp: '2023-09-02 10:46:15+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/tree/euler_tour/abc294_g.test.cpp

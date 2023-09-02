@@ -4,11 +4,11 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/segtree/segment_tree/dsl_2_a.test.cpp
-    title: test/segtree/segment_tree/dsl_2_a.test.cpp
+    path: test/datastructure/segment_tree/dsl_2_a.test.cpp
+    title: test/datastructure/segment_tree/dsl_2_a.test.cpp
   - icon: ':x:'
-    path: test/segtree/segment_tree/dsl_2_b.test.cpp
-    title: test/segtree/segment_tree/dsl_2_b.test.cpp
+    path: test/datastructure/segment_tree/dsl_2_b.test.cpp
+    title: test/datastructure/segment_tree/dsl_2_b.test.cpp
   - icon: ':x:'
     path: test/tree/euler_tour/abc294_g.test.cpp
     title: test/tree/euler_tour/abc294_g.test.cpp
@@ -23,7 +23,7 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/segtree/segment_tree.hpp\"\n\n\n\n#include <vector>\n\
+  bundledCode: "#line 1 \"src/datastructure/segment_tree.hpp\"\n\n\n\n#include <vector>\n\
     \ntemplate<class T, class F>\nclass SegmentTree { // 0-indexed\nprivate:\n\tint\
     \ n_{};\n\tstd::vector<T> tree;\n\tF f; // function<T(T, T)>\n\tT ti;\n\npublic:\n\
     \tSegmentTree(F f, T ti) : f(f), ti(ti) {}\n\n\tvoid init(int n) {\n\t\tn_ = 1;\n\
@@ -53,20 +53,20 @@ data:
     \ tree[i + n_]; }\n};\n\n#endif // SEGTREE_SEGMENT_TREE_HPP\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/segtree/segment_tree.hpp
+  path: src/datastructure/segment_tree.hpp
   requiredBy: []
-  timestamp: '2023-08-31 15:37:54+09:00'
+  timestamp: '2023-09-02 10:46:15+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/tree/euler_tour/grl_5_d.test.cpp
   - test/tree/euler_tour/vertex_add_path_sum.test.cpp
   - test/tree/euler_tour/abc294_g.test.cpp
-  - test/segtree/segment_tree/dsl_2_a.test.cpp
-  - test/segtree/segment_tree/dsl_2_b.test.cpp
-documentation_of: src/segtree/segment_tree.hpp
+  - test/datastructure/segment_tree/dsl_2_a.test.cpp
+  - test/datastructure/segment_tree/dsl_2_b.test.cpp
+documentation_of: src/datastructure/segment_tree.hpp
 layout: document
 redirect_from:
-- /library/src/segtree/segment_tree.hpp
-- /library/src/segtree/segment_tree.hpp.html
-title: src/segtree/segment_tree.hpp
+- /library/src/datastructure/segment_tree.hpp
+- /library/src/datastructure/segment_tree.hpp.html
+title: src/datastructure/segment_tree.hpp
 ---

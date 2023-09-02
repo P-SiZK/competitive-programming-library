@@ -4,15 +4,15 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/segtree/lazy_segment_tree/dsl_2_f.test.cpp
-    title: test/segtree/lazy_segment_tree/dsl_2_f.test.cpp
+    path: test/datastructure/lazy_segment_tree/dsl_2_f.test.cpp
+    title: test/datastructure/lazy_segment_tree/dsl_2_f.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"src/segtree/lazy_segment_tree.hpp\"\n\n\n\n#include <vector>\n\
-    \ntemplate<class T, class E, class F, class G, class H>\nclass LazySegmentTree\
+  bundledCode: "#line 1 \"src/datastructure/lazy_segment_tree.hpp\"\n\n\n\n#include\
+    \ <vector>\n\ntemplate<class T, class E, class F, class G, class H>\nclass LazySegmentTree\
     \ { // 0-indexed\nprivate:\n\tint n_{}, height{};\n\tstd::vector<T> tree;\n\t\
     std::vector<E> lazy;\n\tF f; // function<T(T, T)>\n\tG g; // function<T(T, E)>\n\
     \tH h; // function<E(E, E)>\n\tT ti;\n\tE ei;\n\npublic:\n\tLazySegmentTree(F\
@@ -65,16 +65,16 @@ data:
     \ return find(i, i + 1); }\n};\n\n#endif // SEGTREE_LAZY_SEGMENT_TREE_HPP\n"
   dependsOn: []
   isVerificationFile: false
-  path: src/segtree/lazy_segment_tree.hpp
+  path: src/datastructure/lazy_segment_tree.hpp
   requiredBy: []
-  timestamp: '2023-08-31 15:37:54+09:00'
+  timestamp: '2023-09-02 10:46:15+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/segtree/lazy_segment_tree/dsl_2_f.test.cpp
-documentation_of: src/segtree/lazy_segment_tree.hpp
+  - test/datastructure/lazy_segment_tree/dsl_2_f.test.cpp
+documentation_of: src/datastructure/lazy_segment_tree.hpp
 layout: document
 redirect_from:
-- /library/src/segtree/lazy_segment_tree.hpp
-- /library/src/segtree/lazy_segment_tree.hpp.html
-title: src/segtree/lazy_segment_tree.hpp
+- /library/src/datastructure/lazy_segment_tree.hpp
+- /library/src/datastructure/lazy_segment_tree.hpp.html
+title: src/datastructure/lazy_segment_tree.hpp
 ---

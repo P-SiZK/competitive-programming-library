@@ -9,6 +9,12 @@ data:
     - icon: ':question:'
       path: src/datastructure/disjoint_set.hpp
       title: src/datastructure/disjoint_set.hpp
+    - icon: ':x:'
+      path: src/datastructure/lazy_segment_tree.hpp
+      title: src/datastructure/lazy_segment_tree.hpp
+    - icon: ':x:'
+      path: src/datastructure/segment_tree.hpp
+      title: src/datastructure/segment_tree.hpp
     - icon: ':question:'
       path: src/datastructure/sparse_table.hpp
       title: src/datastructure/sparse_table.hpp
@@ -59,14 +65,6 @@ data:
     - icon: ':warning:'
       path: src/math/mod_int.hpp
       title: src/math/mod_int.hpp
-  - name: src/segtree
-    pages:
-    - icon: ':x:'
-      path: src/segtree/lazy_segment_tree.hpp
-      title: src/segtree/lazy_segment_tree.hpp
-    - icon: ':x:'
-      path: src/segtree/segment_tree.hpp
-      title: src/segtree/segment_tree.hpp
   - name: src/tree
     pages:
     - icon: ':x:'
@@ -83,6 +81,19 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/datastructure/disjoint_set/dsl_1_a.test.cpp
       title: test/datastructure/disjoint_set/dsl_1_a.test.cpp
+  - name: test/datastructure/lazy_segment_tree
+    pages:
+    - icon: ':x:'
+      path: test/datastructure/lazy_segment_tree/dsl_2_f.test.cpp
+      title: test/datastructure/lazy_segment_tree/dsl_2_f.test.cpp
+  - name: test/datastructure/segment_tree
+    pages:
+    - icon: ':x:'
+      path: test/datastructure/segment_tree/dsl_2_a.test.cpp
+      title: test/datastructure/segment_tree/dsl_2_a.test.cpp
+    - icon: ':x:'
+      path: test/datastructure/segment_tree/dsl_2_b.test.cpp
+      title: test/datastructure/segment_tree/dsl_2_b.test.cpp
   - name: test/datastructure/sparse_table
     pages:
     - icon: ':heavy_check_mark:'
@@ -207,19 +218,6 @@ data:
     - icon: ':x:'
       path: test/math/extended_gcd/ntl_1_e.test.cpp
       title: test/math/extended_gcd/ntl_1_e.test.cpp
-  - name: test/segtree/lazy_segment_tree
-    pages:
-    - icon: ':x:'
-      path: test/segtree/lazy_segment_tree/dsl_2_f.test.cpp
-      title: test/segtree/lazy_segment_tree/dsl_2_f.test.cpp
-  - name: test/segtree/segment_tree
-    pages:
-    - icon: ':x:'
-      path: test/segtree/segment_tree/dsl_2_a.test.cpp
-      title: test/segtree/segment_tree/dsl_2_a.test.cpp
-    - icon: ':x:'
-      path: test/segtree/segment_tree/dsl_2_b.test.cpp
-      title: test/segtree/segment_tree/dsl_2_b.test.cpp
   - name: test/tree/euler_tour
     pages:
     - icon: ':x:'

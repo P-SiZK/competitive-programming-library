@@ -1,12 +1,12 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':x:'
+    path: src/datastructure/segment_tree.hpp
+    title: src/datastructure/segment_tree.hpp
   - icon: ':question:'
     path: src/datastructure/sparse_table.hpp
     title: src/datastructure/sparse_table.hpp
-  - icon: ':x:'
-    path: src/segtree/segment_tree.hpp
-    title: src/segtree/segment_tree.hpp
   - icon: ':x:'
     path: src/tree/euler_tour.hpp
     title: src/tree/euler_tour.hpp
@@ -21,11 +21,11 @@ data:
     - https://judge.yosupo.jp/problem/vertex_add_path_sum
   bundledCode: "#line 1 \"test/tree/euler_tour/vertex_add_path_sum.test.cpp\"\n//\
     \ verification-helper: PROBLEM https://judge.yosupo.jp/problem/vertex_add_path_sum\n\
-    \n#line 1 \"src/segtree/segment_tree.hpp\"\n\n\n\n#include <vector>\n\ntemplate<class\
-    \ T, class F>\nclass SegmentTree { // 0-indexed\nprivate:\n\tint n_{};\n\tstd::vector<T>\
-    \ tree;\n\tF f; // function<T(T, T)>\n\tT ti;\n\npublic:\n\tSegmentTree(F f, T\
-    \ ti) : f(f), ti(ti) {}\n\n\tvoid init(int n) {\n\t\tn_ = 1;\n\t\twhile (n_ <\
-    \ n) n_ *= 2;\n\t\ttree.assign(2 * n_, ti);\n\t}\n\n\tvoid build(std::vector<T>\
+    \n#line 1 \"src/datastructure/segment_tree.hpp\"\n\n\n\n#include <vector>\n\n\
+    template<class T, class F>\nclass SegmentTree { // 0-indexed\nprivate:\n\tint\
+    \ n_{};\n\tstd::vector<T> tree;\n\tF f; // function<T(T, T)>\n\tT ti;\n\npublic:\n\
+    \tSegmentTree(F f, T ti) : f(f), ti(ti) {}\n\n\tvoid init(int n) {\n\t\tn_ = 1;\n\
+    \t\twhile (n_ < n) n_ *= 2;\n\t\ttree.assign(2 * n_, ti);\n\t}\n\n\tvoid build(std::vector<T>\
     \ const &v) {\n\t\tint const N = v.size();\n\t\tinit(N);\n\t\tfor (int i = 0;\
     \ i < N; ++i) tree[n_ + i] = v[i];\n\t\tfor (int i = n_ - 1; i > 0; --i) tree[i]\
     \ = f(tree[2 * i], tree[2 * i + 1]);\n\t}\n\n\tvoid update(int i, T const &x)\
@@ -86,7 +86,7 @@ data:
     \ l, int r) { res += st.find(l, r); };\n\t\t\tet.query_vertex(u, v, query);\n\t\
     \t\tcout << res << endl;\n\t\t}\n\t}\n\n\treturn 0;\n}\n"
   code: "// verification-helper: PROBLEM https://judge.yosupo.jp/problem/vertex_add_path_sum\n\
-    \n#include \"src/segtree/segment_tree.hpp\"\n#include \"src/tree/euler_tour.hpp\"\
+    \n#include \"src/datastructure/segment_tree.hpp\"\n#include \"src/tree/euler_tour.hpp\"\
     \n\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main()\
     \ {\n\tint n, q;\n\tcin >> n >> q;\n\tvector<int> a(n);\n\tfor (int &e : a) cin\
     \ >> e;\n\tEulerTour et(n);\n\tfor (int i = 0; i < n - 1; ++i) {\n\t\tint u, v;\n\
@@ -102,13 +102,13 @@ data:
     \ };\n\t\t\tet.query_vertex(u, v, query);\n\t\t\tcout << res << endl;\n\t\t}\n\
     \t}\n\n\treturn 0;\n}\n"
   dependsOn:
-  - src/segtree/segment_tree.hpp
+  - src/datastructure/segment_tree.hpp
   - src/tree/euler_tour.hpp
   - src/datastructure/sparse_table.hpp
   isVerificationFile: true
   path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2023-08-31 15:37:54+09:00'
+  timestamp: '2023-09-02 10:46:15+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/tree/euler_tour/vertex_add_path_sum.test.cpp

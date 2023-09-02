@@ -1,12 +1,12 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':x:'
+    path: src/datastructure/segment_tree.hpp
+    title: src/datastructure/segment_tree.hpp
   - icon: ':question:'
     path: src/datastructure/sparse_table.hpp
     title: src/datastructure/sparse_table.hpp
-  - icon: ':x:'
-    path: src/segtree/segment_tree.hpp
-    title: src/segtree/segment_tree.hpp
   - icon: ':x:'
     path: src/tree/euler_tour.hpp
     title: src/tree/euler_tour.hpp
@@ -21,7 +21,7 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_D
   bundledCode: "#line 1 \"test/tree/euler_tour/grl_5_d.test.cpp\"\n// verification-helper:\
     \ PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_D\n\n\
-    #line 1 \"src/segtree/segment_tree.hpp\"\n\n\n\n#include <vector>\n\ntemplate<class\
+    #line 1 \"src/datastructure/segment_tree.hpp\"\n\n\n\n#include <vector>\n\ntemplate<class\
     \ T, class F>\nclass SegmentTree { // 0-indexed\nprivate:\n\tint n_{};\n\tstd::vector<T>\
     \ tree;\n\tF f; // function<T(T, T)>\n\tT ti;\n\npublic:\n\tSegmentTree(F f, T\
     \ ti) : f(f), ti(ti) {}\n\n\tvoid init(int n) {\n\t\tn_ = 1;\n\t\twhile (n_ <\
@@ -84,7 +84,7 @@ data:
     \ { res += st.find(l, r); };\n\t\t\tet.query_edge(u, 0, query);\n\t\t\tcout <<\
     \ res << endl;\n\t\t}\n\t}\n\n\treturn 0;\n}\n"
   code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_D\n\
-    \n#include \"src/segtree/segment_tree.hpp\"\n#include \"src/tree/euler_tour.hpp\"\
+    \n#include \"src/datastructure/segment_tree.hpp\"\n#include \"src/tree/euler_tour.hpp\"\
     \n\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main()\
     \ {\n\tint n;\n\tcin >> n;\n\tvector<int> p(n);\n\tEulerTour et(n);\n\tfor (int\
     \ i = 0; i < n; ++i) {\n\t\tint k;\n\t\tcin >> k;\n\t\tfor (int j = 0; j < k;\
@@ -98,13 +98,13 @@ data:
     \ r); };\n\t\t\tet.query_edge(u, 0, query);\n\t\t\tcout << res << endl;\n\t\t\
     }\n\t}\n\n\treturn 0;\n}\n"
   dependsOn:
-  - src/segtree/segment_tree.hpp
+  - src/datastructure/segment_tree.hpp
   - src/tree/euler_tour.hpp
   - src/datastructure/sparse_table.hpp
   isVerificationFile: true
   path: test/tree/euler_tour/grl_5_d.test.cpp
   requiredBy: []
-  timestamp: '2023-08-31 15:37:54+09:00'
+  timestamp: '2023-09-02 10:46:15+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/tree/euler_tour/grl_5_d.test.cpp
