@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/datastructure/segment_tree.hpp
-    title: src/datastructure/segment_tree.hpp
+    title: Segment tree
   - icon: ':question:'
     path: src/datastructure/sparse_table.hpp
-    title: src/datastructure/sparse_table.hpp
-  - icon: ':x:'
+    title: Sparse Table
+  - icon: ':question:'
     path: src/tree/euler_tour.hpp
-    title: src/tree/euler_tour.hpp
+    title: Euler Tour
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: https://judge.yosupo.jp/problem/vertex_add_path_sum
     links:
@@ -109,7 +109,7 @@ data:
   path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
   requiredBy: []
   timestamp: '2023-09-02 10:46:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/tree/euler_tour/vertex_add_path_sum.test.cpp
 layout: document

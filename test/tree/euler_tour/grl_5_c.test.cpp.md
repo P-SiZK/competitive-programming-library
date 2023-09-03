@@ -3,10 +3,10 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: src/datastructure/sparse_table.hpp
-    title: src/datastructure/sparse_table.hpp
-  - icon: ':x:'
+    title: Sparse Table
+  - icon: ':question:'
     path: src/tree/euler_tour.hpp
-    title: src/tree/euler_tour.hpp
+    title: Euler Tour
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true

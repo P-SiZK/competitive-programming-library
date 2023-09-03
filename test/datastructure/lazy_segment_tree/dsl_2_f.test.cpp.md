@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':x:'
     path: src/datastructure/lazy_segment_tree.hpp
-    title: src/datastructure/lazy_segment_tree.hpp
+    title: Segment tree with lazy propagation
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true

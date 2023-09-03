@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':x:'
     path: src/graph/prim.hpp
-    title: src/graph/prim.hpp
+    title: Prim
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true

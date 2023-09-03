@@ -3,10 +3,10 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: src/datastructure/disjoint_set.hpp
-    title: src/datastructure/disjoint_set.hpp
+    title: Disjoint Set (Union-find)
   - icon: ':x:'
     path: src/graph/kruskal.hpp
-    title: src/graph/kruskal.hpp
+    title: Kruskal
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true

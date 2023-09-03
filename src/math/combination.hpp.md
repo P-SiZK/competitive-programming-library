@@ -41,8 +41,5 @@ data:
   - test/math/combination/abc145_d.test.cpp
 documentation_of: src/math/combination.hpp
 layout: document
-redirect_from:
-- /library/src/math/combination.hpp
-- /library/src/math/combination.hpp.html
-title: src/math/combination.hpp
+title: "\u7D44\u307F\u5408\u308F\u305B"
 ---

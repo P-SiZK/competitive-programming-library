@@ -73,8 +73,5 @@ data:
   verifiedWith: []
 documentation_of: src/math/matrix.hpp
 layout: document
-redirect_from:
-- /library/src/math/matrix.hpp
-- /library/src/math/matrix.hpp.html
-title: src/math/matrix.hpp
+title: "\u884C\u5217"
 ---

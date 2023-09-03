@@ -1,15 +1,15 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/datastructure/segment_tree.hpp
-    title: src/datastructure/segment_tree.hpp
+    title: Segment tree
   - icon: ':question:'
     path: src/datastructure/sparse_table.hpp
-    title: src/datastructure/sparse_table.hpp
-  - icon: ':x:'
+    title: Sparse Table
+  - icon: ':question:'
     path: src/tree/euler_tour.hpp
-    title: src/tree/euler_tour.hpp
+    title: Euler Tour
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true

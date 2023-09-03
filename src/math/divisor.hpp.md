@@ -27,8 +27,5 @@ data:
   verifiedWith: []
 documentation_of: src/math/divisor.hpp
 layout: document
-redirect_from:
-- /library/src/math/divisor.hpp
-- /library/src/math/divisor.hpp.html
-title: src/math/divisor.hpp
+title: "\u7D04\u6570\u5217\u6319"
 ---

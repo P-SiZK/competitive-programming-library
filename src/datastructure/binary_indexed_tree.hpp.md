@@ -43,8 +43,5 @@ data:
   - test/datastructure/binary_indexed_tree/alds1_5_d.test.cpp
 documentation_of: src/datastructure/binary_indexed_tree.hpp
 layout: document
-redirect_from:
-- /library/src/datastructure/binary_indexed_tree.hpp
-- /library/src/datastructure/binary_indexed_tree.hpp.html
-title: src/datastructure/binary_indexed_tree.hpp
+title: Binary Indexed Tree (Fenwick Tree)
 ---

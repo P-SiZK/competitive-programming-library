@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: src/datastructure/sparse_table.hpp
-    title: src/datastructure/sparse_table.hpp
+    title: Sparse Table
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

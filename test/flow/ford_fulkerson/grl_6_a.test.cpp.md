@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/flow/ford_fulkerson.hpp
-    title: src/flow/ford_fulkerson.hpp
+    title: Ford-Fulkerson
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

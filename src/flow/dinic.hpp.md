@@ -65,8 +65,5 @@ data:
   - test/flow/dinic/grl_6_a.test.cpp
 documentation_of: src/flow/dinic.hpp
 layout: document
-redirect_from:
-- /library/src/flow/dinic.hpp
-- /library/src/flow/dinic.hpp.html
-title: src/flow/dinic.hpp
+title: Dinic
 ---

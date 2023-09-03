@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':x:'
     path: src/graph/bellman_ford.hpp
-    title: src/graph/bellman_ford.hpp
+    title: Bellman-Ford
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true

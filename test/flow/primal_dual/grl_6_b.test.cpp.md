@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/flow/primal_dual.hpp
-    title: src/flow/primal_dual.hpp
+    title: Primal-Dual
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

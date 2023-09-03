@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':x:'
     path: src/math/combination.hpp
-    title: src/math/combination.hpp
+    title: "\u7D44\u307F\u5408\u308F\u305B"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true

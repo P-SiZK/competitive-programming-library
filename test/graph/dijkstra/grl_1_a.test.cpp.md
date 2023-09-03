@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':x:'
     path: src/graph/dijkstra.hpp
-    title: src/graph/dijkstra.hpp
+    title: Dijkstra
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true

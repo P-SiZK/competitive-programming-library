@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: src/datastructure/sparse_table.hpp
-    title: src/datastructure/sparse_table.hpp
+    title: Sparse Table
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
@@ -15,12 +15,12 @@ data:
   - icon: ':x:'
     path: test/tree/euler_tour/grl_5_d.test.cpp
     title: test/tree/euler_tour/grl_5_d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
     title: test/tree/euler_tour/vertex_add_path_sum.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/tree/euler_tour.hpp\"\n\n\n\n#line 1 \"src/datastructure/sparse_table.hpp\"\
@@ -92,7 +92,7 @@ data:
   path: src/tree/euler_tour.hpp
   requiredBy: []
   timestamp: '2023-08-31 15:37:54+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/tree/euler_tour/grl_5_d.test.cpp
   - test/tree/euler_tour/grl_5_c.test.cpp
@@ -100,8 +100,5 @@ data:
   - test/tree/euler_tour/abc294_g.test.cpp
 documentation_of: src/tree/euler_tour.hpp
 layout: document
-redirect_from:
-- /library/src/tree/euler_tour.hpp
-- /library/src/tree/euler_tour.hpp.html
-title: src/tree/euler_tour.hpp
+title: Euler Tour
 ---

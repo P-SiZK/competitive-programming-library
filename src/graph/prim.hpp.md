@@ -43,8 +43,5 @@ data:
   - test/graph/prim/grl_2_a.test.cpp
 documentation_of: src/graph/prim.hpp
 layout: document
-redirect_from:
-- /library/src/graph/prim.hpp
-- /library/src/graph/prim.hpp.html
-title: src/graph/prim.hpp
+title: Prim
 ---

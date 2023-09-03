@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: src/datastructure/disjoint_set.hpp
-    title: src/datastructure/disjoint_set.hpp
+    title: Disjoint Set (Union-find)
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

@@ -60,8 +60,5 @@ data:
   - test/graph/bellman_ford/grl_1_b.test.cpp
 documentation_of: src/graph/bellman_ford.hpp
 layout: document
-redirect_from:
-- /library/src/graph/bellman_ford.hpp
-- /library/src/graph/bellman_ford.hpp.html
-title: src/graph/bellman_ford.hpp
+title: Bellman-Ford
 ---

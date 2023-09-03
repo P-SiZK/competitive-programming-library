@@ -69,8 +69,5 @@ data:
   verifiedWith: []
 documentation_of: src/math/mod_int.hpp
 layout: document
-redirect_from:
-- /library/src/math/mod_int.hpp
-- /library/src/math/mod_int.hpp.html
-title: src/math/mod_int.hpp
+title: Mod Int
 ---

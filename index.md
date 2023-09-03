@@ -5,71 +5,71 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: src/datastructure/binary_indexed_tree.hpp
-      title: src/datastructure/binary_indexed_tree.hpp
+      title: Binary Indexed Tree (Fenwick Tree)
     - icon: ':question:'
       path: src/datastructure/disjoint_set.hpp
-      title: src/datastructure/disjoint_set.hpp
+      title: Disjoint Set (Union-find)
     - icon: ':x:'
       path: src/datastructure/lazy_segment_tree.hpp
-      title: src/datastructure/lazy_segment_tree.hpp
-    - icon: ':x:'
+      title: Segment tree with lazy propagation
+    - icon: ':question:'
       path: src/datastructure/segment_tree.hpp
-      title: src/datastructure/segment_tree.hpp
+      title: Segment tree
     - icon: ':question:'
       path: src/datastructure/sparse_table.hpp
-      title: src/datastructure/sparse_table.hpp
+      title: Sparse Table
   - name: src/flow
     pages:
     - icon: ':heavy_check_mark:'
       path: src/flow/dinic.hpp
-      title: src/flow/dinic.hpp
+      title: Dinic
     - icon: ':heavy_check_mark:'
       path: src/flow/ford_fulkerson.hpp
-      title: src/flow/ford_fulkerson.hpp
+      title: Ford-Fulkerson
     - icon: ':heavy_check_mark:'
       path: src/flow/primal_dual.hpp
-      title: src/flow/primal_dual.hpp
+      title: Primal-Dual
   - name: src/geometry
     pages:
     - icon: ':question:'
       path: src/geometry/geometry.hpp
-      title: src/geometry/geometry.hpp
+      title: Geometry
   - name: src/graph
     pages:
     - icon: ':x:'
       path: src/graph/bellman_ford.hpp
-      title: src/graph/bellman_ford.hpp
+      title: Bellman-Ford
     - icon: ':x:'
       path: src/graph/dijkstra.hpp
-      title: src/graph/dijkstra.hpp
+      title: Dijkstra
     - icon: ':x:'
       path: src/graph/kruskal.hpp
-      title: src/graph/kruskal.hpp
+      title: Kruskal
     - icon: ':x:'
       path: src/graph/prim.hpp
-      title: src/graph/prim.hpp
+      title: Prim
   - name: src/math
     pages:
     - icon: ':x:'
       path: src/math/combination.hpp
-      title: src/math/combination.hpp
+      title: "\u7D44\u307F\u5408\u308F\u305B"
     - icon: ':warning:'
       path: src/math/divisor.hpp
-      title: src/math/divisor.hpp
+      title: "\u7D04\u6570\u5217\u6319"
     - icon: ':x:'
       path: src/math/extended_gcd.hpp
-      title: src/math/extended_gcd.hpp
+      title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
     - icon: ':warning:'
       path: src/math/matrix.hpp
-      title: src/math/matrix.hpp
+      title: "\u884C\u5217"
     - icon: ':warning:'
       path: src/math/mod_int.hpp
-      title: src/math/mod_int.hpp
+      title: Mod Int
   - name: src/tree
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: src/tree/euler_tour.hpp
-      title: src/tree/euler_tour.hpp
+      title: Euler Tour
   verificationCategories:
   - name: test/datastructure/binary_indexed_tree
     pages:
@@ -229,7 +229,7 @@ data:
     - icon: ':x:'
       path: test/tree/euler_tour/grl_5_d.test.cpp
       title: test/tree/euler_tour/grl_5_d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
       title: test/tree/euler_tour/vertex_add_path_sum.test.cpp
 layout: toppage

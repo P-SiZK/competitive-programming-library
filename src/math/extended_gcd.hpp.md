@@ -33,8 +33,5 @@ data:
   - test/math/extended_gcd/ntl_1_e.test.cpp
 documentation_of: src/math/extended_gcd.hpp
 layout: document
-redirect_from:
-- /library/src/math/extended_gcd.hpp
-- /library/src/math/extended_gcd.hpp.html
-title: src/math/extended_gcd.hpp
+title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
 ---

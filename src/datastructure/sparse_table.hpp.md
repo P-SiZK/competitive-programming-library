@@ -2,9 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/tree/euler_tour.hpp
-    title: src/tree/euler_tour.hpp
+    title: Euler Tour
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/datastructure/sparse_table/dsl_3_d.test.cpp
@@ -18,7 +18,7 @@ data:
   - icon: ':x:'
     path: test/tree/euler_tour/grl_5_d.test.cpp
     title: test/tree/euler_tour/grl_5_d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
     title: test/tree/euler_tour/vertex_add_path_sum.test.cpp
   _isVerificationFailed: true
@@ -64,8 +64,5 @@ data:
   - test/datastructure/sparse_table/dsl_3_d.test.cpp
 documentation_of: src/datastructure/sparse_table.hpp
 layout: document
-redirect_from:
-- /library/src/datastructure/sparse_table.hpp
-- /library/src/datastructure/sparse_table.hpp.html
-title: src/datastructure/sparse_table.hpp
+title: Sparse Table
 ---

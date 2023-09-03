@@ -53,8 +53,5 @@ data:
   - test/flow/ford_fulkerson/grl_6_a.test.cpp
 documentation_of: src/flow/ford_fulkerson.hpp
 layout: document
-redirect_from:
-- /library/src/flow/ford_fulkerson.hpp
-- /library/src/flow/ford_fulkerson.hpp.html
-title: src/flow/ford_fulkerson.hpp
+title: Ford-Fulkerson
 ---

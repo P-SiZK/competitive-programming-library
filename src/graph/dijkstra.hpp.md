@@ -62,8 +62,5 @@ data:
   - test/graph/dijkstra/grl_1_a.test.cpp
 documentation_of: src/graph/dijkstra.hpp
 layout: document
-redirect_from:
-- /library/src/graph/dijkstra.hpp
-- /library/src/graph/dijkstra.hpp.html
-title: src/graph/dijkstra.hpp
+title: Dijkstra
 ---

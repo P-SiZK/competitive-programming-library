@@ -439,8 +439,5 @@ data:
   - test/geometry/geometry/cgl_7_g.test.cpp
 documentation_of: src/geometry/geometry.hpp
 layout: document
-redirect_from:
-- /library/src/geometry/geometry.hpp
-- /library/src/geometry/geometry.hpp.html
-title: src/geometry/geometry.hpp
+title: Geometry
 ---

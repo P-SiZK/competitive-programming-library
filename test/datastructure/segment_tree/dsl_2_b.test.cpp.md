@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: src/datastructure/segment_tree.hpp
-    title: src/datastructure/segment_tree.hpp
+    title: Segment tree
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true

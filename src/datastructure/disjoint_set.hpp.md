@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':x:'
     path: src/graph/kruskal.hpp
-    title: src/graph/kruskal.hpp
+    title: Kruskal
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/datastructure/disjoint_set/dsl_1_a.test.cpp
@@ -51,8 +51,5 @@ data:
   - test/graph/kruskal/grl_2_a.test.cpp
 documentation_of: src/datastructure/disjoint_set.hpp
 layout: document
-redirect_from:
-- /library/src/datastructure/disjoint_set.hpp
-- /library/src/datastructure/disjoint_set.hpp.html
-title: src/datastructure/disjoint_set.hpp
+title: Disjoint Set (Union-find)
 ---

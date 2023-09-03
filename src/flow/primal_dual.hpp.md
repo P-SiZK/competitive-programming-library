@@ -71,8 +71,5 @@ data:
   - test/flow/primal_dual/grl_6_b.test.cpp
 documentation_of: src/flow/primal_dual.hpp
 layout: document
-redirect_from:
-- /library/src/flow/primal_dual.hpp
-- /library/src/flow/primal_dual.hpp.html
-title: src/flow/primal_dual.hpp
+title: Primal-Dual
 ---
