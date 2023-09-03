@@ -6,10 +6,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/datastructure/binary_indexed_tree.hpp
       title: Binary Indexed Tree (Fenwick Tree)
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/disjoint_set.hpp
       title: Disjoint Set (Union-find)
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/lazy_segment_tree.hpp
       title: Segment tree with lazy propagation
     - icon: ':question:'
@@ -31,32 +31,32 @@ data:
       title: Primal-Dual
   - name: src/geometry
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/geometry/geometry.hpp
       title: Geometry
   - name: src/graph
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/bellman_ford.hpp
       title: Bellman-Ford
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/dijkstra.hpp
       title: Dijkstra
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/kruskal.hpp
       title: Kruskal
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/prim.hpp
       title: Prim
   - name: src/math
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/math/combination.hpp
       title: "\u7D44\u307F\u5408\u308F\u305B"
     - icon: ':warning:'
       path: src/math/divisor.hpp
       title: "\u7D04\u6570\u5217\u6319"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/math/extended_gcd.hpp
       title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
     - icon: ':warning:'
@@ -83,15 +83,15 @@ data:
       title: test/datastructure/disjoint_set/dsl_1_a.test.cpp
   - name: test/datastructure/lazy_segment_tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/datastructure/lazy_segment_tree/dsl_2_f.test.cpp
       title: test/datastructure/lazy_segment_tree/dsl_2_f.test.cpp
   - name: test/datastructure/segment_tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/datastructure/segment_tree/dsl_2_a.test.cpp
       title: test/datastructure/segment_tree/dsl_2_a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/datastructure/segment_tree/dsl_2_b.test.cpp
       title: test/datastructure/segment_tree/dsl_2_b.test.cpp
   - name: test/datastructure/sparse_table
@@ -173,57 +173,57 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_d.test.cpp
       title: test/geometry/geometry/cgl_7_d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_e.test.cpp
       title: test/geometry/geometry/cgl_7_e.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_f.test.cpp
       title: test/geometry/geometry/cgl_7_f.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_g.test.cpp
       title: test/geometry/geometry/cgl_7_g.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_h.test.cpp
       title: test/geometry/geometry/cgl_7_h.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry/cgl_7_i.test.cpp
       title: test/geometry/geometry/cgl_7_i.test.cpp
   - name: test/graph/bellman_ford
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/bellman_ford/grl_1_b.test.cpp
       title: test/graph/bellman_ford/grl_1_b.test.cpp
   - name: test/graph/dijkstra
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/dijkstra/grl_1_a.test.cpp
       title: test/graph/dijkstra/grl_1_a.test.cpp
   - name: test/graph/kruskal
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/kruskal/grl_2_a.test.cpp
       title: test/graph/kruskal/grl_2_a.test.cpp
   - name: test/graph/prim
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/prim/grl_2_a.test.cpp
       title: test/graph/prim/grl_2_a.test.cpp
   - name: test/math/combination
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/combination/abc145_d.test.cpp
       title: test/math/combination/abc145_d.test.cpp
   - name: test/math/extended_gcd
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/extended_gcd/ntl_1_e.test.cpp
       title: test/math/extended_gcd/ntl_1_e.test.cpp
   - name: test/tree/euler_tour
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/abc294_g.test.cpp
       title: test/tree/euler_tour/abc294_g.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/grl_5_c.test.cpp
       title: test/tree/euler_tour/grl_5_c.test.cpp
     - icon: ':x:'

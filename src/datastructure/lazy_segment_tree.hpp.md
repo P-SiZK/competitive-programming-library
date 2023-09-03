@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/datastructure/lazy_segment_tree/dsl_2_f.test.cpp
     title: test/datastructure/lazy_segment_tree/dsl_2_f.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/datastructure/lazy_segment_tree.hpp\"\n\n\n\n#include\
@@ -68,7 +68,7 @@ data:
   path: src/datastructure/lazy_segment_tree.hpp
   requiredBy: []
   timestamp: '2023-09-02 10:46:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/datastructure/lazy_segment_tree/dsl_2_f.test.cpp
 documentation_of: src/datastructure/lazy_segment_tree.hpp
@@ -92,7 +92,7 @@ title: Segment tree with lazy propagation
   - $e_T \ast s = s \quad (\forall s \in S)$ を満たす
   - $t_1 \ast (t_2 \ast s) = (t_1 \circ t_2) \ast s \quad (\forall s \in S, \forall t_1, t_2 \in T)$ を満たす
 - 準同型
-  - $t_1 \ast (s_1 \cdot s_2) = (t_1 \ast s_1) \cdot (t_1 \ast s_2) \quad (\forall s_1, s_2 \in S, \forall t \in T)$ を満たす[^2]
+  - $t \ast (s_1 \cdot s_2) = (t \ast s_1) \cdot (t \ast s_2) \quad (\forall s_1, s_2 \in S, \forall t \in T)$ を満たす[^2]
 
 [^1]: 実際にはモノイドよりも条件を緩めることができます。
-[^2]: $t \ast s = f_t(s)$ とすると $f_{t_1}(s_1 \cdot s_2) = f_{t_1}(s_1) \cdot f_{t_1}(s_2)$ となるので、準同型を表していることが分かりやすくなります。
+[^2]: $t \ast s = f_t(s)$ とすると $f_{t}(s_1 \cdot s_2) = f_{t}(s_1) \cdot f_{t}(s_2)$ となるので、準同型を表していることが分かりやすくなります。

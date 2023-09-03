@@ -9,10 +9,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/datastructure/sparse_table/dsl_3_d.test.cpp
     title: test/datastructure/sparse_table/dsl_3_d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/abc294_g.test.cpp
     title: test/tree/euler_tour/abc294_g.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/grl_5_c.test.cpp
     title: test/tree/euler_tour/grl_5_c.test.cpp
   - icon: ':x:'

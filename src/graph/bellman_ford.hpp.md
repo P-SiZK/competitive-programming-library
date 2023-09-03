@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/bellman_ford/grl_1_b.test.cpp
     title: test/graph/bellman_ford/grl_1_b.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/graph/bellman_ford.hpp\"\n\n\n\n#include <algorithm>\n\
@@ -55,7 +55,7 @@ data:
   path: src/graph/bellman_ford.hpp
   requiredBy: []
   timestamp: '2023-08-31 15:37:54+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/bellman_ford/grl_1_b.test.cpp
 documentation_of: src/graph/bellman_ford.hpp

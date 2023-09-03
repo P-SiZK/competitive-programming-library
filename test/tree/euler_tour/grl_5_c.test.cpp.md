@@ -9,9 +9,9 @@ data:
     title: Euler Tour
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_C
     links:
@@ -75,7 +75,7 @@ data:
   path: test/tree/euler_tour/grl_5_c.test.cpp
   requiredBy: []
   timestamp: '2023-08-31 15:37:54+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/tree/euler_tour/grl_5_c.test.cpp
 layout: document

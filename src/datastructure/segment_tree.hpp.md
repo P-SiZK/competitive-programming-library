@@ -3,13 +3,13 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/datastructure/segment_tree/dsl_2_a.test.cpp
     title: test/datastructure/segment_tree/dsl_2_a.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/datastructure/segment_tree/dsl_2_b.test.cpp
     title: test/datastructure/segment_tree/dsl_2_b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/abc294_g.test.cpp
     title: test/tree/euler_tour/abc294_g.test.cpp
   - icon: ':x:'

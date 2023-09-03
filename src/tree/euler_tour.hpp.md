@@ -6,10 +6,10 @@ data:
     title: Sparse Table
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/abc294_g.test.cpp
     title: test/tree/euler_tour/abc294_g.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/grl_5_c.test.cpp
     title: test/tree/euler_tour/grl_5_c.test.cpp
   - icon: ':x:'
