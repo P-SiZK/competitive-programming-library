@@ -19,7 +19,7 @@ documentation_of: //src/datastructure/lazy_segment_tree.hpp
   - $e_T \ast s = s \quad (\forall s \in S)$ を満たす
   - $t_1 \ast (t_2 \ast s) = (t_1 \circ t_2) \ast s \quad (\forall s \in S, \forall t_1, t_2 \in T)$ を満たす
 - 準同型
-  - $t_1 \ast (s_1 \cdot s_2) = (t_1 \ast s_1) \cdot (t_1 \ast s_2) \quad (\forall s_1, s_2 \in S, \forall t \in T)$ を満たす[^2]
+  - $t \ast (s_1 \cdot s_2) = (t \ast s_1) \cdot (t \ast s_2) \quad (\forall s_1, s_2 \in S, \forall t \in T)$ を満たす[^2]
 
 [^1]: 実際にはモノイドよりも条件を緩めることができます。
-[^2]: $t \ast s = f_t(s)$ とすると $f_{t_1}(s_1 \cdot s_2) = f_{t_1}(s_1) \cdot f_{t_1}(s_2)$ となるので、準同型を表していることが分かりやすくなります。
+[^2]: $t \ast s = f_t(s)$ とすると $f_{t}(s_1 \cdot s_2) = f_{t}(s_1) \cdot f_{t}(s_2)$ となるので、準同型を表していることが分かりやすくなります。
