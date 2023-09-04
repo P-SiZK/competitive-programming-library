@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/tree/euler_tour.hpp
     title: Euler Tour
   _extendedVerifiedWith:
@@ -15,15 +15,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/grl_5_c.test.cpp
     title: test/tree/euler_tour/grl_5_c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/grl_5_d.test.cpp
     title: test/tree/euler_tour/grl_5_d.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
     title: test/tree/euler_tour/vertex_add_path_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/datastructure/sparse_table.hpp\"\n\n\n\n#include <vector>\n\
@@ -55,7 +55,7 @@ data:
   requiredBy:
   - src/tree/euler_tour.hpp
   timestamp: '2023-08-31 15:37:54+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/tree/euler_tour/grl_5_d.test.cpp
   - test/tree/euler_tour/grl_5_c.test.cpp

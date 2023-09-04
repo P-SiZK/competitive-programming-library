@@ -12,10 +12,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/datastructure/lazy_segment_tree.hpp
       title: Segment tree with lazy propagation
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/segment_tree.hpp
       title: Segment tree
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/sparse_table.hpp
       title: Sparse Table
   - name: src/flow
@@ -59,15 +59,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/extended_gcd.hpp
       title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/math/matrix.hpp
       title: "\u884C\u5217"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/math/mod_int.hpp
       title: Mod Int
   - name: src/tree
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/tree/euler_tour.hpp
       title: Euler Tour
   verificationCategories:
@@ -218,6 +218,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/extended_gcd/ntl_1_e.test.cpp
       title: test/math/extended_gcd/ntl_1_e.test.cpp
+  - name: test/math/matrix
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/math/matrix/3079.test.cpp
+      title: test/math/matrix/3079.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/math/matrix/itp1_7_d.test.cpp
+      title: test/math/matrix/itp1_7_d.test.cpp
   - name: test/tree/euler_tour
     pages:
     - icon: ':heavy_check_mark:'
@@ -226,7 +234,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/grl_5_c.test.cpp
       title: test/tree/euler_tour/grl_5_c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/grl_5_d.test.cpp
       title: test/tree/euler_tour/grl_5_d.test.cpp
     - icon: ':heavy_check_mark:'
