@@ -11,7 +11,7 @@ private:
 public:
 	ModInt() : x(0) {}
 
-	ModInt(long long y) : x(y % MOD) {
+	ModInt(T y) : x(y % MOD) {
 		if (x < 0) x += MOD;
 	}
 
@@ -64,7 +64,7 @@ public:
 		return is;
 	}
 
-	ModInt inv() const {
+	[[nodiscard]] ModInt inv() const {
 		T a = x, b = MOD, u = 1, v = 0;
 		while (b > 0) {
 			T t = a / b;
@@ -75,7 +75,7 @@ public:
 		return ModInt(u);
 	}
 
-	ModInt pow(long long n) const {
+	[[nodiscard]] ModInt pow(long long n) const {
 		ModInt res(1), tmp(x);
 		while (n > 0) {
 			if (n & 1) res *= tmp;

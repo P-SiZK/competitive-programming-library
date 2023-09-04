@@ -11,11 +11,13 @@ private:
 	std::vector<std::vector<T>> mat;
 
 public:
-	Matrix(std::size_t n) : mat(n, std::vector<T>(n, 0)) {}
+	Matrix(std::size_t n) : mat(n, std::vector<T>(n)) {}
 
-	Matrix(std::size_t n, std::size_t m) : mat(n, std::vector<T>(m, 0)) {}
+	Matrix(std::size_t n, std::size_t m) : mat(n, std::vector<T>(m)) {}
 
-	Matrix(std::vector<std::vector<T>> mat) : mat(mat) {}
+	Matrix(std::initializer_list<std::vector<T>> init) : mat(init) {}
+
+	Matrix(std::vector<std::vector<T>> &mat) : mat(mat) {}
 
 	[[nodiscard]] std::size_t height() const { return mat.size(); }
 
@@ -52,11 +54,11 @@ public:
 		return *this;
 	}
 
-	Matrix operator+(Matrix const &b) const { return Matrix(mat) += b; }
+	Matrix operator+(Matrix const &b) const { return Matrix(*this) += b; }
 
-	Matrix operator-(Matrix const &b) const { return Matrix(mat) -= b; }
+	Matrix operator-(Matrix const &b) const { return Matrix(*this) -= b; }
 
-	Matrix operator*(Matrix const &b) const { return Matrix(mat) *= b; }
+	Matrix operator*(Matrix const &b) const { return Matrix(*this) *= b; }
 
 	static Matrix identity(std::size_t n) {
 		Matrix id(n);
@@ -64,8 +66,8 @@ public:
 		return id;
 	}
 
-	Matrix pow(long long n) const {
-		Matrix res = Matrix::identity(height()), tmp(mat);
+	[[nodiscard]] Matrix pow(long long n) const {
+		Matrix res = Matrix::identity(height()), tmp(*this);
 		while (n > 0) {
 			if (n & 1) res *= tmp;
 			tmp *= tmp;
