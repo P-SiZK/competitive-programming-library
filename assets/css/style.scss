@@ -1,0 +1,22 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+pre {
+    tab-size: 4;
+}
+
+body {
+    font-family:
+        'Times New Roman',
+        Times,
+        "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans",
+        Meiryo,
+        sans-serif;
+}
+
+.code-btn {
+    color: black;
+}
