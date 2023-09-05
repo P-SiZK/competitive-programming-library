@@ -106,6 +106,7 @@ plugins:
 - jekyll-github-metadata
 pwa:
   enabled: true
+repository: P-SiZK/competitive-programming-library
 sass:
   style: compressed
 social:
