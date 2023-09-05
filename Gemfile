@@ -30,5 +30,3 @@ end
 gem "jekyll-theme-minimal", "~> 0.2.0"
 
 gem "jemoji", "~> 0.13.0"
-
-gem "jekyll-github-metadata", "~> 2.16"

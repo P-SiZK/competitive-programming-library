@@ -71,8 +71,6 @@ exclude:
 - rollup.config.js
 - node_modules
 - package*.json
-- .clang-format
-- .clang-tidy
 github:
   username: P-SiZK
 google_analytics:
@@ -103,7 +101,6 @@ paginate: 10
 plugins:
 - jemoji
 - jekyll-redirect-from
-- jekyll-github-metadata
 pwa:
   enabled: true
 sass:
@@ -120,4 +117,4 @@ title: SiZK's Library
 toc: true
 twitter:
   username: P_SiZK
-url: https://p-sizk.github.io
+url: https://p-sizk.github.io/competitive-programming-library/
