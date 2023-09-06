@@ -1,5 +1,5 @@
 {
-"test/datastructure/binary_indexed_tree/alds1_5_d.test.cpp": "2023-08-31 15:37:54 +0900",
+"test/datastructure/binary_indexed_tree/dsl_2_b.test.cpp": "2023-09-06 14:54:16 +0900",
 "test/datastructure/disjoint_set/dsl_1_a.test.cpp": "2023-08-31 15:37:54 +0900",
 "test/datastructure/lazy_segment_tree/dsl_2_f.test.cpp": "2023-09-02 10:46:15 +0900",
 "test/datastructure/segment_tree/dsl_2_a.test.cpp": "2023-09-02 10:46:15 +0900",
@@ -43,5 +43,6 @@
 "test/tree/euler_tour/abc294_g.test.cpp": "2023-09-02 10:46:15 +0900",
 "test/tree/euler_tour/grl_5_c.test.cpp": "2023-08-31 15:37:54 +0900",
 "test/tree/euler_tour/grl_5_d.test.cpp": "2023-09-02 10:46:15 +0900",
-"test/tree/euler_tour/vertex_add_path_sum.test.cpp": "2023-09-02 10:46:15 +0900"
+"test/tree/euler_tour/vertex_add_path_sum.test.cpp": "2023-09-02 10:46:15 +0900",
+"test/vector/inversion_number/alds1_5_d.test.cpp": "2023-09-06 14:54:16 +0900"
 }
