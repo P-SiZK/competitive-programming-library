@@ -12,10 +12,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/datastructure/lazy_segment_tree.hpp
       title: Segment tree with lazy propagation
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/segment_tree.hpp
       title: Segment tree
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/sparse_table.hpp
       title: Sparse Table
   - name: src/flow
@@ -45,39 +45,39 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/graph/kruskal.hpp
       title: Kruskal
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/graph/prim.hpp
       title: Prim
   - name: src/math
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/math/combination.hpp
       title: "\u7D44\u307F\u5408\u308F\u305B"
     - icon: ':warning:'
       path: src/math/divisor.hpp
       title: "\u7D04\u6570\u5217\u6319"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/math/extended_gcd.hpp
       title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/math/matrix.hpp
       title: "\u884C\u5217"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/math/mod_int.hpp
       title: Mod Int
   - name: src/tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/tree/euler_tour.hpp
       title: Euler Tour
   - name: src/vector
     pages:
     - icon: ':x:'
       path: src/vector/coordinate_compression.hpp
-      title: src/vector/coordinate_compression.hpp
+      title: "\u5EA7\u6A19\u5727\u7E2E"
     - icon: ':x:'
       path: src/vector/inversion_number.hpp
-      title: src/vector/inversion_number.hpp
+      title: "\u8EE2\u5012\u6570"
   verificationCategories:
   - name: test/datastructure/binary_indexed_tree
     pages:
@@ -213,39 +213,39 @@ data:
       title: test/graph/kruskal/aoj_grl_2_a.test.cpp
   - name: test/graph/prim
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/prim/aoj_grl_2_a.test.cpp
       title: test/graph/prim/aoj_grl_2_a.test.cpp
   - name: test/math/combination
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/combination/atcoder_abc145_d.test.cpp
       title: test/math/combination/atcoder_abc145_d.test.cpp
   - name: test/math/extended_gcd
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/extended_gcd/aoj_ntl_1_e.test.cpp
       title: test/math/extended_gcd/aoj_ntl_1_e.test.cpp
   - name: test/math/matrix
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/matrix/aoj_3079.test.cpp
       title: test/math/matrix/aoj_3079.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/matrix/aoj_itp1_7_d.test.cpp
       title: test/math/matrix/aoj_itp1_7_d.test.cpp
   - name: test/tree/euler_tour
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/aoj_grl_5_c.test.cpp
       title: test/tree/euler_tour/aoj_grl_5_c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/aoj_grl_5_d.test.cpp
       title: test/tree/euler_tour/aoj_grl_5_d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/atcoder_abc294_g.test.cpp
       title: test/tree/euler_tour/atcoder_abc294_g.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
       title: test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
   - name: test/vector/inversion_number

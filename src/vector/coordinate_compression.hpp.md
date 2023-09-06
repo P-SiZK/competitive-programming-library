@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':x:'
     path: src/vector/inversion_number.hpp
-    title: src/vector/inversion_number.hpp
+    title: "\u8EE2\u5012\u6570"
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
@@ -41,8 +41,5 @@ data:
   - test/vector/inversion_number/aoj_alds1_5_d.test.cpp
 documentation_of: src/vector/coordinate_compression.hpp
 layout: document
-redirect_from:
-- /library/src/vector/coordinate_compression.hpp
-- /library/src/vector/coordinate_compression.hpp.html
-title: src/vector/coordinate_compression.hpp
+title: "\u5EA7\u6A19\u5727\u7E2E"
 ---

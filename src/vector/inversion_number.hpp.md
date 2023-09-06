@@ -6,7 +6,7 @@ data:
     title: Binary Indexed Tree (Fenwick Tree)
   - icon: ':x:'
     path: src/vector/coordinate_compression.hpp
-    title: src/vector/coordinate_compression.hpp
+    title: "\u5EA7\u6A19\u5727\u7E2E"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
@@ -57,8 +57,5 @@ data:
   - test/vector/inversion_number/aoj_alds1_5_d.test.cpp
 documentation_of: src/vector/inversion_number.hpp
 layout: document
-redirect_from:
-- /library/src/vector/inversion_number.hpp
-- /library/src/vector/inversion_number.hpp.html
-title: src/vector/inversion_number.hpp
+title: "\u8EE2\u5012\u6570"
 ---

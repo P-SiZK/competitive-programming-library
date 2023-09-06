@@ -6,10 +6,10 @@ data:
     title: Binary Indexed Tree (Fenwick Tree)
   - icon: ':x:'
     path: src/vector/coordinate_compression.hpp
-    title: src/vector/coordinate_compression.hpp
+    title: "\u5EA7\u6A19\u5727\u7E2E"
   - icon: ':x:'
     path: src/vector/inversion_number.hpp
-    title: src/vector/inversion_number.hpp
+    title: "\u8EE2\u5012\u6570"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true

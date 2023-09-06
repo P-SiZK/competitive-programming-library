@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':x:'
     path: src/vector/inversion_number.hpp
-    title: src/vector/inversion_number.hpp
+    title: "\u8EE2\u5012\u6570"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/datastructure/binary_indexed_tree/aoj_dsl_2_b.test.cpp
