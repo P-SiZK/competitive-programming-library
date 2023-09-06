@@ -70,12 +70,20 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/tree/euler_tour.hpp
       title: Euler Tour
+  - name: src/vector
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: src/vector/coordinate_compression.hpp
+      title: src/vector/coordinate_compression.hpp
+    - icon: ':heavy_check_mark:'
+      path: src/vector/inversion_number.hpp
+      title: src/vector/inversion_number.hpp
   verificationCategories:
   - name: test/datastructure/binary_indexed_tree
     pages:
     - icon: ':heavy_check_mark:'
-      path: test/datastructure/binary_indexed_tree/alds1_5_d.test.cpp
-      title: test/datastructure/binary_indexed_tree/alds1_5_d.test.cpp
+      path: test/datastructure/binary_indexed_tree/dsl_2_b.test.cpp
+      title: test/datastructure/binary_indexed_tree/dsl_2_b.test.cpp
   - name: test/datastructure/disjoint_set
     pages:
     - icon: ':heavy_check_mark:'
@@ -240,5 +248,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
       title: test/tree/euler_tour/vertex_add_path_sum.test.cpp
+  - name: test/vector/inversion_number
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/vector/inversion_number/alds1_5_d.test.cpp
+      title: test/vector/inversion_number/alds1_5_d.test.cpp
 layout: toppage
 ---
