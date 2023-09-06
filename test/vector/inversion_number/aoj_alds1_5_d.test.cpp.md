@@ -7,17 +7,21 @@ data:
   - icon: ':x:'
     path: src/vector/coordinate_compression.hpp
     title: src/vector/coordinate_compression.hpp
-  _extendedRequiredBy: []
-  _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
-    title: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
+    path: src/vector/inversion_number.hpp
+    title: src/vector/inversion_number.hpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: true
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':x:'
   attributes:
-    links: []
-  bundledCode: "#line 1 \"src/vector/inversion_number.hpp\"\n\n\n\n#line 1 \"src/datastructure/binary_indexed_tree.hpp\"\
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/5/ALDS1_5_D
+    links:
+    - https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/5/ALDS1_5_D
+  bundledCode: "#line 1 \"test/vector/inversion_number/aoj_alds1_5_d.test.cpp\"\n\
+    // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/5/ALDS1_5_D\n\
+    \n#line 1 \"src/vector/inversion_number.hpp\"\n\n\n\n#line 1 \"src/datastructure/binary_indexed_tree.hpp\"\
     \n\n\n\n#include <vector>\n\ntemplate<class T>\nclass BinaryIndexedTree {\nprivate:\n\
     \tint n;\n\tstd::vector<T> tree; // 1-indexed\n\npublic:\n\tBinaryIndexedTree(int\
     \ n) : n(n), tree(n + 1) {}\n\n\tvoid add(int i, T x) {\n\t\twhile (i <= n) {\n\
@@ -37,28 +41,30 @@ data:
     \ T>\nlong long inversion_number(std::vector<T> const &v) {\n\tint const N = v.size();\n\
     \tBinaryIndexedTree<int> bit(N);\n\tCoordinateCompression cc(v);\n\tlong long\
     \ res = 0;\n\tfor (int i = 0; i < N; ++i) {\n\t\tint idx = cc.get(v[i]) + 1;\n\
-    \t\tres += i - bit.sum(idx);\n\t\tbit.add(idx, 1);\n\t}\n\treturn res;\n}\n\n\n"
-  code: "#ifndef VECTOR_INVERSION_NUMBER\n#define VECTOR_INVERSION_NUMBER\n\n#include\
-    \ \"src/datastructure/binary_indexed_tree.hpp\"\n#include \"src/vector/coordinate_compression.hpp\"\
-    \n\n#include <iostream>\n#include <vector>\n\ntemplate<class T>\nlong long inversion_number(std::vector<T>\
-    \ const &v) {\n\tint const N = v.size();\n\tBinaryIndexedTree<int> bit(N);\n\t\
-    CoordinateCompression cc(v);\n\tlong long res = 0;\n\tfor (int i = 0; i < N; ++i)\
-    \ {\n\t\tint idx = cc.get(v[i]) + 1;\n\t\tres += i - bit.sum(idx);\n\t\tbit.add(idx,\
-    \ 1);\n\t}\n\treturn res;\n}\n\n#endif // VECTOR_INVERSION_NUMBER\n"
+    \t\tres += i - bit.sum(idx);\n\t\tbit.add(idx, 1);\n\t}\n\treturn res;\n}\n\n\n\
+    #line 4 \"test/vector/inversion_number/aoj_alds1_5_d.test.cpp\"\n\n#line 7 \"\
+    test/vector/inversion_number/aoj_alds1_5_d.test.cpp\"\n\nusing namespace std;\n\
+    \nint main() {\n\tint n;\n\tcin >> n;\n\tvector<int> a(n);\n\tfor (int &e : a)\
+    \ cin >> e;\n\tcout << inversion_number(a) << endl;\n\n\treturn 0;\n}\n"
+  code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/5/ALDS1_5_D\n\
+    \n#include \"src/vector/inversion_number.hpp\"\n\n#include <iostream>\n#include\
+    \ <vector>\n\nusing namespace std;\n\nint main() {\n\tint n;\n\tcin >> n;\n\t\
+    vector<int> a(n);\n\tfor (int &e : a) cin >> e;\n\tcout << inversion_number(a)\
+    \ << endl;\n\n\treturn 0;\n}\n"
   dependsOn:
+  - src/vector/inversion_number.hpp
   - src/datastructure/binary_indexed_tree.hpp
   - src/vector/coordinate_compression.hpp
-  isVerificationFile: false
-  path: src/vector/inversion_number.hpp
+  isVerificationFile: true
+  path: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
   requiredBy: []
-  timestamp: '2023-09-06 14:54:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/vector/inversion_number/aoj_alds1_5_d.test.cpp
-documentation_of: src/vector/inversion_number.hpp
+  timestamp: '2023-09-06 15:21:24+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
+  verifiedWith: []
+documentation_of: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
 layout: document
 redirect_from:
-- /library/src/vector/inversion_number.hpp
-- /library/src/vector/inversion_number.hpp.html
-title: src/vector/inversion_number.hpp
+- /verify/test/vector/inversion_number/aoj_alds1_5_d.test.cpp
+- /verify/test/vector/inversion_number/aoj_alds1_5_d.test.cpp.html
+title: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
 ---

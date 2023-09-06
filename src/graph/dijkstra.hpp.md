@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/graph/dijkstra/grl_1_a.test.cpp
-    title: test/graph/dijkstra/grl_1_a.test.cpp
+    path: test/graph/dijkstra/aoj_grl_1_a.test.cpp
+    title: test/graph/dijkstra/aoj_grl_1_a.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -59,7 +59,7 @@ data:
   timestamp: '2023-08-31 15:37:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/dijkstra/grl_1_a.test.cpp
+  - test/graph/dijkstra/aoj_grl_1_a.test.cpp
 documentation_of: src/graph/dijkstra.hpp
 layout: document
 title: Dijkstra

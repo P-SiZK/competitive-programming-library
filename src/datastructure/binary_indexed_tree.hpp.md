@@ -2,19 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/vector/inversion_number.hpp
     title: src/vector/inversion_number.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/datastructure/binary_indexed_tree/dsl_2_b.test.cpp
-    title: test/datastructure/binary_indexed_tree/dsl_2_b.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/vector/inversion_number/alds1_5_d.test.cpp
-    title: test/vector/inversion_number/alds1_5_d.test.cpp
-  _isVerificationFailed: false
+    path: test/datastructure/binary_indexed_tree/aoj_dsl_2_b.test.cpp
+    title: test/datastructure/binary_indexed_tree/aoj_dsl_2_b.test.cpp
+  - icon: ':x:'
+    path: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
+    title: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/datastructure/binary_indexed_tree.hpp\"\n\n\n\n#include\
@@ -39,10 +39,10 @@ data:
   requiredBy:
   - src/vector/inversion_number.hpp
   timestamp: '2023-09-06 14:54:16+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/vector/inversion_number/alds1_5_d.test.cpp
-  - test/datastructure/binary_indexed_tree/dsl_2_b.test.cpp
+  - test/vector/inversion_number/aoj_alds1_5_d.test.cpp
+  - test/datastructure/binary_indexed_tree/aoj_dsl_2_b.test.cpp
 documentation_of: src/datastructure/binary_indexed_tree.hpp
 layout: document
 title: Binary Indexed Tree (Fenwick Tree)

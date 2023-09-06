@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/math/matrix/3079.test.cpp
-    title: test/math/matrix/3079.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/math/matrix/itp1_7_d.test.cpp
-    title: test/math/matrix/itp1_7_d.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/math/matrix/aoj_3079.test.cpp
+    title: test/math/matrix/aoj_3079.test.cpp
+  - icon: ':x:'
+    path: test/math/matrix/aoj_itp1_7_d.test.cpp
+    title: test/math/matrix/aoj_itp1_7_d.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/math/matrix.hpp\"\n\n\n\n#include <cassert>\n#include\
@@ -77,10 +77,10 @@ data:
   path: src/math/matrix.hpp
   requiredBy: []
   timestamp: '2023-09-04 16:54:57+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/math/matrix/3079.test.cpp
-  - test/math/matrix/itp1_7_d.test.cpp
+  - test/math/matrix/aoj_itp1_7_d.test.cpp
+  - test/math/matrix/aoj_3079.test.cpp
 documentation_of: src/math/matrix.hpp
 layout: document
 title: "\u884C\u5217"

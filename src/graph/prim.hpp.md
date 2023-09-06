@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/graph/prim/grl_2_a.test.cpp
-    title: test/graph/prim/grl_2_a.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/graph/prim/aoj_grl_2_a.test.cpp
+    title: test/graph/prim/aoj_grl_2_a.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/graph/prim.hpp\"\n\n\n\n#include <queue>\n#include <utility>\n\
@@ -38,9 +38,9 @@ data:
   path: src/graph/prim.hpp
   requiredBy: []
   timestamp: '2023-08-31 15:37:54+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/graph/prim/grl_2_a.test.cpp
+  - test/graph/prim/aoj_grl_2_a.test.cpp
 documentation_of: src/graph/prim.hpp
 layout: document
 title: Prim

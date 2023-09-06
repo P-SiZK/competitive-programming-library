@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/graph/bellman_ford/grl_1_b.test.cpp
-    title: test/graph/bellman_ford/grl_1_b.test.cpp
+    path: test/graph/bellman_ford/aoj_grl_1_b.test.cpp
+    title: test/graph/bellman_ford/aoj_grl_1_b.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -57,7 +57,7 @@ data:
   timestamp: '2023-08-31 15:37:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/bellman_ford/grl_1_b.test.cpp
+  - test/graph/bellman_ford/aoj_grl_1_b.test.cpp
 documentation_of: src/graph/bellman_ford.hpp
 layout: document
 title: Bellman-Ford

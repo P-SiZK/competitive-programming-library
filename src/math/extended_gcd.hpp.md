@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/math/extended_gcd/ntl_1_e.test.cpp
-    title: test/math/extended_gcd/ntl_1_e.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/math/extended_gcd/aoj_ntl_1_e.test.cpp
+    title: test/math/extended_gcd/aoj_ntl_1_e.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/math/extended_gcd.hpp\"\n\n\n\ntemplate<class T>\nT\
@@ -28,9 +28,9 @@ data:
   path: src/math/extended_gcd.hpp
   requiredBy: []
   timestamp: '2023-08-31 15:37:54+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/math/extended_gcd/ntl_1_e.test.cpp
+  - test/math/extended_gcd/aoj_ntl_1_e.test.cpp
 documentation_of: src/math/extended_gcd.hpp
 layout: document
 title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"

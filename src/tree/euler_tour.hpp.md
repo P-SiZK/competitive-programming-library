@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/datastructure/sparse_table.hpp
     title: Sparse Table
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/tree/euler_tour/abc294_g.test.cpp
-    title: test/tree/euler_tour/abc294_g.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/tree/euler_tour/grl_5_c.test.cpp
-    title: test/tree/euler_tour/grl_5_c.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/tree/euler_tour/grl_5_d.test.cpp
-    title: test/tree/euler_tour/grl_5_d.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/tree/euler_tour/vertex_add_path_sum.test.cpp
-    title: test/tree/euler_tour/vertex_add_path_sum.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/tree/euler_tour/aoj_grl_5_c.test.cpp
+    title: test/tree/euler_tour/aoj_grl_5_c.test.cpp
+  - icon: ':x:'
+    path: test/tree/euler_tour/aoj_grl_5_d.test.cpp
+    title: test/tree/euler_tour/aoj_grl_5_d.test.cpp
+  - icon: ':x:'
+    path: test/tree/euler_tour/atcoder_abc294_g.test.cpp
+    title: test/tree/euler_tour/atcoder_abc294_g.test.cpp
+  - icon: ':x:'
+    path: test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
+    title: test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/tree/euler_tour.hpp\"\n\n\n\n#line 1 \"src/datastructure/sparse_table.hpp\"\
@@ -92,12 +92,12 @@ data:
   path: src/tree/euler_tour.hpp
   requiredBy: []
   timestamp: '2023-08-31 15:37:54+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/tree/euler_tour/grl_5_d.test.cpp
-  - test/tree/euler_tour/grl_5_c.test.cpp
-  - test/tree/euler_tour/vertex_add_path_sum.test.cpp
-  - test/tree/euler_tour/abc294_g.test.cpp
+  - test/tree/euler_tour/aoj_grl_5_d.test.cpp
+  - test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
+  - test/tree/euler_tour/aoj_grl_5_c.test.cpp
+  - test/tree/euler_tour/atcoder_abc294_g.test.cpp
 documentation_of: src/tree/euler_tour.hpp
 layout: document
 title: Euler Tour

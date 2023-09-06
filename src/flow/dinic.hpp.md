@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/flow/dinic/grl_6_a.test.cpp
-    title: test/flow/dinic/grl_6_a.test.cpp
+    path: test/flow/dinic/aoj_grl_6_a.test.cpp
+    title: test/flow/dinic/aoj_grl_6_a.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -62,7 +62,7 @@ data:
   timestamp: '2023-08-31 15:37:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/flow/dinic/grl_6_a.test.cpp
+  - test/flow/dinic/aoj_grl_6_a.test.cpp
 documentation_of: src/flow/dinic.hpp
 layout: document
 title: Dinic

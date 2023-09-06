@@ -2,16 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: src/vector/inversion_number.hpp
     title: src/vector/inversion_number.hpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/vector/inversion_number/alds1_5_d.test.cpp
-    title: test/vector/inversion_number/alds1_5_d.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
+    title: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/vector/coordinate_compression.hpp\"\n\n\n\n#include\
@@ -36,9 +36,9 @@ data:
   requiredBy:
   - src/vector/inversion_number.hpp
   timestamp: '2023-09-06 14:54:16+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/vector/inversion_number/alds1_5_d.test.cpp
+  - test/vector/inversion_number/aoj_alds1_5_d.test.cpp
 documentation_of: src/vector/coordinate_compression.hpp
 layout: document
 redirect_from:

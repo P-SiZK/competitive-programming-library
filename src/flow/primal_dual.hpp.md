@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/flow/primal_dual/grl_6_b.test.cpp
-    title: test/flow/primal_dual/grl_6_b.test.cpp
+    path: test/flow/primal_dual/aoj_grl_6_b.test.cpp
+    title: test/flow/primal_dual/aoj_grl_6_b.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -68,7 +68,7 @@ data:
   timestamp: '2023-08-31 15:37:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/flow/primal_dual/grl_6_b.test.cpp
+  - test/flow/primal_dual/aoj_grl_6_b.test.cpp
 documentation_of: src/flow/primal_dual.hpp
 layout: document
 title: Primal-Dual

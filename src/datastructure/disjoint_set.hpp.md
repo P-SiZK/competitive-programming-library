@@ -7,11 +7,11 @@ data:
     title: Kruskal
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/datastructure/disjoint_set/dsl_1_a.test.cpp
-    title: test/datastructure/disjoint_set/dsl_1_a.test.cpp
+    path: test/datastructure/disjoint_set/aoj_dsl_1_a.test.cpp
+    title: test/datastructure/disjoint_set/aoj_dsl_1_a.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/graph/kruskal/grl_2_a.test.cpp
-    title: test/graph/kruskal/grl_2_a.test.cpp
+    path: test/graph/kruskal/aoj_grl_2_a.test.cpp
+    title: test/graph/kruskal/aoj_grl_2_a.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -47,8 +47,8 @@ data:
   timestamp: '2023-08-31 15:37:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/datastructure/disjoint_set/dsl_1_a.test.cpp
-  - test/graph/kruskal/grl_2_a.test.cpp
+  - test/datastructure/disjoint_set/aoj_dsl_1_a.test.cpp
+  - test/graph/kruskal/aoj_grl_2_a.test.cpp
 documentation_of: src/datastructure/disjoint_set.hpp
 layout: document
 title: Disjoint Set (Union-find)

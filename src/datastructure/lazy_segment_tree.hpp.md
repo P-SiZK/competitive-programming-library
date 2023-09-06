@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/datastructure/lazy_segment_tree/dsl_2_f.test.cpp
-    title: test/datastructure/lazy_segment_tree/dsl_2_f.test.cpp
+    path: test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp
+    title: test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -70,7 +70,7 @@ data:
   timestamp: '2023-09-02 10:46:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/datastructure/lazy_segment_tree/dsl_2_f.test.cpp
+  - test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp
 documentation_of: src/datastructure/lazy_segment_tree.hpp
 layout: document
 title: Segment tree with lazy propagation
