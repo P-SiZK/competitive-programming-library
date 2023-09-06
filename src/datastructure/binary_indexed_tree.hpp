@@ -33,16 +33,4 @@ public:
 	}
 };
 
-template<class T>
-long long inversion_number(std::vector<T> const &v) {
-	int const N = v.size();
-	BinaryIndexedTree<T> bit(N);
-	long long res = 0;
-	for (int i = 0; i < N; ++i) {
-		res += i - bit.sum(v[i]);
-		bit.add(v[i], 1);
-	}
-	return res;
-}
-
 #endif // DATASTRUCTURE_BINARY_INDEXED_TREE_HPP

@@ -19,6 +19,7 @@
         "editor.insertSpaces": false,
     },
     "files.associations": {
+        ".clang-tidy": "yaml",
         "iostream": "cpp",
         "limits": "cpp",
         "cmath": "cpp",
@@ -67,7 +68,12 @@
         "streambuf": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "bitset": "cpp",
+        "complex": "cpp",
+        "cstring": "cpp",
+        "ctime": "cpp",
+        "sstream": "cpp"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/g++"
 }
