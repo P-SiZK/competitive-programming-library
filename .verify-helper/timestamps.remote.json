@@ -34,5 +34,14 @@
 "test/geometry/geometry/aoj_cgl_7_i.test.cpp": "2023-09-06 15:21:24 +0900",
 "test/graph/bellman_ford/aoj_grl_1_b.test.cpp": "2023-09-06 15:21:24 +0900",
 "test/graph/dijkstra/aoj_grl_1_a.test.cpp": "2023-09-06 15:21:24 +0900",
-"test/graph/kruskal/aoj_grl_2_a.test.cpp": "2023-09-06 15:21:24 +0900"
+"test/graph/kruskal/aoj_grl_2_a.test.cpp": "2023-09-06 15:21:24 +0900",
+"test/graph/prim/aoj_grl_2_a.test.cpp": "2023-09-06 15:21:24 +0900",
+"test/math/combination/atcoder_abc145_d.test.cpp": "2023-09-06 15:21:24 +0900",
+"test/math/extended_gcd/aoj_ntl_1_e.test.cpp": "2023-09-06 15:21:24 +0900",
+"test/math/matrix/aoj_3079.test.cpp": "2023-09-06 15:21:24 +0900",
+"test/math/matrix/aoj_itp1_7_d.test.cpp": "2023-09-06 15:21:24 +0900",
+"test/tree/euler_tour/aoj_grl_5_c.test.cpp": "2023-09-06 15:21:24 +0900",
+"test/tree/euler_tour/aoj_grl_5_d.test.cpp": "2023-09-06 15:21:24 +0900",
+"test/tree/euler_tour/atcoder_abc294_g.test.cpp": "2023-09-06 15:21:24 +0900",
+"test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp": "2023-09-06 15:21:24 +0900"
 }
