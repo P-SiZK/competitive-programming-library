@@ -43,5 +43,6 @@
 "test/tree/euler_tour/aoj_grl_5_c.test.cpp": "2023-09-06 15:21:24 +0900",
 "test/tree/euler_tour/aoj_grl_5_d.test.cpp": "2023-09-06 15:21:24 +0900",
 "test/tree/euler_tour/atcoder_abc294_g.test.cpp": "2023-09-06 15:21:24 +0900",
-"test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp": "2023-09-06 15:21:24 +0900"
+"test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp": "2023-09-06 15:21:24 +0900",
+"test/vector/inversion_number/aoj_alds1_5_d.test.cpp": "2023-09-06 15:21:24 +0900"
 }
