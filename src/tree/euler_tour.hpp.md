@@ -94,8 +94,8 @@ data:
   timestamp: '2023-08-31 15:37:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/tree/euler_tour/aoj_grl_5_d.test.cpp
   - test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
+  - test/tree/euler_tour/aoj_grl_5_d.test.cpp
   - test/tree/euler_tour/aoj_grl_5_c.test.cpp
   - test/tree/euler_tour/atcoder_abc294_g.test.cpp
 documentation_of: src/tree/euler_tour.hpp

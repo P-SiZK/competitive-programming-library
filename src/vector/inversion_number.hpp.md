@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/datastructure/binary_indexed_tree.hpp
     title: Binary Indexed Tree (Fenwick Tree)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/vector/coordinate_compression.hpp
     title: "\u5EA7\u6A19\u5727\u7E2E"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
     title: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/vector/inversion_number.hpp\"\n\n\n\n#line 1 \"src/datastructure/binary_indexed_tree.hpp\"\
@@ -52,7 +52,7 @@ data:
   path: src/vector/inversion_number.hpp
   requiredBy: []
   timestamp: '2023-09-06 14:54:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/vector/inversion_number/aoj_alds1_5_d.test.cpp
 documentation_of: src/vector/inversion_number.hpp

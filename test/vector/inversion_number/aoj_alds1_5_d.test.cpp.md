@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/datastructure/binary_indexed_tree.hpp
     title: Binary Indexed Tree (Fenwick Tree)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/vector/coordinate_compression.hpp
     title: "\u5EA7\u6A19\u5727\u7E2E"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/vector/inversion_number.hpp
     title: "\u8EE2\u5012\u6570"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/5/ALDS1_5_D
     links:
@@ -59,7 +59,7 @@ data:
   path: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
   requiredBy: []
   timestamp: '2023-09-06 15:21:24+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
 layout: document

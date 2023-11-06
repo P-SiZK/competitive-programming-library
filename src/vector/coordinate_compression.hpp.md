@@ -2,16 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/vector/inversion_number.hpp
     title: "\u8EE2\u5012\u6570"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
     title: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/vector/coordinate_compression.hpp\"\n\n\n\n#include\
@@ -36,7 +36,7 @@ data:
   requiredBy:
   - src/vector/inversion_number.hpp
   timestamp: '2023-09-06 14:54:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/vector/inversion_number/aoj_alds1_5_d.test.cpp
 documentation_of: src/vector/coordinate_compression.hpp

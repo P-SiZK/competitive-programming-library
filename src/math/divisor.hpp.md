@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/math/divisor/aoj_1626.cpp
+    title: test/math/divisor/aoj_1626.cpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -21,7 +24,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: src/math/divisor.hpp
-  requiredBy: []
+  requiredBy:
+  - test/math/divisor/aoj_1626.cpp
   timestamp: '2023-08-31 15:37:54+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

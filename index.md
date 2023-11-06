@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: src/datastructure
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: src/datastructure/binary_indexed_tree.hpp
       title: Binary Indexed Tree (Fenwick Tree)
     - icon: ':heavy_check_mark:'
@@ -72,12 +72,17 @@ data:
       title: Euler Tour
   - name: src/vector
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/vector/coordinate_compression.hpp
       title: "\u5EA7\u6A19\u5727\u7E2E"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: src/vector/inversion_number.hpp
       title: "\u8EE2\u5012\u6570"
+  - name: test/math/divisor
+    pages:
+    - icon: ':warning:'
+      path: test/math/divisor/aoj_1626.cpp
+      title: test/math/divisor/aoj_1626.cpp
   verificationCategories:
   - name: test/datastructure/binary_indexed_tree
     pages:
@@ -250,7 +255,7 @@ data:
       title: test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
   - name: test/vector/inversion_number
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
       title: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
 layout: toppage

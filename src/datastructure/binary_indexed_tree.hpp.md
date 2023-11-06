@@ -2,19 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: src/vector/inversion_number.hpp
     title: "\u8EE2\u5012\u6570"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/datastructure/binary_indexed_tree/aoj_dsl_2_b.test.cpp
     title: test/datastructure/binary_indexed_tree/aoj_dsl_2_b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
     title: test/vector/inversion_number/aoj_alds1_5_d.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/datastructure/binary_indexed_tree.hpp\"\n\n\n\n#include\
@@ -39,10 +39,10 @@ data:
   requiredBy:
   - src/vector/inversion_number.hpp
   timestamp: '2023-09-06 14:54:16+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/vector/inversion_number/aoj_alds1_5_d.test.cpp
   - test/datastructure/binary_indexed_tree/aoj_dsl_2_b.test.cpp
+  - test/vector/inversion_number/aoj_alds1_5_d.test.cpp
 documentation_of: src/datastructure/binary_indexed_tree.hpp
 layout: document
 title: Binary Indexed Tree (Fenwick Tree)
