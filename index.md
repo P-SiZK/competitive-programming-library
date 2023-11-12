@@ -53,7 +53,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/combination.hpp
       title: "\u7D44\u307F\u5408\u308F\u305B"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: src/math/divisor.hpp
       title: "\u7D04\u6570\u5217\u6319"
     - icon: ':heavy_check_mark:'
@@ -65,6 +65,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/mod_int.hpp
       title: Mod Int
+    - icon: ':heavy_check_mark:'
+      path: src/math/sieve_of_eratosthenes.hpp
+      title: "\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9"
   - name: src/tree
     pages:
     - icon: ':heavy_check_mark:'
@@ -78,11 +81,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/vector/inversion_number.hpp
       title: "\u8EE2\u5012\u6570"
-  - name: test/math/divisor
-    pages:
-    - icon: ':warning:'
-      path: test/math/divisor/aoj_1626.cpp
-      title: test/math/divisor/aoj_1626.cpp
   verificationCategories:
   - name: test/datastructure/binary_indexed_tree
     pages:
@@ -226,6 +224,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/combination/atcoder_abc145_d.test.cpp
       title: test/math/combination/atcoder_abc145_d.test.cpp
+  - name: test/math/divisor
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/math/divisor/aoj_1626.test.cpp
+      title: test/math/divisor/aoj_1626.test.cpp
   - name: test/math/extended_gcd
     pages:
     - icon: ':heavy_check_mark:'
@@ -239,6 +242,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/matrix/aoj_itp1_7_d.test.cpp
       title: test/math/matrix/aoj_itp1_7_d.test.cpp
+  - name: test/math/sieve_of_eratosthenes
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/math/sieve_of_eratosthenes/aoj_1276.test.cpp
+      title: test/math/sieve_of_eratosthenes/aoj_1276.test.cpp
   - name: test/tree/euler_tour
     pages:
     - icon: ':heavy_check_mark:'
