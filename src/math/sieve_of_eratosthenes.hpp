@@ -1,28 +1,25 @@
 #ifndef MATH_SIEVE_OF_ERATOSTHENES
 #define MATH_SIEVE_OF_ERATOSTHENES
 
+#include <numeric>
 #include <vector>
 
 class SieveOfEratosthenes {
 private:
-	std::vector<bool> is_prime;
 	std::vector<int> min_factor;
 
 public:
-	SieveOfEratosthenes(int n) : is_prime(n + 1, true), min_factor(n + 1, -1) {
-		is_prime[0] = is_prime[1] = false;
-		min_factor[1] = 1;
+	SieveOfEratosthenes(int n) : min_factor(n + 1) {
+		std::iota(min_factor.begin(), min_factor.end(), 0);
 		for (int p = 2; p * p <= n; ++p) {
-			if (!is_prime[p]) continue;
-			min_factor[p] = p;
+			if (min_factor[p] < p) continue;
 			for (int q = p * p; q <= n; q += p) {
-				is_prime[q] = false;
-				if (min_factor[q] == -1) min_factor[q] = p;
+				if (min_factor[q] == q) min_factor[q] = p;
 			}
 		}
 	}
 
-	std::vector<bool> prime_table() { return is_prime; }
+	bool is_prime(int n) { return n > 1 && min_factor[n] == n; }
 
 	std::vector<std::pair<int, int>> factorize(int n) {
 		std::vector<std::pair<int, int>> res;
