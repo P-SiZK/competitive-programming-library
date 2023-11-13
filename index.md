@@ -247,6 +247,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/sieve_of_eratosthenes/aoj_1276.test.cpp
       title: test/math/sieve_of_eratosthenes/aoj_1276.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp
+      title: test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp
   - name: test/tree/euler_tour
     pages:
     - icon: ':heavy_check_mark:'

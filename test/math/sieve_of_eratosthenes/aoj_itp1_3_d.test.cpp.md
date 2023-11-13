@@ -10,11 +10,11 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/1276
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/3/ITP1_3_D
     links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/1276
-  bundledCode: "#line 1 \"test/math/sieve_of_eratosthenes/aoj_1276.test.cpp\"\n//\
-    \ verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/1276\n\
+    - https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/3/ITP1_3_D
+  bundledCode: "#line 1 \"test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp\"\n\
+    // verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/3/ITP1_3_D\n\
     \n#line 1 \"src/math/sieve_of_eratosthenes.hpp\"\n\n\n\n#include <numeric>\n#include\
     \ <vector>\n\nclass SieveOfEratosthenes {\nprivate:\n\tstd::vector<int> min_factor;\n\
     \npublic:\n\tSieveOfEratosthenes(int n) : min_factor(n + 1) {\n\t\tstd::iota(min_factor.begin(),\
@@ -29,29 +29,28 @@ data:
     \ res{1};\n\t\tfor (auto const &[p, exp] : factorize(n)) {\n\t\t\tint sz = res.size();\n\
     \t\t\tfor (int i = 0; i < sz; ++i) {\n\t\t\t\tint x = 1;\n\t\t\t\tfor (int j =\
     \ 0; j < exp; ++j) {\n\t\t\t\t\tx *= p;\n\t\t\t\t\tres.push_back(res[i] * x);\n\
-    \t\t\t\t}\n\t\t\t}\n\t\t}\n\t\treturn res;\n\t}\n};\n\n\n#line 4 \"test/math/sieve_of_eratosthenes/aoj_1276.test.cpp\"\
-    \n\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n\tSieveOfEratosthenes\
-    \ sieve(1299709);\n\tint n;\n\twhile (cin >> n, n) {\n\t\tint lcnt = 0, rcnt =\
-    \ 0;\n\t\twhile (!sieve.is_prime(n - lcnt)) ++lcnt;\n\t\twhile (!sieve.is_prime(n\
-    \ + rcnt)) ++rcnt;\n\t\tcout << lcnt + rcnt << endl;\n\t}\n\n\treturn 0;\n}\n"
-  code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/1276\n\
+    \t\t\t\t}\n\t\t\t}\n\t\t}\n\t\treturn res;\n\t}\n};\n\n\n#line 4 \"test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp\"\
+    \n\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n\tint a, b, c;\n\
+    \tcin >> a >> b >> c;\n\tint res = 0;\n\tfor (auto d : SieveOfEratosthenes(c).divisor(c))\
+    \ {\n\t\tif (a <= d && d <= b) ++res;\n\t}\n\tcout << res << endl;\n\n\treturn\
+    \ 0;\n}\n"
+  code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/3/ITP1_3_D\n\
     \n#include \"src/math/sieve_of_eratosthenes.hpp\"\n\n#include <iostream>\n\nusing\
-    \ namespace std;\n\nint main() {\n\tSieveOfEratosthenes sieve(1299709);\n\tint\
-    \ n;\n\twhile (cin >> n, n) {\n\t\tint lcnt = 0, rcnt = 0;\n\t\twhile (!sieve.is_prime(n\
-    \ - lcnt)) ++lcnt;\n\t\twhile (!sieve.is_prime(n + rcnt)) ++rcnt;\n\t\tcout <<\
-    \ lcnt + rcnt << endl;\n\t}\n\n\treturn 0;\n}\n"
+    \ namespace std;\n\nint main() {\n\tint a, b, c;\n\tcin >> a >> b >> c;\n\tint\
+    \ res = 0;\n\tfor (auto d : SieveOfEratosthenes(c).divisor(c)) {\n\t\tif (a <=\
+    \ d && d <= b) ++res;\n\t}\n\tcout << res << endl;\n\n\treturn 0;\n}\n"
   dependsOn:
   - src/math/sieve_of_eratosthenes.hpp
   isVerificationFile: true
-  path: test/math/sieve_of_eratosthenes/aoj_1276.test.cpp
+  path: test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp
   requiredBy: []
   timestamp: '2023-11-13 15:34:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/math/sieve_of_eratosthenes/aoj_1276.test.cpp
+documentation_of: test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp
 layout: document
 redirect_from:
-- /verify/test/math/sieve_of_eratosthenes/aoj_1276.test.cpp
-- /verify/test/math/sieve_of_eratosthenes/aoj_1276.test.cpp.html
-title: test/math/sieve_of_eratosthenes/aoj_1276.test.cpp
+- /verify/test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp
+- /verify/test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp.html
+title: test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp
 ---
