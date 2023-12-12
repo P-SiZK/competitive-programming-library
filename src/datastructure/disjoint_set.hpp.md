@@ -47,8 +47,8 @@ data:
   timestamp: '2023-08-31 15:37:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/kruskal/aoj_grl_2_a.test.cpp
   - test/datastructure/disjoint_set/aoj_dsl_1_a.test.cpp
+  - test/graph/kruskal/aoj_grl_2_a.test.cpp
 documentation_of: src/datastructure/disjoint_set.hpp
 layout: document
 title: Disjoint Set (Union-find)

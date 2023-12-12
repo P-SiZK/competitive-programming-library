@@ -26,22 +26,21 @@ data:
     \t\t\tif (used[now_v]) continue;\n\t\t\tused[now_v] = true;\n\t\t\tcost += now_cost;\n\
     \t\t\tfor (auto [nv, nw] : g[now_v]) pq.emplace(nw, nv);\n\t\t}\n\t\treturn cost;\n\
     \t}\n};\n\n\n#line 4 \"test/graph/prim/aoj_grl_2_a.test.cpp\"\n\n#include <iostream>\n\
-    #line 7 \"test/graph/prim/aoj_grl_2_a.test.cpp\"\n\nusing namespace std;\n\nint\
-    \ main() {\n\tint v, e;\n\tcin >> v >> e;\n\tPrim<int> p(v);\n\tfor (int i = 0;\
-    \ i < e; ++i) {\n\t\tint a, b, c;\n\t\tcin >> a >> b >> c;\n\t\tp.add_edge(a,\
-    \ b, c);\n\t}\n\tcout << p.mst_cost() << endl;\n\n\treturn 0;\n}\n"
-  code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A\n\
-    \n#include \"src/graph/prim.hpp\"\n\n#include <iostream>\n#include <vector>\n\n\
-    using namespace std;\n\nint main() {\n\tint v, e;\n\tcin >> v >> e;\n\tPrim<int>\
+    \nusing namespace std;\n\nint main() {\n\tint v, e;\n\tcin >> v >> e;\n\tPrim<int>\
     \ p(v);\n\tfor (int i = 0; i < e; ++i) {\n\t\tint a, b, c;\n\t\tcin >> a >> b\
     \ >> c;\n\t\tp.add_edge(a, b, c);\n\t}\n\tcout << p.mst_cost() << endl;\n\n\t\
     return 0;\n}\n"
+  code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A\n\
+    \n#include \"src/graph/prim.hpp\"\n\n#include <iostream>\n\nusing namespace std;\n\
+    \nint main() {\n\tint v, e;\n\tcin >> v >> e;\n\tPrim<int> p(v);\n\tfor (int i\
+    \ = 0; i < e; ++i) {\n\t\tint a, b, c;\n\t\tcin >> a >> b >> c;\n\t\tp.add_edge(a,\
+    \ b, c);\n\t}\n\tcout << p.mst_cost() << endl;\n\n\treturn 0;\n}\n"
   dependsOn:
   - src/graph/prim.hpp
   isVerificationFile: true
   path: test/graph/prim/aoj_grl_2_a.test.cpp
   requiredBy: []
-  timestamp: '2023-09-06 15:21:24+09:00'
+  timestamp: '2023-12-12 23:23:17+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/prim/aoj_grl_2_a.test.cpp

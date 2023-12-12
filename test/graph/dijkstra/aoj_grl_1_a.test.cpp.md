@@ -35,25 +35,24 @@ data:
     \ path.push_back(v);\r\n\t\tstd::reverse(path.begin(), path.end());\r\n\t\treturn\
     \ path;\r\n\t}\r\n\r\n\tbool is_unreachable(int to) { return cost[to] == INF;\
     \ }\r\n};\r\n\r\n\n#line 4 \"test/graph/dijkstra/aoj_grl_1_a.test.cpp\"\n\n#include\
-    \ <iostream>\n#line 7 \"test/graph/dijkstra/aoj_grl_1_a.test.cpp\"\n\nusing namespace\
+    \ <iostream>\n\nusing namespace std;\n\nint main() {\n\tint v, e, r;\n\tcin >>\
+    \ v >> e >> r;\n\tDijkstra<int> dj(v);\n\tfor (int i = 0; i < e; ++i) {\n\t\t\
+    int s, t, d;\n\t\tcin >> s >> t >> d;\n\t\tdj.add_edge(s, t, d);\n\t}\n\tdj.build(r);\n\
+    \tfor (int i = 0; i < v; ++i) {\n\t\tif (dj.is_unreachable(i)) cout << \"INF\"\
+    \ << endl;\n\t\telse cout << dj.distance(i) << endl;\n\t}\n\n\treturn 0;\n}\n"
+  code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/all/GRL_1_A\n\
+    \n#include \"src/graph/dijkstra.hpp\"\n\n#include <iostream>\n\nusing namespace\
     \ std;\n\nint main() {\n\tint v, e, r;\n\tcin >> v >> e >> r;\n\tDijkstra<int>\
     \ dj(v);\n\tfor (int i = 0; i < e; ++i) {\n\t\tint s, t, d;\n\t\tcin >> s >> t\
     \ >> d;\n\t\tdj.add_edge(s, t, d);\n\t}\n\tdj.build(r);\n\tfor (int i = 0; i <\
     \ v; ++i) {\n\t\tif (dj.is_unreachable(i)) cout << \"INF\" << endl;\n\t\telse\
     \ cout << dj.distance(i) << endl;\n\t}\n\n\treturn 0;\n}\n"
-  code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/all/GRL_1_A\n\
-    \n#include \"src/graph/dijkstra.hpp\"\n\n#include <iostream>\n#include <vector>\n\
-    \nusing namespace std;\n\nint main() {\n\tint v, e, r;\n\tcin >> v >> e >> r;\n\
-    \tDijkstra<int> dj(v);\n\tfor (int i = 0; i < e; ++i) {\n\t\tint s, t, d;\n\t\t\
-    cin >> s >> t >> d;\n\t\tdj.add_edge(s, t, d);\n\t}\n\tdj.build(r);\n\tfor (int\
-    \ i = 0; i < v; ++i) {\n\t\tif (dj.is_unreachable(i)) cout << \"INF\" << endl;\n\
-    \t\telse cout << dj.distance(i) << endl;\n\t}\n\n\treturn 0;\n}\n"
   dependsOn:
   - src/graph/dijkstra.hpp
   isVerificationFile: true
   path: test/graph/dijkstra/aoj_grl_1_a.test.cpp
   requiredBy: []
-  timestamp: '2023-09-06 15:21:24+09:00'
+  timestamp: '2023-12-12 23:23:17+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/dijkstra/aoj_grl_1_a.test.cpp

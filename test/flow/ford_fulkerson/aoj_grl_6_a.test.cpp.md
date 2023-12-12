@@ -15,10 +15,10 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A
   bundledCode: "#line 1 \"test/flow/ford_fulkerson/aoj_grl_6_a.test.cpp\"\n// verification-helper:\
     \ PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A\n\n\
-    #line 1 \"src/flow/ford_fulkerson.hpp\"\n\n\n\n#include <limits>\n#include <vector>\n\
-    \ntemplate<class T>\nclass FordFulkerson {\nprivate:\n\tstruct Edge {\n\t\tint\
-    \ to, rev;\n\t\tT cap;\n\n\t\tEdge(int to, int cap, int rev) : to(to), rev(rev),\
-    \ cap(cap) {}\n\t};\n\n\tstatic constexpr T INF = std::numeric_limits<T>::max();\n\
+    #line 1 \"src/flow/ford_fulkerson.hpp\"\n\n\n\n#include <algorithm>\n#include\
+    \ <limits>\n#include <vector>\n\ntemplate<class T>\nclass FordFulkerson {\nprivate:\n\
+    \tstruct Edge {\n\t\tint to, rev;\n\t\tT cap;\n\n\t\tEdge(int to, int cap, int\
+    \ rev) : to(to), rev(rev), cap(cap) {}\n\t};\n\n\tstatic constexpr T INF = std::numeric_limits<T>::max();\n\
     \n\tstd::vector<std::vector<Edge>> g;\n\tstd::vector<int> used;\n\npublic:\n\t\
     FordFulkerson(int n) : g(n), used(n) {}\n\n\tvoid add_edge(int from, int to, T\
     \ cap, bool directed = true) {\n\t\tg[from].emplace_back(to, cap, g[to].size());\n\
@@ -46,7 +46,7 @@ data:
   isVerificationFile: true
   path: test/flow/ford_fulkerson/aoj_grl_6_a.test.cpp
   requiredBy: []
-  timestamp: '2023-09-06 15:21:24+09:00'
+  timestamp: '2023-12-12 23:23:17+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/flow/ford_fulkerson/aoj_grl_6_a.test.cpp

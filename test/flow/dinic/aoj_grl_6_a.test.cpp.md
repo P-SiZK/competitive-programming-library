@@ -15,10 +15,10 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A
   bundledCode: "#line 1 \"test/flow/dinic/aoj_grl_6_a.test.cpp\"\n// verification-helper:\
     \ PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A\n\n\
-    #line 1 \"src/flow/dinic.hpp\"\n\n\n\n#include <limits>\n#include <queue>\n#include\
-    \ <vector>\n\ntemplate<class T>\nclass Dinic {\nprivate:\n\tstruct Edge {\n\t\t\
-    int to, rev;\n\t\tT cap;\n\n\t\tEdge(int to, int cap, int rev) : to(to), rev(rev),\
-    \ cap(cap) {}\n\t};\n\n\tstatic constexpr T INF = std::numeric_limits<T>::max();\n\
+    #line 1 \"src/flow/dinic.hpp\"\n\n\n\n#include <algorithm>\n#include <limits>\n\
+    #include <queue>\n#include <vector>\n\ntemplate<class T>\nclass Dinic {\nprivate:\n\
+    \tstruct Edge {\n\t\tint to, rev;\n\t\tT cap;\n\n\t\tEdge(int to, int cap, int\
+    \ rev) : to(to), rev(rev), cap(cap) {}\n\t};\n\n\tstatic constexpr T INF = std::numeric_limits<T>::max();\n\
     \n\tstd::vector<std::vector<Edge>> g;\n\tstd::vector<int> level, iter;\n\npublic:\n\
     \tDinic(int n) : g(n), level(n), iter(n) {}\n\n\tvoid add_edge(int from, int to,\
     \ T cap, bool directed = true) {\n\t\tg[from].emplace_back(to, cap, g[to].size());\n\
@@ -52,7 +52,7 @@ data:
   isVerificationFile: true
   path: test/flow/dinic/aoj_grl_6_a.test.cpp
   requiredBy: []
-  timestamp: '2023-09-06 15:21:24+09:00'
+  timestamp: '2023-12-12 23:23:17+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/flow/dinic/aoj_grl_6_a.test.cpp

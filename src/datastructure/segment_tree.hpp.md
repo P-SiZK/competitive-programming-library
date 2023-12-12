@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: src/tree/euler_tour.hpp
+    title: Euler Tour
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/datastructure/segment_tree/aoj_dsl_2_a.test.cpp
@@ -9,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/datastructure/segment_tree/aoj_dsl_2_b.test.cpp
     title: test/datastructure/segment_tree/aoj_dsl_2_b.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/tree/euler_tour/aoj_grl_5_c.test.cpp
+    title: test/tree/euler_tour/aoj_grl_5_c.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/aoj_grl_5_d.test.cpp
     title: test/tree/euler_tour/aoj_grl_5_d.test.cpp
@@ -54,15 +60,17 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: src/datastructure/segment_tree.hpp
-  requiredBy: []
+  requiredBy:
+  - src/tree/euler_tour.hpp
   timestamp: '2023-09-02 10:46:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
   - test/tree/euler_tour/aoj_grl_5_d.test.cpp
+  - test/tree/euler_tour/aoj_grl_5_c.test.cpp
   - test/tree/euler_tour/atcoder_abc294_g.test.cpp
-  - test/datastructure/segment_tree/aoj_dsl_2_a.test.cpp
   - test/datastructure/segment_tree/aoj_dsl_2_b.test.cpp
+  - test/datastructure/segment_tree/aoj_dsl_2_a.test.cpp
 documentation_of: src/datastructure/segment_tree.hpp
 layout: document
 title: Segment tree
