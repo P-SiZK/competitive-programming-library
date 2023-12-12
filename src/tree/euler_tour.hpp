@@ -1,18 +1,20 @@
 #ifndef TREE_EULER_TOUR_HPP
 #define TREE_EULER_TOUR_HPP
 
-#include "src/datastructure/sparse_table.hpp"
+#include "src/datastructure/segment_tree.hpp"
 
-#include <optional>
+#include <algorithm>
 #include <utility>
 #include <vector>
 
 class EulerTour {
 private:
+	static std::pair<int, int> min(std::pair<int, int> &a, std::pair<int, int> &b) {
+		return std::min(a, b);
+	}
+
 	std::vector<int> down, up, depth, terminal;
-	std::optional<
-		SparseTable<std::pair<int, int>, decltype(&std::min<std::pair<int, int>>)>>
-		st;
+	SegmentTree<std::pair<int, int>, decltype(&min)> st;
 	std::vector<std::vector<int>> G;
 
 	void dfs(int v, int p, int d) {
@@ -29,7 +31,7 @@ private:
 	}
 
 public:
-	EulerTour(int n) : down(n), up(n), depth(n << 1), G(n) {}
+	EulerTour(int n) : down(n), up(n), depth(n << 1), st(min, {1 << 30, -1}), G(n) {}
 
 	void add_edge(int u, int v) {
 		G[u].emplace_back(v);
@@ -41,7 +43,7 @@ public:
 		dfs(root, -1, 0);
 		std::vector<std::pair<int, int>> dep(terminal.size());
 		for (int i = 0; i < (int)terminal.size(); ++i) dep[i] = {depth[i], terminal[i]};
-		st = SparseTable(dep, std::min<std::pair<int, int>>);
+		st.build(dep);
 	}
 
 	std::pair<int, int> index(int v) { return {down[v], up[v]}; };
@@ -52,31 +54,31 @@ public:
 
 	int lca(int u, int v) {
 		if (down[u] > down[v]) std::swap(u, v);
-		return st.value().query(down[u], down[v] + 1).second;
+		return st.find(down[u], down[v] + 1).second;
 	}
 
 	template<class F>
-	void query_vertex(int u, int v, F f) {
+	void query_vertex(int u, int v, F const &f) {
 		int a = lca(u, v);
 		f(down[a], down[u] + 1);
 		f(down[a] + 1, down[v] + 1);
 	}
 
 	template<class F>
-	void query_edge(int u, int v, F f) {
+	void query_edge(int u, int v, F const &f) {
 		int a = lca(u, v);
 		f(down[a] + 1, down[u] + 1);
 		f(down[a] + 1, down[v] + 1);
 	}
 
 	template<class T, class F>
-	void update_vertex(int v, T x, F f) {
+	void update_vertex(int v, T x, F const &f) {
 		f(down[v], x);
 		f(up[v], -x);
 	}
 
 	template<class T, class F>
-	void update_edge(int u, int v, T x, F f) {
+	void update_edge(int u, int v, T x, F const &f) {
 		update_vertex(child(u, v), x, f);
 	}
 };
