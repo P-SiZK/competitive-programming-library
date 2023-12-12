@@ -1,6 +1,7 @@
 #ifndef FLOW_FORD_FULKERSON_HPP
 #define FLOW_FORD_FULKERSON_HPP
 
+#include <algorithm>
 #include <limits>
 #include <vector>
 

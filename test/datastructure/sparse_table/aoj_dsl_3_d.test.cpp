@@ -2,6 +2,7 @@
 
 #include "src/datastructure/sparse_table.hpp"
 
+#include <algorithm>
 #include <iostream>
 #include <vector>
 

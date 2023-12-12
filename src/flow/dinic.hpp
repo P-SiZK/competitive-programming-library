@@ -1,6 +1,7 @@
 #ifndef FLOW_DINIC_HPP
 #define FLOW_DINIC_HPP
 
+#include <algorithm>
 #include <limits>
 #include <queue>
 #include <vector>

@@ -4,6 +4,7 @@
 #include "src/datastructure/sparse_table.hpp"
 
 #include <optional>
+#include <utility>
 #include <vector>
 
 class EulerTour {

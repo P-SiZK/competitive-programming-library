@@ -2,6 +2,7 @@
 
 #include "src/datastructure/lazy_segment_tree.hpp"
 
+#include <algorithm>
 #include <iostream>
 #include <limits>
 

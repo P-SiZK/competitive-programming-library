@@ -3,6 +3,7 @@
 
 #include <limits>
 #include <queue>
+#include <algorithm>
 #include <vector>
 
 template<class T, class E>

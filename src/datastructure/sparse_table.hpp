@@ -2,6 +2,7 @@
 #define DATASTRUCTURE_SPARSE_TABLE_HPP
 
 #include <vector>
+#include <algorithm>
 
 template<class T, class F>
 class SparseTable {

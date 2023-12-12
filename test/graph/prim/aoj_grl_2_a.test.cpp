@@ -3,7 +3,6 @@
 #include "src/graph/prim.hpp"
 
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
