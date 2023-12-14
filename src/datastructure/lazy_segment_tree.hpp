@@ -75,7 +75,11 @@ public:
 		return f(ll, rr);
 	}
 
-	T at(int i) { return find(i, i + 1); }
+	T at(int i) {
+		i += n_;
+		thrust(i);
+		return reflect(i);
+	}
 };
 
 #endif // SEGTREE_LAZY_SEGMENT_TREE_HPP
