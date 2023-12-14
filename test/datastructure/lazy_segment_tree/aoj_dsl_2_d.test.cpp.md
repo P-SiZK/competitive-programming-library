@@ -10,11 +10,11 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_F
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_D
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_F
-  bundledCode: "#line 1 \"test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp\"\
-    \n// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_F\n\
+    - https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_D
+  bundledCode: "#line 1 \"test/datastructure/lazy_segment_tree/aoj_dsl_2_d.test.cpp\"\
+    \n// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_D\n\
     \n#line 1 \"src/datastructure/lazy_segment_tree.hpp\"\n\n\n\n#include <vector>\n\
     \ntemplate<class T, class E, class F, class G, class H>\nclass LazySegmentTree\
     \ { // 0-indexed\nprivate:\n\tint n_{}, height{};\n\tstd::vector<T> tree;\n\t\
@@ -41,35 +41,37 @@ data:
     \ & 1) ll = f(ll, reflect(l++));\n\t\t\tif (r & 1) rr = f(rr, reflect(--r));\n\
     \t\t\tl >>= 1, r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) {\n\
     \t\ti += n_;\n\t\tthrust(i);\n\t\treturn reflect(i);\n\t}\n};\n\n\n#line 4 \"\
-    test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp\"\n\n#include <algorithm>\n\
-    #include <iostream>\n#include <limits>\n\nusing namespace std;\n\nint main() {\n\
-    \tint n, q;\n\tcin >> n >> q;\n\tauto f = [](int a, int b) { return min(a, b);\
-    \ };\n\tauto g = [](int, int b) { return b; };\n\tauto h = [](int, int b) { return\
-    \ b; };\n\tLazySegmentTree seg(f, g, h, numeric_limits<int>::max(), -1);\n\tseg.init(n);\n\
-    \twhile (q--) {\n\t\tint com, s, t;\n\t\tcin >> com >> s >> t;\n\t\tif (com) {\n\
-    \t\t\tcout << seg.find(s, t + 1) << endl;\n\t\t} else {\n\t\t\tint x;\n\t\t\t\
-    cin >> x;\n\t\t\tseg.update(s, t + 1, x);\n\t\t}\n\t}\n\n\treturn 0;\n}\n"
-  code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_F\n\
-    \n#include \"src/datastructure/lazy_segment_tree.hpp\"\n\n#include <algorithm>\n\
-    #include <iostream>\n#include <limits>\n\nusing namespace std;\n\nint main() {\n\
-    \tint n, q;\n\tcin >> n >> q;\n\tauto f = [](int a, int b) { return min(a, b);\
-    \ };\n\tauto g = [](int, int b) { return b; };\n\tauto h = [](int, int b) { return\
-    \ b; };\n\tLazySegmentTree seg(f, g, h, numeric_limits<int>::max(), -1);\n\tseg.init(n);\n\
-    \twhile (q--) {\n\t\tint com, s, t;\n\t\tcin >> com >> s >> t;\n\t\tif (com) {\n\
-    \t\t\tcout << seg.find(s, t + 1) << endl;\n\t\t} else {\n\t\t\tint x;\n\t\t\t\
-    cin >> x;\n\t\t\tseg.update(s, t + 1, x);\n\t\t}\n\t}\n\n\treturn 0;\n}\n"
+    test/datastructure/lazy_segment_tree/aoj_dsl_2_d.test.cpp\"\n\n#include <iostream>\n\
+    #include <limits>\n\nusing namespace std;\n\nint main() {\n\tint n, q;\n\tcin\
+    \ >> n >> q;\n\tauto f = [](int, int) { return 0; };\n\tauto g = [](int, int b)\
+    \ { return b; };\n\tauto h = [](int, int b) { return b; };\n\tLazySegmentTree\
+    \ seg(f, g, h, numeric_limits<int>::max(), -1);\n\tseg.init(n);\n\twhile (q--)\
+    \ {\n\t\tint com;\n\t\tcin >> com;\n\t\tif (com) {\n\t\t\tint i;\n\t\t\tcin >>\
+    \ i;\n\t\t\tcout << seg.at(i) << endl;\n\t\t} else {\n\t\t\tint s, t, x;\n\t\t\
+    \tcin >> s >> t >> x;\n\t\t\tseg.update(s, t + 1, x);\n\t\t}\n\t}\n\n\treturn\
+    \ 0;\n}\n"
+  code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_D\n\
+    \n#include \"src/datastructure/lazy_segment_tree.hpp\"\n\n#include <iostream>\n\
+    #include <limits>\n\nusing namespace std;\n\nint main() {\n\tint n, q;\n\tcin\
+    \ >> n >> q;\n\tauto f = [](int, int) { return 0; };\n\tauto g = [](int, int b)\
+    \ { return b; };\n\tauto h = [](int, int b) { return b; };\n\tLazySegmentTree\
+    \ seg(f, g, h, numeric_limits<int>::max(), -1);\n\tseg.init(n);\n\twhile (q--)\
+    \ {\n\t\tint com;\n\t\tcin >> com;\n\t\tif (com) {\n\t\t\tint i;\n\t\t\tcin >>\
+    \ i;\n\t\t\tcout << seg.at(i) << endl;\n\t\t} else {\n\t\t\tint s, t, x;\n\t\t\
+    \tcin >> s >> t >> x;\n\t\t\tseg.update(s, t + 1, x);\n\t\t}\n\t}\n\n\treturn\
+    \ 0;\n}\n"
   dependsOn:
   - src/datastructure/lazy_segment_tree.hpp
   isVerificationFile: true
-  path: test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp
+  path: test/datastructure/lazy_segment_tree/aoj_dsl_2_d.test.cpp
   requiredBy: []
   timestamp: '2023-12-14 15:02:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp
+documentation_of: test/datastructure/lazy_segment_tree/aoj_dsl_2_d.test.cpp
 layout: document
 redirect_from:
-- /verify/test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp
-- /verify/test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp.html
-title: test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp
+- /verify/test/datastructure/lazy_segment_tree/aoj_dsl_2_d.test.cpp
+- /verify/test/datastructure/lazy_segment_tree/aoj_dsl_2_d.test.cpp.html
+title: test/datastructure/lazy_segment_tree/aoj_dsl_2_d.test.cpp
 ---

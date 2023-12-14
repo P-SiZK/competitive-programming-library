@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/datastructure/lazy_segment_tree/aoj_dsl_2_d.test.cpp
+    title: test/datastructure/lazy_segment_tree/aoj_dsl_2_d.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp
     title: test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp
   _isVerificationFailed: false
@@ -35,8 +38,8 @@ data:
     \ int t) { // [l, r)\n\t\ts += n_, t += n_;\n\t\tthrust(s), thrust(t - 1);\n\t\
     \tint l = s, r = t;\n\t\tT ll = ti, rr = ti;\n\t\twhile (l < r) {\n\t\t\tif (l\
     \ & 1) ll = f(ll, reflect(l++));\n\t\t\tif (r & 1) rr = f(rr, reflect(--r));\n\
-    \t\t\tl >>= 1, r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) {\
-    \ return find(i, i + 1); }\n};\n\n\n"
+    \t\t\tl >>= 1, r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) {\n\
+    \t\ti += n_;\n\t\tthrust(i);\n\t\treturn reflect(i);\n\t}\n};\n\n\n"
   code: "#ifndef SEGTREE_LAZY_SEGMENT_TREE_HPP\n#define SEGTREE_LAZY_SEGMENT_TREE_HPP\n\
     \n#include <vector>\n\ntemplate<class T, class E, class F, class G, class H>\n\
     class LazySegmentTree { // 0-indexed\nprivate:\n\tint n_{}, height{};\n\tstd::vector<T>\
@@ -61,16 +64,17 @@ data:
     \ int t) { // [l, r)\n\t\ts += n_, t += n_;\n\t\tthrust(s), thrust(t - 1);\n\t\
     \tint l = s, r = t;\n\t\tT ll = ti, rr = ti;\n\t\twhile (l < r) {\n\t\t\tif (l\
     \ & 1) ll = f(ll, reflect(l++));\n\t\t\tif (r & 1) rr = f(rr, reflect(--r));\n\
-    \t\t\tl >>= 1, r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) {\
-    \ return find(i, i + 1); }\n};\n\n#endif // SEGTREE_LAZY_SEGMENT_TREE_HPP\n"
+    \t\t\tl >>= 1, r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) {\n\
+    \t\ti += n_;\n\t\tthrust(i);\n\t\treturn reflect(i);\n\t}\n};\n\n#endif // SEGTREE_LAZY_SEGMENT_TREE_HPP\n"
   dependsOn: []
   isVerificationFile: false
   path: src/datastructure/lazy_segment_tree.hpp
   requiredBy: []
-  timestamp: '2023-09-02 10:46:15+09:00'
+  timestamp: '2023-12-14 15:02:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp
+  - test/datastructure/lazy_segment_tree/aoj_dsl_2_d.test.cpp
 documentation_of: src/datastructure/lazy_segment_tree.hpp
 layout: document
 title: Segment tree with lazy propagation

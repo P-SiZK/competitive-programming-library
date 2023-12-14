@@ -95,6 +95,9 @@ data:
   - name: test/datastructure/lazy_segment_tree
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/datastructure/lazy_segment_tree/aoj_dsl_2_d.test.cpp
+      title: test/datastructure/lazy_segment_tree/aoj_dsl_2_d.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp
       title: test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp
   - name: test/datastructure/segment_tree
