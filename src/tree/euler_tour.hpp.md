@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: src/datastructure/segment_tree.hpp
     title: Segment tree
   _extendedRequiredBy: []
@@ -12,15 +12,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/aoj_grl_5_d.test.cpp
     title: test/tree/euler_tour/aoj_grl_5_d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/atcoder_abc294_g.test.cpp
     title: test/tree/euler_tour/atcoder_abc294_g.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
     title: test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/tree/euler_tour.hpp\"\n\n\n\n#line 1 \"src/datastructure/segment_tree.hpp\"\
@@ -96,11 +96,11 @@ data:
   path: src/tree/euler_tour.hpp
   requiredBy: []
   timestamp: '2023-12-14 18:25:11+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
   - test/tree/euler_tour/aoj_grl_5_d.test.cpp
   - test/tree/euler_tour/aoj_grl_5_c.test.cpp
+  - test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
   - test/tree/euler_tour/atcoder_abc294_g.test.cpp
 documentation_of: src/tree/euler_tour.hpp
 layout: document
