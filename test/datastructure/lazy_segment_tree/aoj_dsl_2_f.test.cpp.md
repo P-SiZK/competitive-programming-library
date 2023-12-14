@@ -38,7 +38,7 @@ data:
     l >>= 1, r >>= 1;\n\t\t}\n\t\trecalc(s), recalc(t - 1);\n\t}\n\n\tT find(int s,\
     \ int t) { // [l, r)\n\t\ts += n_, t += n_;\n\t\tthrust(s), thrust(t - 1);\n\t\
     \tint l = s, r = t;\n\t\tT ll = ti, rr = ti;\n\t\twhile (l < r) {\n\t\t\tif (l\
-    \ & 1) ll = f(ll, reflect(l++));\n\t\t\tif (r & 1) rr = f(rr, reflect(--r));\n\
+    \ & 1) ll = f(ll, reflect(l++));\n\t\t\tif (r & 1) rr = f(reflect(--r), rr);\n\
     \t\t\tl >>= 1, r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) {\n\
     \t\ti += n_;\n\t\tthrust(i);\n\t\treturn reflect(i);\n\t}\n};\n\n\n#line 4 \"\
     test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp\"\n\n#include <algorithm>\n\
@@ -63,7 +63,7 @@ data:
   isVerificationFile: true
   path: test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp
   requiredBy: []
-  timestamp: '2023-12-14 15:02:58+09:00'
+  timestamp: '2023-12-14 18:25:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/datastructure/lazy_segment_tree/aoj_dsl_2_f.test.cpp

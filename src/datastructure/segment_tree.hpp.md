@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/tree/euler_tour.hpp
     title: Euler Tour
   _extendedVerifiedWith:
@@ -13,20 +13,23 @@ data:
     path: test/datastructure/segment_tree/aoj_dsl_2_b.test.cpp
     title: test/datastructure/segment_tree/aoj_dsl_2_b.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/datastructure/segment_tree/yosupo_point_set_range_composite.test.cpp
+    title: test/datastructure/segment_tree/yosupo_point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/aoj_grl_5_c.test.cpp
     title: test/tree/euler_tour/aoj_grl_5_c.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/aoj_grl_5_d.test.cpp
     title: test/tree/euler_tour/aoj_grl_5_d.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/tree/euler_tour/atcoder_abc294_g.test.cpp
     title: test/tree/euler_tour/atcoder_abc294_g.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
     title: test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"src/datastructure/segment_tree.hpp\"\n\n\n\n#include <vector>\n\
@@ -40,7 +43,7 @@ data:
     \ {\n\t\ti += n_;\n\t\ttree[i] = x;\n\t\twhile (i >>= 1) tree[i] = f(tree[2 *\
     \ i], tree[2 * i + 1]);\n\t}\n\n\tT find(int l, int r) { // [l, r)\n\t\tl += n_,\
     \ r += n_;\n\t\tT ll = ti, rr = ti;\n\t\twhile (l < r) {\n\t\t\tif (l & 1) ll\
-    \ = f(ll, tree[l++]);\n\t\t\tif (r & 1) rr = f(rr, tree[--r]);\n\t\t\tl >>= 1,\
+    \ = f(ll, tree[l++]);\n\t\t\tif (r & 1) rr = f(tree[--r], rr);\n\t\t\tl >>= 1,\
     \ r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) { return tree[i\
     \ + n_]; }\n};\n\n\n"
   code: "#ifndef SEGTREE_SEGMENT_TREE_HPP\n#define SEGTREE_SEGMENT_TREE_HPP\n\n#include\
@@ -54,7 +57,7 @@ data:
     \ i, T const &x) {\n\t\ti += n_;\n\t\ttree[i] = x;\n\t\twhile (i >>= 1) tree[i]\
     \ = f(tree[2 * i], tree[2 * i + 1]);\n\t}\n\n\tT find(int l, int r) { // [l, r)\n\
     \t\tl += n_, r += n_;\n\t\tT ll = ti, rr = ti;\n\t\twhile (l < r) {\n\t\t\tif\
-    \ (l & 1) ll = f(ll, tree[l++]);\n\t\t\tif (r & 1) rr = f(rr, tree[--r]);\n\t\t\
+    \ (l & 1) ll = f(ll, tree[l++]);\n\t\t\tif (r & 1) rr = f(tree[--r], rr);\n\t\t\
     \tl >>= 1, r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) { return\
     \ tree[i + n_]; }\n};\n\n#endif // SEGTREE_SEGMENT_TREE_HPP\n"
   dependsOn: []
@@ -62,15 +65,16 @@ data:
   path: src/datastructure/segment_tree.hpp
   requiredBy:
   - src/tree/euler_tour.hpp
-  timestamp: '2023-09-02 10:46:15+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-12-14 18:25:11+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/datastructure/segment_tree/aoj_dsl_2_b.test.cpp
-  - test/datastructure/segment_tree/aoj_dsl_2_a.test.cpp
+  - test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
   - test/tree/euler_tour/aoj_grl_5_d.test.cpp
   - test/tree/euler_tour/aoj_grl_5_c.test.cpp
-  - test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
   - test/tree/euler_tour/atcoder_abc294_g.test.cpp
+  - test/datastructure/segment_tree/yosupo_point_set_range_composite.test.cpp
+  - test/datastructure/segment_tree/aoj_dsl_2_b.test.cpp
+  - test/datastructure/segment_tree/aoj_dsl_2_a.test.cpp
 documentation_of: src/datastructure/segment_tree.hpp
 layout: document
 title: Segment tree

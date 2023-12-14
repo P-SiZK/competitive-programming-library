@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/datastructure/segment_tree.hpp
     title: Segment tree
   _extendedRequiredBy: []
@@ -26,7 +26,7 @@ data:
     \ {\n\t\ti += n_;\n\t\ttree[i] = x;\n\t\twhile (i >>= 1) tree[i] = f(tree[2 *\
     \ i], tree[2 * i + 1]);\n\t}\n\n\tT find(int l, int r) { // [l, r)\n\t\tl += n_,\
     \ r += n_;\n\t\tT ll = ti, rr = ti;\n\t\twhile (l < r) {\n\t\t\tif (l & 1) ll\
-    \ = f(ll, tree[l++]);\n\t\t\tif (r & 1) rr = f(rr, tree[--r]);\n\t\t\tl >>= 1,\
+    \ = f(ll, tree[l++]);\n\t\t\tif (r & 1) rr = f(tree[--r], rr);\n\t\t\tl >>= 1,\
     \ r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\t}\n\n\tT at(int i) { return tree[i\
     \ + n_]; }\n};\n\n\n#line 4 \"test/datastructure/segment_tree/aoj_dsl_2_a.test.cpp\"\
     \n\n#include <algorithm>\n#include <iostream>\n#include <limits>\n\nusing namespace\
@@ -47,7 +47,7 @@ data:
   isVerificationFile: true
   path: test/datastructure/segment_tree/aoj_dsl_2_a.test.cpp
   requiredBy: []
-  timestamp: '2023-12-12 23:23:17+09:00'
+  timestamp: '2023-12-14 18:25:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/datastructure/segment_tree/aoj_dsl_2_a.test.cpp

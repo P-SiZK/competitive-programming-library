@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/datastructure/segment_tree.hpp
     title: Segment tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: src/tree/euler_tour.hpp
     title: Euler Tour
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     PROBLEM: https://atcoder.jp/contests/abc294/tasks/abc294_g
     links:
@@ -29,7 +29,7 @@ data:
     while (i >>= 1) tree[i] = f(tree[2 * i], tree[2 * i + 1]);\n\t}\n\n\tT find(int\
     \ l, int r) { // [l, r)\n\t\tl += n_, r += n_;\n\t\tT ll = ti, rr = ti;\n\t\t\
     while (l < r) {\n\t\t\tif (l & 1) ll = f(ll, tree[l++]);\n\t\t\tif (r & 1) rr\
-    \ = f(rr, tree[--r]);\n\t\t\tl >>= 1, r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\
+    \ = f(tree[--r], rr);\n\t\t\tl >>= 1, r >>= 1;\n\t\t}\n\t\treturn f(ll, rr);\n\
     \t}\n\n\tT at(int i) { return tree[i + n_]; }\n};\n\n\n#line 1 \"src/tree/euler_tour.hpp\"\
     \n\n\n\n#line 5 \"src/tree/euler_tour.hpp\"\n\n#include <algorithm>\n#include\
     \ <utility>\n#line 9 \"src/tree/euler_tour.hpp\"\n\nclass EulerTour {\nprivate:\n\
@@ -97,8 +97,8 @@ data:
   isVerificationFile: true
   path: test/tree/euler_tour/atcoder_abc294_g.test.cpp
   requiredBy: []
-  timestamp: '2023-12-12 23:33:13+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-12-14 18:25:11+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/tree/euler_tour/atcoder_abc294_g.test.cpp
 layout: document

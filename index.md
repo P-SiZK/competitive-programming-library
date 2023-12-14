@@ -12,7 +12,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/datastructure/lazy_segment_tree.hpp
       title: Segment tree with lazy propagation
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/datastructure/segment_tree.hpp
       title: Segment tree
     - icon: ':heavy_check_mark:'
@@ -70,7 +70,7 @@ data:
       title: "\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9"
   - name: src/tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: src/tree/euler_tour.hpp
       title: Euler Tour
   - name: src/vector
@@ -108,6 +108,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/datastructure/segment_tree/aoj_dsl_2_b.test.cpp
       title: test/datastructure/segment_tree/aoj_dsl_2_b.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/datastructure/segment_tree/yosupo_point_set_range_composite.test.cpp
+      title: test/datastructure/segment_tree/yosupo_point_set_range_composite.test.cpp
   - name: test/datastructure/sparse_table
     pages:
     - icon: ':heavy_check_mark:'
@@ -261,7 +264,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/aoj_grl_5_d.test.cpp
       title: test/tree/euler_tour/aoj_grl_5_d.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/tree/euler_tour/atcoder_abc294_g.test.cpp
       title: test/tree/euler_tour/atcoder_abc294_g.test.cpp
     - icon: ':heavy_check_mark:'
