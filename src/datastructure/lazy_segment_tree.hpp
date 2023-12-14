@@ -69,7 +69,7 @@ public:
 		T ll = ti, rr = ti;
 		while (l < r) {
 			if (l & 1) ll = f(ll, reflect(l++));
-			if (r & 1) rr = f(rr, reflect(--r));
+			if (r & 1) rr = f(reflect(--r), rr);
 			l >>= 1, r >>= 1;
 		}
 		return f(ll, rr);

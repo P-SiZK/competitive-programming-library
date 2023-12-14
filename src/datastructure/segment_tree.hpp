@@ -38,7 +38,7 @@ public:
 		T ll = ti, rr = ti;
 		while (l < r) {
 			if (l & 1) ll = f(ll, tree[l++]);
-			if (r & 1) rr = f(rr, tree[--r]);
+			if (r & 1) rr = f(tree[--r], rr);
 			l >>= 1, r >>= 1;
 		}
 		return f(ll, rr);
