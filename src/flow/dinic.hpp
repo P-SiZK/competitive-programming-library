@@ -21,14 +21,6 @@ private:
 	std::vector<std::vector<Edge>> g;
 	std::vector<int> level, iter;
 
-public:
-	Dinic(int n) : g(n), level(n), iter(n) {}
-
-	void add_edge(int from, int to, T cap, bool directed = true) {
-		g[from].emplace_back(to, cap, g[to].size());
-		g[to].emplace_back(from, (directed ? 0 : cap), g[from].size() - 1);
-	}
-
 	void bfs(int s) {
 		level.assign(g.size(), -1);
 		std::queue<int> q;
@@ -60,6 +52,14 @@ public:
 			}
 		}
 		return 0;
+	}
+
+public:
+	Dinic(int n) : g(n), level(n), iter(n) {}
+
+	void add_edge(int from, int to, T cap, bool directed = true) {
+		g[from].emplace_back(to, cap, g[to].size());
+		g[to].emplace_back(from, (directed ? 0 : cap), g[from].size() - 1);
 	}
 
 	T max_flow(int s, int t) {

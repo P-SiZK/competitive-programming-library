@@ -20,14 +20,6 @@ private:
 	std::vector<std::vector<Edge>> g;
 	std::vector<int> used;
 
-public:
-	FordFulkerson(int n) : g(n), used(n) {}
-
-	void add_edge(int from, int to, T cap, bool directed = true) {
-		g[from].emplace_back(to, cap, g[to].size());
-		g[to].emplace_back(from, (directed ? 0 : cap), g[from].size() - 1);
-	}
-
 	T dfs(int v, int t, T f) {
 		if (v == t) return f;
 		used[v] = true;
@@ -42,6 +34,14 @@ public:
 			}
 		}
 		return 0;
+	}
+
+public:
+	FordFulkerson(int n) : g(n), used(n) {}
+
+	void add_edge(int from, int to, T cap, bool directed = true) {
+		g[from].emplace_back(to, cap, g[to].size());
+		g[to].emplace_back(from, (directed ? 0 : cap), g[from].size() - 1);
 	}
 
 	T max_flow(int s, int t) {

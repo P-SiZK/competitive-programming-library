@@ -15,23 +15,6 @@ private:
 	T ti;
 	E ei;
 
-public:
-	LazySegmentTree(F f, G g, H h, T ti, E ei) : f(f), g(g), h(h), ti(ti), ei(ei) {}
-
-	void init(int n) {
-		n_ = 1, height = 0;
-		while (n_ < n) n_ *= 2, ++height;
-		tree.assign(2 * n_, ti);
-		lazy.assign(2 * n_, ei);
-	}
-
-	void build(std::vector<T> const &v) {
-		int const N = v.size();
-		init(N);
-		for (int i = 0; i < N; ++i) tree[n_ + i] = v[i];
-		for (int i = n_ - 1; i > 0; --i) tree[i] = f(tree[2 * i], tree[2 * i + 1]);
-	}
-
 	inline T reflect(int k) { return (lazy[k] == ei ? tree[k] : g(tree[k], lazy[k])); }
 
 	inline void eval(int k) {
@@ -48,6 +31,23 @@ public:
 
 	inline void recalc(int k) {
 		while (k >>= 1) tree[k] = f(reflect(2 * k), reflect(2 * k + 1));
+	}
+
+public:
+	LazySegmentTree(F f, G g, H h, T ti, E ei) : f(f), g(g), h(h), ti(ti), ei(ei) {}
+
+	void init(int n) {
+		n_ = 1, height = 0;
+		while (n_ < n) n_ *= 2, ++height;
+		tree.assign(2 * n_, ti);
+		lazy.assign(2 * n_, ei);
+	}
+
+	void build(std::vector<T> const &v) {
+		int const N = v.size();
+		init(N);
+		for (int i = 0; i < N; ++i) tree[n_ + i] = v[i];
+		for (int i = n_ - 1; i > 0; --i) tree[i] = f(tree[2 * i], tree[2 * i + 1]);
 	}
 
 	void update(int s, int t, E const &x) { // [l, r)
