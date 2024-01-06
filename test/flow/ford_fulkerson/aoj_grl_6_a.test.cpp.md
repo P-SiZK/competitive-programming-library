@@ -19,18 +19,18 @@ data:
     \ <limits>\n#include <vector>\n\ntemplate<class T>\nclass FordFulkerson {\nprivate:\n\
     \tstruct Edge {\n\t\tint to, rev;\n\t\tT cap;\n\n\t\tEdge(int to, int cap, int\
     \ rev) : to(to), rev(rev), cap(cap) {}\n\t};\n\n\tstatic constexpr T INF = std::numeric_limits<T>::max();\n\
-    \n\tstd::vector<std::vector<Edge>> g;\n\tstd::vector<int> used;\n\npublic:\n\t\
-    FordFulkerson(int n) : g(n), used(n) {}\n\n\tvoid add_edge(int from, int to, T\
-    \ cap, bool directed = true) {\n\t\tg[from].emplace_back(to, cap, g[to].size());\n\
-    \t\tg[to].emplace_back(from, (directed ? 0 : cap), g[from].size() - 1);\n\t}\n\
-    \n\tT dfs(int v, int t, T f) {\n\t\tif (v == t) return f;\n\t\tused[v] = true;\n\
-    \t\tfor (auto &e : g[v]) {\n\t\t\tif (!used[e.to] && e.cap > 0) {\n\t\t\t\tT d\
-    \ = dfs(e.to, t, std::min(f, e.cap));\n\t\t\t\tif (d > 0) {\n\t\t\t\t\te.cap -=\
-    \ d;\n\t\t\t\t\tg[e.to][e.rev].cap += d;\n\t\t\t\t\treturn d;\n\t\t\t\t}\n\t\t\
-    \t}\n\t\t}\n\t\treturn 0;\n\t}\n\n\tT max_flow(int s, int t) {\n\t\tT flow = 0;\n\
-    \t\twhile (true) {\n\t\t\tused.assign(g.size(), 0);\n\t\t\tT f = dfs(s, t, INF);\n\
-    \t\t\tif (f == 0) break;\n\t\t\tflow += f;\n\t\t}\n\t\treturn flow;\n\t}\n};\n\
-    \n\n#line 4 \"test/flow/ford_fulkerson/aoj_grl_6_a.test.cpp\"\n\n#include <iostream>\n\
+    \n\tstd::vector<std::vector<Edge>> g;\n\tstd::vector<int> used;\n\n\tT dfs(int\
+    \ v, int t, T f) {\n\t\tif (v == t) return f;\n\t\tused[v] = true;\n\t\tfor (auto\
+    \ &e : g[v]) {\n\t\t\tif (!used[e.to] && e.cap > 0) {\n\t\t\t\tT d = dfs(e.to,\
+    \ t, std::min(f, e.cap));\n\t\t\t\tif (d > 0) {\n\t\t\t\t\te.cap -= d;\n\t\t\t\
+    \t\tg[e.to][e.rev].cap += d;\n\t\t\t\t\treturn d;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\
+    \t\treturn 0;\n\t}\n\npublic:\n\tFordFulkerson(int n) : g(n), used(n) {}\n\n\t\
+    void add_edge(int from, int to, T cap, bool directed = true) {\n\t\tg[from].emplace_back(to,\
+    \ cap, g[to].size());\n\t\tg[to].emplace_back(from, (directed ? 0 : cap), g[from].size()\
+    \ - 1);\n\t}\n\n\tT max_flow(int s, int t) {\n\t\tT flow = 0;\n\t\twhile (true)\
+    \ {\n\t\t\tused.assign(g.size(), 0);\n\t\t\tT f = dfs(s, t, INF);\n\t\t\tif (f\
+    \ == 0) break;\n\t\t\tflow += f;\n\t\t}\n\t\treturn flow;\n\t}\n};\n\n\n#line\
+    \ 4 \"test/flow/ford_fulkerson/aoj_grl_6_a.test.cpp\"\n\n#include <iostream>\n\
     \nusing namespace std;\n\nint main() {\n\tint v_sz, e_sz;\n\tcin >> v_sz >> e_sz;\n\
     \tFordFulkerson<int> g(v_sz);\n\tfor (int i = 0; i < e_sz; ++i) {\n\t\tint u,\
     \ v, c;\n\t\tcin >> u >> v >> c;\n\t\tg.add_edge(u, v, c);\n\t}\n\tcout << g.max_flow(0,\
@@ -46,7 +46,7 @@ data:
   isVerificationFile: true
   path: test/flow/ford_fulkerson/aoj_grl_6_a.test.cpp
   requiredBy: []
-  timestamp: '2023-12-12 23:23:17+09:00'
+  timestamp: '2024-01-06 12:34:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/flow/ford_fulkerson/aoj_grl_6_a.test.cpp
