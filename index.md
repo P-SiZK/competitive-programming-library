@@ -68,6 +68,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/math/sieve_of_eratosthenes.hpp
       title: "\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9"
+  - name: src/string
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: src/string/rolling_hash.hpp
+      title: Rolling Hash
   - name: src/tree
     pages:
     - icon: ':heavy_check_mark:'
@@ -256,6 +261,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp
       title: test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp
+  - name: test/string
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/string/rolling_hash.test.cpp
+      title: test/string/rolling_hash.test.cpp
   - name: test/tree/euler_tour
     pages:
     - icon: ':heavy_check_mark:'
