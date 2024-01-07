@@ -45,6 +45,7 @@
 "test/math/matrix/aoj_itp1_7_d.test.cpp": "2023-09-06 15:21:24 +0900",
 "test/math/sieve_of_eratosthenes/aoj_1276.test.cpp": "2023-11-13 15:34:49 +0900",
 "test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp": "2023-11-13 15:34:49 +0900",
+"test/string/rolling_hash.test.cpp": "2024-01-07 18:17:51 +0900",
 "test/tree/euler_tour/aoj_grl_5_c.test.cpp": "2023-12-14 18:25:11 +0900",
 "test/tree/euler_tour/aoj_grl_5_d.test.cpp": "2023-12-14 18:25:11 +0900",
 "test/tree/euler_tour/atcoder_abc294_g.test.cpp": "2023-12-14 18:25:11 +0900",
