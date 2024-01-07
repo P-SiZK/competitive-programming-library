@@ -73,7 +73,9 @@
         "complex": "cpp",
         "cstring": "cpp",
         "ctime": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "chrono": "cpp",
+        "ratio": "cpp"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/g++"
 }
