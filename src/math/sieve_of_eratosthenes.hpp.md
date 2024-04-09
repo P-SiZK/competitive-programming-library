@@ -53,8 +53,8 @@ data:
   timestamp: '2023-11-13 15:34:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/sieve_of_eratosthenes/aoj_1276.test.cpp
   - test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp
+  - test/math/sieve_of_eratosthenes/aoj_1276.test.cpp
 documentation_of: src/math/sieve_of_eratosthenes.hpp
 layout: document
 title: "\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9"

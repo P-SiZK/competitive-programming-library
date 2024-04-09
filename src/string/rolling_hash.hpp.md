@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/string/rolling_hash.test.cpp
-    title: test/string/rolling_hash.test.cpp
+    path: test/string/rolling_hash/aoj_alds1_14_b.test.cpp
+    title: test/string/rolling_hash/aoj_alds1_14_b.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -64,7 +64,7 @@ data:
   timestamp: '2024-01-07 18:17:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/string/rolling_hash.test.cpp
+  - test/string/rolling_hash/aoj_alds1_14_b.test.cpp
 documentation_of: src/string/rolling_hash.hpp
 layout: document
 title: Rolling Hash

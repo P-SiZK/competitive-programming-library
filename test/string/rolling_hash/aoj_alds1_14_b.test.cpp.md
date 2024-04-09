@@ -13,7 +13,7 @@ data:
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B
     links:
     - https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B
-  bundledCode: "#line 1 \"test/string/rolling_hash.test.cpp\"\n// verification-helper:\
+  bundledCode: "#line 1 \"test/string/rolling_hash/aoj_alds1_14_b.test.cpp\"\n// verification-helper:\
     \ PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B\n\
     \n#line 1 \"src/string/rolling_hash.hpp\"\n\n\n\n#include <chrono>\n#include <cstdint>\n\
     #include <random>\n#include <string>\n#include <vector>\n\nclass RollingHash {\n\
@@ -36,12 +36,12 @@ data:
     \n\tvoid build(std::string const &s) {\n\t\tint n = s.size();\n\t\textend_power(n);\n\
     \t\thash.assign(n + 1, 0);\n\t\tfor (int i = 0; i < n; ++i) hash[i + 1] = add(mul(hash[i],\
     \ base), s[i]);\n\t}\n\n\tstd::uint64_t find(int l, int r) {\n\t\treturn add(hash[r],\
-    \ MOD - mul(hash[l], power[r - l]));\n\t}\n};\n\n\n#line 4 \"test/string/rolling_hash.test.cpp\"\
-    \n\n#include <iostream>\n#line 7 \"test/string/rolling_hash.test.cpp\"\n\nusing\
-    \ namespace std;\n\nint main() {\n\tstring t, p;\n\tcin >> t >> p;\n\tint n =\
-    \ p.size();\n\n\tRollingHash rht, rhp;\n\trht.build(t);\n\trhp.build(p);\n\tfor\
-    \ (int i = 0; i <= (int)t.size() - n; ++i)\n\t\tif (rht.find(i, i + n) == rhp.find(0,\
-    \ n)) cout << i << endl;\n\n\treturn 0;\n}\n"
+    \ MOD - mul(hash[l], power[r - l]));\n\t}\n};\n\n\n#line 4 \"test/string/rolling_hash/aoj_alds1_14_b.test.cpp\"\
+    \n\n#include <iostream>\n#line 7 \"test/string/rolling_hash/aoj_alds1_14_b.test.cpp\"\
+    \n\nusing namespace std;\n\nint main() {\n\tstring t, p;\n\tcin >> t >> p;\n\t\
+    int n = p.size();\n\n\tRollingHash rht, rhp;\n\trht.build(t);\n\trhp.build(p);\n\
+    \tfor (int i = 0; i <= (int)t.size() - n; ++i)\n\t\tif (rht.find(i, i + n) ==\
+    \ rhp.find(0, n)) cout << i << endl;\n\n\treturn 0;\n}\n"
   code: "// verification-helper: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/14/ALDS1_14_B\n\
     \n#include \"src/string/rolling_hash.hpp\"\n\n#include <iostream>\n#include <string>\n\
     \nusing namespace std;\n\nint main() {\n\tstring t, p;\n\tcin >> t >> p;\n\tint\
@@ -51,15 +51,15 @@ data:
   dependsOn:
   - src/string/rolling_hash.hpp
   isVerificationFile: true
-  path: test/string/rolling_hash.test.cpp
+  path: test/string/rolling_hash/aoj_alds1_14_b.test.cpp
   requiredBy: []
-  timestamp: '2024-01-07 18:17:51+09:00'
+  timestamp: '2024-04-09 23:24:21+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/string/rolling_hash.test.cpp
+documentation_of: test/string/rolling_hash/aoj_alds1_14_b.test.cpp
 layout: document
 redirect_from:
-- /verify/test/string/rolling_hash.test.cpp
-- /verify/test/string/rolling_hash.test.cpp.html
-title: test/string/rolling_hash.test.cpp
+- /verify/test/string/rolling_hash/aoj_alds1_14_b.test.cpp
+- /verify/test/string/rolling_hash/aoj_alds1_14_b.test.cpp.html
+title: test/string/rolling_hash/aoj_alds1_14_b.test.cpp
 ---

@@ -261,11 +261,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp
       title: test/math/sieve_of_eratosthenes/aoj_itp1_3_d.test.cpp
-  - name: test/string
+  - name: test/string/rolling_hash
     pages:
     - icon: ':heavy_check_mark:'
-      path: test/string/rolling_hash.test.cpp
-      title: test/string/rolling_hash.test.cpp
+      path: test/string/rolling_hash/aoj_alds1_14_b.test.cpp
+      title: test/string/rolling_hash/aoj_alds1_14_b.test.cpp
   - name: test/tree/euler_tour
     pages:
     - icon: ':heavy_check_mark:'

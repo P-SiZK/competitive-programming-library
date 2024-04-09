@@ -79,8 +79,8 @@ data:
   timestamp: '2023-09-04 16:54:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/matrix/aoj_itp1_7_d.test.cpp
   - test/math/matrix/aoj_3079.test.cpp
+  - test/math/matrix/aoj_itp1_7_d.test.cpp
 documentation_of: src/math/matrix.hpp
 layout: document
 title: "\u884C\u5217"
