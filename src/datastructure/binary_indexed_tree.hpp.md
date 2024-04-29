@@ -41,8 +41,8 @@ data:
   timestamp: '2023-09-06 14:54:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/vector/inversion_number/aoj_alds1_5_d.test.cpp
   - test/datastructure/binary_indexed_tree/aoj_dsl_2_b.test.cpp
+  - test/vector/inversion_number/aoj_alds1_5_d.test.cpp
 documentation_of: src/datastructure/binary_indexed_tree.hpp
 layout: document
 title: Binary Indexed Tree (Fenwick Tree)

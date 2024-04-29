@@ -78,6 +78,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: src/tree/euler_tour.hpp
       title: Euler Tour
+    - icon: ':heavy_check_mark:'
+      path: src/tree/rerooting_dp.hpp
+      title: src/tree/rerooting_dp.hpp
   - name: src/vector
     pages:
     - icon: ':heavy_check_mark:'
@@ -280,6 +283,17 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
       title: test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp
+  - name: test/tree/rerooting_dp
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/tree/rerooting_dp/aoj_1595.test.cpp
+      title: test/tree/rerooting_dp/aoj_1595.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/tree/rerooting_dp/aoj_grl_5_a.test.cpp
+      title: test/tree/rerooting_dp/aoj_grl_5_a.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/tree/rerooting_dp/aoj_grl_5_b.test.cpp
+      title: test/tree/rerooting_dp/aoj_grl_5_b.test.cpp
   - name: test/vector/inversion_number
     pages:
     - icon: ':heavy_check_mark:'
