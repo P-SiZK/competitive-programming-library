@@ -66,7 +66,7 @@ data:
   isVerificationFile: false
   path: src/tree/rerooting_dp.hpp
   requiredBy: []
-  timestamp: '2024-04-29 16:54:01+09:00'
+  timestamp: '2024-04-29 16:58:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/tree/rerooting_dp/aoj_grl_5_b.test.cpp
@@ -74,8 +74,5 @@ data:
   - test/tree/rerooting_dp/aoj_grl_5_a.test.cpp
 documentation_of: src/tree/rerooting_dp.hpp
 layout: document
-redirect_from:
-- /library/src/tree/rerooting_dp.hpp
-- /library/src/tree/rerooting_dp.hpp.html
-title: src/tree/rerooting_dp.hpp
+title: Rerooting DP
 ---

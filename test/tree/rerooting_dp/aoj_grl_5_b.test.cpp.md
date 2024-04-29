@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: src/tree/rerooting_dp.hpp
-    title: src/tree/rerooting_dp.hpp
+    title: Rerooting DP
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -57,7 +57,7 @@ data:
   isVerificationFile: true
   path: test/tree/rerooting_dp/aoj_grl_5_b.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 16:54:01+09:00'
+  timestamp: '2024-04-29 16:58:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/tree/rerooting_dp/aoj_grl_5_b.test.cpp

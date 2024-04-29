@@ -80,7 +80,7 @@ data:
       title: Euler Tour
     - icon: ':heavy_check_mark:'
       path: src/tree/rerooting_dp.hpp
-      title: src/tree/rerooting_dp.hpp
+      title: Rerooting DP
   - name: src/vector
     pages:
     - icon: ':heavy_check_mark:'
