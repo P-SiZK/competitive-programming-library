@@ -50,8 +50,8 @@
 "test/tree/euler_tour/aoj_grl_5_d.test.cpp": "2023-12-14 18:25:11 +0900",
 "test/tree/euler_tour/atcoder_abc294_g.test.cpp": "2023-12-14 18:25:11 +0900",
 "test/tree/euler_tour/yosupo_vertex_add_path_sum.test.cpp": "2023-12-14 18:25:11 +0900",
-"test/tree/rerooting_dp/aoj_1595.test.cpp": "2024-04-29 16:54:01 +0900",
-"test/tree/rerooting_dp/aoj_grl_5_a.test.cpp": "2024-04-29 16:54:01 +0900",
-"test/tree/rerooting_dp/aoj_grl_5_b.test.cpp": "2024-04-29 16:54:01 +0900",
+"test/tree/rerooting_dp/aoj_1595.test.cpp": "2024-04-29 16:58:35 +0900",
+"test/tree/rerooting_dp/aoj_grl_5_a.test.cpp": "2024-04-29 16:58:35 +0900",
+"test/tree/rerooting_dp/aoj_grl_5_b.test.cpp": "2024-04-29 16:58:35 +0900",
 "test/vector/inversion_number/aoj_alds1_5_d.test.cpp": "2023-09-06 15:21:24 +0900"
 }
