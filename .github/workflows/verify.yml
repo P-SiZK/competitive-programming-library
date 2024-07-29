@@ -142,19 +142,12 @@ jobs:
           write-summary: true
 
       - name: Setup Pages
-        id: pages
         uses: actions/configure-pages@v4
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.2
-          bundler-cache: true
-          working-directory: _jekyll
       - name: Build with Jekyll
-        run: bundle exec jekyll build --source _jekyll --destination _site --baseurl "${{ steps.pages.outputs.base_path }}"
-        env:
-          BUNDLE_GEMFILE: _jekyll/Gemfile
-          JEKYLL_ENV: production
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: _jekyll
+          destination: _site
       - name: Upload artifact
         id: upload-pages
         uses: actions/upload-pages-artifact@v1
