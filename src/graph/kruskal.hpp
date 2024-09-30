@@ -1,7 +1,7 @@
 #ifndef GRAPH_KRUSKAL_HPP
 #define GRAPH_KRUSKAL_HPP
 
-#include "src/datastructure/disjoint_set.hpp"
+#include "src/datastructure/disjoint_set_union.hpp"
 
 #include <algorithm>
 #include <vector>
@@ -29,12 +29,12 @@ public:
 	T mst_cost() {
 		T cost = 0;
 		std::sort(g.begin(), g.end());
-		DisjointSet ds(n);
+		DisjointSetUnion dsu(n);
 		cost = 0;
 		for (Edge const &e : g) {
-			if (!ds.same(e.from, e.to)) {
+			if (!dsu.same(e.from, e.to)) {
 				cost += e.cost;
-				ds.unite(e.from, e.to);
+				dsu.unite(e.from, e.to);
 			}
 		}
 		return cost;

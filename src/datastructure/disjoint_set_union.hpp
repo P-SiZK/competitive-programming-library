@@ -1,15 +1,15 @@
-#ifndef DATASTRUCTURE_DISJOINT_SET_HPP
-#define DATASTRUCTURE_DISJOINT_SET_HPP
+#ifndef DATASTRUCTURE_DISJOINT_SET_UNION_HPP
+#define DATASTRUCTURE_DISJOINT_SET_UNION_HPP
 
 #include <vector>
 
-class DisjointSet {
+class DisjointSetUnion {
 private:
 	std::vector<int> rank, size, p;
 	int num = 0;
 
 public:
-	DisjointSet(int n) : rank(n), size(n, 1), p(n), num(n) {
+	DisjointSetUnion(int n) : rank(n), size(n, 1), p(n), num(n) {
 		for (int i = 0; i < n; i++) p[i] = i;
 	}
 
@@ -36,4 +36,4 @@ public:
 	[[nodiscard]] int forest_size() const { return num; }
 };
 
-#endif // DATASTRUCTURE_DISJOINT_SET_HPP
+#endif // DATASTRUCTURE_DISJOINT_SET_UNION_HPP
