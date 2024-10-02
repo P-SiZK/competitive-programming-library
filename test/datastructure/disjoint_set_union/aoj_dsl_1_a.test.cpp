@@ -10,7 +10,7 @@ int main() {
 	int n, q;
 	cin >> n >> q;
 	DisjointSetUnion dsu(n);
-	for (int i = 0; i < q; ++i) {
+	while (q--) {
 		int t, a, b;
 		cin >> t >> a >> b;
 		if (t == 0) dsu.unite(a, b);
