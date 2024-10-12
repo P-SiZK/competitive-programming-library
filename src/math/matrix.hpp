@@ -3,6 +3,7 @@
 
 #include <cassert>
 #include <cstddef>
+#include <initializer_list>
 #include <vector>
 
 template<class T>

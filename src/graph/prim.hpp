@@ -1,6 +1,7 @@
 #ifndef GRAPH_PRIM_HPP
 #define GRAPH_PRIM_HPP
 
+#include <functional>
 #include <queue>
 #include <utility>
 #include <vector>

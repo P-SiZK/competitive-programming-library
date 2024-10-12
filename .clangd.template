@@ -1,0 +1,26 @@
+If:
+  PathMatch: .*
+
+CompileFlags:
+  Add:
+    - --target=x86_64-linux-gnu
+    - --include-directory=/usr/include/c++/11
+    - --include-directory=/usr/include/x86_64-linux-gnu/c++/11
+    - -I${PWD}
+    - -std=c++17
+    - -Werror
+    - -Wall
+    - -Wextra
+  Compiler: g++
+
+Diagnostics:
+  MissingIncludes: Strict
+  UnusedIncludes: Strict
+
+InlayHints:
+  BlockEnd: No
+  Designators: No
+  Enabled: Yes
+  ParameterNames: No
+  DeducedTypes: Yes
+  TypeNameLimit: 0
