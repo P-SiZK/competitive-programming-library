@@ -2,6 +2,7 @@
 #define GRAPH_DIJKSTRA_HPP
 
 #include <algorithm>
+#include <functional>
 #include <limits>
 #include <queue>
 #include <utility>

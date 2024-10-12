@@ -2,6 +2,7 @@
 #define MATH_SIEVE_OF_ERATOSTHENES
 
 #include <numeric>
+#include <utility>
 #include <vector>
 
 class SieveOfEratosthenes {

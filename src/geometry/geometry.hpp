@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <cmath>
 #include <iostream>
+#include <iterator>
+#include <limits>
 #include <set>
 #include <vector>
 
@@ -377,7 +379,7 @@ inline double closest_pair(std::vector<Point> ps) {
 		inplace_merge(ps.begin() + l,
 					  ps.begin() + mid,
 					  ps.begin() + r,
-					  [](const Point &a, const Point &b) { return a.y < b.y; });
+					  [](Point const &a, Point const &b) { return a.y < b.y; });
 		int ptr = 0;
 		for (int i = l; i < r; ++i) {
 			if (std::abs(ps[i].x - x) >= d) continue;

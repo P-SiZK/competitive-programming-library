@@ -4,7 +4,6 @@
 #include "src/datastructure/binary_indexed_tree.hpp"
 #include "src/vector/coordinate_compression.hpp"
 
-#include <iostream>
 #include <vector>
 
 template<class T>
