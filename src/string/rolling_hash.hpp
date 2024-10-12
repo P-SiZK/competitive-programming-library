@@ -1,6 +1,7 @@
 #ifndef STRING_ROLLING_HASH_HPP
 #define STRING_ROLLING_HASH_HPP
 
+#include <algorithm>
 #include <chrono>
 #include <cstdint>
 #include <random>
@@ -22,10 +23,10 @@ private:
 
 	static void extend_power(int n) {
 		if ((int)power.size() >= n + 1) return;
-		if (power.empty()) power.assign({1});
-		int prev_n = power.size();
+		int const prev_n = power.size();
 		power.resize(n + 1, 1);
-		for (int i = prev_n - 1; i < n; ++i) power[i + 1] = mul(power[i], base);
+		for (int i = std::max(1, prev_n); i <= n; ++i)
+			power[i] = mul(power[i - 1], base);
 	}
 
 	static std::uint64_t add(std::uint64_t a, std::uint64_t b) {
