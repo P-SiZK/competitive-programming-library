@@ -18,7 +18,7 @@ private:
 	static constexpr T INF = std::numeric_limits<T>::max();
 
 	std::vector<std::vector<Edge>> g;
-	std::vector<int> used;
+	std::vector<bool> used;
 
 	T dfs(int v, int t, T f) {
 		if (v == t) return f;
