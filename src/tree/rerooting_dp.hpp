@@ -46,7 +46,7 @@ private:
 
 public:
 	RerootingDP(int n, F f, G g, T ti) :
-		graph(n), dp1(n), dp2(n), f(f), g(g), ti(std::move(ti)) {}
+		graph(n), dp1(n, ti), dp2(n), f(f), g(g), ti(std::move(ti)) {}
 
 	void add_edge(int u, int v, E const &e) {
 		graph[u].emplace_back(v, e);
