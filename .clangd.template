@@ -4,10 +4,10 @@ If:
 CompileFlags:
   Add:
     - --target=x86_64-linux-gnu
-    - --include-directory=/usr/include/c++/11
-    - --include-directory=/usr/include/x86_64-linux-gnu/c++/11
+    - --include-directory=/usr/include/c++/14
+    - --include-directory=/usr/include/x86_64-linux-gnu/c++/14
     - -I${PWD}
-    - -std=c++17
+    - -std=c++23
     - -Werror
     - -Wall
     - -Wextra
