@@ -19,14 +19,8 @@ concurrency:
 jobs:
   setup:
     runs-on: ubuntu-latest
-    outputs:
-      dropbox_token: ${{steps.set-dropbox-token.outputs.DROPBOX_TOKEN}}
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
 
       - name: Set up competitive-verifier
         uses: competitive-verifier/actions/setup@v2
@@ -57,6 +51,7 @@ jobs:
         id: test-bundled
         run: |
           echo "count=$(find .competitive-verifier/bundled/ -type f | wc -l)" >> $GITHUB_OUTPUT
+
       - name: Upload bundled
         uses: actions/upload-artifact@v4
         if: steps.test-bundled.outputs.count > 0
@@ -64,24 +59,6 @@ jobs:
           name: Bundled-${{ runner.os }}
           path: .competitive-verifier/bundled
           retention-days: 1
-
-      - name: Set Dropbox token
-        id: set-dropbox-token
-        run: |
-          DROPBOX_TOKEN=$( \
-            curl https://api.dropbox.com/oauth2/token \
-              -d grant_type=refresh_token \
-              -d refresh_token=$DROPBOX_REFRESH_TOKEN \
-              -u $DROPBOX_APP_KEY:$DROPBOX_APP_SECRET \
-            | jq -r '.["access_token"]' \
-          )
-          echo "::add-mask::$DROPBOX_TOKEN"
-          DROPBOX_TOKEN_ENC=$(echo "$DROPBOX_TOKEN" | openssl enc -aes256 -e -pbkdf2 -base64 -A -k '${{secrets.AES256_KEY}}')
-          echo "DROPBOX_TOKEN=$DROPBOX_TOKEN_ENC" >> $GITHUB_OUTPUT
-        env:
-          DROPBOX_APP_KEY: ${{secrets.DROPBOX_APP_KEY}}
-          DROPBOX_APP_SECRET: ${{secrets.DROPBOX_APP_SECRET}}
-          DROPBOX_REFRESH_TOKEN: ${{secrets.DROPBOX_REFRESH_TOKEN}}
 
   verify:
     runs-on: ubuntu-latest
@@ -100,20 +77,10 @@ jobs:
       - name: Download verify_files.json
         uses: competitive-verifier/actions/download-verify-artifact@v2
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
       - name: Set up competitive-verifier
         uses: competitive-verifier/actions/setup@v2
         with:
           cache-pip: true
-
-      - name: Set Dropbox token
-        run: |
-          DROPBOX_TOKEN=$(echo "${{needs.setup.outputs.dropbox_token}}" | openssl enc -aes256 -d -pbkdf2 -base64 -A -k '${{secrets.AES256_KEY}}')
-          echo "::add-mask::$DROPBOX_TOKEN"
-          echo "DROPBOX_TOKEN=$DROPBOX_TOKEN" >> $GITHUB_ENV
 
       - name: Verify
         uses: competitive-verifier/actions/verify@v2
@@ -161,10 +128,6 @@ jobs:
           fi
         env:
           SRCDIR: .artifacts/Bundled-${{ runner.os }}
-  
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
 
       - name: Set up competitive-verifier
         uses: competitive-verifier/actions/setup@v2
@@ -180,14 +143,16 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: _jekyll
           destination: _site
+
       - name: Upload artifact
         id: upload-pages
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v4
         with:
           path: _site
 
@@ -205,4 +170,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
